@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Installation Instructions &mdash; FiShTaCo 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="FiShTaCo 1.0.0 documentation" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html">FiShTaCo 1.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="installation-instructions">
+<h1>Installation Instructions<a class="headerlink" href="#installation-instructions" title="Permalink to this headline">¶</a></h1>
+<p>Prerequisites for installing:</p>
+<p>In order for MUSiCC to run successfully, the following Python modules should be pre-installed on your system:</p>
+<ul class="simple">
+<li>Numpy &gt;= 1.6.1 (<a class="reference external" href="http://www.numpy.org/">http://www.numpy.org/</a>)</li>
+<li>Scipy &gt;= 0.9 (<a class="reference external" href="http://www.scipy.org/">http://www.scipy.org/</a>)</li>
+<li>Scikit-learn &gt;= 0.15.2 (<a class="reference external" href="http://scikit-learn.org/stable/">http://scikit-learn.org/stable/</a>)</li>
+<li>Pandas &gt;= 0.14 (<a class="reference external" href="http://pandas.pydata.org/">http://pandas.pydata.org/</a>)</li>
+</ul>
+<p>If you have <em>pip</em> installed, you can install these packages by running the following command:</p>
+<p><code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-U</span> <span class="pre">numpy</span> <span class="pre">scipy</span> <span class="pre">scikit-learn</span> <span class="pre">pandas</span></code></p>
+<p><strong>Installing MUSiCC:</strong></p>
+<p>To install MUSiCC, download the package from <a class="reference external" href="https://github.com/omanor/MUSiCC/archive/1.0.tar.gz">https://github.com/omanor/MUSiCC/archive/1.0.tar.gz</a></p>
+<p>After downloading MUSiCC, you’ll need to unzip the file. If you’ve downloaded the release version, do this with the following command:</p>
+<p><code class="docutils literal"><span class="pre">tar</span> <span class="pre">-xzf</span> <span class="pre">MUSiCC-1.0.tar.gz</span></code></p>
+<p>You’ll then change into the new MUSiCC directory as follows:</p>
+<p><code class="docutils literal"><span class="pre">cd</span> <span class="pre">MUSiCC-1.0</span></code></p>
+<p>and install using the following command:</p>
+<p><code class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></code></p>
+<p>ALTERNATIVELY, you can install MUSiCC directly from PyPI by running:</p>
+<p><code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-U</span> <span class="pre">MUSiCC</span></code></p>
+<p>Note for windows users: Under some windows installations, Scipy may fail when importing the Stats module. Workarounds may be found online, such
+as <a class="reference external" href="https://code.google.com/p/pythonxy/issues/detail?id=745">here</a>.</p>
+</div>
+<div class="section" id="testing-the-software-package">
+<h1>Testing the software package<a class="headerlink" href="#testing-the-software-package" title="Permalink to this headline">¶</a></h1>
+<p>After downloading and installing the software, we recommend testing it by running the following command:</p>
+<p><code class="docutils literal"><span class="pre">test_musicc.py</span></code></p>
+<p>This will invoke a series of tests. A correct output should end with:</p>
+<p><code class="docutils literal"><span class="pre">Ran</span> <span class="pre">3</span> <span class="pre">tests</span> <span class="pre">in</span> <span class="pre">X.XXXXs</span></code></p>
+<p><code class="docutils literal"><span class="pre">OK</span></code></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Installation Instructions</a></li>
+<li><a class="reference internal" href="#testing-the-software-package">Testing the software package</a></li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/installation.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html">FiShTaCo 1.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Ohad Manor.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b2.
+    </div>
+  </body>
+</html>

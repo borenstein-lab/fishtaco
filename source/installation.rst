@@ -1,0 +1,53 @@
+=========================
+Installation Instructions
+=========================
+
+Prerequisites for installing:
+
+In order for MUSiCC to run successfully, the following Python modules should be pre-installed on your system:
+
+- Numpy >= 1.6.1 (http://www.numpy.org/)
+- Scipy >= 0.9 (http://www.scipy.org/)
+- Scikit-learn >= 0.15.2 (http://scikit-learn.org/stable/)
+- Pandas >= 0.14 (http://pandas.pydata.org/)
+
+If you have *pip* installed, you can install these packages by running the following command:
+
+``pip install -U numpy scipy scikit-learn pandas``
+
+**Installing MUSiCC:**
+
+To install MUSiCC, download the package from https://github.com/omanor/MUSiCC/archive/1.0.tar.gz
+
+After downloading MUSiCC, you’ll need to unzip the file. If you’ve downloaded the release version, do this with the following command:
+
+``tar -xzf MUSiCC-1.0.tar.gz``
+
+You’ll then change into the new MUSiCC directory as follows:
+
+``cd MUSiCC-1.0``
+
+and install using the following command:
+
+``python setup.py install``
+
+ALTERNATIVELY, you can install MUSiCC directly from PyPI by running:
+
+``pip install -U MUSiCC``
+
+Note for windows users: Under some windows installations, Scipy may fail when importing the Stats module. Workarounds may be found online, such
+as `here <https://code.google.com/p/pythonxy/issues/detail?id=745>`_.
+
+============================
+Testing the software package
+============================
+
+After downloading and installing the software, we recommend testing it by running the following command:
+
+``test_musicc.py``
+
+This will invoke a series of tests. A correct output should end with:
+
+``Ran 3 tests in X.XXXXs``
+
+``OK``
