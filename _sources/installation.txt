@@ -1,4 +1,3 @@
-=========================
 Installation Instructions
 =========================
 
@@ -38,9 +37,8 @@ ALTERNATIVELY, you can install MUSiCC directly from PyPI by running:
 Note for windows users: Under some windows installations, Scipy may fail when importing the Stats module. Workarounds may be found online, such
 as `here <https://code.google.com/p/pythonxy/issues/detail?id=745>`_.
 
-============================
 Testing the software package
-============================
+----------------------------
 
 After downloading and installing the software, we recommend testing it by running the following command:
 

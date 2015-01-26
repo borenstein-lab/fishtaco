@@ -1,21 +1,20 @@
-===============================
-MUSiCC API via the command line
+FiShTaCo API via the command line
 ===============================
 The MUSiCC module handles all calculations internally.
 MUSiCC offers an interface to the MUSiCC functionality via the command line and the run_musicc script.
 
-Usage:
+Usage
 ------
 
 ``run_musicc.py input_file [options]``
 
-Required arguments:
+Required arguments
 -------------------
 
 **input_file**
     Input abundance file to correct
 
-Optional arguments:
+Optional arguments
 -------------------
 
 **-h, --help**
@@ -43,27 +42,26 @@ Optional arguments:
     Increase verbosity of module (default: false)
 
 
-============================
-MUSiCC API via python script
+FiShTaCo API via python script
 ============================
 MUSiCC can also be used directly inside a python script. Passing variables and flags to the MUSiCC script is done by
 creating a dictionary and passing it to the function *correct_and_normalize*, as shown below.
 
-Usage:
-------
+Usage
+-----
 
 >>> from musicc.core import correct_and_normalize
 >>> musicc_args = {'input_file': 'test_musicc/lib/python3.3/site-packages/musicc/examples/simulated_ko_relative_abundance.tab', 'output_file': 'MUSiCC.tab','input_format': 'tab', 'output_format': 'tab', 'musicc_inter': True, 'musicc_intra': 'learn_model','compute_scores': True, 'verbose': True}
 >>> correct_and_normalize(musicc_args)
 
-Required arguments:
--------------------
+Required arguments
+------------------
 
 **input_file**
     Input abundance file to correct
 
-Optional arguments:
--------------------
+Optional arguments
+------------------
 
 **output_file**
     Output destination for corrected abundance (default: MUSiCC.tab)
