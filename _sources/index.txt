@@ -1,5 +1,5 @@
 .. FiShTaCo documentation master file, created by
-   sphinx-quickstart on Mon Jan 26 13:43:31 2015.
+   sphinx-quickstart on Mon Jan 26 14:36:14 2015.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
