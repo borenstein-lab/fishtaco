@@ -9,9 +9,9 @@ Welcome to FiShTaCo's documentation!
 .. toctree::
    :maxdepth: 2
 
-   Installation
-   Execution
-   Visualization
+   installation
+   execution
+   visualization
 
 Indices and tables
 ==================
