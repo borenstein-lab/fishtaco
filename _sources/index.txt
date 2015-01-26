@@ -6,7 +6,7 @@
 Welcome to FiShTaCo's documentation!
 ====================================
 
-FiShTaCo: *F*unct*i*onal Shift Taxonomic Contributors
+**FiShTaCo: Functional Shift Taxonomic Contributors**
 
 FiShTaCo is a metagenomic computational framework aiming to identify the taxa that are driving the functional shifts between different microbiomes
 
