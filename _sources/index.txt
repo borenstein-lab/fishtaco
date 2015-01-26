@@ -46,9 +46,9 @@ For MUSiCC announcements and questions, including notification of new releases, 
 .. toctree::
    :maxdepth: 2
 
-    Installation
-    Execution
-    Visualization
+   Installation
+   Execution
+   Visualization
 
 Indices and tables
 ==================
