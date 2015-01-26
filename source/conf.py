@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # FiShTaCo documentation build configuration file, created by
-# sphinx-quickstart on Mon Jan 26 14:36:14 2015.
+# sphinx-quickstart on Mon Jan 26 15:16:56 2015.
 #
 # This file is execfile()d with the current directory set to its
 # containing dir.
