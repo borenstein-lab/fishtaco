@@ -43,12 +43,12 @@ Question forum
 For MUSiCC announcements and questions, including notification of new releases, you can visit the `MUSiCC users forum <https://groups.google.com/forum/#!forum/musicc-users>`_.
 
 
-
-
 .. toctree::
    :maxdepth: 2
 
-
+    Installation
+    Execution
+    Visualization
 
 Indices and tables
 ==================
