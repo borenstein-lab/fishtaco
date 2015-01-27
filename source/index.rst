@@ -15,11 +15,3 @@ FiShTaCo is a metagenomic computational framework aiming to identify the taxa th
    installation
    execution
    visualization
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-

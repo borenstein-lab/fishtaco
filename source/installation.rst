@@ -3,7 +3,7 @@ Installation Instructions
 
 Prerequisites for installing:
 
-In order for MUSiCC to run successfully, the following Python modules should be pre-installed on your system:
+In order for FiShTaCo to run successfully, the following Python modules should be pre-installed on your system:
 
 - Numpy >= 1.6.1 (http://www.numpy.org/)
 - Scipy >= 0.9 (http://www.scipy.org/)
@@ -14,17 +14,17 @@ If you have *pip* installed, you can install these packages by running the follo
 
 ``pip install -U numpy scipy scikit-learn pandas``
 
-**Installing MUSiCC:**
+**Installing FiShTaCo:**
 
-To install MUSiCC, download the package from https://github.com/omanor/MUSiCC/archive/1.0.tar.gz
+To install MUSiCC, download the package from https://github.com/omanor/FiShTaCo/archive/1.0.tar.gz
 
 After downloading MUSiCC, you’ll need to unzip the file. If you’ve downloaded the release version, do this with the following command:
 
-``tar -xzf MUSiCC-1.0.tar.gz``
+``tar -xzf FiShTaCo-1.0.tar.gz``
 
 You’ll then change into the new MUSiCC directory as follows:
 
-``cd MUSiCC-1.0``
+``cd FiShTaCo-1.0``
 
 and install using the following command:
 
@@ -32,7 +32,7 @@ and install using the following command:
 
 ALTERNATIVELY, you can install MUSiCC directly from PyPI by running:
 
-``pip install -U MUSiCC``
+``pip install -U fishtaco``
 
 Note for windows users: Under some windows installations, Scipy may fail when importing the Stats module. Workarounds may be found online, such
 as `here <https://code.google.com/p/pythonxy/issues/detail?id=745>`_.
@@ -42,7 +42,7 @@ Testing the software package
 
 After downloading and installing the software, we recommend testing it by running the following command:
 
-``test_musicc.py``
+``test_fishtaco.py``
 
 This will invoke a series of tests. A correct output should end with:
 
