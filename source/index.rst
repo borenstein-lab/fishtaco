@@ -3,10 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to FiShTaCo's documentation!
-====================================
-
-**FiShTaCo: Functional Shift Taxonomic Contributors**
+FiShTaCo: Functional Shift Taxonomic Contributors
+=================================================
 
 FiShTaCo is a metagenomic computational framework aiming to identify the taxa that are driving the functional shifts between different microbiomes
 
