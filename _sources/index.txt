@@ -23,8 +23,8 @@ Citing Information
 
 If you use the FiShTaCo software, please cite the following paper:
 
-Linking taxonomic and functional metagenomic profiles to identify species driving functional shifts in the human microbiome.
-**Ohad Manor and Elhanan Borenstein.** *In preparation*
+**Linking taxonomic and functional metagenomic profiles to identify species driving functional shifts in the human microbiome.**
+Ohad Manor and Elhanan Borenstein. *In preparation*
 
 ==================
 Question forum
