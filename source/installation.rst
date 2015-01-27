@@ -16,21 +16,21 @@ If you have *pip* installed, you can install these packages by running the follo
 
 **Installing FiShTaCo:**
 
-To install MUSiCC, download the package from https://github.com/omanor/FiShTaCo/archive/1.0.tar.gz
+To install FiShTaCo, download the package from https://github.com/omanor/fishtaco/archive/1.0.tar.gz
 
-After downloading MUSiCC, you’ll need to unzip the file. If you’ve downloaded the release version, do this with the following command:
+After downloading FiShTaCo, you’ll need to unzip the file. If you’ve downloaded the release version, do this with the following command:
 
-``tar -xzf FiShTaCo-1.0.tar.gz``
+``tar -xzf fishtaco-1.0.tar.gz``
 
-You’ll then change into the new MUSiCC directory as follows:
+You’ll then change into the new FiShTaCo directory as follows:
 
-``cd FiShTaCo-1.0``
+``cd fishtaco-1.0``
 
 and install using the following command:
 
 ``python setup.py install``
 
-ALTERNATIVELY, you can install MUSiCC directly from PyPI by running:
+ALTERNATIVELY, you can install FiShTaCo directly from PyPI by running:
 
 ``pip install -U fishtaco``
 
