@@ -25,7 +25,7 @@ Required arguments
 Optional arguments
 -------------------
 
-**-h, - -help**
+**-h, --help**
     show help message and exit
 
 **-t2f, --taxa_to_function TAXA_TO_FUNCTION_FILE**
@@ -40,16 +40,16 @@ Optional arguments
 **-function_da_threshold {Bonf, FDR-0.01, FDR-0.05, FDR-0.1, None}**
     Differential abundance threshold (default: None)
 
-**-max_da MAX_DA_FUNCTIONS_CASES_CONTROLS, --max_da_functions MAX_DA_FUNCTIONS_CASES_CONTROLS**
+**-max_da, --max_da_functions MAX_DA_FUNCTIONS_CASES_CONTROLS**
     Maximum number of differential abundant functions to consider (default: None)
 
-**-assessment {separate_i, permute_all_but_i, permute_only_i, permuted_shapley_orderings}, --taxa_assessment_method {separate_i, permute_all_but_i, permute_only_i, permuted_shapley_orderings}**
+**-assessment, --taxa_assessment_method {separate_i, permute_all_but_i, permute_only_i, permuted_shapley_orderings}**
     The method used when assessing taxa to compute score (default: permuted_shapley_orderings)
 
-**-score {t_test, mean_diff, median_diff, wilcoxon, log_mean_ratio}, --score_to_compute {t_test, mean_diff, median_diff, wilcoxon, log_mean_ratio}**
+**-score, --score_to_compute {t_test, mean_diff, median_diff, wilcoxon, log_mean_ratio}**
     The score to compute for each taxa (default: wilcoxon)
 
-**-max_score MAX_SCORE_CUTOFF, --max_score_cutoff MAX_SCORE_CUTOFF**
+**-max_score, --max_score_cutoff MAX_SCORE_CUTOFF**
     The maximum score cutoff (for example, when dividing by zero) (default: 100)
 
 **-na_rep NA_REP**

@@ -74,7 +74,7 @@ compared classes</dd>
 <div class="section" id="optional-arguments">
 <h2>Optional arguments<a class="headerlink" href="#optional-arguments" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt><strong>-h, - -help</strong></dt>
+<dt><strong>-h, &#8211;help</strong></dt>
 <dd>show help message and exit</dd>
 <dt><strong>-t2f, &#8211;taxa_to_function TAXA_TO_FUNCTION_FILE</strong></dt>
 <dd>Input file of mapping from taxa to functions</dd>
@@ -84,13 +84,13 @@ compared classes</dd>
 <dd>Pre-computed DA results from the compute_differential_abundance.py script (default: None)</dd>
 <dt><strong>-function_da_threshold {Bonf, FDR-0.01, FDR-0.05, FDR-0.1, None}</strong></dt>
 <dd>Differential abundance threshold (default: None)</dd>
-<dt><strong>-max_da MAX_DA_FUNCTIONS_CASES_CONTROLS, &#8211;max_da_functions MAX_DA_FUNCTIONS_CASES_CONTROLS</strong></dt>
+<dt><strong>-max_da, &#8211;max_da_functions MAX_DA_FUNCTIONS_CASES_CONTROLS</strong></dt>
 <dd>Maximum number of differential abundant functions to consider (default: None)</dd>
-<dt><strong>-assessment {separate_i, permute_all_but_i, permute_only_i, permuted_shapley_orderings}, &#8211;taxa_assessment_method {separate_i, permute_all_but_i, permute_only_i, permuted_shapley_orderings}</strong></dt>
+<dt><strong>-assessment, &#8211;taxa_assessment_method {separate_i, permute_all_but_i, permute_only_i, permuted_shapley_orderings}</strong></dt>
 <dd>The method used when assessing taxa to compute score (default: permuted_shapley_orderings)</dd>
-<dt><strong>-score {t_test, mean_diff, median_diff, wilcoxon, log_mean_ratio}, &#8211;score_to_compute {t_test, mean_diff, median_diff, wilcoxon, log_mean_ratio}</strong></dt>
+<dt><strong>-score, &#8211;score_to_compute {t_test, mean_diff, median_diff, wilcoxon, log_mean_ratio}</strong></dt>
 <dd>The score to compute for each taxa (default: wilcoxon)</dd>
-<dt><strong>-max_score MAX_SCORE_CUTOFF, &#8211;max_score_cutoff MAX_SCORE_CUTOFF</strong></dt>
+<dt><strong>-max_score, &#8211;max_score_cutoff MAX_SCORE_CUTOFF</strong></dt>
 <dd>The maximum score cutoff (for example, when dividing by zero) (default: 100)</dd>
 <dt><strong>-na_rep NA_REP</strong></dt>
 <dd>How to represent NAs in the output (default: NA)</dd>
