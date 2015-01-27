@@ -53,17 +53,22 @@
             
   <div class="section" id="fishtaco-api-via-the-command-line">
 <h1>FiShTaCo API via the command line<a class="headerlink" href="#fishtaco-api-via-the-command-line" title="Permalink to this headline">¶</a></h1>
-<p>The MUSiCC module handles all calculations internally.
-MUSiCC offers an interface to the MUSiCC functionality via the command line and the run_musicc script.</p>
+<p>The FiShTaCo module handles all calculations internally.
+FiShTaCo offers an interface to the FiShTaCo functionality via the command line and the run_fishtaco.py script.</p>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal"><span class="pre">run_musicc.py</span> <span class="pre">input_file</span> <span class="pre">[options]</span></code></p>
+<p><code class="docutils literal"><span class="pre">run_fishtaco.py</span> <span class="pre">input_file</span> <span class="pre">[options]</span></code></p>
 </div>
 <div class="section" id="required-arguments">
 <h2>Required arguments<a class="headerlink" href="#required-arguments" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt><strong>input_file</strong></dt>
-<dd>Input abundance file to correct</dd>
+<dt><strong>-ta TAXA_ABUN_FILE, &#8211;taxa_abundance TAXA_ABUN_FILE</strong></dt>
+<dd>Input file of taxa abundance</dd>
+<dt><strong>-fu FUNCTION_ABUN_FILE, &#8211;function_abundance FUNCTION_ABUN_FILE</strong></dt>
+<dd>Input file of function abundance</dd>
+<dt><strong>-c CLASS_FILE, &#8211;class CLASS_FILE</strong></dt>
+<dd>Input file of class assignment for the two different
+compared classes</dd>
 </dl>
 </div>
 <div class="section" id="optional-arguments">
@@ -71,62 +76,44 @@ MUSiCC offers an interface to the MUSiCC functionality via the command line and 
 <dl class="docutils">
 <dt><strong>-h, &#8211;help</strong></dt>
 <dd>show help message and exit</dd>
-<dt><strong>-o OUTPUT_FILE, &#8211;out OUTPUT_FILE</strong></dt>
-<dd>Output destination for corrected abundance (default: MUSiCC.tab)</dd>
-<dt><strong>-if {tab,csv}, &#8211;input_format {tab,csv}</strong></dt>
-<dd>Option indicating the format of the input file (default: tab)</dd>
-<dt><strong>-of {tab,csv}, &#8211;output_format {tab,csv}</strong></dt>
-<dd>Option indicating the format of the output file (default: tab)</dd>
-<dt><strong>-n, &#8211;normalize</strong></dt>
-<dd>Apply MUSiCC normalization (default: false)</dd>
-<dt><strong>-c {use_generic, learn_model}, &#8211;correct {use_generic,learn_model}</strong></dt>
-<dd>Correct abundance per-sample using MUSiCC (default: false)</dd>
-<dt><strong>-perf, &#8211;performance</strong></dt>
-<dd>Calculate model performance on various gene sets (may add to running time) (default: false)</dd>
-<dt><strong>-v, &#8211;verbose</strong></dt>
-<dd>Increase verbosity of module (default: false)</dd>
+<dt><strong>-t2f TAXA_TO_FUNCTION_FILE, &#8211;taxa_to_function TAXA_TO_FUNCTION_FILE</strong></dt>
+<dd>Input file of mapping from taxa to functions</dd>
+<dt><strong>-op OUTPUT_PREF, &#8211;output_prefix OUTPUT_PREF</strong></dt>
+<dd>Output prefix for result files (default: out)</dd>
+<dt><strong>-da DA_RESULT_FILE, &#8211;da_results DA_RESULT_FILE</strong></dt>
+<dd>Pre-computed DA results from the compute_differential_abundance.py script (default: None)</dd>
+<dt><strong>-function_da_threshold {Bonf,FDR-0.01,FDR-0.05,FDR-0.1,None}</strong></dt>
+<dd>Differential abundance threshold (default: None)</dd>
+<dt><strong>-max_da MAX_DA_FUNCTIONS_CASES_CONTROLS, &#8211;max_da_functions MAX_DA_FUNCTIONS_CASES_CONTROLS</strong></dt>
+<dd>Maximum number of differential abundant functions to consider (default: None)</dd>
+<dt><strong>-assessment {separate_i,permute_all_but_i,permute_only_i,permuted_shapley_orderings}, &#8211;taxa_assessment_method {separate_i,permute_all_but_i,permute_only_i,permuted_shapley_orderings}</strong></dt>
+<dd>The method used when assessing taxa to compute score (default: permuted_shapley_orderings)</dd>
+<dt><strong>-score {t_test,mean_diff,median_diff,wilcoxon,log_mean_ratio}, &#8211;score_to_compute {t_test,mean_diff,median_diff,wilcoxon,log_mean_ratio}</strong></dt>
+<dd>The score to compute for each taxa (default: wilcoxon)</dd>
+<dt><strong>-max_score MAX_SCORE_CUTOFF, &#8211;max_score_cutoff MAX_SCORE_CUTOFF</strong></dt>
+<dd>The maximum score cutoff (for example, when dividing by zero) (default: 100)</dd>
+<dt><strong>-na_rep NA_REP</strong></dt>
+<dd>How to represent NAs in the output (default: NA)</dd>
+<dt><strong>-number_of_permutations NUMBER_OF_PERMUTATIONS</strong></dt>
+<dd>number of permutations (default: 100)</dd>
+<dt><strong>-number_of_shapley_orderings_per_taxa NUMBER_OF_SHAPLEY_ORDERINGS_PER_TAXA</strong></dt>
+<dd>number of shapley orderings per taxa (default: 5)</dd>
+<dt><strong>-use_t2f_as_prior, &#8211;use_taxa_to_function_as_prior</strong></dt>
+<dd>Learn the taxa copy number of each function, using the given taxa to function file as prior (default: False)</dd>
+<dt><strong>-residual_mode {as_taxa,remove_residual,as_baseline}</strong></dt>
+<dd>How to treat the residual of the functional abundance profile (default: remove_residual)</dd>
+<dt><strong>-normalization_mode {none,scale_non_permuted,scale_permuted}</strong></dt>
+<dd>How to normalize the sample after permuting taxa (default: none)</dd>
+<dt><strong>-permutation_mode {independent,blocks}</strong></dt>
+<dd>How to permute the taxa across samples (default: independent)</dd>
+<dt><strong>-single_function_filter SINGLE_FUNCTION_FILTER</strong></dt>
+<dd>Limit analysis to this single function (default: All)</dd>
+<dt><strong>-log, &#8211;log</strong></dt>
+<dd>Write to log file (default: False)</dd>
 </dl>
 </div>
-</div>
-<div class="section" id="fishtaco-api-via-python-script">
-<h1>FiShTaCo API via python script<a class="headerlink" href="#fishtaco-api-via-python-script" title="Permalink to this headline">¶</a></h1>
-<p>MUSiCC can also be used directly inside a python script. Passing variables and flags to the MUSiCC script is done by
-creating a dictionary and passing it to the function <em>correct_and_normalize</em>, as shown below.</p>
-<div class="section" id="id1">
-<h2>Usage<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">musicc.core</span> <span class="kn">import</span> <span class="n">correct_and_normalize</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">musicc_args</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;input_file&#39;</span><span class="p">:</span> <span class="s">&#39;test_musicc/lib/python3.3/site-packages/musicc/examples/simulated_ko_relative_abundance.tab&#39;</span><span class="p">,</span> <span class="s">&#39;output_file&#39;</span><span class="p">:</span> <span class="s">&#39;MUSiCC.tab&#39;</span><span class="p">,</span><span class="s">&#39;input_format&#39;</span><span class="p">:</span> <span class="s">&#39;tab&#39;</span><span class="p">,</span> <span class="s">&#39;output_format&#39;</span><span class="p">:</span> <span class="s">&#39;tab&#39;</span><span class="p">,</span> <span class="s">&#39;musicc_inter&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="s">&#39;musicc_intra&#39;</span><span class="p">:</span> <span class="s">&#39;learn_model&#39;</span><span class="p">,</span><span class="s">&#39;compute_scores&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="s">&#39;verbose&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">correct_and_normalize</span><span class="p">(</span><span class="n">musicc_args</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="id2">
-<h2>Required arguments<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt><strong>input_file</strong></dt>
-<dd>Input abundance file to correct</dd>
-</dl>
-</div>
-<div class="section" id="id3">
-<h2>Optional arguments<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt><strong>output_file</strong></dt>
-<dd>Output destination for corrected abundance (default: MUSiCC.tab)</dd>
-<dt><strong>input_format {&#8216;tab&#8217;,&#8217;csv&#8217;}</strong></dt>
-<dd>Option indicating the format of the input file (default: &#8216;tab&#8217;)</dd>
-<dt><strong>output_format {&#8216;tab&#8217;,&#8217;csv&#8217;}</strong></dt>
-<dd>Option indicating the format of the output file (default: &#8216;tab&#8217;)</dd>
-<dt><strong>musicc_inter {True, False}</strong></dt>
-<dd>Apply MUSiCC normalization (default: False)</dd>
-<dt><strong>musicc_intra {&#8216;use_generic&#8217;, &#8216;learn_model&#8217;, &#8216;None&#8217;}</strong></dt>
-<dd>Correct abundance per-sample using MUSiCC (default: &#8216;None&#8217;)</dd>
-<dt><strong>compute_scores {True, False}</strong></dt>
-<dd>Calculate model performance on various gene sets (may add to running time) (default: False)</dd>
-<dt><strong>verbose {True, False}</strong></dt>
-<dd>Increase verbosity of module (default: False)</dd>
-</dl>
 <div class="section" id="examples">
-<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <p>In the <em>musicc/examples</em> directory, the file <em>simulated_ko_relative_abundance.tab</em> contains simulated KO abundance measurements of 20 samples described in the
 MUSiCC manuscript. Using this file as input for MUSiCC results in the following files:</p>
 <ul class="simple">
@@ -140,7 +127,6 @@ MUSiCC manuscript. Using this file as input for MUSiCC results in the following 
 <p><code class="docutils literal"><span class="pre">run_musicc.py</span> <span class="pre">musicc/examples/simulated_ko_relative_abundance.tab</span> <span class="pre">-n</span> <span class="pre">-c</span> <span class="pre">learn_model</span> <span class="pre">-perf</span> <span class="pre">-v</span> <span class="pre">-o</span> <span class="pre">musicc/examples/simulated_ko_MUSiCC_Normalized_Corrected_learn_model.tab</span></code></p>
 </div>
 </div>
-</div>
 
 
           </div>
@@ -152,7 +138,6 @@ MUSiCC manuscript. Using this file as input for MUSiCC results in the following 
           <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation Instructions</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">FiShTaCo API via the command line</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#fishtaco-api-via-python-script">FiShTaCo API via python script</a></li>
 <li class="toctree-l1"><a class="reference internal" href="visualization.html">FiShTaCo Visualization</a></li>
 </ul>
 
