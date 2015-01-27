@@ -15,3 +15,19 @@ FiShTaCo is a metagenomic computational framework aiming to identify the taxa th
    installation
    execution
    visualization
+
+
+==================
+Citing Information
+==================
+
+If you use the FiShTaCo software, please cite the following paper:
+
+Linking taxonomic and functional metagenomic profiles to identify species driving functional shifts in the human microbiome.
+**Ohad Manor and Elhanan Borenstein.** *In preparation*
+
+==================
+Question forum
+==================
+For FiShTaCo announcements and questions, including notification of new releases, you can visit the `FiShTaCo users forum <https://groups.google.com/forum/#!forum/fishtaco-users>`_.
+
