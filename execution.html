@@ -62,11 +62,11 @@ FiShTaCo offers an interface to the FiShTaCo functionality via the command line 
 <div class="section" id="required-arguments">
 <h2>Required arguments<a class="headerlink" href="#required-arguments" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt><strong>-ta TAXA_ABUN_FILE, &#8211;taxa_abundance TAXA_ABUN_FILE</strong></dt>
+<dt><strong>-ta, &#8211;taxa_abundance TAXA_ABUN_FILE</strong></dt>
 <dd>Input file of taxa abundance</dd>
-<dt><strong>-fu FUNCTION_ABUN_FILE, &#8211;function_abundance FUNCTION_ABUN_FILE</strong></dt>
+<dt><strong>-fu, &#8211;function_abundance FUNCTION_ABUN_FILE</strong></dt>
 <dd>Input file of function abundance</dd>
-<dt><strong>-c CLASS_FILE, &#8211;class CLASS_FILE</strong></dt>
+<dt><strong>-c, &#8211;class CLASS_FILE</strong></dt>
 <dd>Input file of class assignment for the two different
 compared classes</dd>
 </dl>
@@ -76,19 +76,19 @@ compared classes</dd>
 <dl class="docutils">
 <dt><strong>-h, &#8211;help</strong></dt>
 <dd>show help message and exit</dd>
-<dt><strong>-t2f TAXA_TO_FUNCTION_FILE, &#8211;taxa_to_function TAXA_TO_FUNCTION_FILE</strong></dt>
+<dt><strong>-t2f, &#8211;taxa_to_function TAXA_TO_FUNCTION_FILE</strong></dt>
 <dd>Input file of mapping from taxa to functions</dd>
-<dt><strong>-op OUTPUT_PREF, &#8211;output_prefix OUTPUT_PREF</strong></dt>
+<dt><strong>-op, &#8211;output_prefix OUTPUT_PREF</strong></dt>
 <dd>Output prefix for result files (default: out)</dd>
-<dt><strong>-da DA_RESULT_FILE, &#8211;da_results DA_RESULT_FILE</strong></dt>
+<dt><strong>-da, &#8211;da_results DA_RESULT_FILE</strong></dt>
 <dd>Pre-computed DA results from the compute_differential_abundance.py script (default: None)</dd>
-<dt><strong>-function_da_threshold {Bonf,FDR-0.01,FDR-0.05,FDR-0.1,None}</strong></dt>
+<dt><strong>-function_da_threshold {Bonf, FDR-0.01, FDR-0.05, FDR-0.1, None}</strong></dt>
 <dd>Differential abundance threshold (default: None)</dd>
 <dt><strong>-max_da MAX_DA_FUNCTIONS_CASES_CONTROLS, &#8211;max_da_functions MAX_DA_FUNCTIONS_CASES_CONTROLS</strong></dt>
 <dd>Maximum number of differential abundant functions to consider (default: None)</dd>
-<dt><strong>-assessment {separate_i,permute_all_but_i,permute_only_i,permuted_shapley_orderings}, &#8211;taxa_assessment_method {separate_i,permute_all_but_i,permute_only_i,permuted_shapley_orderings}</strong></dt>
+<dt><strong>-assessment {separate_i, permute_all_but_i, permute_only_i, permuted_shapley_orderings}, &#8211;taxa_assessment_method {separate_i, permute_all_but_i, permute_only_i, permuted_shapley_orderings}</strong></dt>
 <dd>The method used when assessing taxa to compute score (default: permuted_shapley_orderings)</dd>
-<dt><strong>-score {t_test,mean_diff,median_diff,wilcoxon,log_mean_ratio}, &#8211;score_to_compute {t_test,mean_diff,median_diff,wilcoxon,log_mean_ratio}</strong></dt>
+<dt><strong>-score {t_test, mean_diff, median_diff, wilcoxon, log_mean_ratio}, &#8211;score_to_compute {t_test, mean_diff, median_diff, wilcoxon, log_mean_ratio}</strong></dt>
 <dd>The score to compute for each taxa (default: wilcoxon)</dd>
 <dt><strong>-max_score MAX_SCORE_CUTOFF, &#8211;max_score_cutoff MAX_SCORE_CUTOFF</strong></dt>
 <dd>The maximum score cutoff (for example, when dividing by zero) (default: 100)</dd>

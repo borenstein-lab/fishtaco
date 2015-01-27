@@ -11,13 +11,13 @@ Usage
 Required arguments
 -------------------
 
-**-ta TAXA_ABUN_FILE, --taxa_abundance TAXA_ABUN_FILE**
+**-ta, --taxa_abundance TAXA_ABUN_FILE**
     Input file of taxa abundance
 
-**-fu FUNCTION_ABUN_FILE, --function_abundance FUNCTION_ABUN_FILE**
+**-fu, --function_abundance FUNCTION_ABUN_FILE**
     Input file of function abundance
 
-**-c CLASS_FILE, --class CLASS_FILE**
+**-c, --class CLASS_FILE**
     Input file of class assignment for the two different
     compared classes
 
@@ -28,25 +28,25 @@ Optional arguments
 **-h, --help**
     show help message and exit
 
-**-t2f TAXA_TO_FUNCTION_FILE, --taxa_to_function TAXA_TO_FUNCTION_FILE**
+**-t2f, --taxa_to_function TAXA_TO_FUNCTION_FILE**
     Input file of mapping from taxa to functions
 
-**-op OUTPUT_PREF, --output_prefix OUTPUT_PREF**
+**-op, --output_prefix OUTPUT_PREF**
     Output prefix for result files (default: out)
 
-**-da DA_RESULT_FILE, --da_results DA_RESULT_FILE**
+**-da, --da_results DA_RESULT_FILE**
     Pre-computed DA results from the compute_differential_abundance.py script (default: None)
 
-**-function_da_threshold {Bonf,FDR-0.01,FDR-0.05,FDR-0.1,None}**
+**-function_da_threshold {Bonf, FDR-0.01, FDR-0.05, FDR-0.1, None}**
     Differential abundance threshold (default: None)
 
 **-max_da MAX_DA_FUNCTIONS_CASES_CONTROLS, --max_da_functions MAX_DA_FUNCTIONS_CASES_CONTROLS**
     Maximum number of differential abundant functions to consider (default: None)
 
-**-assessment {separate_i,permute_all_but_i,permute_only_i,permuted_shapley_orderings}, --taxa_assessment_method {separate_i,permute_all_but_i,permute_only_i,permuted_shapley_orderings}**
+**-assessment {separate_i, permute_all_but_i, permute_only_i, permuted_shapley_orderings}, --taxa_assessment_method {separate_i, permute_all_but_i, permute_only_i, permuted_shapley_orderings}**
     The method used when assessing taxa to compute score (default: permuted_shapley_orderings)
 
-**-score {t_test,mean_diff,median_diff,wilcoxon,log_mean_ratio}, --score_to_compute {t_test,mean_diff,median_diff,wilcoxon,log_mean_ratio}**
+**-score {t_test, mean_diff, median_diff, wilcoxon, log_mean_ratio}, --score_to_compute {t_test, mean_diff, median_diff, wilcoxon, log_mean_ratio}**
     The score to compute for each taxa (default: wilcoxon)
 
 **-max_score MAX_SCORE_CUTOFF, --max_score_cutoff MAX_SCORE_CUTOFF**
