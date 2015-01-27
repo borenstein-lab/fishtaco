@@ -25,7 +25,7 @@ Required arguments
 Optional arguments
 -------------------
 
-**-h, --help**
+**-h, - -help**
     show help message and exit
 
 **-t2f, --taxa_to_function TAXA_TO_FUNCTION_FILE**
