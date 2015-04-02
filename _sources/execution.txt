@@ -1,7 +1,7 @@
-FiShTaCo API via the command line
+FishTaco API via the command line
 ===============================
-The FiShTaCo module handles all calculations internally.
-FiShTaCo offers an interface to the FiShTaCo functionality via the command line and the run_fishtaco.py script.
+The FishTaco module handles all calculations internally.
+FishTaco offers an interface to the FishTaco functionality via the command line and the run_fishtaco.py script.
 
 Usage
 ------

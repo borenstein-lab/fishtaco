@@ -1,12 +1,12 @@
-.. FiShTaCo documentation master file, created by
+.. FishTaco documentation master file, created by
    sphinx-quickstart on Mon Jan 26 15:16:56 2015.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-FiShTaCo: Functional Shift Taxonomic Contributors
+FishTaco: Functional Shift Taxonomic Contributors
 =================================================
 
-FiShTaCo is a metagenomic computational framework, aiming to identify the taxa that are driving the functional shifts
+FishTaco is a metagenomic computational framework, aiming to identify the taxa that are driving the functional shifts
 we observe in microbiomes of different individuals or disease states.
 
 
@@ -22,7 +22,7 @@ we observe in microbiomes of different individuals or disease states.
 Citing Information
 ==================
 
-If you use the FiShTaCo software, please cite the following paper:
+If you use the FishTaco software, please cite the following paper:
 
 **Linking taxonomic and functional metagenomic profiles to identify species driving functional shifts in the human microbiome.**
 Ohad Manor and Elhanan Borenstein. *In preparation*
@@ -30,5 +30,5 @@ Ohad Manor and Elhanan Borenstein. *In preparation*
 ==================
 Question forum
 ==================
-For FiShTaCo announcements and questions, including notification of new releases, you can visit the `FiShTaCo users forum <https://groups.google.com/forum/#!forum/fishtaco-users>`_.
+For FishTaco announcements and questions, including notification of new releases, you can visit the `FishTaco users forum <https://groups.google.com/forum/#!forum/fishtaco-users>`_.
 

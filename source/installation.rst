@@ -3,7 +3,7 @@ Installation Instructions
 
 Prerequisites for installing:
 
-In order for FiShTaCo to run successfully, the following Python modules should be pre-installed on your system:
+In order for FishTaco to run successfully, the following Python modules should be pre-installed on your system:
 
 - Numpy >= 1.6.1 (http://www.numpy.org/)
 - Scipy >= 0.9 (http://www.scipy.org/)
@@ -14,15 +14,15 @@ If you have *pip* installed, you can install these packages by running the follo
 
 ``pip install -U numpy scipy scikit-learn pandas``
 
-**Installing FiShTaCo:**
+**Installing FishTaco:**
 
-To install FiShTaCo, download the package from `GitHub <https://github.com/omanor/fishtaco/archive/1.0.tar.gz>`_.
+To install FishTaco, download the package from `GitHub <https://github.com/omanor/fishtaco/archive/1.0.tar.gz>`_.
 
-After downloading FiShTaCo, you’ll need to unzip the file. If you’ve downloaded the release version, do this with the following command:
+After downloading FishTaco, you’ll need to unzip the file. If you’ve downloaded the release version, do this with the following command:
 
 ``tar -xzf fishtaco-1.0.tar.gz``
 
-You’ll then change into the new FiShTaCo directory as follows:
+You’ll then change into the new FishTaco directory as follows:
 
 ``cd fishtaco-1.0``
 
@@ -30,7 +30,7 @@ and install using the following command:
 
 ``python setup.py install``
 
-ALTERNATIVELY, you can install FiShTaCo directly from PyPI by running:
+ALTERNATIVELY, you can install FishTaco directly from PyPI by running:
 
 ``pip install -U fishtaco``
 
