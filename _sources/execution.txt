@@ -86,10 +86,8 @@ Optional arguments
     Write to log file (default: False)
 
 
-Output Files
-------------
-
-Running the FishTaco framework (using *run_fishtaco.py*) produces the following output files:
+FishTaco Output Files
+---------------------
 
 **fishtaco_out_STAT_DA_function_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab**
     contains statistics regarding the differential abundance for each function in the input file
@@ -140,12 +138,12 @@ Examples
 --------
 The *fishtaco/examples* directory contains the following files:
 
-- the file **METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab** contains scaled abundance measurements of 10 species in 213 samples from the HMP dataset
-- the file **WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab** contains MUSiCC-corrected abundance values for the K00001 orthology group in the same samples
-- the file **METAPHLAN_taxa_vs_KO_only_K00001.tab** contains the copy numbers of the K00001 orthology group in the 10 species as above
-- the file **SAMPLE_vs_CLASS.tab** contains class labels from the same samples (control vs. case)
+- the file *METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab* contains scaled abundance measurements of 10 species in 213 samples from the HMP dataset
+- the file *WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab* contains MUSiCC-corrected abundance values for the K00001 orthology group in the same samples
+- the file *METAPHLAN_taxa_vs_KO_only_K00001.tab* contains the copy numbers of the K00001 orthology group in the 10 species as above
+- the file *SAMPLE_vs_CLASS.tab* contains class labels from the same samples (control vs. case)
 
-Using this file as input for FishTaco results in the output files found in the *fishtaco/examples/output* directory
+Using this file as input for FishTaco results in the output files found in the *fishtaco/examples/output* directory:
 
 - *fishtaco_out_no_inf_STAT_** (FishTaco with no inference)
 - *fishtaco_out_prior_based_inf_STAT_** (FishTaco with prior-based inference)
@@ -153,9 +151,12 @@ Using this file as input for FishTaco results in the output files found in the *
 
 The commands used were the following (via command line):
 
-``run_fishtaco.py -op fishtaco_out_no_inf -max_da 1 -ta fishtaco/examples/METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab
--fu fishtaco/examples/WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab -c fishtaco/examples/SAMPLE_vs_CLASS.tab
--t2f fishtaco/examples/METAPHLAN_taxa_vs_KO_only_K00001.tab -assessment permuted_shapley_orderings -score wilcoxon -na_rep 0
+``run_fishtaco.py
+-ta fishtaco/examples/METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab
+-fu fishtaco/examples/WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab
+-t2f fishtaco/examples/METAPHLAN_taxa_vs_KO_only_K00001.tab
+-c fishtaco/examples/SAMPLE_vs_CLASS.tab
+-op fishtaco_out_no_inf -max_da 1 -assessment permuted_shapley_orderings -score wilcoxon -na_rep 0
 -number_of_shapley_orderings_per_taxa 3 -residual_mode remove_residual -normalization_mode scale_permuted -permutation_mode blocks
 -number_of_permutations 5 -log``
 
