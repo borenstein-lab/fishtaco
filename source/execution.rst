@@ -1,15 +1,15 @@
 FishTaco API via the command line
-===============================
+=================================
 The FishTaco module handles all calculations internally.
 FishTaco offers an interface to the FishTaco functionality via the command line and the run_fishtaco.py script.
 
 Usage
-------
+-----
 
 ``run_fishtaco.py input_file [options]``
 
 Required arguments
--------------------
+------------------
 
 **-ta, --taxa_abundance TAXA_ABUN_FILE**
     Input file of taxa abundance
@@ -23,7 +23,7 @@ Required arguments
 
 
 Optional arguments
--------------------
+------------------
 
 **-h, --help**
     show help message and exit
@@ -151,8 +151,7 @@ Using this file as input for FishTaco results in the output files found in the *
 
 The commands used were the following (via command line):
 
-``run_fishtaco.py
--ta fishtaco/examples/METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab
+``run_fishtaco.py -ta fishtaco/examples/METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab
 -fu fishtaco/examples/WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab
 -t2f fishtaco/examples/METAPHLAN_taxa_vs_KO_only_K00001.tab
 -c fishtaco/examples/SAMPLE_vs_CLASS.tab
