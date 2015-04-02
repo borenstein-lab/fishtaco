@@ -111,9 +111,9 @@ Running the FishTaco framework (using *run_fishtaco.py*) produces the following 
 
 - **fishtaco_out_STAT_predicted_function_agreement_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab** contains various statistics regarding the agreement between the metagenome- and taxa-based abundance profiles for each function
 
-- **fishtaco_out_STAT_residual_function_abundance_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab** contains the residual between the metagenome- and taxa-based abundance profiles for each function (in 'remove-residual' mode the residual is equal to zero)
+- **fishtaco_out_STAT_residual_function_abundance_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab** contains the residual between the metagenome- and taxa-based abundance profiles for each function (in "remove-residual" mode the residual is equal to zero)
 
-- **fishtaco_out_STAT_shapley_orderings_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab** contains the random Shapley orderings used in the run (for 'permuted_shapley_orderings' mode)
+- **fishtaco_out_STAT_shapley_orderings_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab** contains the random Shapley orderings used in the run (for "permuted_shapley_orderings" mode)
 
 - **fishtaco_out_STAT_taxa_learned_copy_num_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab** contains the inferred copy numbers of each function in each taxon (for FishTaco with prior-based or *de novo* inference)
 
