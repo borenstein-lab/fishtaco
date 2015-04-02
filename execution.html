@@ -116,26 +116,41 @@ compared classes</dd>
 <dd>Write to log file (default: False)</dd>
 </dl>
 </div>
-<div class="section" id="output">
-<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="output-files">
+<h2>Output Files<a class="headerlink" href="#output-files" title="Permalink to this headline">¶</a></h2>
 <p>Running the FishTaco framework (using <em>run_fishtaco.py</em>) produces the following output files:</p>
-<ul class="simple">
-<li><strong>fishtaco_out_STAT_DA_function_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</strong> contains statistics regarding the differential abundance for each function in the input file</li>
-<li><strong>fishtaco_out_STAT_DA_taxa_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</strong> contains statistics regarding the differential abundance for each taxa in the input file</li>
-<li><strong>fishtaco_out_STAT_taxa_contributions_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</strong> contains the final taxon-level contribution score for every differentially abundant(shifted) function in the input data, as calculated by FishTaco</li>
-<li><strong>fishtaco_out_STAT_mean_stat_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</strong> contains the mean taxon-level contribution score for every differentially abundant(shifted) function in the input data (in default settings, this is equal to the final score)</li>
-<li><strong>fishtaco_out_STAT_median_stat_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</strong> contains the median taxon-level contribution score for every differentially abundant(shifted) function in the input data</li>
-<li><strong>fishtaco_out_STAT_std_stat_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</strong> contains the standard deviation of taxon-level contribution score for every differentially abundant(shifted) function in the input data</li>
-<li><strong>fishtaco_out_STAT_original_value_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</strong> contains the metagenome-based shift statistics value for each function in the input file</li>
-<li><strong>fishtaco_out_STAT_predicted_DA_value_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</strong> contains the taxa-based shift statistics value for each function in the input file</li>
-<li><strong>fishtaco_out_STAT_predicted_function_abundance_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</strong> contains the taxa-based abundance profile for each function in each sample</li>
-<li><strong>fishtaco_out_STAT_predicted_function_agreement_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</strong> contains various statistics regarding the agreement between the metagenome- and taxa-based abundance profiles for each function</li>
-<li><strong>fishtaco_out_STAT_residual_function_abundance_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</strong> contains the residual between the metagenome- and taxa-based abundance profiles for each function (in &#8220;remove-residual&#8221; mode the residual is equal to zero)</li>
-<li><strong>fishtaco_out_STAT_shapley_orderings_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</strong> contains the random Shapley orderings used in the run (for &#8220;permuted_shapley_orderings&#8221; mode)</li>
-<li><strong>fishtaco_out_STAT_taxa_learned_copy_num_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</strong> contains the inferred copy numbers of each function in each taxon (for FishTaco with prior-based or <em>de novo</em> inference)</li>
-<li><strong>fishtaco_out_STAT_taxa_learning_rsqr_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</strong> contains various statistics regarding the agreement between the metagenome- and taxa-based abundance profiles for each function (on test data)</li>
-<li><strong>fishtaco_out_STAT_run_log_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</strong> contains the running log of FishTaco</li>
-</ul>
+<dl class="docutils">
+<dt><strong>fishtaco_out_STAT_DA_function_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</strong></dt>
+<dd>contains statistics regarding the differential abundance for each function in the input file</dd>
+<dt><strong>fishtaco_out_STAT_DA_taxa_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</strong></dt>
+<dd>contains statistics regarding the differential abundance for each taxa in the input file</dd>
+<dt><strong>fishtaco_out_STAT_taxa_contributions_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</strong></dt>
+<dd>contains the final taxon-level contribution score for every differentially abundant(shifted) function in the input data, as calculated by FishTaco</dd>
+<dt><strong>fishtaco_out_STAT_mean_stat_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</strong></dt>
+<dd>contains the mean taxon-level contribution score for every differentially abundant(shifted) function in the input data (in default settings, this is equal to the final score)</dd>
+<dt><strong>fishtaco_out_STAT_median_stat_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</strong></dt>
+<dd>contains the median taxon-level contribution score for every differentially abundant(shifted) function in the input data</dd>
+<dt><strong>fishtaco_out_STAT_std_stat_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</strong></dt>
+<dd>contains the standard deviation of taxon-level contribution score for every differentially abundant(shifted) function in the input data</dd>
+<dt><strong>fishtaco_out_STAT_original_value_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</strong></dt>
+<dd>contains the metagenome-based shift statistics value for each function in the input file</dd>
+<dt><strong>fishtaco_out_STAT_predicted_DA_value_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</strong></dt>
+<dd>contains the taxa-based shift statistics value for each function in the input file</dd>
+<dt><strong>fishtaco_out_STAT_predicted_function_abundance_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</strong></dt>
+<dd>contains the taxa-based abundance profile for each function in each sample</dd>
+<dt><strong>fishtaco_out_STAT_predicted_function_agreement_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</strong></dt>
+<dd>contains various statistics regarding the agreement between the metagenome- and taxa-based abundance profiles for each function</dd>
+<dt><strong>fishtaco_out_STAT_residual_function_abundance_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</strong></dt>
+<dd>contains the residual between the metagenome- and taxa-based abundance profiles for each function (in &#8220;remove-residual&#8221; mode the residual is equal to zero)</dd>
+<dt><strong>fishtaco_out_STAT_shapley_orderings_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</strong></dt>
+<dd>contains the random Shapley orderings used in the run (for &#8220;permuted_shapley_orderings&#8221; mode)</dd>
+<dt><strong>fishtaco_out_STAT_taxa_learned_copy_num_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</strong></dt>
+<dd>contains the inferred copy numbers of each function in each taxon (for FishTaco with prior-based or <em>de novo</em> inference)</dd>
+<dt><strong>fishtaco_out_STAT_taxa_learning_rsqr_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</strong></dt>
+<dd>contains various statistics regarding the agreement between the metagenome- and taxa-based abundance profiles for each function (on test data)</dd>
+<dt><strong>fishtaco_out_STAT_run_log_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</strong></dt>
+<dd>contains the running log of FishTaco</dd>
+</dl>
 </div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
@@ -183,7 +198,7 @@ compared classes</dd>
 <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#required-arguments">Required arguments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#optional-arguments">Optional arguments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#output">Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#output-files">Output Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
