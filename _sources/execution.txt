@@ -91,50 +91,35 @@ Output
 
 Running the FishTaco framework (using *run_fishtaco.py*) produces the following output files:
 
-- *fishtaco_out_STAT_DA_function_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains statistics regarding the differential abundance
-for each function in the input file
+- *fishtaco_out_STAT_DA_function_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains statistics regarding the differential abundance for each function in the input file
 
-- *fishtaco_out_STAT_DA_taxa_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains statistics regarding the differential abundance
-for each taxa in the input file
+- *fishtaco_out_STAT_DA_taxa_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains statistics regarding the differential abundance for each taxa in the input file
 
-- *fishtaco_out_STAT_taxa_contributions_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains the final taxon-level contribution score for
-every differentially abundant(shifted) function in the input data, as calculated by FishTaco
+- *fishtaco_out_STAT_taxa_contributions_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains the final taxon-level contribution score for every differentially abundant(shifted) function in the input data, as calculated by FishTaco
 
-- *fishtaco_out_STAT_mean_stat_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains the mean taxon-level contribution score for
-every differentially abundant(shifted) function in the input data (in default settings, this is equal to the final score)
+- *fishtaco_out_STAT_mean_stat_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains the mean taxon-level contribution score for every differentially abundant(shifted) function in the input data (in default settings, this is equal to the final score)
 
-- *fishtaco_out_STAT_median_stat_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains the median taxon-level contribution score for
-every differentially abundant(shifted) function in the input data
+- *fishtaco_out_STAT_median_stat_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains the median taxon-level contribution score for every differentially abundant(shifted) function in the input data
 
-- *fishtaco_out_STAT_std_stat_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains the standard deviation of taxon-level contribution
-score for every differentially abundant(shifted) function in the input data
+- *fishtaco_out_STAT_std_stat_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains the standard deviation of taxon-level contribution score for every differentially abundant(shifted) function in the input data
 
-- *fishtaco_out_STAT_original_value_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains the metagenome-based shift statistics value
-for each function in the input file
+- *fishtaco_out_STAT_original_value_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains the metagenome-based shift statistics value for each function in the input file
 
-- *fishtaco_out_STAT_predicted_DA_value_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains the taxa-based shift statistics value
-for each function in the input file
+- *fishtaco_out_STAT_predicted_DA_value_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains the taxa-based shift statistics value for each function in the input file
 
-- *fishtaco_out_STAT_predicted_function_abundance_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains the taxa-based abundance profile
-for each function in each sample
+- *fishtaco_out_STAT_predicted_function_abundance_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains the taxa-based abundance profile for each function in each sample
 
-- *fishtaco_out_STAT_predicted_function_agreement_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains various statistics regarding
-the agreement between the metagenome- and taxa-based abundance profiles for each function
+- *fishtaco_out_STAT_predicted_function_agreement_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains various statistics regarding the agreement between the metagenome- and taxa-based abundance profiles for each function
 
-- *fishtaco_out_STAT_residual_function_abundance_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains the residual between the
-metagenome- and taxa-based abundance profiles for each function (in 'remove-residual' mode the residual is equal to zero)
+- *fishtaco_out_STAT_residual_function_abundance_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains the residual between the metagenome- and taxa-based abundance profiles for each function (in 'remove-residual' mode the residual is equal to zero)
 
-- *fishtaco_out_STAT_shapley_orderings_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains the random Shapley orderings used in the
-run (for 'permuted_shapley_orderings' mode)
+- *fishtaco_out_STAT_shapley_orderings_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains the random Shapley orderings used in the run (for 'permuted_shapley_orderings' mode)
 
-- *fishtaco_out_STAT_taxa_learned_copy_num_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains the inferred copy numbers of each
- function in each taxon (for FishTaco with prior-based or *de novo* inference)
+- *fishtaco_out_STAT_taxa_learned_copy_num_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains the inferred copy numbers of each function in each taxon (for FishTaco with prior-based or *de novo* inference)
 
-- *fishtaco_out_STAT_taxa_learning_rsqr_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains various statistics regarding
-the agreement between the metagenome- and taxa-based abundance profiles for each function (on test data)
+- *fishtaco_out_STAT_taxa_learning_rsqr_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains various statistics regarding the agreement between the metagenome- and taxa-based abundance profiles for each function (on test data)
 
 - *fishtaco_out_STAT_run_log_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains the running log of FishTaco
-
 
 Examples
 --------
