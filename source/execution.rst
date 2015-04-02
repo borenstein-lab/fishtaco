@@ -31,8 +31,14 @@ Optional arguments
 **-t2f, --taxa_to_function TAXA_TO_FUNCTION_FILE**
     Input file of mapping from taxa to functions
 
+**-control_label LABEL**
+    Define control label (default: 0)
+
+**-case_label LABEL**
+    Define case label (default: 1)
+
 **-op, --output_prefix OUTPUT_PREF**
-    Output prefix for result files (default: out)
+    Output prefix for result files (default: fishtaco_out)
 
 **-da, --da_results DA_RESULT_FILE**
     Pre-computed DA results from the compute_differential_abundance.py script (default: None)
@@ -79,19 +85,117 @@ Optional arguments
 **-log, --log**
     Write to log file (default: False)
 
+
+Output
+------
+
+Running the FishTaco framework (using *run_fishtaco.py*) produces the following output files:
+
+- *fishtaco_out_STAT_DA_function_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains statistics regarding the differential abundance
+for each function in the input file
+
+- *fishtaco_out_STAT_DA_taxa_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains statistics regarding the differential abundance
+for each taxa in the input file
+
+- *fishtaco_out_STAT_taxa_contributions_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains the final taxon-level contribution score for
+every differentially abundant(shifted) function in the input data, as calculated by FishTaco
+
+- *fishtaco_out_STAT_mean_stat_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains the mean taxon-level contribution score for
+every differentially abundant(shifted) function in the input data (in default settings, this is equal to the final score)
+
+- *fishtaco_out_STAT_median_stat_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains the median taxon-level contribution score for
+every differentially abundant(shifted) function in the input data
+
+- *fishtaco_out_STAT_std_stat_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains the standard deviation of taxon-level contribution
+score for every differentially abundant(shifted) function in the input data
+
+- *fishtaco_out_STAT_original_value_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains the metagenome-based shift statistics value
+for each function in the input file
+
+- *fishtaco_out_STAT_predicted_DA_value_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains the taxa-based shift statistics value
+for each function in the input file
+
+- *fishtaco_out_STAT_predicted_function_abundance_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains the taxa-based abundance profile
+for each function in each sample
+
+- *fishtaco_out_STAT_predicted_function_agreement_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains various statistics regarding
+the agreement between the metagenome- and taxa-based abundance profiles for each function
+
+- *fishtaco_out_STAT_residual_function_abundance_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains the residual between the
+metagenome- and taxa-based abundance profiles for each function (in 'remove-residual' mode the residual is equal to zero)
+
+- *fishtaco_out_STAT_shapley_orderings_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains the random Shapley orderings used in the
+run (for 'permuted_shapley_orderings' mode)
+
+- *fishtaco_out_STAT_taxa_learned_copy_num_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains the inferred copy numbers of each
+ function in each taxon (for FishTaco with prior-based or *de novo* inference)
+
+- *fishtaco_out_STAT_taxa_learning_rsqr_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains various statistics regarding
+the agreement between the metagenome- and taxa-based abundance profiles for each function (on test data)
+
+- *fishtaco_out_STAT_run_log_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab* contains the running log of FishTaco
+
+
 Examples
 --------
-In the *musicc/examples* directory, the file *simulated_ko_relative_abundance.tab* contains simulated KO abundance measurements of 20 samples described in the
-MUSiCC manuscript. Using this file as input for MUSiCC results in the following files:
+The *fishtaco/examples* directory contains the following files:
 
-- simulated_ko_MUSiCC_Normalized.tab (only normalization)
-- simulated_ko_MUSiCC_Normalized_Corrected_use_generic.tab (normalize and correct using the generic model learned from HMP)
-- simulated_ko_MUSiCC_Normalized_Corrected_learn_model.tab (normalize and correct learning a new model for each sample)
+- the file *METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab* contains scaled abundance measurements of 10 species in 213 samples from the HMP dataset
+- the file *WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab* contains MUSiCC-corrected abundance values for the K00001 orthology group in the same samples
+- the file *METAPHLAN_taxa_vs_KO_only_K00001.tab* contains the copy numbers of the K00001 orthology group in the 10 species as above
+- the file *SAMPLE_vs_CLASS.tab* contains class labels from the same samples (control vs. case)
+
+Using this file as input for FishTaco results in the output files found in the *fishtaco/examples/output* directory
+
+- *fishtaco_out_no_inf_STAT** (FishTaco with no inference)
+- *fishtaco_out_prior_based_inf_STAT** (FishTaco with prior-based inference)
+- *fishtaco_out_de_novo_inf_STAT** (FishTaco with de novo inference)
 
 The commands used were the following (via command line):
 
-``run_musicc.py musicc/examples/simulated_ko_relative_abundance.tab -n -perf -v -o musicc/examples/simulated_ko_MUSiCC_Normalized.tab``
+``run_fishtaco.py -op fishtaco_out_no_inf -max_da 1 -ta fishtaco/examples/METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab
+-fu fishtaco/examples/WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab -c fishtaco/examples/SAMPLE_vs_CLASS.tab
+-t2f fishtaco/examples/METAPHLAN_taxa_vs_KO_only_K00001.tab -assessment permuted_shapley_orderings -score wilcoxon -na_rep 0
+-number_of_shapley_orderings_per_taxa 3 -residual_mode remove_residual -normalization_mode scale_permuted -permutation_mode blocks
+-number_of_permutations 5 -log``
 
-``run_musicc.py musicc/examples/simulated_ko_relative_abundance.tab -n -c use_generic -perf -v -o musicc/examples/simulated_ko_MUSiCC_Normalized_Corrected_use_generic.tab``
+``run_fishtaco.py -op fishtaco_out_no_inf -max_da 1 -ta fishtaco/examples/METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab
+-fu fishtaco/examples/WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab -c fishtaco/examples/SAMPLE_vs_CLASS.tab
+-t2f fishtaco/examples/METAPHLAN_taxa_vs_KO_only_K00001.tab -assessment permuted_shapley_orderings -score wilcoxon -na_rep 0
+-number_of_shapley_orderings_per_taxa 3 -residual_mode remove_residual -normalization_mode scale_permuted -permutation_mode blocks
+-number_of_permutations 5 -use_t2f_as_prior -log``
 
-``run_musicc.py musicc/examples/simulated_ko_relative_abundance.tab -n -c learn_model -perf -v -o musicc/examples/simulated_ko_MUSiCC_Normalized_Corrected_learn_model.tab``
+``run_fishtaco.py -op fishtaco_out_no_inf -max_da 1 -ta fishtaco/examples/METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab
+-fu fishtaco/examples/WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab -c fishtaco/examples/SAMPLE_vs_CLASS.tab -assessment permuted_shapley_orderings
+-score wilcoxon -na_rep 0 -number_of_shapley_orderings_per_taxa 3 -residual_mode remove_residual -normalization_mode scale_permuted
+-permutation_mode blocks -number_of_permutations 5 -log``
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
