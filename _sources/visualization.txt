@@ -16,9 +16,19 @@ Examples
 --------
 
 An example of a FishTaco plot showing the species-level contributions to the functional enrichment of 3 pathways in tongue samples compared to
-mucosa samples
+mucosa samples:
 
 .. figure:: FishTaco_HMP.png
+    :width: 700px
+    :align: center
+    :height: 525px
+    :alt: alternate text
+    :figclass: align-center
+
+An example of a FishTaco plot showing the genus-level contributions to the functional enrichment of 3 modules in type 2 diabetes patients compared to
+healthy controls:
+
+.. figure:: FishTaco_T2D.png
     :width: 700px
     :align: center
     :height: 525px
