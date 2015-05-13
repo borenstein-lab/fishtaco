@@ -10,8 +10,8 @@ Plotting the results obtained from applying FishTaco to you data is done in R. W
 the `ggplot2 package <http://ggplot2.org/>`_. We recommend downloading and installing `R Studio <http://www.rstudio.com/>`_ before plotting, but
 it is not required.
 
-First, download the FishTacoPlot package from the `FishTaco GitHub page <https://github.com/omanor/fishtaco>`_.
-Next, install the package in your R terminal with the command:
+1. Download the FishTacoPlot package from the `FishTaco GitHub page <https://github.com/omanor/fishtaco>`_.
+2. Install the package in your R terminal with the command:
 ``install.packages(path_to_package, repos = NULL, type="source")``
 
 
