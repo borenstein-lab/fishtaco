@@ -18,7 +18,7 @@ Examples
 .. figure:: FishTaco_HMP.png
     :width: 700px
     :align: center
-    :height: 500px
+    :height: 525px
     :alt: alternate text
     :figclass: align-center
 
