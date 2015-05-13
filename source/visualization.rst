@@ -21,9 +21,11 @@ it is not required.
 
 .. code:: python
 
-    MultiFunctionTaxaContributionPlots(input_dir=FISHTACO_OUTPUT_DIR, input_prefix="pathway", input_score="wilcoxon", input_taxa_taxonomy=TAXONOMY_FILE,
-    min_shift_explained=0, sort_by="list", show_only_enriched_functions=TRUE, plot_type="bars", separate_enriched_depleted_taxa=TRUE,
-    show_only_diff_abun_taxa=TRUE, input_function_filter_list=c("ko00020", "ko00540","ko02040" ), add_predicted_da_markers=TRUE,
+    MultiFunctionTaxaContributionPlots(input_dir=FISHTACO_OUTPUT_DIR, input_prefix="pathway",
+    input_score="wilcoxon", input_taxa_taxonomy=TAXONOMY_FILE,
+    min_shift_explained=0, sort_by="list", show_only_enriched_functions=TRUE, plot_type="bars",
+    separate_enriched_depleted_taxa=TRUE, show_only_diff_abun_taxa=TRUE,
+    input_function_filter_list=c("ko00020", "ko00540","ko02040" ), add_predicted_da_markers=TRUE,
     add_original_da_markers=TRUE)
 
 
