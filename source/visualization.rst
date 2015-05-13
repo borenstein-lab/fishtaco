@@ -30,8 +30,6 @@ it is not required.
 
 
 
-
-
 Examples
 --------
 
