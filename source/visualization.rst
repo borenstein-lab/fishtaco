@@ -6,7 +6,9 @@ All the figures shown in the FishTaco paper are produced in R (http://www.r-proj
 FishTacoPlot package
 --------------------
 
-
+Plotting the results obtained from applying FishTaco to you data is done in R. We used R to take full advantage of the capabilities of
+the `ggplot2 package <http://ggplot2.org/>`_. We recommend downloading and installing `R Studio <http://www.rstudio.com/>`_ before plotting, but
+it is not required.
 
 
 
