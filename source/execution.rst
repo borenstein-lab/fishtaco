@@ -153,26 +153,27 @@ The commands used were the following (via command line):
 
 .. code:: python
 
-run_fishtaco.py -ta fishtaco/examples/METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab
--fu fishtaco/examples/WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab -t2f fishtaco/examples/METAPHLAN_taxa_vs_KO_only_K00001.tab
--c fishtaco/examples/SAMPLE_vs_CLASS.tab -op fishtaco_out_no_inf -max_da 1 -assessment permuted_shapley_orderings
--score wilcoxon -na_rep 0 -number_of_shapley_orderings_per_taxa 3 -residual_mode remove_residual
--normalization_mode scale_permuted -permutation_mode blocks -number_of_permutations 5
+    run_fishtaco.py -ta fishtaco/examples/METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab
+    -fu fishtaco/examples/WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab -t2f fishtaco/examples/METAPHLAN_taxa_vs_KO_only_K00001.tab
+    -c fishtaco/examples/SAMPLE_vs_CLASS.tab -op fishtaco_out_no_inf -max_da 1 -assessment permuted_shapley_orderings
+    -score wilcoxon -na_rep 0 -number_of_shapley_orderings_per_taxa 3 -residual_mode remove_residual
+    -normalization_mode scale_permuted -permutation_mode blocks -number_of_permutations 5
 
 .. code:: python
 
-run_fishtaco.py -op fishtaco_out_no_inf -max_da 1 -ta fishtaco/examples/METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab
--fu fishtaco/examples/WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab -c fishtaco/examples/SAMPLE_vs_CLASS.tab
--t2f fishtaco/examples/METAPHLAN_taxa_vs_KO_only_K00001.tab -assessment permuted_shapley_orderings -score wilcoxon
--na_rep 0 -number_of_shapley_orderings_per_taxa 3 -residual_mode remove_residual -normalization_mode scale_permuted
--permutation_mode blocks -number_of_permutations 5 -use_t2f_as_prior
+    run_fishtaco.py -op fishtaco_out_no_inf -max_da 1 -ta fishtaco/examples/METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab
+    -fu fishtaco/examples/WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab -c fishtaco/examples/SAMPLE_vs_CLASS.tab
+    -t2f fishtaco/examples/METAPHLAN_taxa_vs_KO_only_K00001.tab -assessment permuted_shapley_orderings -score wilcoxon
+    -na_rep 0 -number_of_shapley_orderings_per_taxa 3 -residual_mode remove_residual -normalization_mode scale_permuted
+    -permutation_mode blocks -number_of_permutations 5 -use_t2f_as_prior
 
 .. code:: python
 
-run_fishtaco.py -op fishtaco_out_no_inf -max_da 1 -ta fishtaco/examples/METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab
--fu fishtaco/examples/WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab -c fishtaco/examples/SAMPLE_vs_CLASS.tab
--assessment permuted_shapley_orderings -score wilcoxon -na_rep 0 -number_of_shapley_orderings_per_taxa 3
--residual_mode remove_residual -normalization_mode scale_permuted -permutation_mode blocks -number_of_permutations 5
+    run_fishtaco.py -op fishtaco_out_no_inf -max_da 1 -ta fishtaco/examples/METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab
+    -fu fishtaco/examples/WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab -c fishtaco/examples/SAMPLE_vs_CLASS.tab
+    -assessment permuted_shapley_orderings -score wilcoxon -na_rep 0 -number_of_shapley_orderings_per_taxa 3
+    -residual_mode remove_residual -normalization_mode scale_permuted -permutation_mode blocks -number_of_permutations 5
+
 
 
 
