@@ -19,7 +19,7 @@ it is not required.
 
 4. Plot your results, for example by using:
 
-.. code:: R
+.. code:: python
 
     MultiFunctionTaxaContributionPlots(input_dir=FISHTACO_OUTPUT_DIR, input_prefix="pathway", input_score="wilcoxon", input_taxa_taxonomy=TAXONOMY_FILE,
     min_shift_explained=0, sort_by="list", show_only_enriched_functions=TRUE, plot_type="bars", separate_enriched_depleted_taxa=TRUE,
