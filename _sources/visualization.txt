@@ -11,9 +11,13 @@ the `ggplot2 package <http://ggplot2.org/>`_. We recommend downloading and insta
 it is not required.
 
 1. Download the FishTacoPlot package from the `FishTaco GitHub page <https://github.com/omanor/fishtaco>`_.
+
 2. Install the package in your R terminal with the command:
 ``install.packages(path_to_package, repos = NULL, type="source")``
-3. Load the package to your workspace with the command: ``require(FishTacoPlot)``
+
+3. Load the package to your workspace with the command:
+``require(FishTacoPlot)``
+
 4. Plot your results, for example by using:
 
 .. code:: python
