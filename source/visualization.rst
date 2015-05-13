@@ -15,6 +15,7 @@ it is not required.
 ``install.packages(path_to_package, repos = NULL, type="source")``
 3. Load the package to your workspace with the command: ``require(FishTacoPlot)``
 4. Plot your results, for example by using:
+
 .. code:: python
 
     MultiFunctionTaxaContributionPlots(input_dir=FISHTACO_OUTPUT_DIR, input_prefix="pathway",
