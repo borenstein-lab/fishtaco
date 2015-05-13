@@ -15,4 +15,14 @@ FishTacoPlot package
 Examples
 --------
 
+.. figure:: FishTaco_HMP.png
+    :width: 200px
+    :align: center
+    :height: 100px
+    :alt: alternate text
+    :figclass: align-center
+
+    figure are like images but with a caption
+
+    and whatever else youwish to add
 

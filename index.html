@@ -26,12 +26,12 @@
     <link rel="top" title="FiShTaCo 1.0.0 documentation" href="#" />
     <link rel="next" title="Installation Instructions" href="installation.html" /> 
   </head>
-  <body>
-    <div class="header-wrapper">
+  <body role="document">
+    <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
           href="#">FiShTaCo 1.0.0 documentation</a></div>
-        <div class="rel">
+        <div class="rel" role="navigation" aria-label="related navigation">
           <a href="installation.html" title="Installation Instructions"
              accesskey="N">next</a> |
           <a href="genindex.html" title="General Index"
@@ -46,7 +46,7 @@
             
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="fishtaco-functional-shift-taxonomic-contributors">
 <h1>FishTaco: Functional Shift Taxonomic Contributors<a class="headerlink" href="#fishtaco-functional-shift-taxonomic-contributors" title="Permalink to this headline">¶</a></h1>
@@ -98,16 +98,18 @@ Ohad Manor and Elhanan Borenstein. <em>In preparation</em></p>
 <li class="toctree-l1"><a class="reference internal" href="visualization.html">FishTaco Visualization</a></li>
 </ul>
 
-          <h3 style="margin-top: 1.5em;">Search</h3>
-          <form class="search" action="search.html" method="get">
-            <input type="text" name="q" />
-            <input type="submit" value="Go" />
-            <input type="hidden" name="check_keywords" value="yes" />
-            <input type="hidden" name="area" value="default" />
-          </form>
-          <p class="searchtip" style="font-size: 90%">
-            Enter search terms or a module, class or function name.
-          </p>
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+            <p class="searchtip" style="font-size: 90%">
+                Enter search terms or a module, class or function name.
+            </p>
+          </div>
         </div>
         <div class="clearer"></div>
       </div>
@@ -116,20 +118,24 @@ Ohad Manor and Elhanan Borenstein. <em>In preparation</em></p>
     <div class="footer-wrapper">
       <div class="footer">
         <div class="left">
-          <a href="installation.html" title="Installation Instructions"
-             >next</a> |
-          <a href="genindex.html" title="General Index"
-             >index</a>
-            <br/>
-            <a href="_sources/index.txt"
-               rel="nofollow">Show Source</a>
+          <div role="navigation" aria-label="related navigaton">
+            <a href="installation.html" title="Installation Instructions"
+              >next</a> |
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/index.txt"
+                rel="nofollow">Show Source</a>
+          </div>
         </div>
 
         <div class="right">
           
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2015, Ohad Manor.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b2.
     </div>
         </div>
         <div class="clearer"></div>

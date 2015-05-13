@@ -26,12 +26,12 @@
     <link rel="top" title="FiShTaCo 1.0.0 documentation" href="index.html" />
     <link rel="prev" title="FishTaco API via the command line" href="execution.html" /> 
   </head>
-  <body>
-    <div class="header-wrapper">
+  <body role="document">
+    <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
           href="index.html">FiShTaCo 1.0.0 documentation</a></div>
-        <div class="rel">
+        <div class="rel" role="navigation" aria-label="related navigation">
           <a href="execution.html" title="FishTaco API via the command line"
              accesskey="P">previous</a> |
           <a href="genindex.html" title="General Index"
@@ -46,7 +46,7 @@
             
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="fishtaco-visualization">
 <h1>FishTaco Visualization<a class="headerlink" href="#fishtaco-visualization" title="Permalink to this headline">¶</a></h1>
@@ -56,6 +56,12 @@
 </div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="align-center figure" id="id1">
+<a class="reference internal image-reference" href="_images/FishTaco_HMP.png"><img alt="alternate text" src="_images/FishTaco_HMP.png" style="width: 200px; height: 100px;" /></a>
+<p class="caption"><span class="caption-text">figure are like images but with a caption</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<div class="legend">
+and whatever else youwish to add</div>
+</div>
 </div>
 </div>
 
@@ -69,23 +75,21 @@
           <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation Instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="execution.html">FishTaco API via the command line</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">FishTaco Visualization</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#fishtacoplot-package">FishTacoPlot package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">FishTaco Visualization</a></li>
 </ul>
 
-          <h3 style="margin-top: 1.5em;">Search</h3>
-          <form class="search" action="search.html" method="get">
-            <input type="text" name="q" />
-            <input type="submit" value="Go" />
-            <input type="hidden" name="check_keywords" value="yes" />
-            <input type="hidden" name="area" value="default" />
-          </form>
-          <p class="searchtip" style="font-size: 90%">
-            Enter search terms or a module, class or function name.
-          </p>
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+            <p class="searchtip" style="font-size: 90%">
+                Enter search terms or a module, class or function name.
+            </p>
+          </div>
         </div>
         <div class="clearer"></div>
       </div>
@@ -94,20 +98,24 @@
     <div class="footer-wrapper">
       <div class="footer">
         <div class="left">
-          <a href="execution.html" title="FishTaco API via the command line"
-             >previous</a> |
-          <a href="genindex.html" title="General Index"
-             >index</a>
-            <br/>
-            <a href="_sources/visualization.txt"
-               rel="nofollow">Show Source</a>
+          <div role="navigation" aria-label="related navigaton">
+            <a href="execution.html" title="FishTaco API via the command line"
+              >previous</a> |
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/visualization.txt"
+                rel="nofollow">Show Source</a>
+          </div>
         </div>
 
         <div class="right">
           
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2015, Ohad Manor.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b2.
     </div>
         </div>
         <div class="clearer"></div>
