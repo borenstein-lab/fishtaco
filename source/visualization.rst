@@ -11,9 +11,17 @@ the `ggplot2 package <http://ggplot2.org/>`_. We recommend downloading and insta
 it is not required.
 
 1. Download the FishTacoPlot package from the `FishTaco GitHub page <https://github.com/omanor/fishtaco>`_.
+
 2. Install the package in your R terminal with the command:
 ``install.packages(path_to_package, repos = NULL, type="source")``
 
+3. Load the package to your workspace with the command: ``require(FishTacoPlot)``
+
+4. Plot your results, for example by using:
+``MultiFunctionTaxaContributionPlots(input_dir=FISHTACO_OUTPUT_DIR, input_prefix="pathway", input_score="wilcoxon",
+input_taxa_taxonomy=TAXONOMY_FILE, min_shift_explained=0, sort_by="list",
+show_only_enriched_functions=TRUE, plot_type="bars", separate_enriched_depleted_taxa=TRUE, show_only_diff_abun_taxa=TRUE,
+input_function_filter_list=c("ko00020", "ko00540","ko02040" ), add_predicted_da_markers=TRUE, add_original_da_markers=TRUE)``
 
 
 
