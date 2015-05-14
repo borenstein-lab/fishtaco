@@ -145,8 +145,8 @@ The *fishtaco/examples* directory contains the following files:
 
 Using these files as input for FishTaco results in the following output files (found in the *fishtaco/examples/output* directory):
 
-FishTaco with no inference (*fishtaco_out_no_inf_STAT_**)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FishTaco with no inference (output/fishtaco_out_no_inf_STAT_*)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: python
 
@@ -158,8 +158,8 @@ FishTaco with no inference (*fishtaco_out_no_inf_STAT_**)
     -number_of_shapley_orderings_per_taxa 3 -residual_mode remove_residual -log
     -normalization_mode scale_permuted -permutation_mode blocks -number_of_permutations 5
 
-FishTaco with prior-based inference (*fishtaco_out_prior_based_inf_STAT_**)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FishTaco with prior-based inference (output/fishtaco_out_prior_based_inf_STAT_*)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: python
 
@@ -173,8 +173,8 @@ FishTaco with prior-based inference (*fishtaco_out_prior_based_inf_STAT_**)
     -normalization_mode scale_permuted -permutation_mode blocks -number_of_permutations 5
     -use_t2f_as_prior -log
 
-FishTaco with de novo inference (*fishtaco_out_de_novo_inf_STAT_**)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FishTaco with de novo inference (output/fishtaco_out_de_novo_inf_STAT_*)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: python
 
