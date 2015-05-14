@@ -11,10 +11,10 @@ Usage
 Required arguments
 ------------------
 
-``**-ta, --taxa_abundance TAXA_ABUN_FILE**``
+``-ta, --taxa_abundance TAXA_ABUN_FILE``
     Input file of taxa abundance
 
-**-fu, --function_abundance FUNCTION_ABUN_FILE**
+``-fu, --function_abundance FUNCTION_ABUN_FILE``
     Input file of function abundance
 
 **-c, --class CLASS_FILE**
