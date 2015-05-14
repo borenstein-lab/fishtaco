@@ -143,13 +143,10 @@ The *fishtaco/examples* directory contains the following files:
 - the file *METAPHLAN_taxa_vs_KO_only_K00001.tab* contains the copy numbers of the K00001 orthology group in the 10 species as above
 - the file *SAMPLE_vs_CLASS.tab* contains class labels from the same samples (control vs. case)
 
-Using this file as input for FishTaco results in the output files found in the *fishtaco/examples/output* directory:
+Using these files as input for FishTaco results in the output files found in the *fishtaco/examples/output* directory:
 
-- *fishtaco_out_no_inf_STAT_** (FishTaco with no inference)
-- *fishtaco_out_prior_based_inf_STAT_** (FishTaco with prior-based inference)
-- *fishtaco_out_de_novo_inf_STAT_** (FishTaco with de novo inference)
-
-The commands used were the following (via command line):
+FishTaco with no inference (*fishtaco_out_no_inf_STAT_**)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: python
 
@@ -160,6 +157,9 @@ The commands used were the following (via command line):
     -assessment permuted_shapley_orderings -score wilcoxon -na_rep 0
     -number_of_shapley_orderings_per_taxa 3 -residual_mode remove_residual -log
     -normalization_mode scale_permuted -permutation_mode blocks -number_of_permutations 5
+
+FishTaco with prior-based inference (*fishtaco_out_prior_based_inf_STAT_**)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: python
 
@@ -172,6 +172,9 @@ The commands used were the following (via command line):
     -na_rep 0 -number_of_shapley_orderings_per_taxa 3 -residual_mode remove_residual
     -normalization_mode scale_permuted -permutation_mode blocks -number_of_permutations 5
     -use_t2f_as_prior -log
+
+FishTaco with de novo inference (*fishtaco_out_de_novo_inf_STAT_**)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: python
 

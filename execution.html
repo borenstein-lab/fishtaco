@@ -160,13 +160,9 @@ compared classes</dd>
 <li>the file <em>METAPHLAN_taxa_vs_KO_only_K00001.tab</em> contains the copy numbers of the K00001 orthology group in the 10 species as above</li>
 <li>the file <em>SAMPLE_vs_CLASS.tab</em> contains class labels from the same samples (control vs. case)</li>
 </ul>
-<p>Using this file as input for FishTaco results in the output files found in the <em>fishtaco/examples/output</em> directory:</p>
-<ul class="simple">
-<li><em>fishtaco_out_no_inf_STAT_*</em> (FishTaco with no inference)</li>
-<li><em>fishtaco_out_prior_based_inf_STAT_*</em> (FishTaco with prior-based inference)</li>
-<li><em>fishtaco_out_de_novo_inf_STAT_*</em> (FishTaco with de novo inference)</li>
-</ul>
-<p>The commands used were the following (via command line):</p>
+<p>Using these files as input for FishTaco results in the output files found in the <em>fishtaco/examples/output</em> directory:</p>
+<div class="section" id="fishtaco-with-no-inference-fishtaco-out-no-inf-stat">
+<h3>FishTaco with no inference (<em>fishtaco_out_no_inf_STAT_*</em>)<a class="headerlink" href="#fishtaco-with-no-inference-fishtaco-out-no-inf-stat" title="Permalink to this headline">¶</a></h3>
 <div class="code python highlight-python"><div class="highlight"><pre>run_fishtaco.py -ta fishtaco/examples/METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab
 -fu fishtaco/examples/WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab
 -t2f fishtaco/examples/METAPHLAN_taxa_vs_KO_only_K00001.tab
@@ -176,6 +172,9 @@ compared classes</dd>
 -normalization_mode scale_permuted -permutation_mode blocks -number_of_permutations 5
 </pre></div>
 </div>
+</div>
+<div class="section" id="fishtaco-with-prior-based-inference-fishtaco-out-prior-based-inf-stat">
+<h3>FishTaco with prior-based inference (<em>fishtaco_out_prior_based_inf_STAT_*</em>)<a class="headerlink" href="#fishtaco-with-prior-based-inference-fishtaco-out-prior-based-inf-stat" title="Permalink to this headline">¶</a></h3>
 <div class="code python highlight-python"><div class="highlight"><pre>run_fishtaco.py -op fishtaco_out_no_inf -max_da 1
 -ta fishtaco/examples/METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab
 -fu fishtaco/examples/WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab
@@ -187,6 +186,9 @@ compared classes</dd>
 -use_t2f_as_prior -log
 </pre></div>
 </div>
+</div>
+<div class="section" id="fishtaco-with-de-novo-inference-fishtaco-out-de-novo-inf-stat">
+<h3>FishTaco with de novo inference (<em>fishtaco_out_de_novo_inf_STAT_*</em>)<a class="headerlink" href="#fishtaco-with-de-novo-inference-fishtaco-out-de-novo-inf-stat" title="Permalink to this headline">¶</a></h3>
 <div class="code python highlight-python"><div class="highlight"><pre>run_fishtaco.py -op fishtaco_out_no_inf -max_da 1
 -ta fishtaco/examples/METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab
 -fu fishtaco/examples/WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab
@@ -195,6 +197,7 @@ compared classes</dd>
 -residual_mode remove_residual -normalization_mode scale_permuted
 -permutation_mode blocks -number_of_permutations 5 -log
 </pre></div>
+</div>
 </div>
 </div>
 </div>
