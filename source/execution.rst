@@ -6,7 +6,7 @@ FishTaco offers an interface to the FishTaco functionality via the command line 
 Usage
 -----
 
-``run_fishtaco.py input_file [options]``
+``run_fishtaco.py -ta TAXA_ABUN_FILE -fu FUNCTION_ABUN_FILE -c CLASS_FILE [options]``
 
 Required arguments
 ------------------
@@ -25,7 +25,7 @@ Required arguments
 Optional arguments
 ------------------
 
-**-h, --help**
+**-h, - -help**
     show help message and exit
 
 **-t2f, --taxa_to_function TAXA_TO_FUNCTION_FILE**
@@ -82,7 +82,7 @@ Optional arguments
 **-single_function_filter SINGLE_FUNCTION_FILTER**
     Limit analysis to this single function (default: All)
 
-**-log, --log**
+**-log**
     Write to log file (default: False)
 
 
