@@ -143,7 +143,7 @@ The *fishtaco/examples* directory contains the following files:
 - the file *METAPHLAN_taxa_vs_KO_only_K00001.tab* contains the copy numbers of the K00001 orthology group in the 10 species as above
 - the file *SAMPLE_vs_CLASS.tab* contains class labels from the same samples (control vs. case)
 
-Using these files as input for FishTaco results in the output files found in the *fishtaco/examples/output* directory:
+Using these files as input for FishTaco results in the following output files (found in the *fishtaco/examples/output* directory):
 
 FishTaco with no inference (*fishtaco_out_no_inf_STAT_**)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
