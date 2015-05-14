@@ -11,7 +11,7 @@ Usage
 Required arguments
 ------------------
 
-**-ta, --taxa_abundance TAXA_ABUN_FILE**
+``**-ta, --taxa_abundance TAXA_ABUN_FILE**``
     Input file of taxa abundance
 
 **-fu, --function_abundance FUNCTION_ABUN_FILE**
@@ -25,7 +25,7 @@ Required arguments
 Optional arguments
 ------------------
 
-**-h, - -help**
+**-h, --help**
     show help message and exit
 
 **-t2f, --taxa_to_function TAXA_TO_FUNCTION_FILE**
