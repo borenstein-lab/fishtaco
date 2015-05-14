@@ -1,7 +1,8 @@
 Installation Instructions
 =========================
 
-Prerequisites for installing:
+Prerequisites for installation
+------------------------------
 
 In order for FishTaco to run successfully, the following Python modules should be pre-installed on your system:
 
@@ -14,7 +15,8 @@ If you have *pip* installed, you can install these packages by running the follo
 
 ``pip install -U numpy scipy scikit-learn pandas``
 
-**Installing FishTaco:**
+Installing FishTaco
+-------------------
 
 To install FishTaco, download the package from `GitHub <https://github.com/omanor/fishtaco/archive/1.0.tar.gz>`_.
 
