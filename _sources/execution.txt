@@ -89,7 +89,10 @@ Optional arguments
 FishTaco Output Files
 ---------------------
 
-**fishtaco_out_STAT_DA_function_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab**
+Main output files
+^^^^^^^^^^^^^^^^^
+
+``fishtaco_out_STAT_DA_function_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab``
     contains statistics regarding the differential abundance for each function in the input file
 
 **fishtaco_out_STAT_DA_taxa_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab**
