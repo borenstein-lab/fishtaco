@@ -66,7 +66,7 @@ FishTaco offers an interface to the FishTaco functionality via the command line 
 <dd>Input file of taxa abundance</dd>
 <dt><code class="docutils literal"><span class="pre">-fu,</span> <span class="pre">--function_abundance</span> <span class="pre">FUNCTION_ABUN_FILE</span></code></dt>
 <dd>Input file of function abundance</dd>
-<dt><strong>-c, &#8211;class CLASS_FILE</strong></dt>
+<dt><code class="docutils literal"><span class="pre">-c,</span> <span class="pre">--class</span> <span class="pre">CLASS_FILE</span></code></dt>
 <dd>Input file of class assignment for the two different
 compared classes</dd>
 </dl>
@@ -74,45 +74,45 @@ compared classes</dd>
 <div class="section" id="optional-arguments">
 <h2>Optional arguments<a class="headerlink" href="#optional-arguments" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt><strong>-h, &#8211;help</strong></dt>
+<dt><code class="docutils literal"><span class="pre">-h,</span> <span class="pre">--help</span></code></dt>
 <dd>show help message and exit</dd>
-<dt><strong>-t2f, &#8211;taxa_to_function TAXA_TO_FUNCTION_FILE</strong></dt>
+<dt><code class="docutils literal"><span class="pre">-t2f,</span> <span class="pre">--taxa_to_function</span> <span class="pre">TAXA_TO_FUNCTION_FILE</span></code></dt>
 <dd>Input file of mapping from taxa to functions</dd>
-<dt><strong>-control_label LABEL</strong></dt>
+<dt><code class="docutils literal"><span class="pre">-control_label</span> <span class="pre">LABEL</span></code></dt>
 <dd>Define control label (default: 0)</dd>
-<dt><strong>-case_label LABEL</strong></dt>
+<dt><code class="docutils literal"><span class="pre">-case_label</span> <span class="pre">LABEL</span></code></dt>
 <dd>Define case label (default: 1)</dd>
-<dt><strong>-op, &#8211;output_prefix OUTPUT_PREF</strong></dt>
+<dt><code class="docutils literal"><span class="pre">-op,</span> <span class="pre">--output_prefix</span> <span class="pre">OUTPUT_PREF</span></code></dt>
 <dd>Output prefix for result files (default: fishtaco_out)</dd>
-<dt><strong>-da, &#8211;da_results DA_RESULT_FILE</strong></dt>
+<dt><code class="docutils literal"><span class="pre">-da,</span> <span class="pre">--da_results</span> <span class="pre">DA_RESULT_FILE</span></code></dt>
 <dd>Pre-computed DA results from the compute_differential_abundance.py script (default: None)</dd>
-<dt><strong>-function_da_threshold {Bonf, FDR-0.01, FDR-0.05, FDR-0.1, None}</strong></dt>
+<dt><code class="docutils literal"><span class="pre">-function_da_threshold</span> <span class="pre">{Bonf,</span> <span class="pre">FDR-0.01,</span> <span class="pre">FDR-0.05,</span> <span class="pre">FDR-0.1,</span> <span class="pre">None}</span></code></dt>
 <dd>Differential abundance threshold (default: None)</dd>
-<dt><strong>-max_da, &#8211;max_da_functions MAX_DA_FUNCTIONS_CASES_CONTROLS</strong></dt>
+<dt><code class="docutils literal"><span class="pre">-max_da,</span> <span class="pre">--max_da_functions</span> <span class="pre">MAX_DA_FUNCTIONS_CASES_CONTROLS</span></code></dt>
 <dd>Maximum number of differential abundant functions to consider (default: None)</dd>
-<dt><strong>-assessment, &#8211;taxa_assessment_method {separate_i, permute_all_but_i, permute_only_i, permuted_shapley_orderings}</strong></dt>
+<dt><code class="docutils literal"><span class="pre">-assessment,</span> <span class="pre">--taxa_assessment_method</span> <span class="pre">{separate_i,</span> <span class="pre">permute_all_but_i,</span> <span class="pre">permute_only_i,</span> <span class="pre">permuted_shapley_orderings}</span></code></dt>
 <dd>The method used when assessing taxa to compute score (default: permuted_shapley_orderings)</dd>
-<dt><strong>-score, &#8211;score_to_compute {t_test, mean_diff, median_diff, wilcoxon, log_mean_ratio}</strong></dt>
+<dt><code class="docutils literal"><span class="pre">-score,</span> <span class="pre">--score_to_compute</span> <span class="pre">{t_test,</span> <span class="pre">mean_diff,</span> <span class="pre">median_diff,</span> <span class="pre">wilcoxon,</span> <span class="pre">log_mean_ratio}</span></code></dt>
 <dd>The score to compute for each taxa (default: wilcoxon)</dd>
-<dt><strong>-max_score, &#8211;max_score_cutoff MAX_SCORE_CUTOFF</strong></dt>
+<dt><code class="docutils literal"><span class="pre">-max_score,</span> <span class="pre">--max_score_cutoff</span> <span class="pre">MAX_SCORE_CUTOFF</span></code></dt>
 <dd>The maximum score cutoff (for example, when dividing by zero) (default: 100)</dd>
-<dt><strong>-na_rep NA_REP</strong></dt>
+<dt><code class="docutils literal"><span class="pre">-na_rep</span> <span class="pre">NA_REP</span></code></dt>
 <dd>How to represent NAs in the output (default: NA)</dd>
-<dt><strong>-number_of_permutations NUMBER_OF_PERMUTATIONS</strong></dt>
+<dt><code class="docutils literal"><span class="pre">-number_of_permutations</span> <span class="pre">NUMBER_OF_PERMUTATIONS</span></code></dt>
 <dd>number of permutations (default: 100)</dd>
-<dt><strong>-number_of_shapley_orderings_per_taxa NUMBER_OF_SHAPLEY_ORDERINGS_PER_TAXA</strong></dt>
+<dt><code class="docutils literal"><span class="pre">-number_of_shapley_orderings_per_taxa</span> <span class="pre">NUMBER_OF_SHAPLEY_ORDERINGS_PER_TAXA</span></code></dt>
 <dd>number of shapley orderings per taxa (default: 5)</dd>
-<dt><strong>-use_t2f_as_prior, &#8211;use_taxa_to_function_as_prior</strong></dt>
+<dt><code class="docutils literal"><span class="pre">-use_t2f_as_prior,</span> <span class="pre">--use_taxa_to_function_as_prior</span></code></dt>
 <dd>Learn the taxa copy number of each function, using the given taxa to function file as prior (default: False)</dd>
-<dt><strong>-residual_mode {as_taxa,remove_residual,as_baseline}</strong></dt>
+<dt><code class="docutils literal"><span class="pre">-residual_mode</span> <span class="pre">{as_taxa,remove_residual,as_baseline}</span></code></dt>
 <dd>How to treat the residual of the functional abundance profile (default: remove_residual)</dd>
-<dt><strong>-normalization_mode {none,scale_non_permuted,scale_permuted}</strong></dt>
+<dt><code class="docutils literal"><span class="pre">-normalization_mode</span> <span class="pre">{none,scale_non_permuted,scale_permuted}</span></code></dt>
 <dd>How to normalize the sample after permuting taxa (default: none)</dd>
-<dt><strong>-permutation_mode {independent,blocks}</strong></dt>
+<dt><code class="docutils literal"><span class="pre">-permutation_mode</span> <span class="pre">{independent,blocks}</span></code></dt>
 <dd>How to permute the taxa across samples (default: independent)</dd>
-<dt><strong>-single_function_filter SINGLE_FUNCTION_FILTER</strong></dt>
+<dt><code class="docutils literal"><span class="pre">-single_function_filter</span> <span class="pre">SINGLE_FUNCTION_FILTER</span></code></dt>
 <dd>Limit analysis to this single function (default: All)</dd>
-<dt><strong>-log</strong></dt>
+<dt><code class="docutils literal"><span class="pre">-log,</span> <span class="pre">--log</span></code></dt>
 <dd>Write to log file (default: False)</dd>
 </dl>
 </div>
