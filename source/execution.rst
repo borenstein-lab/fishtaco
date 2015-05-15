@@ -3,7 +3,7 @@ FishTaco API via the command line
 The FishTaco module handles all calculations internally.
 FishTaco offers an interface to the FishTaco functionality via the command line and the run_fishtaco.py script.
 
-.. index:: Usage
+.. index:: Execution
 
 Usage
 -----

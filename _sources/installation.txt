@@ -1,6 +1,8 @@
 Installation Instructions
 =========================
 
+.. index:: Installation
+
 Prerequisites for installation
 ------------------------------
 
