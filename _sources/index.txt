@@ -13,7 +13,7 @@ we observe in microbiomes of different individuals or disease states.
 .. figure:: FishTaco_pipeline.png
     :width: 750px
     :align: center
-    :height: 1000px
+    :height: 800px
     :alt: alternate text
     :figclass: align-center
 
