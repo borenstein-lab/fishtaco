@@ -17,7 +17,9 @@ we observe in microbiomes of different individuals or disease states.
     :alt: alternate text
     :figclass: align-center
 
-
+=================
+Table of contents
+=================
 
 .. toctree::
    :maxdepth: 2
