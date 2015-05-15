@@ -11,7 +11,7 @@ FishTaco is a metagenomic computational framework, aiming to identify the taxa t
 we observe in microbiomes of different individuals or disease states.
 
 .. figure:: FishTaco_pipeline.png
-    :width: 750px
+    :width: 800px
     :align: center
     :height: 800px
     :alt: alternate text
