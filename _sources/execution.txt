@@ -13,24 +13,29 @@ Required arguments
 ------------------
 
 ``-ta, --taxa_abundance TAXA_ABUN_FILE``
-    Input file of taxa abundance (`format <file_format_taxa_abun.html>`_)
+    Input file of taxa abundance (`format <fishtaco_file_formats.html>`_)
 
 ``-fu, --function_abundance FUNCTION_ABUN_FILE``
-    Input file of function abundance
+    Input file of function abundance (`format <fishtaco_file_formats.html>`_)
 
 ``-c, --class CLASS_FILE``
     Input file of class assignment for the two different
-    compared classes
+    compared classes (`format <fishtaco_file_formats.html>`_)
 
 
 Optional arguments
 ------------------
 
+``-t2f, --taxa_to_function TAXA_TO_FUNCTION_FILE``
+    Input file of mapping from taxa to functions (`format <fishtaco_file_formats.html>`_)
+
+
+Additional arguments
+------------------
+
 ``-h, --help``
     show help message and exit
 
-``-t2f, --taxa_to_function TAXA_TO_FUNCTION_FILE``
-    Input file of mapping from taxa to functions
 
 ``-control_label LABEL``
     Define control label (default: 0)

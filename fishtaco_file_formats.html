@@ -49,13 +49,14 @@
 <h1>FishTaco file formats<a class="headerlink" href="#fishtaco-file-formats" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="format-of-taxa-abundance-file">
 <h2>Format of taxa abundance file<a class="headerlink" href="#format-of-taxa-abundance-file" title="Permalink to this headline">¶</a></h2>
-<p>A tab-delimited file where each row is a taxon and each column is a sample (with headers):</p>
+<p>A tab-delimited file (with headers), where each row is a taxon and each column is a sample,
+and each cell represents the relative abundance of the taxon in the sample:</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="28%" />
-<col width="24%" />
-<col width="24%" />
-<col width="24%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Taxa</th>
@@ -84,6 +85,118 @@
 <td>0.2</td>
 <td>0.2</td>
 <td>0.1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="format-of-function-abundance-file">
+<h2>Format of function abundance file<a class="headerlink" href="#format-of-function-abundance-file" title="Permalink to this headline">¶</a></h2>
+<p>A tab-delimited file (with headers), where each row is a function (e.g., KO) and each column is a sample,
+and each cell represents the relative abundance of the function in the sample:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Function</th>
+<th class="head">Sample1</th>
+<th class="head">Sample2</th>
+<th class="head">Sample3</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><em>K00001</em></td>
+<td>0.1</td>
+<td>0.1</td>
+<td>0.1</td>
+</tr>
+<tr class="row-odd"><td><em>K00002</em></td>
+<td>0.3</td>
+<td>0.1</td>
+<td>0.1</td>
+</tr>
+<tr class="row-even"><td><em>K00003</em></td>
+<td>0.1</td>
+<td>0.1</td>
+<td>0.2</td>
+</tr>
+<tr class="row-odd"><td><em>K00004</em></td>
+<td>0.2</td>
+<td>0.1</td>
+<td>0.2</td>
+</tr>
+<tr class="row-even"><td><em>K00005</em></td>
+<td>0.2</td>
+<td>0.1</td>
+<td>0.2</td>
+</tr>
+<tr class="row-odd"><td><em>K00006</em></td>
+<td>0.1</td>
+<td>0.5</td>
+<td>0.2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="format-of-genome-content-file">
+<h2>Format of genome content file<a class="headerlink" href="#format-of-genome-content-file" title="Permalink to this headline">¶</a></h2>
+<p>A tab-delimited file (with headers), where each row is a taxon and each column is a function,
+and each cell represents the copy number of the function in the genome of the taxon:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Taxa</th>
+<th class="head">K00001</th>
+<th class="head">K00002</th>
+<th class="head">K00003</th>
+<th class="head">K00004</th>
+<th class="head">K00005</th>
+<th class="head">K00006</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><em>Taxon1</em></td>
+<td>1</td>
+<td>2</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td><em>Taxon1</em></td>
+<td>0</td>
+<td>3</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td><em>Taxon1</em></td>
+<td>2</td>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+<td>3</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td><em>Taxon1</em></td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+<td>0</td>
+<td>3</td>
+<td>2</td>
 </tr>
 </tbody>
 </table>
@@ -129,7 +242,7 @@
           </div>
           <div role="note" aria-label="source link">
               <br/>
-              <a href="_sources/file_format_taxa_abun.txt"
+              <a href="_sources/fishtaco_file_formats.txt"
                 rel="nofollow">Show Source</a>
           </div>
         </div>
