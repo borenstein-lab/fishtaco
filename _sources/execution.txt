@@ -97,6 +97,11 @@ FishTaco Output Files
 
 Main output files
 ^^^^^^^^^^^^^^^^^
+``fishtaco_out_main_output_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab``
+    contains the taxon-level decomposition of shift scores for the differentially abundant functions. 
+
+Additional output files
+^^^^^^^^^^^^^^^^^^^^^^^
 
 ``fishtaco_out_STAT_taxa_contributions_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab``
     contains the final taxon-level contribution score for every differentially abundant(shifted) function in the input data, as calculated by FishTaco
@@ -106,10 +111,6 @@ Main output files
 
 ``fishtaco_out_STAT_DA_taxa_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab``
     contains statistics regarding the differential abundance for each taxa in the input file
-
-
-Additional output files
-^^^^^^^^^^^^^^^^^^^^^^^
 
 ``fishtaco_out_STAT_mean_stat_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab``
     contains the mean taxon-level contribution score for every differentially abundant(shifted) function in the input data (in default settings, this is equal to the final score)
