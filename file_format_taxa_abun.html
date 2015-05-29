@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Search &mdash; FiShTaCo 1.0.0 documentation</title>
+    <title>FishTaco file formats &mdash; FiShTaCo 1.0.0 documentation</title>
     
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,15 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/searchtools.js"></script>
-    <link rel="top" title="FiShTaCo 1.0.0 documentation" href="index.html" />
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
-   
-
+    <link rel="top" title="FiShTaCo 1.0.0 documentation" href="index.html" /> 
   </head>
   <body role="document">
     <div class="header-wrapper" role="banner">
@@ -53,29 +45,51 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <h1 id="search-documentation">Search</h1>
-  <div id="fallback" class="admonition warning">
-  <script type="text/javascript">$('#fallback').hide();</script>
-  <p>
-    Please activate JavaScript to enable the search
-    functionality.
-  </p>
-  </div>
-  <p>
-    From here you can search these documents. Enter your search
-    words into the box below and click "search". Note that the search
-    function will automatically search for all of the words. Pages
-    containing fewer words won't appear in the result list.
-  </p>
-  <form action="" method="get">
-    <input type="text" name="q" value="" />
-    <input type="submit" value="search" />
-    <span id="search-progress" style="padding-left: 10px"></span>
-  </form>
-  
-  <div id="search-results">
-  
-  </div>
+  <div class="section" id="fishtaco-file-formats">
+<h1>FishTaco file formats<a class="headerlink" href="#fishtaco-file-formats" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="format-of-taxa-abundance-file">
+<h2>Format of taxa abundance file<a class="headerlink" href="#format-of-taxa-abundance-file" title="Permalink to this headline">¶</a></h2>
+<p>A tab-delimited file where each row is a taxon and each column is a sample (with headers):</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="24%" />
+<col width="24%" />
+<col width="24%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Taxa</th>
+<th class="head">Sample1</th>
+<th class="head">Sample2</th>
+<th class="head">Sample3</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><em>Taxon1</em></td>
+<td>0.2</td>
+<td>0.5</td>
+<td>0.1</td>
+</tr>
+<tr class="row-odd"><td><em>Taxon2</em></td>
+<td>0.3</td>
+<td>0.1</td>
+<td>0.7</td>
+</tr>
+<tr class="row-even"><td><em>Taxon3</em></td>
+<td>0.3</td>
+<td>0.2</td>
+<td>0.1</td>
+</tr>
+<tr class="row-odd"><td><em>Taxon4</em></td>
+<td>0.2</td>
+<td>0.2</td>
+<td>0.1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
 
           </div>
         </div>
@@ -91,7 +105,7 @@
 
           <div role="search">
             <h3 style="margin-top: 1.5em;">Search</h3>
-            <form class="search" action="#" method="get">
+            <form class="search" action="search.html" method="get">
                 <input type="text" name="q" />
                 <input type="submit" value="Go" />
                 <input type="hidden" name="check_keywords" value="yes" />
@@ -114,6 +128,9 @@
               >index</a>
           </div>
           <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/file_format_taxa_abun.txt"
+                rel="nofollow">Show Source</a>
           </div>
         </div>
 

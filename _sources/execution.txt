@@ -1,7 +1,7 @@
-FishTaco API via the command line
-=================================
+Using FishTaco via the command line
+===================================
 .. index:: Execution
-The FishTaco module handles all calculations internally.
+The FishTaco python module handles all calculations internally.
 FishTaco offers an interface to the FishTaco functionality via the command line and the run_fishtaco.py script.
 
 Usage
@@ -13,7 +13,7 @@ Required arguments
 ------------------
 
 ``-ta, --taxa_abundance TAXA_ABUN_FILE``
-    Input file of taxa abundance
+    Input file of taxa abundance (`format <file_format_taxa_abun.html>`_)
 
 ``-fu, --function_abundance FUNCTION_ABUN_FILE``
     Input file of function abundance
