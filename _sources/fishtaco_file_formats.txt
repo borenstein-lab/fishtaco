@@ -39,7 +39,7 @@ Class label file
 
 A tab-delimited file (with headers), with two columns, where each row is a sample the value is the class label:
 
-========   ========
+=========  ========
 Sample      Label
 =========  ========
 *Sample1*     1
