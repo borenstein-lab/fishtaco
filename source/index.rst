@@ -28,8 +28,6 @@ Table of contents
    execution
    visualization
 
-
-
 ==================
 Citing Information
 ==================
