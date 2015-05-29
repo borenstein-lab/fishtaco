@@ -1,4 +1,5 @@
 table.center-align {
     text-align: center;
+    border-collapse: collapse;
     border: none;
 }
