@@ -1,6 +1,7 @@
 Using FishTaco via the command line
 ===================================
 .. index:: Execution
+
 The FishTaco python module handles all calculations internally.
 FishTaco offers an interface to the FishTaco functionality via the command line and the run_fishtaco.py script.
 
@@ -98,7 +99,7 @@ FishTaco Output Files
 Main output files
 ^^^^^^^^^^^^^^^^^
 ``fishtaco_out_main_output_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab``
-    contains the taxon-level decomposition of shift scores for the differentially abundant functions. 
+    contains the taxon-level decomposition of shift scores for the differentially abundant functions.
 
 Additional output files
 ^^^^^^^^^^^^^^^^^^^^^^^
