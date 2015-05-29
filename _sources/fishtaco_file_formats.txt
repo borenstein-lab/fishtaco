@@ -10,14 +10,14 @@ and each cell represents the relative abundance of the taxon in the sample:
 
 .. rst-class:: center-align
 
-========  ======== ======== ========
-  Taxa    Sample1  Sample2  Sample3
-========  ======== ======== ========
-*Taxon1*    0.2    0.5      0.1
-*Taxon2*    0.3    0.1      0.7
-*Taxon3*    0.3    0.2      0.1
-*Taxon4*    0.2    0.2      0.1
-========  ======== ======== ========
+==========  ======== ======== ========
+  Taxa      Sample1  Sample2  Sample3
+==========  ======== ======== ========
+**Taxon1**    0.2    0.5      0.1
+**Taxon2**    0.3    0.1      0.7
+**Taxon3**    0.3    0.2      0.1
+**Taxon4**    0.2    0.2      0.1
+==========  ======== ======== ========
 
 Function abundance file
 ---------------------------------
