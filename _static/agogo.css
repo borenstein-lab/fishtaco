@@ -506,6 +506,10 @@ div.code-block-caption {
     color: #333;
     padding: 2px 5px;
     font-size: small;
-}table.right-align-right-col td:last-child {
-    text-align: right
+}
+
+/* -- my additions ohad manor ---------------------------------------------------- */
+
+table.center-align {
+    text-align: center
 }
