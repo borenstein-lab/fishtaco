@@ -8,7 +8,7 @@ Taxa abundance file
 A tab-delimited file (with headers), where each row is a taxon and each column is a sample,
 and each cell represents the relative abundance of the taxon in the sample:
 
-.. rst-class:: right-align-right-col
+.. rst-class:: center-align
 
 ========  ======== ======== ========
   Taxa    Sample1  Sample2  Sample3
@@ -24,6 +24,8 @@ Function abundance file
 
 A tab-delimited file (with headers), where each row is a function (e.g., KO) and each column is a sample,
 and each cell represents the relative abundance of the function in the sample:
+
+.. rst-class:: center-align
 
 ========  ======== ======== ========
 Function  Sample1  Sample2  Sample3
@@ -41,6 +43,8 @@ Class label file
 
 A tab-delimited file (with headers), with two columns, where each row is a sample the value is the class label:
 
+.. rst-class:: center-align
+
 =========  ========
 Sample      Label
 =========  ========
@@ -55,6 +59,8 @@ Genome content file
 
 A tab-delimited file (with headers), where each row is a taxon and each column is a function,
 and each cell represents the copy number of the function in the genome of the taxon:
+
+.. rst-class:: center-align
 
 ========  ======== ======== ======== ======== ======== ========
 Taxa       K00001   K00002  K00003    K00004    K00005  K00006

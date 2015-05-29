@@ -507,9 +507,3 @@ div.code-block-caption {
     padding: 2px 5px;
     font-size: small;
 }
-
-/* -- my additions ohad manor ---------------------------------------------------- */
-
-table.center-align {
-    text-align: center
-}
