@@ -32,7 +32,7 @@ Optional arguments
 
 
 Additional arguments
-------------------
+--------------------
 
 ``-h, --help``
     show help message and exit
