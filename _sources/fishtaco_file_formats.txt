@@ -5,7 +5,7 @@ FishTaco file formats
 Taxa abundance file
 -----------------------------
 
-A tab-delimited file (with headers), where each row is a taxon and each column is a sample,
+A tab-delimited text file (with headers), where each row is a taxon and each column is a sample,
 and each cell represents the relative abundance of the taxon in the sample:
 
 .. rst-class:: center-align
@@ -22,7 +22,7 @@ and each cell represents the relative abundance of the taxon in the sample:
 Function abundance file
 ---------------------------------
 
-A tab-delimited file (with headers), where each row is a function (e.g., KO) and each column is a sample,
+A tab-delimited text file (with headers), where each row is a function (e.g., KO) and each column is a sample,
 and each cell represents the relative abundance of the function in the sample:
 
 .. rst-class:: center-align
@@ -41,7 +41,7 @@ Function     Sample1  Sample2  Sample3
 Class label file
 -----------------------------
 
-A tab-delimited file (with headers), with two columns, where each row is a sample the value is the class label:
+A tab-delimited text file (with headers), with two columns, where each row is a sample the value is the class label:
 
 .. rst-class:: center-align
 
@@ -57,7 +57,7 @@ Sample        Label
 Genome content file
 -----------------------------
 
-A tab-delimited file (with headers), where each row is a taxon and each column is a function,
+A tab-delimited text file (with headers), where each row is a taxon and each column is a function,
 and each cell represents the copy number of the function in the genome of the taxon:
 
 .. rst-class:: center-align

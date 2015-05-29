@@ -1,6 +1,4 @@
-table.center-align td {
-    text-align: center
-}
-table.center-align tr {
-    text-align: center
+table.center-align {
+    text-align: center;
+    border: none;
 }
