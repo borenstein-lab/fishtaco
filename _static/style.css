@@ -1,3 +1,6 @@
 table.center-align td {
     text-align: center
 }
+table.center-align tr {
+    text-align: center
+}
