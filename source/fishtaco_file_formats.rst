@@ -8,6 +8,8 @@ Taxa abundance file
 A tab-delimited file (with headers), where each row is a taxon and each column is a sample,
 and each cell represents the relative abundance of the taxon in the sample:
 
+.. rst-class:: right-align-right-col
+
 ========  ======== ======== ========
   Taxa    Sample1  Sample2  Sample3
 ========  ======== ======== ========
