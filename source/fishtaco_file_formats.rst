@@ -2,7 +2,7 @@ FishTaco file formats
 =====================
 
 
-Format of taxa abundance file
+Taxa abundance file
 -----------------------------
 
 A tab-delimited file (with headers), where each row is a taxon and each column is a sample,
@@ -17,7 +17,7 @@ and each cell represents the relative abundance of the taxon in the sample:
 *Taxon4*    0.2    0.2      0.1
 ========  ======== ======== ========
 
-Format of function abundance file
+Function abundance file
 ---------------------------------
 
 A tab-delimited file (with headers), where each row is a function (e.g., KO) and each column is a sample,
@@ -34,7 +34,21 @@ Function  Sample1  Sample2  Sample3
 *K00006*    0.1    0.5      0.2
 ========  ======== ======== ========
 
-Format of genome content file
+Class label file
+-----------------------------
+
+A tab-delimited file (with headers), with two columns, where each row is a sample the value is the class label:
+
+========  ========
+Sample      Label
+========  ========
+*Sample1*    1
+*Sample2*    0
+*Sample3*    1
+========  ========
+
+
+Genome content file
 -----------------------------
 
 A tab-delimited file (with headers), where each row is a taxon and each column is a function,
