@@ -1,5 +1,5 @@
 table.center-align {
     text-align: center;
     border-collapse: collapse;
-    border: none;
+    border: 1px solid white;
 }
