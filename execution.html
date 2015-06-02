@@ -74,30 +74,34 @@ FishTaco offers an interface to the FishTaco functionality via the command line 
 compared classes (<a class="reference external" href="fishtaco_file_formats.html">format</a>)</dd>
 </dl>
 </div>
-<div class="section" id="optional-arguments">
-<h2>Optional arguments<a class="headerlink" href="#optional-arguments" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="recommended-arguments">
+<h2>Recommended arguments<a class="headerlink" href="#recommended-arguments" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt><code class="docutils literal"><span class="pre">-t2f,</span> <span class="pre">--taxa_to_function</span> <span class="pre">TAXA_TO_FUNCTION_FILE</span></code></dt>
 <dd>Input file of mapping from taxa to functions (<a class="reference external" href="fishtaco_file_formats.html">format</a>)</dd>
-</dl>
-</div>
-<div class="section" id="additional-arguments">
-<h2>Additional arguments<a class="headerlink" href="#additional-arguments" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt><code class="docutils literal"><span class="pre">-h,</span> <span class="pre">--help</span></code></dt>
-<dd>show help message and exit</dd>
 <dt><code class="docutils literal"><span class="pre">-control_label</span> <span class="pre">LABEL</span></code></dt>
 <dd>Define control label (default: 0)</dd>
 <dt><code class="docutils literal"><span class="pre">-case_label</span> <span class="pre">LABEL</span></code></dt>
 <dd>Define case label (default: 1)</dd>
 <dt><code class="docutils literal"><span class="pre">-op,</span> <span class="pre">--output_prefix</span> <span class="pre">OUTPUT_PREF</span></code></dt>
 <dd>Output prefix for result files (default: fishtaco_out)</dd>
+<dt><code class="docutils literal"><span class="pre">-map_function_level</span> <span class="pre">FUNC_LEVEL</span></code></dt>
+<dd>Map KOs to pathways, modules, or custom (default: pathway)</dd>
+</dl>
+</div>
+<div class="section" id="advanced-usage-arguments">
+<h2>Advanced usage arguments<a class="headerlink" href="#advanced-usage-arguments" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">-map_function_file</span> <span class="pre">FUNC_LEVEL_MAP_FILE</span></code></dt>
+<dd>Mapping file from KOs to pathways, modules, or custom (default: use KEGG database downloaded 07/15/2013)</dd>
 <dt><code class="docutils literal"><span class="pre">-da,</span> <span class="pre">--da_results</span> <span class="pre">DA_RESULT_FILE</span></code></dt>
 <dd>Pre-computed DA results from the compute_differential_abundance.py script (default: None)</dd>
 <dt><code class="docutils literal"><span class="pre">-function_da_threshold</span> <span class="pre">{Bonf,</span> <span class="pre">FDR-0.01,</span> <span class="pre">FDR-0.05,</span> <span class="pre">FDR-0.1,</span> <span class="pre">None}</span></code></dt>
 <dd>Differential abundance threshold (default: None)</dd>
 <dt><code class="docutils literal"><span class="pre">-max_da,</span> <span class="pre">--max_da_functions</span> <span class="pre">MAX_DA_FUNCTIONS_CASES_CONTROLS</span></code></dt>
 <dd>Maximum number of differential abundant functions to consider (default: None)</dd>
+<dt><code class="docutils literal"><span class="pre">-decompose_for,</span> <span class="pre">--decompose_shift_for_enrichment_in</span> <span class="pre">DECOMPOSE_FOR</span></code></dt>
+<dd>Decompose the shifts for functions enriched in this set (default: cases)</dd>
 <dt><code class="docutils literal"><span class="pre">-assessment,</span> <span class="pre">--taxa_assessment_method</span> <span class="pre">{separate_i,</span> <span class="pre">permute_all_but_i,</span> <span class="pre">permute_only_i,</span> <span class="pre">permuted_shapley_orderings}</span></code></dt>
 <dd>The method used when assessing taxa to compute score (default: permuted_shapley_orderings)</dd>
 <dt><code class="docutils literal"><span class="pre">-score,</span> <span class="pre">--score_to_compute</span> <span class="pre">{t_test,</span> <span class="pre">mean_diff,</span> <span class="pre">median_diff,</span> <span class="pre">wilcoxon,</span> <span class="pre">log_mean_ratio}</span></code></dt>
@@ -120,6 +124,8 @@ compared classes (<a class="reference external" href="fishtaco_file_formats.html
 <dd>How to permute the taxa across samples (default: independent)</dd>
 <dt><code class="docutils literal"><span class="pre">-single_function_filter</span> <span class="pre">SINGLE_FUNCTION_FILTER</span></code></dt>
 <dd>Limit analysis to this single function (default: All)</dd>
+<dt><code class="docutils literal"><span class="pre">-h,</span> <span class="pre">--help</span></code></dt>
+<dd>show help message and exit</dd>
 <dt><code class="docutils literal"><span class="pre">-log,</span> <span class="pre">--log</span></code></dt>
 <dd>Write to log file (default: False)</dd>
 </dl>
@@ -133,8 +139,8 @@ compared classes (<a class="reference external" href="fishtaco_file_formats.html
 <dd>contains the taxon-level decomposition of shift scores for the differentially abundant functions.</dd>
 </dl>
 </div>
-<div class="section" id="additional-output-files">
-<h3>Additional output files<a class="headerlink" href="#additional-output-files" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="supporting-stats-output-files">
+<h3>Supporting stats output files<a class="headerlink" href="#supporting-stats-output-files" title="Permalink to this headline">¶</a></h3>
 <dl class="docutils">
 <dt><code class="docutils literal"><span class="pre">fishtaco_out_STAT_taxa_contributions_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt>
 <dd>contains the final taxon-level contribution score for every differentially abundant(shifted) function in the input data, as calculated by FishTaco</dd>

@@ -24,19 +24,11 @@ Required arguments
     compared classes (`format <fishtaco_file_formats.html>`_)
 
 
-Optional arguments
-------------------
+Recommended arguments
+---------------------
 
 ``-t2f, --taxa_to_function TAXA_TO_FUNCTION_FILE``
     Input file of mapping from taxa to functions (`format <fishtaco_file_formats.html>`_)
-
-
-Additional arguments
---------------------
-
-``-h, --help``
-    show help message and exit
-
 
 ``-control_label LABEL``
     Define control label (default: 0)
@@ -47,6 +39,16 @@ Additional arguments
 ``-op, --output_prefix OUTPUT_PREF``
     Output prefix for result files (default: fishtaco_out)
 
+``-map_function_level FUNC_LEVEL``
+    Map KOs to pathways, modules, or custom (default: pathway)
+
+
+Advanced usage arguments
+------------------------
+
+``-map_function_file FUNC_LEVEL_MAP_FILE``
+    Mapping file from KOs to pathways, modules, or custom (default: use KEGG database downloaded 07/15/2013)
+
 ``-da, --da_results DA_RESULT_FILE``
     Pre-computed DA results from the compute_differential_abundance.py script (default: None)
 
@@ -55,6 +57,9 @@ Additional arguments
 
 ``-max_da, --max_da_functions MAX_DA_FUNCTIONS_CASES_CONTROLS``
     Maximum number of differential abundant functions to consider (default: None)
+
+``-decompose_for, --decompose_shift_for_enrichment_in DECOMPOSE_FOR``
+    Decompose the shifts for functions enriched in this set (default: cases)
 
 ``-assessment, --taxa_assessment_method {separate_i, permute_all_but_i, permute_only_i, permuted_shapley_orderings}``
     The method used when assessing taxa to compute score (default: permuted_shapley_orderings)
@@ -89,6 +94,9 @@ Additional arguments
 ``-single_function_filter SINGLE_FUNCTION_FILTER``
     Limit analysis to this single function (default: All)
 
+``-h, --help``
+    show help message and exit
+
 ``-log, --log``
     Write to log file (default: False)
 
@@ -101,8 +109,8 @@ Main output files
 ``fishtaco_out_main_output_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab``
     contains the taxon-level decomposition of shift scores for the differentially abundant functions.
 
-Additional output files
-^^^^^^^^^^^^^^^^^^^^^^^
+Supporting stats output files
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ``fishtaco_out_STAT_taxa_contributions_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab``
     contains the final taxon-level contribution score for every differentially abundant(shifted) function in the input data, as calculated by FishTaco
