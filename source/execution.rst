@@ -46,6 +46,12 @@ Recommended arguments
 Advanced usage arguments
 ------------------------
 
+``-normalize_taxa_to_relative CHOICE``
+    Normalize the taxonomic profile to relative abundances per sample (default: true)
+
+``-correct_function_with_musicc CHOICE``
+    Correct the functional profile with the MUSiCC tool (default: true)
+
 ``-map_function_file FUNC_LEVEL_MAP_FILE``
     Mapping file from KOs to pathways, modules, or custom (default: use KEGG database downloaded 07/15/2013)
 

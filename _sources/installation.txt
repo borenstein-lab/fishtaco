@@ -6,14 +6,15 @@ Prerequisites for installation
 
 In order for FishTaco to run successfully, the following Python modules should be pre-installed on your system:
 
-- Numpy >= 1.6.1 (http://www.numpy.org/)
-- Scipy >= 0.9 (http://www.scipy.org/)
-- Scikit-learn >= 0.15.2 (http://scikit-learn.org/stable/)
-- Pandas >= 0.14 (http://pandas.pydata.org/)
+- Numpy >= 1.6.1 (`<http://www.numpy.org/>`_)
+- Scipy >= 0.9 (`<http://www.scipy.org/>`_)
+- Scikit-learn >= 0.15.2 (`<http://scikit-learn.org/stable/>`_)
+- Pandas >= 0.14 (`<http://pandas.pydata.org/>`_)
+- MUSiCC >= 1.0 (`<https://github.com/omanor/MUSiCC>`_)
 
 If you have *pip* installed, you can install these packages by running the following command:
 
-``pip install -U numpy scipy scikit-learn pandas``
+``pip install -U numpy scipy scikit-learn pandas MUSiCC``
 
 Installing FishTaco
 -------------------
