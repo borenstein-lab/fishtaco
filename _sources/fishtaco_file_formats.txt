@@ -77,7 +77,9 @@ FishTaco output file
 
 A tab-delimited text file (with headers), where each row is a taxon and each column is a function,
 and each cell represents the mode and value of contribution to the observed functional shift:
+
 |
+
 .. rst-class:: center-align
 
 ==========  ======== ======== ======== ======== ======== ========
@@ -88,7 +90,9 @@ Taxa         K00001   K00002  K00003    K00004   K00005   K00006
 **Taxon3**  b:-0.008 b:-0.015 a:0.03   c:0.0008 d:-0.009 d:-0.011
 **Taxon4**  a:0.048  d:-0.061 b:-0.004 a:0.019  c:4.996  c:0.045
 ==========  ======== ======== ======== ======== ======== ========
+
 |
+
 **a**:case-associated and driving case-enrichment; **b**:case-associated and reducing case-enrichment;
 **c**:control-associated and driving case-enrichment; **d**:control-associated and reducing case-enrichment;
 
