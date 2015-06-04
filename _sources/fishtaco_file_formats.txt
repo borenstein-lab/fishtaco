@@ -57,7 +57,7 @@ Function     Sample1  Sample2  Sample3
 Sample sets labels file
 -----------------------
 
-A tab-delimited text file (with headers), with two columns, where each row is a sample the value is the class label:
+A tab-delimited text file (with headers), with two columns, where each row is a sample the value is the sample label:
 
 .. raw:: html
 
@@ -128,8 +128,8 @@ Taxa         K00001   K00002  K00003    K00004   K00005   K00006
 
     <br>
 
-**a**:case-associated and driving case-enrichment; **b**:case-associated and reducing case-enrichment;
-**c**:control-associated and driving case-enrichment; **d**:control-associated and reducing case-enrichment;
+**a**: case-associated and driving case-enrichment; **b**: case-associated and reducing case-enrichment;
+**c**: control-associated and driving case-enrichment; **d**: control-associated and reducing case-enrichment
 
 .. raw:: html
 
