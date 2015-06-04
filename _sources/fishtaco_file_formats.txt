@@ -90,6 +90,7 @@ Taxa         K00001   K00002  K00003    K00004   K00005   K00006
 ==========  ======== ======== ======== ======== ======== ========
 
 .. raw:: html
+
     <br>
 
 **a**:case-associated and driving case-enrichment; **b**:case-associated and reducing case-enrichment;
