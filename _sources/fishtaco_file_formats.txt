@@ -1,11 +1,11 @@
 FishTaco file formats
 =====================
 
-.. container:: formats
-    :name: taxa_abun
-
 Taxa abundance file
 -----------------------------
+
+.. container:: formats
+    :name: taxa_abun
 
 A tab-delimited text file (with headers), where each row is a taxon and each column is a sample,
 and each cell represents the relative abundance of the taxon in the sample:
