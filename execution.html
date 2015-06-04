@@ -68,17 +68,16 @@ FishTaco offers an interface to the FishTaco functionality via the command line 
 <dt><code class="docutils literal"><span class="pre">-ta,</span> <span class="pre">--taxa_abundance</span> <span class="pre">TAXA_ABUN_FILE</span></code></dt>
 <dd>Input file of taxonomic abundance profiles (<a class="reference external" href="fishtaco_file_formats.html#taxa-abundance-file">format</a>)</dd>
 <dt><code class="docutils literal"><span class="pre">-fu,</span> <span class="pre">--function_abundance</span> <span class="pre">FUNCTION_ABUN_FILE</span></code></dt>
-<dd>Input file of function abundance (<a class="reference external" href="fishtaco_file_formats.html">format</a>)</dd>
-<dt><code class="docutils literal"><span class="pre">-c,</span> <span class="pre">--class</span> <span class="pre">CLASS_FILE</span></code></dt>
-<dd>Input file of class assignment for the two different
-compared classes (<a class="reference external" href="fishtaco_file_formats.html">format</a>)</dd>
+<dd>Input file of function abundance (<a class="reference external" href="fishtaco_file_formats.html#function-abundance-file">format</a>)</dd>
+<dt><code class="docutils literal"><span class="pre">-l,</span> <span class="pre">--labels</span> <span class="pre">LABELS_FILE</span></code></dt>
+<dd>Input file of label assignment for the two sample sets being compared (<a class="reference external" href="fishtaco_file_formats.html#sample-sets-labels-file">format</a>)</dd>
 </dl>
 </div>
 <div class="section" id="recommended-arguments">
 <h2>Recommended arguments<a class="headerlink" href="#recommended-arguments" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt><code class="docutils literal"><span class="pre">-t2f,</span> <span class="pre">--taxa_to_function</span> <span class="pre">TAXA_TO_FUNCTION_FILE</span></code></dt>
-<dd>Input file of mapping from taxa to functions (<a class="reference external" href="fishtaco_file_formats.html">format</a>)</dd>
+<dt><code class="docutils literal"><span class="pre">-gc,</span> <span class="pre">--genomic_content_of_taxa</span> <span class="pre">GENOMIC_CONTENT_FILE</span></code></dt>
+<dd>Input file of genomic content of each taxa (<a class="reference external" href="fishtaco_file_formats.html#genomic-content-file">format</a>)</dd>
 <dt><code class="docutils literal"><span class="pre">-control_label</span> <span class="pre">LABEL</span></code></dt>
 <dd>Define control label (default: 0)</dd>
 <dt><code class="docutils literal"><span class="pre">-case_label</span> <span class="pre">LABEL</span></code></dt>
@@ -138,7 +137,7 @@ compared classes (<a class="reference external" href="fishtaco_file_formats.html
 <h3>Main output files<a class="headerlink" href="#main-output-files" title="Permalink to this headline">¶</a></h3>
 <dl class="docutils">
 <dt><code class="docutils literal"><span class="pre">fishtaco_out_main_output_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt>
-<dd>contains the taxon-level decomposition of shift scores for the differentially abundant functions.</dd>
+<dd>contains the taxon-level decomposition of shift scores for the differentially abundant functions. (<a class="reference external" href="fishtaco_file_formats.html#fishtaco-output-file">format</a>)</dd>
 </dl>
 </div>
 <div class="section" id="supporting-stats-output-files">

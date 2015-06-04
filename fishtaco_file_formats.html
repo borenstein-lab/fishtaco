@@ -144,8 +144,8 @@ and each cell represents the relative abundance of the function in the sample:</
 </tbody>
 </table>
 </div>
-<div class="section" id="class-label-file">
-<h2>Class label file<a class="headerlink" href="#class-label-file" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sample-sets-labels-file">
+<h2>Sample sets labels file<a class="headerlink" href="#sample-sets-labels-file" title="Permalink to this headline">¶</a></h2>
 <p>A tab-delimited text file (with headers), with two columns, where each row is a sample the value is the class label:</p>
 <table border="1" class="center-align docutils">
 <colgroup>
@@ -170,8 +170,8 @@ and each cell represents the relative abundance of the function in the sample:</
 </tbody>
 </table>
 </div>
-<div class="section" id="genome-content-file">
-<h2>Genome content file<a class="headerlink" href="#genome-content-file" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="genomic-content-file">
+<h2>Genomic content file<a class="headerlink" href="#genomic-content-file" title="Permalink to this headline">¶</a></h2>
 <p>A tab-delimited text file (with headers), where each row is a taxon and each column is a function,
 and each cell represents the copy number of the function in the genome of the taxon:</p>
 <table border="1" class="center-align docutils">
@@ -229,6 +229,69 @@ and each cell represents the copy number of the function in the genome of the ta
 </tr>
 </tbody>
 </table>
+</div>
+<div class="section" id="fishtaco-output-file">
+<h2>FishTaco output file<a class="headerlink" href="#fishtaco-output-file" title="Permalink to this headline">¶</a></h2>
+<p>A tab-delimited text file (with headers), where each row is a taxon and each column is a function,
+and each cell represents the mode and value of contribution to the observed functional shift:</p>
+<table border="1" class="center-align docutils">
+<colgroup>
+<col width="17%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Taxa</th>
+<th class="head">K00001</th>
+<th class="head">K00002</th>
+<th class="head">K00003</th>
+<th class="head">K00004</th>
+<th class="head">K00005</th>
+<th class="head">K00006</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>Taxon1</strong></td>
+<td>a:0.038</td>
+<td>a:0.4</td>
+<td>c:0.01</td>
+<td>c:0.34</td>
+<td>b:-0.004</td>
+<td>d:-0.01</td>
+</tr>
+<tr class="row-odd"><td><strong>Taxon2</strong></td>
+<td>c:0.293</td>
+<td>b:-0.03</td>
+<td>d:-0.002</td>
+<td>c:0.003</td>
+<td>a:0.0631</td>
+<td>a:0.2139</td>
+</tr>
+<tr class="row-even"><td><strong>Taxon3</strong></td>
+<td>b:-0.008</td>
+<td>b:-0.015</td>
+<td>a:0.03</td>
+<td>c:0.0008</td>
+<td>d:-0.009</td>
+<td>d:-0.011</td>
+</tr>
+<tr class="row-odd"><td><strong>Taxon4</strong></td>
+<td>a:0.048</td>
+<td>d:-0.061</td>
+<td>b:-0.004</td>
+<td>a:0.019</td>
+<td>c:4.996</td>
+<td>c:0.045</td>
+</tr>
+</tbody>
+</table>
+<p><strong>LEGEND</strong>:
+<em>a</em>:case-associated and driving case-enrichment; <em>b</em>:case-associated and reducing case-enrichment;
+<em>c</em>:control-associated and driving case-enrichment; <em>d</em>:control-associated and reducing case-enrichment;</p>
 </div>
 </div>
 

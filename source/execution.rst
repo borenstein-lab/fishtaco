@@ -17,18 +17,17 @@ Required arguments
     Input file of taxonomic abundance profiles (`format <fishtaco_file_formats.html#taxa-abundance-file>`_)
 
 ``-fu, --function_abundance FUNCTION_ABUN_FILE``
-    Input file of function abundance (`format <fishtaco_file_formats.html>`_)
+    Input file of function abundance (`format <fishtaco_file_formats.html#function-abundance-file>`_)
 
-``-c, --class CLASS_FILE``
-    Input file of class assignment for the two different
-    compared classes (`format <fishtaco_file_formats.html>`_)
+``-l, --labels LABELS_FILE``
+    Input file of label assignment for the two sample sets being compared (`format <fishtaco_file_formats.html#sample-sets-labels-file>`_)
 
 
 Recommended arguments
 ---------------------
 
-``-t2f, --taxa_to_function TAXA_TO_FUNCTION_FILE``
-    Input file of mapping from taxa to functions (`format <fishtaco_file_formats.html>`_)
+``-gc, --genomic_content_of_taxa GENOMIC_CONTENT_FILE``
+    Input file of genomic content of each taxa (`format <fishtaco_file_formats.html#genomic-content-file>`_)
 
 ``-control_label LABEL``
     Define control label (default: 0)
@@ -110,7 +109,7 @@ FishTaco Output Files
 Main output files
 ^^^^^^^^^^^^^^^^^
 ``fishtaco_out_main_output_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab``
-    contains the taxon-level decomposition of shift scores for the differentially abundant functions.
+    contains the taxon-level decomposition of shift scores for the differentially abundant functions. (`format <fishtaco_file_formats.html#fishtaco-output-file>`_)
 
 Supporting stats output files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
