@@ -7,6 +7,10 @@ Taxa abundance file
 A tab-delimited text file (with headers), where each row is a taxon and each column is a sample,
 and each cell represents the relative abundance of the taxon in the sample:
 
+.. raw:: html
+
+    <br>
+
 .. rst-class:: center-align
 
 ==========  ======== ======== ========
@@ -18,11 +22,20 @@ and each cell represents the relative abundance of the taxon in the sample:
 **Taxon4**    0.2    0.2      0.1
 ==========  ======== ======== ========
 
+.. raw:: html
+
+    <br><br><br>
+
+
 Function abundance file
 -----------------------
 
 A tab-delimited text file (with headers), where each row is a function (e.g., KO) and each column is a sample,
 and each cell represents the relative abundance of the function in the sample:
+
+.. raw:: html
+
+    <br>
 
 .. rst-class:: center-align
 
@@ -37,10 +50,18 @@ Function     Sample1  Sample2  Sample3
 **K00006**    0.1    0.5      0.2
 ==========  ======== ======== ========
 
+.. raw:: html
+
+    <br><br><br>
+
 Sample sets labels file
 -----------------------
 
 A tab-delimited text file (with headers), with two columns, where each row is a sample the value is the class label:
+
+.. raw:: html
+
+    <br>
 
 .. rst-class:: center-align
 
@@ -52,12 +73,19 @@ Sample        Label
 **Sample3**     1
 ===========  ========
 
+.. raw:: html
+
+    <br><br><br>
 
 Genomic content file
 --------------------
 
 A tab-delimited text file (with headers), where each row is a taxon and each column is a function,
 and each cell represents the copy number of the function in the genome of the taxon:
+
+.. raw:: html
+
+    <br>
 
 .. rst-class:: center-align
 
@@ -70,6 +98,9 @@ Taxa         K00001   K00002  K00003    K00004    K00005  K00006
 **Taxon4**    0       0           2        0       3          2
 ==========  ======== ======== ======== ======== ======== ========
 
+.. raw:: html
+
+    <br><br><br>
 
 
 FishTaco output file
@@ -77,6 +108,10 @@ FishTaco output file
 
 A tab-delimited text file (with headers), where each row is a taxon and each column is a function,
 and each cell represents the mode and value of contribution to the observed functional shift:
+
+.. raw:: html
+
+    <br>
 
 .. rst-class:: center-align
 
