@@ -89,30 +89,24 @@ Taxa         K00001   K00002  K00003    K00004   K00005   K00006
 **Taxon4**  a:0.048  d:-0.061 b:-0.004 a:0.019  c:4.996  c:0.045
 ==========  ======== ======== ======== ======== ======== ========
 |
-|
 **a**:case-associated and driving case-enrichment; **b**:case-associated and reducing case-enrichment;
 **c**:control-associated and driving case-enrichment; **d**:control-associated and reducing case-enrichment;
 |
+
 |
+
 |
+
 |
+
 |
+
 |
+
 |
+
 |
-|
-|
-|
-|
-|
-|
-|
-|
-|
-|
-|
-|
-|
+
 |
 
 
