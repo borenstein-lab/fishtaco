@@ -14,7 +14,7 @@ Required arguments
 ------------------
 
 ``-ta, --taxa_abundance TAXA_ABUN_FILE``
-    Input file of taxonomic abundance profiles (`format <fishtaco_file_formats.html#taxa_abun>`_)
+    Input file of taxonomic abundance profiles (`format <fishtaco_file_formats.html#taxa-abundance-file>`_)
 
 ``-fu, --function_abundance FUNCTION_ABUN_FILE``
     Input file of function abundance (`format <fishtaco_file_formats.html>`_)
