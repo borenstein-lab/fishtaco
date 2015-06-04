@@ -1,6 +1,8 @@
 FishTaco file formats
 =====================
 
+.. container:: formats
+    :name: taxa_abun
 
 Taxa abundance file
 -----------------------------

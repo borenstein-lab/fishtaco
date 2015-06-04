@@ -14,7 +14,7 @@ Required arguments
 ------------------
 
 ``-ta, --taxa_abundance TAXA_ABUN_FILE``
-    Input file of taxa abundance (`format <fishtaco_file_formats.html>`_)
+    Input file of taxonomic abundance profiles (`format <fishtaco_file_formats.html#taxa_abun>`_)
 
 ``-fu, --function_abundance FUNCTION_ABUN_FILE``
     Input file of function abundance (`format <fishtaco_file_formats.html>`_)
@@ -45,9 +45,6 @@ Recommended arguments
 
 Advanced usage arguments
 ------------------------
-
-``-normalize_taxa_to_relative CHOICE``
-    Normalize the taxonomic profile to relative abundances per sample (default: true)
 
 ``-correct_function_with_musicc CHOICE``
     Correct the functional profile with the MUSiCC tool (default: true)
