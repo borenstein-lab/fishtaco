@@ -38,36 +38,27 @@ Recommended arguments
 ``-op, --output_prefix OUTPUT_PREF``
     Output prefix for result files (default: fishtaco_out)
 
-``-map_function_level FUNC_LEVEL``
-    Map KOs to pathways, modules, or custom (default: pathway)
+``-map_function_level [pathway,module,none,custom]``
+    Map KOs to pathways, modules, none, or custom (default: pathway)
 
 
 Advanced usage arguments
 ------------------------
 
-``-correct_function_with_musicc CHOICE``
-    Correct the functional profile with the MUSiCC tool (default: true)
-
 ``-map_function_file FUNC_LEVEL_MAP_FILE``
     Mapping file from KOs to pathways, modules, or custom (default: use KEGG database downloaded 07/15/2013)
 
-``-da, --da_results DA_RESULT_FILE``
-    Pre-computed DA results from the compute_differential_abundance.py script (default: None)
+``-mult, --multiple_hypothesis_correction [Bonf,FDR-0.01,FDR-0.05,FDR-0.1,none]``
+    Multiple hypothesis correction for functional enrichment (default: FDR-0.05)
 
-``-function_da_threshold {Bonf, FDR-0.01, FDR-0.05, FDR-0.1, None}``
-    Differential abundance threshold (default: None)
+``-max_func, --maximum_functions_to_analyze MAX_FUNCTIONS``
+    Maximum number of enriched functions to consider (default: All)
 
-``-max_da, --max_da_functions MAX_DA_FUNCTIONS_CASES_CONTROLS``
-    Maximum number of differential abundant functions to consider (default: None)
-
-``-decompose_for, --decompose_shift_for_enrichment_in DECOMPOSE_FOR``
-    Decompose the shifts for functions enriched in this set (default: cases)
-
-``-assessment, --taxa_assessment_method {separate_i, permute_all_but_i, permute_only_i, permuted_shapley_orderings}``
+``-assessment, --taxa_assessment_method [permute_all_but_i,permuted_shapley_orderings]``
     The method used when assessing taxa to compute score (default: permuted_shapley_orderings)
 
-``-score, --score_to_compute {t_test, mean_diff, median_diff, wilcoxon, log_mean_ratio}``
-    The score to compute for each taxa (default: wilcoxon)
+``-score, --score_to_compute [t_test,mean_diff,median_diff,wilcoxon,log_mean_ratio]``
+    The enrichment score to compute for each function (default: wilcoxon)
 
 ``-max_score, --max_score_cutoff MAX_SCORE_CUTOFF``
     The maximum score cutoff (for example, when dividing by zero) (default: 100)
@@ -81,20 +72,23 @@ Advanced usage arguments
 ``-number_of_shapley_orderings_per_taxa NUMBER_OF_SHAPLEY_ORDERINGS_PER_TAXA``
     number of shapley orderings per taxa (default: 5)
 
-``-use_t2f_as_prior, --use_taxa_to_function_as_prior``
-    Learn the taxa copy number of each function, using the given taxa to function file as prior (default: False)
+``-use_gc_as_prior, --use_genomic_content_of_taxa_as_prior``
+    Learn the taxa copy number of each function, using the given genomic content data as prior (default: False)
 
-``-residual_mode {as_taxa,remove_residual,as_baseline}``
+``-residual_mode [as_taxa,remove_residual,as_baseline]``
     How to treat the residual of the functional abundance profile (default: remove_residual)
 
-``-normalization_mode {none,scale_non_permuted,scale_permuted}``
-    How to normalize the sample after permuting taxa (default: none)
+``-normalization_mode [none,scale_non_permuted,scale_permuted]``
+    How to normalize the sample after permuting taxa (default: scale_permuted)
 
-``-permutation_mode {independent,blocks}``
-    How to permute the taxa across samples (default: independent)
+``-permutation_mode [independent,blocks]``
+    How to permute the taxa across samples (default: blocks)
+
+``-en, --enrichment_results DA_RESULT_FILE``
+    Pre-computed functional enrichment results from the compute_differential_abundance.py script (default: None)
 
 ``-single_function_filter SINGLE_FUNCTION_FILTER``
-    Limit analysis to this single function (default: All)
+    Limit analysis only to this single function (default: None)
 
 ``-h, --help``
     show help message and exit
