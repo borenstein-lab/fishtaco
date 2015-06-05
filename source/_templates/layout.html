@@ -1,5 +1,12 @@
+
 {# layout.html #}
 {# Import the theme's layout. #}
+
 {% extends "!layout.html" %}
 
 {% set css_files = css_files + ['_static/style.css'] %}
+
+{# put the sidebar before the body #}
+{% block sidebar1 %}{{ sidebar() }}{% endblock %}
+{% block sidebar2 %}{% endblock %}
+
