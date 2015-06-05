@@ -107,10 +107,10 @@ pygments_style = 'sphinx'
 sys.path.append(os.path.abspath('_themes'))
 html_theme_path = ['_themes']
 html_theme = 'sphinx-theme-okfn'
-#html_theme_options = {
-#        'logo_icon': ...
-#        'google_analytics_id': ...
-#}
+html_theme_options = {
+        'logo_icon': fish.jpg,
+        'theme_git_repo': https://github.com/omanor/fishtaco
+}
 
 
 # Theme options are theme-specific and customize the look and feel of a theme
