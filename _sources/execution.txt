@@ -8,7 +8,7 @@ FishTaco offers an interface to the FishTaco functionality via the command line 
 Usage
 -----
 
-``run_fishtaco.py -ta TAXA_ABUN_FILE -fu FUNCTION_ABUN_FILE -c CLASS_FILE [options]``
+``run_fishtaco.py -ta TAXA_ABUN_FILE -fu FUNCTION_ABUN_FILE -l LABELS_FILE [options]``
 
 Required arguments
 ------------------
