@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# FiShTaCo documentation build configuration file, created by
+# FishTaco documentation build configuration file, created by
 # sphinx-quickstart on Mon Jan 26 15:16:56 2015.
 #
 # This file is execfile()d with the current directory set to its
@@ -30,6 +30,7 @@ import os
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
+    'sphinxcontrib.fulltoc'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -45,7 +46,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'FiShTaCo'
+project = u'FishTaco'
 copyright = u'2015, Ohad Manor'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -195,7 +196,7 @@ html_static_path = ['_static']
 #html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'FiShTaCodoc'
+htmlhelp_basename = 'FishTacodoc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -217,7 +218,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  ('index', 'FiShTaCo.tex', u'FiShTaCo Documentation',
+  ('index', 'FishTaco.tex', u'FiShTaCo Documentation',
    u'Ohad Manor', 'manual'),
 ]
 
@@ -247,7 +248,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'fishtaco', u'FiShTaCo Documentation',
+    ('index', 'fishtaco', u'FishTaco Documentation',
      [u'Ohad Manor'], 1)
 ]
 
@@ -261,8 +262,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'FiShTaCo', u'FiShTaCo Documentation',
-   u'Ohad Manor', 'FiShTaCo', 'One line description of project.',
+  ('index', 'FishTaco', u'FishTaco Documentation',
+   u'Ohad Manor', 'FishTaco', 'One line description of project.',
    'Miscellaneous'),
 ]
 
