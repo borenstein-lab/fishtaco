@@ -109,7 +109,7 @@ html_theme_path = ['_themes']
 html_theme = 'sphinx-theme-okfn'
 html_theme_options = {
         'logo_icon': fish.jpg,
-        'theme_git_repo': https://github.com/omanor/fishtaco
+        'git_repo': 'https://github.com/omanor/fishtaco'
 }
 
 
