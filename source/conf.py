@@ -103,7 +103,7 @@ pygments_style = 'sphinx'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'agogo'
+html_theme = 'nature'
 #sys.path.append(os.path.abspath('_themes'))
 #html_theme_path = ['_themes']
 #html_theme = 'sphinx-theme-okfn'
