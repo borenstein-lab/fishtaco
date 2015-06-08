@@ -108,6 +108,7 @@ sys.path.append(os.path.abspath('_themes'))
 html_theme_path = ['_themes']
 html_theme = 'sphinx-theme-okfn'
 html_theme_options = {
+        'show_okfn_logo': '_static/fish.jpg',
         'logo_icon': '_static/fish.jpg',
         'git_repo': 'https://github.com/omanor/fishtaco'
 }
