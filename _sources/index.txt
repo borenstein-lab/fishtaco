@@ -17,7 +17,21 @@ we observe in microbiomes of different individuals or disease states.
     :alt: alternate text
     :figclass: align-center
 
-=================
+
+==================  ===========
+Table of contents        Label
+==================  ===========
+.. toctree::
+   :maxdepth: 2
+                      dsfdsfsd
+   installation
+   execution
+   visualization
+
+==================  ===========
+
+
+
 Table of contents
 =================
 
@@ -28,7 +42,7 @@ Table of contents
    execution
    visualization
 
-==================
+
 Citing Information
 ==================
 
@@ -37,8 +51,8 @@ If you use the FishTaco software, please cite the following paper:
 **Linking taxonomic and functional metagenomic profiles to identify species driving functional shifts in the human microbiome.**
 Ohad Manor and Elhanan Borenstein. *In preparation*
 
-==================
+
 Question forum
-==================
+==============
 For FishTaco announcements and questions, including notification of new releases, you can visit the `FishTaco users forum <https://groups.google.com/forum/#!forum/fishtaco-users>`_.
 

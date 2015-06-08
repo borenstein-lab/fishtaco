@@ -105,16 +105,6 @@ pygments_style = 'sphinx'
 # a list of builtin themes.
 html_theme = 'nature'
 
-#sys.path.append(os.path.abspath('_themes'))
-#html_theme_path = ['_themes']
-#html_theme = 'sphinx-theme-okfn'
-#html_theme_options = {
-#        'show_okfn_logo': 'True',
-#        'logo_icon': '_static/fish.jpg',
-#        'git_repo': 'https://github.com/omanor/fishtaco'
-#}
-
-
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
