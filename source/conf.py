@@ -113,6 +113,10 @@ html_theme = 'better'
 # documentation.
 html_theme_options = {
     'cssfiles': ['_static/style.css'],
+    'sidebarwidth': '15rem',
+    'textcolor': '#000000',
+    'headtextcolor': '',
+    'footertextcolor': '',
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
@@ -123,7 +127,7 @@ html_theme_options = {
 #html_title = None
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
-#html_short_title = None
+html_short_title = "Home"
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
