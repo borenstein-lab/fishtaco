@@ -13,7 +13,6 @@ we observe in microbiomes of different individuals or disease states.
 .. toctree::
    :maxdepth: 2
 
-   index
    installation
    execution
    visualization
