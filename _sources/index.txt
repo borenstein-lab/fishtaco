@@ -18,20 +18,6 @@ we observe in microbiomes of different individuals or disease states.
     :figclass: align-center
 
 
-==================  ===========
-Table of contents        Label
-==================  ===========
-.. toctree::
-   :maxdepth: 2
-                      dsfdsfsd
-   installation
-   execution
-   visualization
-
-==================  ===========
-
-
-
 Table of contents
 =================
 
