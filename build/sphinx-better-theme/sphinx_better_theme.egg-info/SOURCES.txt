@@ -1,0 +1,12 @@
+README.rst
+better/__init__.py
+better/layout.html
+better/relbar.html
+better/sourcelink.html
+better/theme.conf
+better/static/better.css_t
+better/static/better_basic.css_t
+sphinx_better_theme.egg-info/PKG-INFO
+sphinx_better_theme.egg-info/SOURCES.txt
+sphinx_better_theme.egg-info/dependency_links.txt
+sphinx_better_theme.egg-info/top_level.txt
