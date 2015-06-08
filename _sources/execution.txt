@@ -1,5 +1,6 @@
-Using FishTaco via the command line
-===================================
+Running FishTaco
+================
+
 .. index:: Execution
 
 The FishTaco python module handles all calculations internally.
