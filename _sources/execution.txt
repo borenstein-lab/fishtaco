@@ -93,6 +93,9 @@ Advanced usage arguments
 ``-h, --help``
     show help message and exit
 
+``-functional_profile_already_corrected_with_musicc``
+    Indicates that the functional profile has been already corrected with MUSiCC prior to running FishTaco (default: False)
+
 ``-log, --log``
     Write to log file (default: False)
 
