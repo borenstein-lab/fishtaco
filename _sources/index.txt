@@ -10,10 +10,10 @@ FishTaco: Functional Shifts' Taxonomic Contributors
 
 .. figure:: FishTaco_pipeline.png
     :width: 800px
-    :align: center
+    :align: left
     :height: 800px
     :alt: FishTaco pipeline
-    :figclass: align-left
+    :figclass: align-center
 
 .. raw:: html
 
