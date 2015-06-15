@@ -12,9 +12,12 @@ FishTaco: Functional Shifts' Taxonomic Contributors
     :width: 800px
     :align: center
     :height: 800px
-    :alt: alternate text
+    :alt: FishTaco pipeline
     :figclass: align-left
 
+.. raw:: html
+
+    <br><br><br>
 
 FishTaco is a metagenomic computational framework, aiming to identify the taxa that are driving the functional shifts
 we observe in microbiomes of different individuals or disease states.
