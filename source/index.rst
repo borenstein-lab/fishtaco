@@ -21,7 +21,7 @@ we observe in microbiomes of different individuals or disease states.
     :align: center
     :height: 800px
     :alt: alternate text
-    :figclass: align-center
+    :figclass: align-left
 
 
 Citing Information
