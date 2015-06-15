@@ -3,6 +3,9 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+FishTaco: Functional Shifts' Taxonomic Contributors
+===================================================
+
 .. index:: Home
 
 FishTaco is a metagenomic computational framework, aiming to identify the taxa that are driving the functional shifts
