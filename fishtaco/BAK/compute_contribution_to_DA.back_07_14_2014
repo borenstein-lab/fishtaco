@@ -1,0 +1,763 @@
+__author__ = 'ManorLab'
+
+"""
+This function tries to estimate the individual contributions of taxa to the outcome of differential abundance, given
+the full linear decomposition of the response and the features. This means that there is no learning or inference done
+here, but the input includes for N samples, P features and M functions the following:
+ - the X matrix of P features vs. N samples, where each cell holds the abundance of feature i in sample j.
+ - the W matrix of "weights" or abundance contributions of P features vs. M functions, where each cell is the linear
+   coefficient of feature i when generating function j.
+ - the Y matrix of M functions vs. N samples, where each cell is the abundance of function i on sample j.
+ - the DA result file of pvalues to threshold on
+"""
+import argparse
+import numpy as np
+import pandas as pd
+import sys
+import os
+from math import log
+from scipy import stats
+sys.path.append("/Volumes/ohadm/BorensteinLab/OhadM/MOTIVE/PyCode/MOTIVE")
+sys.path.append("/net/gs/vol1/home/ohadm/OhadM/MOTIVE/PyCode/MOTIVE")
+import compute_differential_abundance
+
+###################################################################################################################
+# COMPUTE SCORE FUNCTION
+###################################################################################################################
+def compute_score(abundance_cases, abundance_controls, score_to_compute):
+
+    if score_to_compute == 't_test':
+        score, _ = stats.ttest_ind(abundance_cases, abundance_controls)
+    elif score_to_compute == 'wilcoxon':
+        score, _ = stats.ranksums(abundance_cases, abundance_controls)
+    elif score_to_compute == 'mean_diff':
+        score = np.mean(abundance_cases) - np.mean(abundance_controls)
+    elif score_to_compute == 'median_diff':
+        score = np.median(abundance_cases) - np.median(abundance_controls)
+    elif score_to_compute == 'mean_ratio':
+        score = np.mean(abundance_cases) / np.mean(abundance_controls)
+    elif score_to_compute == 'log_mean_ratio':
+        score = log(np.mean(abundance_cases) / np.mean(abundance_controls))
+
+    return score
+
+
+###################################################################################################################
+# MAIN FUNCTION
+###################################################################################################################
+def main(args):
+
+    # # some default args for testing
+    # args = {}
+    # args['taxa_abun_file'] = "/Volumes/ohadm/OhadM/METAFIT/CF_DATA/Simulated_MG/Taxa2Sample_compositional.tab"
+    # args['function_abun_file'] = "/Volumes/ohadm/OhadM/METAFIT/CF_DATA/Simulated_MG/KO2Sample_Simulated_RAW.tab"
+    # args['class_file'] = "/Volumes/ohadm/OhadM/METAFIT/CF_DATA/Simulated_MG/class.tab"
+    # args['output_pref'] = "/Volumes/ohadm/OhadM/METAFIT/taxa_contribution"
+    # args['taxa_to_function_file'] = "/Volumes/ohadm/OhadM/METAFIT/CF_DATA/Data/species2ko_CF.tab"   # "/Volumes/ohadm/OhadM/METAFIT/Data/species2pathway_CF.tab  # "/Volumes/ohadm/OhadM/METAFIT/Data/species2ko_CF.tab"
+    # args['da_threshold'] = "Bonf"#"Bonf"#"FDR-0.01"#
+    # args['da_method'] = "ttest"
+    # args['da_result_file'] = None
+    # args['max_da_functions_cases_controls'] = 10
+    # args['taxa_permutation_method'] = 'all_but_i'
+    # args['score_to_compute'] = 't-value'
+
+    print("Given parameters: ", args)
+
+    ###################################################################################################################
+    # INPUT
+    ###################################################################################################################
+    print("Reading files...")
+
+    if args['function_abun_file'] is not None:
+        if not os.path.isfile(args['function_abun_file']):
+            sys.exit('Error: Input file "' + args['function_abun_file'] + '" does not exist')
+        function_abun_data = pd.read_table(args['function_abun_file'], index_col=0)
+    else:
+        sys.exit('Error: No input function abundance given to script')
+
+    if args['taxa_abun_file'] is not None:
+        if not os.path.isfile(args['taxa_abun_file']):
+            sys.exit('Error: Input file "' + args['taxa_abun_file'] + '" does not exist')
+        taxa_abun_data = pd.read_table(args['taxa_abun_file'], index_col=0)
+    else:
+        sys.exit('Error: No input taxa abundance given to script')
+
+    if args['class_file'] is not None:
+        if not os.path.isfile(args['class_file']):
+            sys.exit('Error: Input file "' + args['class_file'] + '" does not exist')
+        class_data = pd.read_table(args['class_file'], index_col=0)
+    else:
+        sys.exit('Error: No input class data given to script')
+
+    if args['taxa_to_function_file'] is not None:
+        if not os.path.isfile(args['taxa_to_function_file']):
+            sys.exit('Error: Input file "' + args['taxa_to_function_file'] + '" does not exist')
+        taxa_to_function_data = pd.read_table(args['taxa_to_function_file'], index_col=0)
+    else:
+        sys.exit('Error: No input of mapping taxa to function given to script')
+
+    print("Done.")
+
+    # first, reduce all input files to the same samples, sorted
+    print("Reducing taxa, function, and class data to contain the exact same set of samples...")
+    samples = np.sort(np.intersect1d(np.intersect1d(function_abun_data.columns.values, taxa_abun_data.columns.values), class_data.index.values))
+    function_abun_data = function_abun_data[samples]
+    taxa_abun_data = taxa_abun_data[samples]
+    class_data = class_data.loc[samples]
+    #print(class_data)
+    print("Done.")
+
+    if sum(class_data.values) < 3 or sum(1-class_data.values) < 3:
+        print("#cases = " + str(sum(class_data.values)) + ", #controls = " + str(sum(1-class_data.values)))
+        print("Error: Cases or Controls have less than 3 samples, exiting...")
+        exit()
+
+    ###################################################################################################################
+    # TAXA DIFFERENTIAL ABUNDANCE
+    ###################################################################################################################
+    # compute a differential abundance score for each taxa:
+    print("Computing a differential abundance score for each taxa...")
+    args_for_TAXA_differential_abundance = {'input_pd': taxa_abun_data,
+                                            'class_pd': class_data,
+                                            'output_pd': pd.DataFrame(),
+                                            'method': args['da_method'],
+                                            'verbose': False}
+
+    compute_differential_abundance.main(args_for_TAXA_differential_abundance)
+    #print(args_for_TAXA_differential_abundance['output_pd'])
+    taxa_diff_abun_scores = args_for_TAXA_differential_abundance['output_pd']
+    print("Done.")
+
+
+    ###################################################################################################################
+    # FUNCTION DIFFERENTIAL ABUNDANCE
+    ###################################################################################################################
+    # read the DA p-values file and filter using the threshold, or run the DA analysis and filter results
+    if 'da_result_file' in args.keys() and args['da_result_file'] is not None:
+        print("Using function differential abundance scores given...")
+        da_scores = pd.read_table(args['da_result_file'], index_col=0)
+        da_functions = da_scores[da_scores[args['da_threshold']] > 0].index.values
+        functions_da_scores = da_scores.loc[da_functions]['singLogP'].values
+    else:  # run DA analysis
+        print("Computing a differential abundance score for each fucntion...")
+        args_for_differential_abundance = {'input_pd': function_abun_data,
+                                           'class_pd': class_data,
+                                           'output_pd': pd.DataFrame(),
+                                           'method': args['da_method'],
+                                           'verbose': False}
+
+        compute_differential_abundance.main(args_for_differential_abundance)
+        da_scores = args_for_differential_abundance['output_pd']
+        da_functions = da_scores[da_scores[args['da_threshold']] > 0].index.values
+        functions_da_scores = da_scores.loc[da_functions]['singLogP'].values
+    print("Done.")
+
+    ###################################################################################################################
+    # SELECT ONLY TOP DA FEATURES FOR FURTHER ANALYSIS
+    ###################################################################################################################
+    if 'max_da_functions_cases_controls' in args.keys() and args['max_da_functions_cases_controls'] is not None:
+        print("Selecting only " + args['max_da_functions_cases_controls'] + " differentially abundant functions...")
+        da_scores.loc[np.isnan(da_scores['singLogP']), 'singLogP'] = 0
+        controls_top_functions = da_scores.sort('singLogP')[0:int(args['max_da_functions_cases_controls'])].index.values
+        cases_top_functions = da_scores.sort('singLogP')[da_scores.shape[0]-int(args['max_da_functions_cases_controls']):da_scores.shape[0]].index.values
+        da_functions = np.intersect1d(np.union1d(cases_top_functions, controls_top_functions), da_functions)
+        functions_da_scores = da_scores.loc[da_functions]['singLogP'].values
+        print("Done.")
+
+    ###################################################################################################################
+    # REDUCE TO DA FUNCTIONS
+    ###################################################################################################################
+    # now, reduce the input functions to be only the DA ones and sort them
+    functions = np.sort(np.intersect1d(np.intersect1d(function_abun_data.index.values, taxa_to_function_data.columns.values), da_functions))
+    function_abun_data = function_abun_data.loc[functions]
+    taxa_to_function_data = taxa_to_function_data[functions]
+
+    # now, reduce the input taxa to be the same in the two input files and sort them
+    taxa = np.sort(np.intersect1d(taxa_abun_data.index.values, taxa_to_function_data.index.values))
+    taxa_abun_data = taxa_abun_data.loc[taxa]
+    taxa_to_function_data = taxa_to_function_data.loc[taxa]
+    taxa_diff_abun_scores = taxa_diff_abun_scores.loc[taxa]
+
+    num_of_da_functions = function_abun_data.shape[0]
+    num_of_taxa = taxa_abun_data.shape[0]
+    number_of_samples = function_abun_data.shape[1]
+
+    #np.sum(taxa_abun_data, axis=0)
+    #np.sum(function_abun_data, axis=0)
+
+    # define controls and cases
+    controls = (class_data.values.reshape(number_of_samples) == 0)
+    cases = (class_data.values.reshape(number_of_samples) == 1)
+
+    print("#DA fucntions:" + str(num_of_da_functions) + " #Taxa:" + str(num_of_taxa) + " #Samples:" + str(number_of_samples))
+
+    ###################################################################################################################
+    # ANALYSIS USING THE STATISTIC, WITH PERMUTATION OF TAXA
+    ###################################################################################################################
+
+    contribution_matrix = np.zeros((num_of_taxa, num_of_da_functions))
+    original_stat_value = np.zeros(num_of_da_functions)
+    mean_stat_value = np.zeros((num_of_taxa, num_of_da_functions))
+    median_stat_value = np.zeros((num_of_taxa, num_of_da_functions))
+    std_stat_value = np.zeros((num_of_taxa, num_of_da_functions))
+
+    # first create the permutation matrices for further use
+    number_of_triplets = 100  # for i,j,k analysis
+
+    if args['taxa_assessment_method'] != 'separate_i' and args['taxa_assessment_method'] != 'separate_i_j' and args['taxa_assessment_method'] != 'separate_i_j_k' and args['taxa_assessment_method'] != 'shapley':
+        number_of_permutations = int(args['number_of_permutations'])
+        print("Creating " + str(number_of_permutations) + " permutations...")
+        permuted_taxa_abundance_matrices = np.zeros((number_of_permutations, number_of_samples, num_of_taxa))
+        for p in range(number_of_permutations):
+            for j in range(num_of_taxa):
+                permuted_taxa_abundance_matrices[p, :, j] = np.random.choice(taxa_abun_data.values[j, :], size=number_of_samples, replace=True)
+
+        print("Done.")
+
+    for i in range(num_of_da_functions):  #num_of_da_functions
+        print(str(i) + ":" + function_abun_data.index.values[i])
+
+        weights_of_this_function = taxa_to_function_data.values[:, i]
+
+        orig_t = compute_score(function_abun_data.values[i, cases], function_abun_data.values[i, controls], args['score_to_compute'])
+
+        if args['taxa_assessment_method'] == 'permute_all_but_i':
+            original_stat_value[i] = 0.0
+        else:
+            original_stat_value[i] = orig_t
+
+        if args['taxa_assessment_method'] == 'separate_i':  # No permutations, just look on each taxa separately
+
+            for j in range(num_of_taxa):  # num_of_taxa
+                curr_taxa_times_weights = taxa_abun_data.values[j, :] * weights_of_this_function[j]
+                mean_stat_value[j, i] = compute_score(curr_taxa_times_weights[cases], curr_taxa_times_weights[controls], args['score_to_compute'])
+                median_stat_value[j, i] = mean_stat_value[j, i]
+                contribution_matrix[j, i] = mean_stat_value[j, i]
+
+        elif args['taxa_assessment_method'] == 'shapley':  # Shapley value analysis
+
+            number_of_subsets = int(1 + (num_of_taxa * 2) + (2 * (num_of_taxa * (num_of_taxa-1) / 2)) + (5 * number_of_triplets * num_of_taxa))
+
+            print("Computing scores for " + str(number_of_subsets) + " subsets...")
+            shapley_contribution_matrix = np.zeros((number_of_subsets, num_of_taxa+1))
+
+            shapley_counter = 0
+            # subsets of size 1
+            for j in range(num_of_taxa):
+                shapley_contribution_matrix[shapley_counter, j] = 1
+                curr_taxa_times_weights = taxa_abun_data.values[j, :] * weights_of_this_function[j]
+                shapley_contribution_matrix[shapley_counter, num_of_taxa] = compute_score(curr_taxa_times_weights[cases], curr_taxa_times_weights[controls], args['score_to_compute'])
+                shapley_counter += 1
+
+            # subsets of size 2
+            for j_1 in np.arange(num_of_taxa-1):
+                for j_2 in np.arange(j_1+1, num_of_taxa):
+                    #print(str(j_1) + " " + str(j_2))
+                    indexing_array = [j_1, j_2]
+                    shapley_contribution_matrix[shapley_counter, indexing_array] = 1
+                    curr_taxa_times_weights = np.dot(taxa_abun_data.values[indexing_array, :].T, weights_of_this_function[indexing_array])
+                    shapley_contribution_matrix[shapley_counter, num_of_taxa] = compute_score(curr_taxa_times_weights[cases], curr_taxa_times_weights[controls], args['score_to_compute'])
+                    shapley_counter += 1
+
+            # subsets of size 3-5
+            for j_1 in range(num_of_taxa):  #num_of_taxa
+                for p in range(number_of_triplets):
+                    # size 3
+                    j_2 = np.random.choice(np.delete(np.arange(num_of_taxa), j_1))
+                    j_3 = np.random.choice(np.delete(np.arange(num_of_taxa), [j_1, j_2]))
+                    indexing_array = [j_1, j_2, j_3]
+                    shapley_contribution_matrix[shapley_counter, indexing_array] = 1
+                    curr_taxa_times_weights = np.dot(taxa_abun_data.values[indexing_array, :].T, weights_of_this_function[indexing_array])
+                    shapley_contribution_matrix[shapley_counter, num_of_taxa] = compute_score(curr_taxa_times_weights[cases], curr_taxa_times_weights[controls], args['score_to_compute'])
+                    shapley_counter += 1
+
+                    # size 4, note that we use the same triplet with an additional random taxa so that we will not "waste" this subset of size 4
+                    j_4 = np.random.choice(np.delete(np.arange(num_of_taxa), [j_1, j_2, j_3]))
+                    indexing_array = [j_1, j_2, j_3, j_4]
+                    shapley_contribution_matrix[shapley_counter, indexing_array] = 1
+                    curr_taxa_times_weights = np.dot(taxa_abun_data.values[indexing_array, :].T, weights_of_this_function[indexing_array])
+                    shapley_contribution_matrix[shapley_counter, num_of_taxa] = compute_score(curr_taxa_times_weights[cases], curr_taxa_times_weights[controls], args['score_to_compute'])
+                    shapley_counter += 1
+
+                    # size 5, note that we use the same subset of size 4 with an additional random taxa so that we will not "waste" this subset of size 5
+                    j_5 = np.random.choice(np.delete(np.arange(num_of_taxa), [j_1, j_2, j_3, j_4]))
+                    indexing_array = [j_1, j_2, j_3, j_4, j_5]
+                    shapley_contribution_matrix[shapley_counter, indexing_array] = 1
+                    curr_taxa_times_weights = np.dot(taxa_abun_data.values[indexing_array, :].T, weights_of_this_function[indexing_array])
+                    shapley_contribution_matrix[shapley_counter, num_of_taxa] = compute_score(curr_taxa_times_weights[cases], curr_taxa_times_weights[controls], args['score_to_compute'])
+                    shapley_counter += 1
+
+            # subsets of size N-3 and N-4
+            for j_1 in range(num_of_taxa):  #num_of_taxa
+                for p in range(number_of_triplets):
+                    # size N-3
+                    j_2 = np.random.choice(np.delete(np.arange(num_of_taxa), j_1))
+                    j_3 = np.random.choice(np.delete(np.arange(num_of_taxa), [j_1, j_2]))
+                    indexing_array = np.delete(np.arange(num_of_taxa), [j_1, j_2, j_3])
+                    shapley_contribution_matrix[shapley_counter, indexing_array] = 1
+                    curr_taxa_times_weights = np.dot(taxa_abun_data.values[indexing_array, :].T, weights_of_this_function[indexing_array])
+                    shapley_contribution_matrix[shapley_counter, num_of_taxa] = compute_score(curr_taxa_times_weights[cases], curr_taxa_times_weights[controls], args['score_to_compute'])
+                    shapley_counter += 1
+
+                    # size N-4
+                    j_4 = np.random.choice(np.delete(np.arange(num_of_taxa), [j_1, j_2, j_3]))
+                    indexing_array = np.delete(np.arange(num_of_taxa), [j_1, j_2, j_3, j_4])
+                    shapley_contribution_matrix[shapley_counter, indexing_array] = 1
+                    curr_taxa_times_weights = np.dot(taxa_abun_data.values[indexing_array, :].T, weights_of_this_function[indexing_array])
+                    shapley_contribution_matrix[shapley_counter, num_of_taxa] = compute_score(curr_taxa_times_weights[cases], curr_taxa_times_weights[controls], args['score_to_compute'])
+                    shapley_counter += 1
+
+            # subsets of size N-2
+            for j_1 in np.arange(num_of_taxa-1):
+                for j_2 in np.arange(j_1+1, num_of_taxa):
+                    #print(str(j_1) + " " + str(j_2))
+                    indexing_array = np.delete(np.arange(num_of_taxa), [j_1, j_2])
+                    shapley_contribution_matrix[shapley_counter, indexing_array] = 1
+                    curr_taxa_times_weights = np.dot(taxa_abun_data.values[indexing_array, :].T, weights_of_this_function[indexing_array])
+                    shapley_contribution_matrix[shapley_counter, num_of_taxa] = compute_score(curr_taxa_times_weights[cases], curr_taxa_times_weights[controls], args['score_to_compute'])
+                    shapley_counter += 1
+
+            # subsets of size N-1
+            for j in range(num_of_taxa):
+                indexing_array = np.delete(np.arange(num_of_taxa), [j])
+                shapley_contribution_matrix[shapley_counter, indexing_array] = 1
+                curr_taxa_times_weights = np.dot(taxa_abun_data.values[indexing_array, :].T, weights_of_this_function[indexing_array])
+                shapley_contribution_matrix[shapley_counter, num_of_taxa] = compute_score(curr_taxa_times_weights[cases], curr_taxa_times_weights[controls], args['score_to_compute'])
+                shapley_counter += 1
+
+            # subsets of size N (only 1)
+            indexing_array = np.arange(num_of_taxa)
+            shapley_contribution_matrix[shapley_counter, indexing_array] = 1
+            curr_taxa_times_weights = np.dot(taxa_abun_data.values[indexing_array, :].T, weights_of_this_function[indexing_array])
+            shapley_contribution_matrix[shapley_counter, num_of_taxa] = compute_score(curr_taxa_times_weights[cases], curr_taxa_times_weights[controls], args['score_to_compute'])
+
+            print("Done.")
+
+            # write output for this function (one file per function)
+            cont_pd = pd.DataFrame(data=shapley_contribution_matrix, index=range(number_of_subsets), columns=np.hstack((taxa_abun_data.index.values, 'Score')))
+            cont_pd.index.name = 'Taxa'
+            cont_pd.to_csv(args['output_pref'] + '_' + args['score_to_compute'] + '_taxa_contributions_PERMUTATION_' +
+                           args['taxa_assessment_method'] + '_' + function_abun_data.index.values[i] + '.tab', sep='\t', na_rep=args['na_rep'])
+
+        elif args['taxa_assessment_method'] == 'separate_i_j':  # work on pairs, only the i'th and j'th taxa
+
+            pairwise_contribution_matrix = np.zeros((num_of_taxa, num_of_taxa))
+
+            for j_1 in range(num_of_taxa):  #num_of_taxa
+                for j_2 in range(num_of_taxa):
+                    if j_1 == j_2:
+                        curr_taxa_times_weights = np.dot(taxa_abun_data.values[j_1, :].T, weights_of_this_function[j_1])
+                        pairwise_contribution_matrix[j_1, j_1] = compute_score(curr_taxa_times_weights[cases], curr_taxa_times_weights[controls], args['score_to_compute'])
+                    else:
+                        curr_taxa_times_weights = np.dot(taxa_abun_data.values[(j_1, j_2), :].T, np.array((weights_of_this_function[j_1], weights_of_this_function[j_2])))
+                        pairwise_contribution_matrix[j_1, j_2] = compute_score(curr_taxa_times_weights[cases], curr_taxa_times_weights[controls], args['score_to_compute'])
+
+            # write output for this function (one file per function)
+            cont_pd = pd.DataFrame(data=pairwise_contribution_matrix, index=taxa_abun_data.index.values, columns=taxa_abun_data.index.values)
+            cont_pd.index.name = 'Taxa'
+            cont_pd.to_csv(args['output_pref'] + '_' + args['score_to_compute'] + '_taxa_contributions_PERMUTATION_' +
+                           args['taxa_assessment_method'] + '_' + function_abun_data.index.values[i] + '.tab', sep='\t', na_rep=args['na_rep'])
+
+        elif args['taxa_assessment_method'] == 'permute_all_but_i_j':  # work on pairs, permuting all but the i'th and j'th taxa
+
+            permuted_matrices_scores = np.zeros(number_of_permutations)
+            for p in range(number_of_permutations):
+                permuted_taxa_times_weights = np.dot(permuted_taxa_abundance_matrices[p], weights_of_this_function)
+                permuted_matrices_scores[p] = compute_score(permuted_taxa_times_weights[cases], permuted_taxa_times_weights[controls], args['score_to_compute'])
+
+            pairwise_contribution_matrix = np.zeros((num_of_taxa, num_of_taxa))
+
+            for j_1 in range(num_of_taxa):
+                for j_2 in range(num_of_taxa):
+                    stat_value_for_permutations = np.zeros(number_of_permutations)
+
+                    for p in range(number_of_permutations):
+                        curr_matrix_with_permuted_taxa = np.copy(permuted_taxa_abundance_matrices[p])
+                        if j_1 == j_2:
+                            curr_matrix_with_permuted_taxa[:, j_1] = taxa_abun_data.values[j_1, :].T
+                            constructed_abundance_values = np.dot(curr_matrix_with_permuted_taxa, weights_of_this_function)
+                            stat_value_for_permutations[p] = compute_score(constructed_abundance_values[cases], constructed_abundance_values[controls], args['score_to_compute']) - permuted_matrices_scores[p]
+                        else:
+                            curr_matrix_with_permuted_taxa[:, (j_1, j_2)] = taxa_abun_data.values[(j_1, j_2), :].T
+                            constructed_abundance_values = np.dot(curr_matrix_with_permuted_taxa, weights_of_this_function)
+                            stat_value_for_permutations[p] = compute_score(constructed_abundance_values[cases], constructed_abundance_values[controls], args['score_to_compute']) - permuted_matrices_scores[p]
+
+                    pairwise_contribution_matrix[j_1, j_2] = np.median(stat_value_for_permutations)
+
+            # write output for this function (one file per function)
+            cont_pd = pd.DataFrame(data=pairwise_contribution_matrix, index=taxa_abun_data.index.values, columns=taxa_abun_data.index.values)
+            cont_pd.index.name = 'Taxa'
+            cont_pd.to_csv(args['output_pref'] + '_' + args['score_to_compute'] + '_taxa_contributions_PERMUTATION_' +
+                           args['taxa_assessment_method'] + '_' + function_abun_data.index.values[i] + '.tab', sep='\t', na_rep=args['na_rep'])
+
+        elif args['taxa_assessment_method'] == 'separate_i_j_k':  # work on triplets, choose 100 at random for each taxa
+
+            triplets_contribution_list = np.zeros((num_of_taxa * number_of_triplets, 4))
+
+            for j_1 in range(num_of_taxa):  #num_of_taxa
+                for p in range(number_of_triplets):
+                    j_2 = np.random.choice(np.delete(range(num_of_taxa), j_1))
+                    j_3 = np.random.choice(np.delete(range(num_of_taxa), (j_1, j_2)))
+
+                    curr_taxa_times_weights = np.dot(taxa_abun_data.values[(j_1, j_2, j_3), :].T, np.array((weights_of_this_function[j_1], weights_of_this_function[j_2], weights_of_this_function[j_3])))
+
+                    curr_index = (j_1*number_of_triplets)+p
+
+                    triplets_contribution_list[curr_index, 0] = j_1+1  # since python is 0-based
+                    triplets_contribution_list[curr_index, 1] = j_2+1  # since python is 0-based
+                    triplets_contribution_list[curr_index, 2] = j_3+1  # since python is 0-based
+                    triplets_contribution_list[curr_index, 3] = compute_score(curr_taxa_times_weights[cases], curr_taxa_times_weights[controls], args['score_to_compute'])
+
+            # write output for this function (one file per function)
+            cont_pd = pd.DataFrame(data=triplets_contribution_list, index=range(num_of_taxa * number_of_triplets), columns=['taxa_i','taxa_j','taxa_k','score'])
+            cont_pd[['taxa_i','taxa_j','taxa_k']] = cont_pd[['taxa_i','taxa_j','taxa_k']].astype(int)
+            cont_pd.index.name = 'Taxa'
+            cont_pd.to_csv(args['output_pref'] + '_' + args['score_to_compute'] + '_taxa_contributions_PERMUTATION_' +
+                           args['taxa_assessment_method'] + '_' + function_abun_data.index.values[i] + '.tab', sep='\t', na_rep=args['na_rep'])
+
+        elif args['taxa_assessment_method'] == 'permuted_shapley_orderings':  # Shapley value analysis with permutations, not of subsets but orderings
+
+            number_of_orderings = int(args['number_of_shapley_orderings'])
+
+            permuted_matrices_scores = np.zeros(number_of_permutations)
+            for p in range(number_of_permutations):
+                permuted_taxa_times_weights = np.dot(permuted_taxa_abundance_matrices[p], weights_of_this_function)
+                permuted_matrices_scores[p] = compute_score(permuted_taxa_times_weights[cases], permuted_taxa_times_weights[controls], args['score_to_compute'])
+
+            print("Computing permuted shapley orderings scores for " + str(number_of_orderings) + " orderings...")
+            shapley_contribution_matrix = np.zeros((number_of_orderings, (num_of_taxa * 2)))
+
+            # compute shapley value for all orderings
+            for o in range(number_of_orderings):
+                current_ordering = np.random.permutation(num_of_taxa)
+                shapley_contribution_matrix[o, 0:num_of_taxa] = current_ordering
+
+                print("ordering " + str(o+1) + ": " + str(current_ordering))
+
+                # now walk across the ordering and compute the score for every subset in the order
+                for s in range(num_of_taxa):
+                    indexing_array = current_ordering[0:(s+1)]
+                    #print(indexing_array)
+                    stat_value_for_permutations = np.zeros(number_of_permutations)
+                    for p in range(number_of_permutations):
+                        curr_matrix_with_permuted_taxa = np.copy(permuted_taxa_abundance_matrices[p])
+                        curr_matrix_with_permuted_taxa[:, indexing_array] = taxa_abun_data.values[indexing_array, :].T
+                        constructed_abundance_values = np.dot(curr_matrix_with_permuted_taxa, weights_of_this_function)
+                        stat_value_for_permutations[p] = compute_score(constructed_abundance_values[cases], constructed_abundance_values[controls], args['score_to_compute']) - permuted_matrices_scores[p]
+
+                    shapley_contribution_matrix[o, (num_of_taxa + s)] = np.median(stat_value_for_permutations)  # NOTE: using median to add robustness
+
+            print("Done.")
+
+            # write output for this function (one file per function)
+            header_array = np.empty((num_of_taxa*2), dtype='<U8')
+            for s in range(num_of_taxa):
+                header_array[s] = 'Taxa' + str(s+1)
+            for s in range(num_of_taxa):
+                header_array[(num_of_taxa+s)] = 'Score' + str(s+1)
+
+            cont_pd = pd.DataFrame(data=shapley_contribution_matrix, index=np.arange(1,(number_of_orderings+1)), columns=header_array)
+            cont_pd.index.name = 'Ordering'
+            cont_pd.to_csv(args['output_pref'] + '_' + args['score_to_compute'] + '_taxa_contributions_PERMUTATION_' +
+                           args['taxa_assessment_method'] + '_' + function_abun_data.index.values[i] + '.tab', sep='\t', na_rep=args['na_rep'])
+
+        elif args['taxa_assessment_method'] == 'permuted_shapley':  # Shapley value analysis with permutations
+
+            number_of_subsets = int(1 + (num_of_taxa * 2) + (2 * (num_of_taxa * (num_of_taxa-1) / 2)) + (5 * number_of_triplets * num_of_taxa))
+
+            permuted_matrices_scores = np.zeros(number_of_permutations)
+            for p in range(number_of_permutations):
+                permuted_taxa_times_weights = np.dot(permuted_taxa_abundance_matrices[p], weights_of_this_function)
+                permuted_matrices_scores[p] = compute_score(permuted_taxa_times_weights[cases], permuted_taxa_times_weights[controls], args['score_to_compute'])
+
+            print("Computing permuted shapley scores for " + str(number_of_subsets) + " subsets...")
+            shapley_contribution_matrix = np.zeros((number_of_subsets, num_of_taxa+1))
+
+            shapley_counter = 0
+            # subsets of size 1
+            for j in range(num_of_taxa):
+                shapley_contribution_matrix[shapley_counter, j] = 1
+                stat_value_for_permutations = np.zeros(number_of_permutations)
+                for p in range(number_of_permutations):
+                    curr_matrix_with_permuted_taxa = np.copy(permuted_taxa_abundance_matrices[p])
+                    curr_matrix_with_permuted_taxa[:, j] = taxa_abun_data.values[j, :]
+                    constructed_abundance_values = np.dot(curr_matrix_with_permuted_taxa, weights_of_this_function)
+                    stat_value_for_permutations[p] = compute_score(constructed_abundance_values[cases], constructed_abundance_values[controls], args['score_to_compute']) - permuted_matrices_scores[p]
+
+                shapley_contribution_matrix[shapley_counter, num_of_taxa] = np.median(stat_value_for_permutations)  # NOTE: using median to add robustness
+                shapley_counter += 1
+
+            # subsets of size 2
+            for j_1 in np.arange(num_of_taxa-1):
+                for j_2 in np.arange(j_1+1, num_of_taxa):
+                    indexing_array = [j_1, j_2]
+                    shapley_contribution_matrix[shapley_counter, indexing_array] = 1
+                    stat_value_for_permutations = np.zeros(number_of_permutations)
+                    for p in range(number_of_permutations):
+                        curr_matrix_with_permuted_taxa = np.copy(permuted_taxa_abundance_matrices[p])
+                        curr_matrix_with_permuted_taxa[:, indexing_array] = taxa_abun_data.values[indexing_array, :].T
+                        constructed_abundance_values = np.dot(curr_matrix_with_permuted_taxa, weights_of_this_function)
+                        stat_value_for_permutations[p] = compute_score(constructed_abundance_values[cases], constructed_abundance_values[controls], args['score_to_compute']) - permuted_matrices_scores[p]
+
+                    shapley_contribution_matrix[shapley_counter, num_of_taxa] = np.median(stat_value_for_permutations)  # NOTE: using median to add robustness
+                    shapley_counter += 1
+
+            # subsets of size 3-5
+            for j_1 in range(num_of_taxa):
+                for t in range(number_of_triplets):
+                    # size 3
+                    j_2 = np.random.choice(np.delete(np.arange(num_of_taxa), j_1))
+                    j_3 = np.random.choice(np.delete(np.arange(num_of_taxa), [j_1, j_2]))
+                    indexing_array = [j_1, j_2, j_3]
+                    shapley_contribution_matrix[shapley_counter, indexing_array] = 1
+                    stat_value_for_permutations = np.zeros(number_of_permutations)
+                    for p in range(number_of_permutations):
+                        curr_matrix_with_permuted_taxa = np.copy(permuted_taxa_abundance_matrices[p])
+                        curr_matrix_with_permuted_taxa[:, indexing_array] = taxa_abun_data.values[indexing_array, :].T
+                        constructed_abundance_values = np.dot(curr_matrix_with_permuted_taxa, weights_of_this_function)
+                        stat_value_for_permutations[p] = compute_score(constructed_abundance_values[cases], constructed_abundance_values[controls], args['score_to_compute']) - permuted_matrices_scores[p]
+
+                    shapley_contribution_matrix[shapley_counter, num_of_taxa] = np.median(stat_value_for_permutations)  # NOTE: using median to add robustness
+                    shapley_counter += 1
+
+                    # size 4, note that we use the same triplet with an additional random taxa so that we will not "waste" this subset of size 4
+                    j_4 = np.random.choice(np.delete(np.arange(num_of_taxa), [j_1, j_2, j_3]))
+                    indexing_array = [j_1, j_2, j_3, j_4]
+                    shapley_contribution_matrix[shapley_counter, indexing_array] = 1
+                    stat_value_for_permutations = np.zeros(number_of_permutations)
+                    for p in range(number_of_permutations):
+                        curr_matrix_with_permuted_taxa = np.copy(permuted_taxa_abundance_matrices[p])
+                        curr_matrix_with_permuted_taxa[:, indexing_array] = taxa_abun_data.values[indexing_array, :].T
+                        constructed_abundance_values = np.dot(curr_matrix_with_permuted_taxa, weights_of_this_function)
+                        stat_value_for_permutations[p] = compute_score(constructed_abundance_values[cases], constructed_abundance_values[controls], args['score_to_compute']) - permuted_matrices_scores[p]
+
+                    shapley_contribution_matrix[shapley_counter, num_of_taxa] = np.median(stat_value_for_permutations)  # NOTE: using median to add robustness
+                    shapley_counter += 1
+
+                    # size 5, note that we use the same subset of size 4 with an additional random taxa so that we will not "waste" this subset of size 5
+                    j_5 = np.random.choice(np.delete(np.arange(num_of_taxa), [j_1, j_2, j_3, j_4]))
+                    indexing_array = [j_1, j_2, j_3, j_4, j_5]
+                    shapley_contribution_matrix[shapley_counter, indexing_array] = 1
+                    stat_value_for_permutations = np.zeros(number_of_permutations)
+                    for p in range(number_of_permutations):
+                        curr_matrix_with_permuted_taxa = np.copy(permuted_taxa_abundance_matrices[p])
+                        curr_matrix_with_permuted_taxa[:, indexing_array] = taxa_abun_data.values[indexing_array, :].T
+                        constructed_abundance_values = np.dot(curr_matrix_with_permuted_taxa, weights_of_this_function)
+                        stat_value_for_permutations[p] = compute_score(constructed_abundance_values[cases], constructed_abundance_values[controls], args['score_to_compute']) - permuted_matrices_scores[p]
+
+                    shapley_contribution_matrix[shapley_counter, num_of_taxa] = np.median(stat_value_for_permutations)  # NOTE: using median to add robustness
+                    shapley_counter += 1
+
+            # subsets of size N-3 and N-4
+            for j_1 in range(num_of_taxa):  #num_of_taxa
+                for t in range(number_of_triplets):
+                    # size N-3
+                    j_2 = np.random.choice(np.delete(np.arange(num_of_taxa), j_1))
+                    j_3 = np.random.choice(np.delete(np.arange(num_of_taxa), [j_1, j_2]))
+                    indexing_array = np.delete(np.arange(num_of_taxa), [j_1, j_2, j_3])
+                    shapley_contribution_matrix[shapley_counter, indexing_array] = 1
+                    stat_value_for_permutations = np.zeros(number_of_permutations)
+                    for p in range(number_of_permutations):
+                        curr_matrix_with_permuted_taxa = np.copy(permuted_taxa_abundance_matrices[p])
+                        curr_matrix_with_permuted_taxa[:, indexing_array] = taxa_abun_data.values[indexing_array, :].T
+                        constructed_abundance_values = np.dot(curr_matrix_with_permuted_taxa, weights_of_this_function)
+                        stat_value_for_permutations[p] = compute_score(constructed_abundance_values[cases], constructed_abundance_values[controls], args['score_to_compute']) - permuted_matrices_scores[p]
+
+                    shapley_contribution_matrix[shapley_counter, num_of_taxa] = np.median(stat_value_for_permutations)  # NOTE: using median to add robustness
+                    shapley_counter += 1
+
+                    # size N-4
+                    j_4 = np.random.choice(np.delete(np.arange(num_of_taxa), [j_1, j_2, j_3]))
+                    indexing_array = np.delete(np.arange(num_of_taxa), [j_1, j_2, j_3, j_4])
+                    shapley_contribution_matrix[shapley_counter, indexing_array] = 1
+                    stat_value_for_permutations = np.zeros(number_of_permutations)
+                    for p in range(number_of_permutations):
+                        curr_matrix_with_permuted_taxa = np.copy(permuted_taxa_abundance_matrices[p])
+                        curr_matrix_with_permuted_taxa[:, indexing_array] = taxa_abun_data.values[indexing_array, :].T
+                        constructed_abundance_values = np.dot(curr_matrix_with_permuted_taxa, weights_of_this_function)
+                        stat_value_for_permutations[p] = compute_score(constructed_abundance_values[cases], constructed_abundance_values[controls], args['score_to_compute']) - permuted_matrices_scores[p]
+
+                    shapley_contribution_matrix[shapley_counter, num_of_taxa] = np.median(stat_value_for_permutations)  # NOTE: using median to add robustness
+                    shapley_counter += 1
+
+            # subsets of size N-2
+            for j_1 in np.arange(num_of_taxa-1):
+                for j_2 in np.arange(j_1+1, num_of_taxa):
+                    indexing_array = np.delete(np.arange(num_of_taxa), [j_1, j_2])
+                    shapley_contribution_matrix[shapley_counter, indexing_array] = 1
+                    stat_value_for_permutations = np.zeros(number_of_permutations)
+                    for p in range(number_of_permutations):
+                        curr_matrix_with_permuted_taxa = np.copy(permuted_taxa_abundance_matrices[p])
+                        curr_matrix_with_permuted_taxa[:, indexing_array] = taxa_abun_data.values[indexing_array, :].T
+                        constructed_abundance_values = np.dot(curr_matrix_with_permuted_taxa, weights_of_this_function)
+                        stat_value_for_permutations[p] = compute_score(constructed_abundance_values[cases], constructed_abundance_values[controls], args['score_to_compute']) - permuted_matrices_scores[p]
+
+                    shapley_contribution_matrix[shapley_counter, num_of_taxa] = np.median(stat_value_for_permutations)  # NOTE: using median to add robustness
+                    shapley_counter += 1
+
+            # subsets of size N-1
+            for j in range(num_of_taxa):
+                indexing_array = np.delete(np.arange(num_of_taxa), [j])
+                shapley_contribution_matrix[shapley_counter, indexing_array] = 1
+                stat_value_for_permutations = np.zeros(number_of_permutations)
+                for p in range(number_of_permutations):
+                    curr_matrix_with_permuted_taxa = np.copy(permuted_taxa_abundance_matrices[p])
+                    curr_matrix_with_permuted_taxa[:, indexing_array] = taxa_abun_data.values[indexing_array, :].T
+                    constructed_abundance_values = np.dot(curr_matrix_with_permuted_taxa, weights_of_this_function)
+                    stat_value_for_permutations[p] = compute_score(constructed_abundance_values[cases], constructed_abundance_values[controls], args['score_to_compute']) - permuted_matrices_scores[p]
+
+                shapley_contribution_matrix[shapley_counter, num_of_taxa] = np.median(stat_value_for_permutations)  # NOTE: using median to add robustness
+                shapley_counter += 1
+
+            # subsets of size N (only 1)
+            indexing_array = np.arange(num_of_taxa)
+            shapley_contribution_matrix[shapley_counter, indexing_array] = 1
+            curr_taxa_times_weights = np.dot(taxa_abun_data.values[indexing_array, :].T, weights_of_this_function[indexing_array])
+            shapley_contribution_matrix[shapley_counter, num_of_taxa] = compute_score(curr_taxa_times_weights[cases], curr_taxa_times_weights[controls], args['score_to_compute'])
+            shapley_counter += 1
+
+            print("Done.")
+
+            # write output for this function (one file per function)
+            cont_pd = pd.DataFrame(data=shapley_contribution_matrix, index=range(number_of_subsets), columns=np.hstack((taxa_abun_data.index.values, 'Score')))
+            cont_pd.index.name = 'Taxa'
+            cont_pd.to_csv(args['output_pref'] + '_' + args['score_to_compute'] + '_taxa_contributions_PERMUTATION_' +
+                           args['taxa_assessment_method'] + '_' + function_abun_data.index.values[i] + '.tab', sep='\t', na_rep=args['na_rep'])
+
+        else:  # non-shapley permutations based methods
+
+            permuted_matrices_scores = np.zeros(number_of_permutations)
+            for p in range(number_of_permutations):
+                permuted_taxa_times_weights = np.dot(permuted_taxa_abundance_matrices[p], weights_of_this_function)
+                permuted_matrices_scores[p] = compute_score(permuted_taxa_times_weights[cases], permuted_taxa_times_weights[controls], args['score_to_compute'])
+
+            for j in range(num_of_taxa):  # num_of_taxa
+
+                if weights_of_this_function[j] == 0:
+                    continue  # no reason to go into loop if this taxa doesn't contain the function
+
+                stat_value_for_permutations = np.zeros(number_of_permutations)
+
+                if args['taxa_assessment_method'] == 'permute_only_i':  # permute only this taxa
+
+                    curr_matrix_with_permuted_taxa = np.copy(taxa_abun_data).T
+
+                    for p in range(number_of_permutations):
+                        curr_matrix_with_permuted_taxa[:, j] = permuted_taxa_abundance_matrices[p, :, j]
+                        constructed_abundance_values = np.dot(curr_matrix_with_permuted_taxa, weights_of_this_function)
+                        stat_value_for_permutations[p] = compute_score(constructed_abundance_values[cases], constructed_abundance_values[controls], args['score_to_compute'])
+
+                    mean_stat_value[j, i] = np.mean(stat_value_for_permutations)
+                    median_stat_value[j, i] = np.median(stat_value_for_permutations)
+                    std_stat_value[j, i] = np.std(stat_value_for_permutations)
+                    contribution_matrix[j, i] = orig_t - np.mean(stat_value_for_permutations)
+
+                elif args['taxa_assessment_method'] == 'permute_all_but_i':  # Now permute all other taxa
+
+                    for p in range(number_of_permutations):
+                        curr_matrix_with_permuted_taxa = np.copy(permuted_taxa_abundance_matrices[p])
+                        curr_matrix_with_permuted_taxa[:, j] = taxa_abun_data.values[j, :]
+                        constructed_abundance_values = np.dot(curr_matrix_with_permuted_taxa, weights_of_this_function)
+                        stat_value_for_permutations[p] = compute_score(constructed_abundance_values[cases], constructed_abundance_values[controls], args['score_to_compute']) - permuted_matrices_scores[p]
+
+                    mean_stat_value[j, i] = np.mean(stat_value_for_permutations)
+                    median_stat_value[j, i] = np.median(stat_value_for_permutations)
+                    std_stat_value[j, i] = np.std(stat_value_for_permutations)
+                    contribution_matrix[j, i] = np.mean(stat_value_for_permutations)
+
+                elif args['taxa_assessment_method'] == 'permute_all':  # mainly for testing, permute all taxa
+
+                    for p in range(number_of_permutations):
+                        curr_matrix_with_permuted_taxa = np.copy(permuted_taxa_abundance_matrices[p])
+                        constructed_abundance_values = np.dot(curr_matrix_with_permuted_taxa, weights_of_this_function)
+                        stat_value_for_permutations[p] = compute_score(constructed_abundance_values[cases], constructed_abundance_values[controls], args['score_to_compute']) - permuted_matrices_scores[p]
+
+                    mean_stat_value[j, i] = np.mean(stat_value_for_permutations)
+                    median_stat_value[j, i] = np.median(stat_value_for_permutations)
+                    std_stat_value[j, i] = np.std(stat_value_for_permutations)
+                    contribution_matrix[j, i] = np.mean(stat_value_for_permutations)
+
+    ###################################################################################################################
+    # WRITE OUTPUT
+    ###################################################################################################################
+
+    print("Writing output...")
+
+    # write the FUNCTION differential abundance results into file
+    with open(args['output_pref'] + '_' + args['score_to_compute'] + '_' + args['taxa_assessment_method'] + '_DA_function.tab', 'w') as f:
+        f.write("# " + sys.argv[0] + " " + str(args) + '\n')
+    diff_abun_pd = pd.DataFrame(data=functions_da_scores, index=function_abun_data.index.values, columns=['Diff_abun_signed_pval'])
+    diff_abun_pd.index.name = 'KO'
+    diff_abun_pd.to_csv(args['output_pref'] + '_' + args['score_to_compute'] + '_' + args['taxa_assessment_method'] + '_DA_function.tab', sep='\t', na_rep=args['na_rep'], mode='a')
+
+    # write the TAXA differential abundance results into file
+    with open(args['output_pref'] + '_' + args['score_to_compute'] + '_' + args['taxa_assessment_method'] + '_DA_taxa.tab', 'w') as f:
+        f.write("# " + sys.argv[0] + " " + str(args) + '\n')
+    taxa_diff_abun_scores.index.name = 'Taxa'
+    taxa_diff_abun_scores.to_csv(args['output_pref'] + '_' + args['score_to_compute'] + '_' + args['taxa_assessment_method'] + '_DA_taxa.tab', sep='\t', na_rep=args['na_rep'], mode='a')
+
+    if args['taxa_assessment_method'] != 'separate_i_j' and args['taxa_assessment_method'] != 'separate_i_j_k' and \
+                    args['taxa_assessment_method'] != 'shapley' and args['taxa_assessment_method'] != 'permuted_shapley':
+
+        cont_pd = pd.DataFrame(data=contribution_matrix, index=taxa_abun_data.index.values, columns=function_abun_data.index.values)
+        cont_pd.index.name = 'Taxa'
+        cont_pd.to_csv(args['output_pref'] + '_' + args['score_to_compute'] + '_taxa_contributions_PERMUTATION_' + args['taxa_assessment_method'] + '.tab', sep='\t', na_rep=args['na_rep'])
+
+        cont_pd = pd.DataFrame(data=original_stat_value, index=function_abun_data.index.values, columns=[args['score_to_compute']])
+        cont_pd.index.name = 'KO'
+        cont_pd.to_csv(args['output_pref'] + '_' + args['score_to_compute'] + '_original_stat_value_PERMUTATION_' + args['taxa_assessment_method'] + '.tab', sep='\t', na_rep='None')
+
+        cont_pd = pd.DataFrame(data=mean_stat_value, index=taxa_abun_data.index.values, columns=function_abun_data.index.values)
+        cont_pd.index.name = 'Taxa'
+        cont_pd.to_csv(args['output_pref'] + '_' + args['score_to_compute'] + '_mean_stat_value_PERMUTATION_' + args['taxa_assessment_method'] + '.tab', sep='\t', na_rep=args['na_rep'])
+
+        cont_pd = pd.DataFrame(data=median_stat_value, index=taxa_abun_data.index.values, columns=function_abun_data.index.values)
+        cont_pd.index.name = 'Taxa'
+        cont_pd.to_csv(args['output_pref'] + '_' + args['score_to_compute'] + '_median_stat_value_PERMUTATION_' + args['taxa_assessment_method'] + '.tab', sep='\t', na_rep=args['na_rep'])
+
+        cont_pd = pd.DataFrame(data=std_stat_value, index=taxa_abun_data.index.values, columns=function_abun_data.index.values)
+        cont_pd.index.name = 'Taxa'
+        cont_pd.to_csv(args['output_pref'] + '_' + args['score_to_compute'] + '_std_stat_value_PERMUTATION_' + args['taxa_assessment_method'] + '.tab', sep='\t', na_rep=args['na_rep'])
+
+        if args['taxa_assessment_method'] != 'separate_i':
+            cont_pd = pd.DataFrame(data=stat_value_for_permutations, index=range(number_of_permutations), columns=['stat value'])
+            cont_pd.index.name = 'Taxa'
+            cont_pd.to_csv(args['output_pref'] + '_' + args['score_to_compute'] + '_last_taxa_stat_value_PERMUTATION_' + args['taxa_assessment_method'] + '.tab', sep='\t', na_rep=args['na_rep'])
+
+    print("Done.")
+
+################################################################################################################
+
+if __name__ == "__main__":
+    # get options from user
+    parser = argparse.ArgumentParser(description='Estimate the individual contributions of taxa to the outcome of differential abundance')
+
+    parser.add_argument('-ta', '--taxa_abundance', dest='taxa_abun_file', help='Input file of taxa abundance', default=None)
+    parser.add_argument('-fu', '--function_abundance', dest='function_abun_file', help='Input file of function abundance', default=None)
+    parser.add_argument('-c', '--class', dest='class_file', help='Input file of class assignment for the two different compared classes', default=None)
+    parser.add_argument('-t2f', '--taxa_to_function', dest='taxa_to_function_file', help='Input file of mapping from taxa to functions', default=None)
+    parser.add_argument('-op', '--output_prefix', dest='output_pref', help='Output prefix for result files (default: out)', default='out')
+
+    parser.add_argument('-da', '--da_results', dest='da_result_file', help='Pre-computed DA results from the compute_differential_abundance.py script (default: None)', default=None)
+    parser.add_argument('-da_method', '--da_method', dest='da_method', help='Compute DA results now using this method (default: ttest)',
+                        default='ttest', choices=['ttest', 'wilcoxon'])
+
+    parser.add_argument('-da_threshold', '--da_threshold', dest='da_threshold', help='Differential abundance threshold (default: Bonf)', default='Bonf')
+    parser.add_argument('-max_da', '--max_da_functions', dest='max_da_functions_cases_controls',
+                        help='Maximum number of differential abundant functions to consider (default: None)', default=None)
+
+    parser.add_argument('-assessment', '--taxa_assessment_method', dest='taxa_assessment_method', help='The method used when assessing taxa to compute score (default: all_but_i)',
+                        default='permute_only_i', choices=['permute_all_but_i', 'permute_only_i', 'permute_all_but_i_j','separate_i', 'separate_i_j',
+                                                           'separate_i_j_k', 'permute_all', 'shapley', 'permuted_shapley',
+                                                           'permuted_shapley_orderings'])
+
+    parser.add_argument('-score', '--score_to_compute', dest='score_to_compute', help='The score to compute for each taxa (default: t-test)',
+                        default='t_test', choices=['t_test', 'mean_diff', 'median_diff', 'wilcoxon', 'mean_ratio', 'log_mean_ratio'])
+
+    parser.add_argument('-na_rep', dest='na_rep', help='How to represent NAs in the output (default: NA)', default='NA')
+
+    parser.add_argument('-number_of_permutations', dest='number_of_permutations', help='number of permutations (default: 100)', default='100')
+    parser.add_argument('-number_of_shapley_orderings', dest='number_of_shapley_orderings', help='number of shapley orderings (default: 100)', default='100')
+
+    given_args = parser.parse_args()
+    main(vars(given_args))

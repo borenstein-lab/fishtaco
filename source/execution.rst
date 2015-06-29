@@ -24,8 +24,8 @@ Required arguments
     Input file of label assignment for the two sample sets being compared (`format <fishtaco_file_formats.html#sample-sets-labels-file>`_)
 
 
-Recommended arguments
----------------------
+Optional arguments
+------------------
 
 ``-gc, --genomic_content_of_taxa GENOMIC_CONTENT_FILE``
     Input file of genomic content of each taxa (`format <fishtaco_file_formats.html#genomic-content-file>`_)
