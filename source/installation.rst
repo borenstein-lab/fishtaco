@@ -21,7 +21,7 @@ If you have *pip* installed, you can install these packages by running the follo
 Installing FishTaco
 -------------------
 
-To install FishTaco, download the package from `GitHub <https://github.com/omanor/fishtaco/archive/1.0.tar.gz>`_.
+To install FishTaco, download the package from `GitHub <https://github.com/omanor/fishtaco/archive/v1.0.1.tar.gz>`_.
 
 After downloading FishTaco, you’ll need to unzip the file. If you’ve downloaded the release version, do this with the following command:
 
