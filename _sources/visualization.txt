@@ -18,11 +18,9 @@ In order to use the FishTacoPlot package:
 
 1. Download the FishTacoPlot package from the `FishTacoPlot GitHub page <https://github.com/omanor/fishtaco-plot>`_.
 
-2. Install the package in your R terminal with the command:
-``install.packages(path_to_package, repos = NULL, type="source")``
+2. Install the package in your R terminal with the command: ``install.packages(path_to_package, repos = NULL, type="source")``
 
-3. Load the package to your workspace with the command:
-``require(FishTacoPlot)``
+3. Load the package to your workspace with the command: ``require(FishTacoPlot)``
 
 4. Plot your results, for example by using:
 
