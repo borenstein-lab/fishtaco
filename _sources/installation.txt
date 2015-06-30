@@ -25,11 +25,11 @@ To install FishTaco, download the package from `GitHub <https://github.com/omano
 
 After downloading FishTaco, you’ll need to unzip the file. If you’ve downloaded the release version, do this with the following command:
 
-``tar -xzf fishtaco-1.0.tar.gz``
+``tar -xzf fishtaco-1.0.1.tar.gz``
 
 You’ll then change into the new FishTaco directory as follows:
 
-``cd fishtaco-1.0``
+``cd fishtaco-1.0.1``
 
 and install using the following command:
 
