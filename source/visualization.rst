@@ -1,18 +1,22 @@
 FishTaco Visualization
-===============================
+======================
 
 .. index:: Visualization
 
-All the figures shown in the FishTaco paper are produced in R (http://www.r-project.org/) by using the FishTacoPlot package.
+The functional shift decomposition figures shown in the FishTaco paper are produced in R (http://www.r-project.org/) by using the FishTacoPlot package.
 
 FishTacoPlot package
 --------------------
 
-Plotting the results obtained from applying FishTaco to you data is done in R. We used R to take full advantage of the capabilities of
-the `ggplot2 package <http://ggplot2.org/>`_. We recommend downloading and installing `R Studio <http://www.rstudio.com/>`_ before plotting, but
-it is not required.
+Plotting the results obtained from applying FishTaco to you data is done via the FishTacoPlot package.
 
-1. Download the FishTacoPlot package from the `FishTaco GitHub page <https://github.com/omanor/fishtaco>`_.
+We used R for the plotting in order to take full advantage of the capabilities of the `ggplot2 package <http://ggplot2.org/>`_.
+
+We recommend downloading and installing `R Studio <http://www.rstudio.com/>`_ before plotting, but it is not required.
+
+In order to use the FishTacoPlot package:
+
+1. Download the FishTacoPlot package from the `FishTacoPlot GitHub page <https://github.com/omanor/fishtaco-plot>`_.
 
 2. Install the package in your R terminal with the command:
 ``install.packages(path_to_package, repos = NULL, type="source")``
