@@ -1,0 +1,13 @@
+include *.py
+include *.rst
+include LICENSE
+
+graft fishtaco
+graft scripts
+graft tests
+
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude .git
+global-exclude *~
+
