@@ -153,7 +153,7 @@ Supporting stats output files
 
 Examples
 --------
-The *fishtaco/examples* directory contains the following files:
+The *fishtaco/examples* directory contains the following:
 
 - the file *METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab* contains scaled abundance measurements of 10 species in 213 samples from the HMP dataset
 - the file *WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab* contains MUSiCC-corrected abundance values for the K00001 orthology group in the same samples
@@ -161,6 +161,9 @@ The *fishtaco/examples* directory contains the following files:
 - the file *SAMPLE_vs_CLASS.tab* contains class labels from the same samples (control vs. case)
 
 Using these files as input for FishTaco results in the following output files (found in the *fishtaco/examples/output* directory):
+
+Note: If you installed the FishTaco package using *pip*, the *examples* directory is located in your python packages directory, e.g.,
+*lib/python3.3/site-packages*
 
 FishTaco with no inference
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
