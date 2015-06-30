@@ -62,7 +62,7 @@
 <li><a class="reference internal" href="#">Running FishTaco</a><ul>
 <li><a class="reference internal" href="#usage">Usage</a></li>
 <li><a class="reference internal" href="#required-arguments">Required arguments</a></li>
-<li><a class="reference internal" href="#recommended-arguments">Recommended arguments</a></li>
+<li><a class="reference internal" href="#optional-arguments">Optional arguments</a></li>
 <li><a class="reference internal" href="#advanced-usage-arguments">Advanced usage arguments</a></li>
 <li><a class="reference internal" href="#fishtaco-output-files">FishTaco Output Files</a><ul>
 <li><a class="reference internal" href="#main-output-files">Main output files</a></li>
@@ -106,18 +106,20 @@ FishTaco offers an interface to the FishTaco functionality via the command line 
 <dd>Input file of label assignment for the two sample sets being compared (<a class="reference external" href="fishtaco_file_formats.html#sample-sets-labels-file">format</a>)</dd>
 </dl>
 </div>
-<div class="section" id="recommended-arguments">
-<h2>Recommended arguments<a class="headerlink" href="#recommended-arguments" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="optional-arguments">
+<h2>Optional arguments<a class="headerlink" href="#optional-arguments" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt><code class="docutils literal"><span class="pre">-gc,</span> <span class="pre">--genomic_content_of_taxa</span> <span class="pre">GENOMIC_CONTENT_FILE</span></code></dt>
 <dd>Input file of genomic content of each taxa (<a class="reference external" href="fishtaco_file_formats.html#genomic-content-file">format</a>)</dd>
-<dt><code class="docutils literal"><span class="pre">-control_label</span> <span class="pre">LABEL</span></code></dt>
-<dd>Define control label (default: 0)</dd>
-<dt><code class="docutils literal"><span class="pre">-case_label</span> <span class="pre">LABEL</span></code></dt>
-<dd>Define case label (default: 1)</dd>
+<dt><code class="docutils literal"><span class="pre">-inf,</span> <span class="pre">--perform_inference_of_genomic_content</span></code></dt>
+<dd>Defines if genome content is inferred (either de-novo or prior-based if genomic content is also given, default: FALSE)</dd>
+<dt><code class="docutils literal"><span class="pre">-label_to_find_enrichment_in</span></code></dt>
+<dd>Define sample set label to find enrichment in (default: 1)</dd>
+<dt><code class="docutils literal"><span class="pre">-label_to_find_enrichment_against</span></code></dt>
+<dd>Define sample set label to find enrichment against (default: 0)</dd>
 <dt><code class="docutils literal"><span class="pre">-op,</span> <span class="pre">--output_prefix</span> <span class="pre">OUTPUT_PREF</span></code></dt>
 <dd>Output prefix for result files (default: fishtaco_out)</dd>
-<dt><code class="docutils literal"><span class="pre">-map_function_level</span> <span class="pre">[pathway,module,none,custom]</span></code></dt>
+<dt><code class="docutils literal"><span class="pre">-map_function_level</span> <span class="pre">{pathway,</span> <span class="pre">module,</span> <span class="pre">none,</span> <span class="pre">custom}</span></code></dt>
 <dd>Map KOs to pathways, modules, none, or custom (default: pathway)</dd>
 </dl>
 </div>
@@ -125,14 +127,16 @@ FishTaco offers an interface to the FishTaco functionality via the command line 
 <h2>Advanced usage arguments<a class="headerlink" href="#advanced-usage-arguments" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt><code class="docutils literal"><span class="pre">-map_function_file</span> <span class="pre">FUNC_LEVEL_MAP_FILE</span></code></dt>
-<dd>Mapping file from KOs to pathways, modules, or custom (default: use KEGG database downloaded 07/15/2013)</dd>
-<dt><code class="docutils literal"><span class="pre">-mult,</span> <span class="pre">--multiple_hypothesis_correction</span> <span class="pre">[Bonf,FDR-0.01,FDR-0.05,FDR-0.1,none]</span></code></dt>
+<dd>Mapping file from KOs to pathways, modules, or custom (default: use internal KEGG database downloaded 07/15/2013)</dd>
+<dt><code class="docutils literal"><span class="pre">-perform_inference_on_ko_level</span></code></dt>
+<dd>Indicates to perform the inference on the KO level (default: use the mapped functional level, e.g., pathway)</dd>
+<dt><code class="docutils literal"><span class="pre">-mult_hyp,</span> <span class="pre">--multiple_hypothesis_correction</span> <span class="pre">{Bonf,</span> <span class="pre">FDR-0.01,</span> <span class="pre">FDR-0.05,</span> <span class="pre">FDR-0.1,</span> <span class="pre">none}</span></code></dt>
 <dd>Multiple hypothesis correction for functional enrichment (default: FDR-0.05)</dd>
 <dt><code class="docutils literal"><span class="pre">-max_func,</span> <span class="pre">--maximum_functions_to_analyze</span> <span class="pre">MAX_FUNCTIONS</span></code></dt>
 <dd>Maximum number of enriched functions to consider (default: All)</dd>
-<dt><code class="docutils literal"><span class="pre">-assessment,</span> <span class="pre">--taxa_assessment_method</span> <span class="pre">[permute_all_but_i,permuted_shapley_orderings]</span></code></dt>
-<dd>The method used when assessing taxa to compute score (default: permuted_shapley_orderings)</dd>
-<dt><code class="docutils literal"><span class="pre">-score,</span> <span class="pre">--score_to_compute</span> <span class="pre">[t_test,mean_diff,median_diff,wilcoxon,log_mean_ratio]</span></code></dt>
+<dt><code class="docutils literal"><span class="pre">-assessment,</span> <span class="pre">--taxa_assessment_method</span> <span class="pre">{single_taxa,</span> <span class="pre">multi_taxa}</span></code></dt>
+<dd>The method used when assessing taxa to compute individual contributions (default: multi_taxa)</dd>
+<dt><code class="docutils literal"><span class="pre">-score,</span> <span class="pre">--score_to_compute</span> <span class="pre">{t_test,</span> <span class="pre">mean_diff,</span> <span class="pre">median_diff,</span> <span class="pre">wilcoxon,</span> <span class="pre">log_mean_ratio}</span></code></dt>
 <dd>The enrichment score to compute for each function (default: wilcoxon)</dd>
 <dt><code class="docutils literal"><span class="pre">-max_score,</span> <span class="pre">--max_score_cutoff</span> <span class="pre">MAX_SCORE_CUTOFF</span></code></dt>
 <dd>The maximum score cutoff (for example, when dividing by zero) (default: 100)</dd>
@@ -142,14 +146,6 @@ FishTaco offers an interface to the FishTaco functionality via the command line 
 <dd>number of permutations (default: 100)</dd>
 <dt><code class="docutils literal"><span class="pre">-number_of_shapley_orderings_per_taxa</span> <span class="pre">NUMBER_OF_SHAPLEY_ORDERINGS_PER_TAXA</span></code></dt>
 <dd>number of shapley orderings per taxa (default: 5)</dd>
-<dt><code class="docutils literal"><span class="pre">-use_gc_as_prior,</span> <span class="pre">--use_genomic_content_of_taxa_as_prior</span></code></dt>
-<dd>Learn the taxa copy number of each function, using the given genomic content data as prior (default: False)</dd>
-<dt><code class="docutils literal"><span class="pre">-residual_mode</span> <span class="pre">[as_taxa,remove_residual,as_baseline]</span></code></dt>
-<dd>How to treat the residual of the functional abundance profile (default: remove_residual)</dd>
-<dt><code class="docutils literal"><span class="pre">-normalization_mode</span> <span class="pre">[none,scale_non_permuted,scale_permuted]</span></code></dt>
-<dd>How to normalize the sample after permuting taxa (default: scale_permuted)</dd>
-<dt><code class="docutils literal"><span class="pre">-permutation_mode</span> <span class="pre">[independent,blocks]</span></code></dt>
-<dd>How to permute the taxa across samples (default: blocks)</dd>
 <dt><code class="docutils literal"><span class="pre">-en,</span> <span class="pre">--enrichment_results</span> <span class="pre">DA_RESULT_FILE</span></code></dt>
 <dd>Pre-computed functional enrichment results from the compute_differential_abundance.py script (default: None)</dd>
 <dt><code class="docutils literal"><span class="pre">-single_function_filter</span> <span class="pre">SINGLE_FUNCTION_FILTER</span></code></dt>
@@ -281,7 +277,7 @@ FishTaco offers an interface to the FishTaco functionality via the command line 
     </div>
     <div class="footer" role="contentinfo">
         &copy; Copyright 2015, Ohad Manor.
-      Last updated on Jun 15, 2015.
+      Last updated on Jun 30, 2015.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b2.
     </div>
   </body>

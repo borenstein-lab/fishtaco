@@ -30,16 +30,19 @@ Optional arguments
 ``-gc, --genomic_content_of_taxa GENOMIC_CONTENT_FILE``
     Input file of genomic content of each taxa (`format <fishtaco_file_formats.html#genomic-content-file>`_)
 
-``-control_label LABEL``
-    Define control label (default: 0)
+``-inf, --perform_inference_of_genomic_content``
+    Defines if genome content is inferred (either de-novo or prior-based if genomic content is also given, default: FALSE)
 
-``-case_label LABEL``
-    Define case label (default: 1)
+``-label_to_find_enrichment_in``
+    Define sample set label to find enrichment in (default: 1)
+
+``-label_to_find_enrichment_against``
+    Define sample set label to find enrichment against (default: 0)
 
 ``-op, --output_prefix OUTPUT_PREF``
     Output prefix for result files (default: fishtaco_out)
 
-``-map_function_level [pathway,module,none,custom]``
+``-map_function_level {pathway, module, none, custom}``
     Map KOs to pathways, modules, none, or custom (default: pathway)
 
 
@@ -47,18 +50,21 @@ Advanced usage arguments
 ------------------------
 
 ``-map_function_file FUNC_LEVEL_MAP_FILE``
-    Mapping file from KOs to pathways, modules, or custom (default: use KEGG database downloaded 07/15/2013)
+    Mapping file from KOs to pathways, modules, or custom (default: use internal KEGG database downloaded 07/15/2013)
 
-``-mult, --multiple_hypothesis_correction [Bonf,FDR-0.01,FDR-0.05,FDR-0.1,none]``
+``-perform_inference_on_ko_level``
+    Indicates to perform the inference on the KO level (default: use the mapped functional level, e.g., pathway)
+
+``-mult_hyp, --multiple_hypothesis_correction {Bonf, FDR-0.01, FDR-0.05, FDR-0.1, none}``
     Multiple hypothesis correction for functional enrichment (default: FDR-0.05)
 
 ``-max_func, --maximum_functions_to_analyze MAX_FUNCTIONS``
     Maximum number of enriched functions to consider (default: All)
 
-``-assessment, --taxa_assessment_method [permute_all_but_i,permuted_shapley_orderings]``
-    The method used when assessing taxa to compute score (default: permuted_shapley_orderings)
+``-assessment, --taxa_assessment_method {single_taxa, multi_taxa}``
+    The method used when assessing taxa to compute individual contributions (default: multi_taxa)
 
-``-score, --score_to_compute [t_test,mean_diff,median_diff,wilcoxon,log_mean_ratio]``
+``-score, --score_to_compute {t_test, mean_diff, median_diff, wilcoxon, log_mean_ratio}``
     The enrichment score to compute for each function (default: wilcoxon)
 
 ``-max_score, --max_score_cutoff MAX_SCORE_CUTOFF``
@@ -72,18 +78,6 @@ Advanced usage arguments
 
 ``-number_of_shapley_orderings_per_taxa NUMBER_OF_SHAPLEY_ORDERINGS_PER_TAXA``
     number of shapley orderings per taxa (default: 5)
-
-``-use_gc_as_prior, --use_genomic_content_of_taxa_as_prior``
-    Learn the taxa copy number of each function, using the given genomic content data as prior (default: False)
-
-``-residual_mode [as_taxa,remove_residual,as_baseline]``
-    How to treat the residual of the functional abundance profile (default: remove_residual)
-
-``-normalization_mode [none,scale_non_permuted,scale_permuted]``
-    How to normalize the sample after permuting taxa (default: scale_permuted)
-
-``-permutation_mode [independent,blocks]``
-    How to permute the taxa across samples (default: blocks)
 
 ``-en, --enrichment_results DA_RESULT_FILE``
     Pre-computed functional enrichment results from the compute_differential_abundance.py script (default: None)
