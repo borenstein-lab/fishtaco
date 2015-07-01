@@ -18,31 +18,23 @@ In order to use the FishTacoPlot package:
 
 1. Download the FishTacoPlot package from the `FishTacoPlot GitHub page <https://github.com/omanor/fishtaco-plot>`_.
 
-2. Install the package in your R terminal with the command: ``install.packages(path_to_package, repos = NULL, type="source")``
+2. Install the package in your R terminal with the command: ``install.packages(<path_to_package>, repos = NULL, type="source")``
 
 3. Load the package to your workspace with the command: ``require(FishTacoPlot)``
 
-4. Plot your results, for example by using:
-
-.. code:: python
-
-    MultiFunctionTaxaContributionPlots(input_dir=FISHTACO_OUTPUT_DIR, input_prefix="pathway",
-    input_score="wilcoxon", input_taxa_taxonomy=TAXONOMY_FILE,
-    min_shift_explained=0, sort_by="list", show_only_enriched_functions=TRUE, plot_type="bars",
-    separate_enriched_depleted_taxa=TRUE, show_only_diff_abun_taxa=TRUE,
-    input_function_filter_list=c("ko00020", "ko00540","ko02040" ), add_predicted_da_markers=TRUE,
-    add_original_da_markers=TRUE)
-
-
+4. Plot your results by using the function *MultiFunctionTaxaContributionPlots*.
 
 Examples
 --------
+
+In the *<path_to_package>/examples* directory, you can find results obtained by applying FishTaco to a healthy cohort of different body sites (HMP),
+and a type 2 diabetes cohort (T2D).
 
 Metagenomic Comparative Analysis of Different Body Sites
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 An example of a FishTaco plot showing the species-level contributions to the functional enrichment of 3 pathways in tongue samples compared to
-mucosa samples:
+cheek samples:
 
 .. figure:: FishTaco_HMP.png
     :width: 750px
@@ -50,6 +42,16 @@ mucosa samples:
     :height: 500px
     :alt: alternate text
     :figclass: align-center
+
+
+Generate this example by using the following command:
+
+.. code:: python
+
+    MultiFunctionTaxaContributionPlots(input_dir="<path_to_package>/examples", input_prefix="HMP_fishtaco",
+    input_taxa_taxonomy="<path_to_package>/examples/HMP_TAXONOMY.tab", sort_by="list", plot_type="bars",
+    input_function_filter_list=c("ko00020", "ko00540","ko02040"), add_predicted_da_markers=TRUE, add_original_da_markers=TRUE)
+
 
 Metagenomic Comparative Analysis of a Disease Cohort
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -63,3 +65,12 @@ healthy controls:
     :height: 500px
     :alt: alternate text
     :figclass: align-center
+
+
+Generate this example by using the following command:
+
+.. code:: python
+
+    MultiFunctionTaxaContributionPlots(input_dir="<path_to_package>/examples", input_prefix="T2D_fishtaco",
+    input_taxa_taxonomy="<path_to_package>/examples/T2D_TAXONOMY.tab", sort_by="list", plot_type="bars",
+    input_function_filter_list=c("ko00020", "ko00540","ko02040"), add_predicted_da_markers=TRUE)

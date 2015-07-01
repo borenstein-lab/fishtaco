@@ -85,27 +85,27 @@
 <p>In order to use the FishTacoPlot package:</p>
 <ol class="arabic simple">
 <li>Download the FishTacoPlot package from the <a class="reference external" href="https://github.com/omanor/fishtaco-plot">FishTacoPlot GitHub page</a>.</li>
-<li>Install the package in your R terminal with the command: <code class="docutils literal"><span class="pre">install.packages(path_to_package,</span> <span class="pre">repos</span> <span class="pre">=</span> <span class="pre">NULL,</span> <span class="pre">type=&quot;source&quot;)</span></code></li>
+<li>Install the package in your R terminal with the command: <code class="docutils literal"><span class="pre">install.packages(&lt;path_to_package&gt;,</span> <span class="pre">repos</span> <span class="pre">=</span> <span class="pre">NULL,</span> <span class="pre">type=&quot;source&quot;)</span></code></li>
 <li>Load the package to your workspace with the command: <code class="docutils literal"><span class="pre">require(FishTacoPlot)</span></code></li>
-<li>Plot your results, for example by using:</li>
+<li>Plot your results by using the function <em>MultiFunctionTaxaContributionPlots</em>.</li>
 </ol>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="n">MultiFunctionTaxaContributionPlots</span><span class="p">(</span><span class="n">input_dir</span><span class="o">=</span><span class="n">FISHTACO_OUTPUT_DIR</span><span class="p">,</span> <span class="n">input_prefix</span><span class="o">=</span><span class="s">&quot;pathway&quot;</span><span class="p">,</span>
-<span class="n">input_score</span><span class="o">=</span><span class="s">&quot;wilcoxon&quot;</span><span class="p">,</span> <span class="n">input_taxa_taxonomy</span><span class="o">=</span><span class="n">TAXONOMY_FILE</span><span class="p">,</span>
-<span class="n">min_shift_explained</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sort_by</span><span class="o">=</span><span class="s">&quot;list&quot;</span><span class="p">,</span> <span class="n">show_only_enriched_functions</span><span class="o">=</span><span class="n">TRUE</span><span class="p">,</span> <span class="n">plot_type</span><span class="o">=</span><span class="s">&quot;bars&quot;</span><span class="p">,</span>
-<span class="n">separate_enriched_depleted_taxa</span><span class="o">=</span><span class="n">TRUE</span><span class="p">,</span> <span class="n">show_only_diff_abun_taxa</span><span class="o">=</span><span class="n">TRUE</span><span class="p">,</span>
-<span class="n">input_function_filter_list</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s">&quot;ko00020&quot;</span><span class="p">,</span> <span class="s">&quot;ko00540&quot;</span><span class="p">,</span><span class="s">&quot;ko02040&quot;</span> <span class="p">),</span> <span class="n">add_predicted_da_markers</span><span class="o">=</span><span class="n">TRUE</span><span class="p">,</span>
-<span class="n">add_original_da_markers</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>
-</pre></div>
-</div>
 </div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>In the <em>&lt;path_to_package&gt;/examples</em> directory, you can find results obtained by applying FishTaco to a healthy cohort of different body sites (HMP),
+and a type 2 diabetes cohort (T2D).</p>
 <div class="section" id="metagenomic-comparative-analysis-of-different-body-sites">
 <h3>Metagenomic Comparative Analysis of Different Body Sites<a class="headerlink" href="#metagenomic-comparative-analysis-of-different-body-sites" title="Permalink to this headline">¶</a></h3>
 <p>An example of a FishTaco plot showing the species-level contributions to the functional enrichment of 3 pathways in tongue samples compared to
-mucosa samples:</p>
+cheek samples:</p>
 <div class="align-center figure">
 <a class="reference internal image-reference" href="_images/FishTaco_HMP.png"><img alt="alternate text" src="_images/FishTaco_HMP.png" style="width: 750px; height: 500px;" /></a>
+</div>
+<p>Generate this example by using the following command:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">MultiFunctionTaxaContributionPlots</span><span class="p">(</span><span class="n">input_dir</span><span class="o">=</span><span class="s">&quot;&lt;path_to_package&gt;/examples&quot;</span><span class="p">,</span> <span class="n">input_prefix</span><span class="o">=</span><span class="s">&quot;HMP_fishtaco&quot;</span><span class="p">,</span>
+<span class="n">input_taxa_taxonomy</span><span class="o">=</span><span class="s">&quot;&lt;path_to_package&gt;/examples/HMP_TAXONOMY.tab&quot;</span><span class="p">,</span> <span class="n">sort_by</span><span class="o">=</span><span class="s">&quot;list&quot;</span><span class="p">,</span> <span class="n">plot_type</span><span class="o">=</span><span class="s">&quot;bars&quot;</span><span class="p">,</span>
+<span class="n">input_function_filter_list</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s">&quot;ko00020&quot;</span><span class="p">,</span> <span class="s">&quot;ko00540&quot;</span><span class="p">,</span><span class="s">&quot;ko02040&quot;</span><span class="p">),</span> <span class="n">add_predicted_da_markers</span><span class="o">=</span><span class="n">TRUE</span><span class="p">,</span> <span class="n">add_original_da_markers</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
 <div class="section" id="metagenomic-comparative-analysis-of-a-disease-cohort">
@@ -114,6 +114,12 @@ mucosa samples:</p>
 healthy controls:</p>
 <div class="align-center figure">
 <a class="reference internal image-reference" href="_images/FishTaco_T2D.png"><img alt="alternate text" src="_images/FishTaco_T2D.png" style="width: 750px; height: 500px;" /></a>
+</div>
+<p>Generate this example by using the following command:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">MultiFunctionTaxaContributionPlots</span><span class="p">(</span><span class="n">input_dir</span><span class="o">=</span><span class="s">&quot;&lt;path_to_package&gt;/examples&quot;</span><span class="p">,</span> <span class="n">input_prefix</span><span class="o">=</span><span class="s">&quot;T2D_fishtaco&quot;</span><span class="p">,</span>
+<span class="n">input_taxa_taxonomy</span><span class="o">=</span><span class="s">&quot;&lt;path_to_package&gt;/examples/T2D_TAXONOMY.tab&quot;</span><span class="p">,</span> <span class="n">sort_by</span><span class="o">=</span><span class="s">&quot;list&quot;</span><span class="p">,</span> <span class="n">plot_type</span><span class="o">=</span><span class="s">&quot;bars&quot;</span><span class="p">,</span>
+<span class="n">input_function_filter_list</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s">&quot;ko00020&quot;</span><span class="p">,</span> <span class="s">&quot;ko00540&quot;</span><span class="p">,</span><span class="s">&quot;ko02040&quot;</span><span class="p">),</span> <span class="n">add_predicted_da_markers</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
 </div>
