@@ -220,39 +220,40 @@ FishTaco offers an interface to the FishTaco functionality via the command line 
 <p>Running FishTaco with no inference generates the output files found in output/fishtaco_out_no_inf_STAT_*</p>
 <div class="code python highlight-python"><div class="highlight"><pre>run_fishtaco.py -ta fishtaco/examples/METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab
 -fu fishtaco/examples/WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab
--t2f fishtaco/examples/METAPHLAN_taxa_vs_KO_only_K00001.tab
--c fishtaco/examples/SAMPLE_vs_CLASS.tab -op fishtaco_out_no_inf -max_da 1
--assessment permuted_shapley_orderings -score wilcoxon -na_rep 0
--number_of_shapley_orderings_per_taxa 3 -residual_mode remove_residual -log
--normalization_mode scale_permuted -permutation_mode blocks -number_of_permutations 5
+-l fishtaco/examples/SAMPLE_vs_CLASS.tab
+-gc fishtaco/examples/METAPHLAN_taxa_vs_KO_only_K00001.tab
+-op fishtaco_out_no_inf
+-map_function_level none
+-log
 </pre></div>
 </div>
 </div>
 <div class="section" id="fishtaco-with-prior-based-inference">
 <h3>FishTaco with prior-based inference<a class="headerlink" href="#fishtaco-with-prior-based-inference" title="Permalink to this headline">¶</a></h3>
 <p>Running FishTaco with prior-based inference generates the output files found in output/fishtaco_out_prior_based_inf_STAT_*</p>
-<div class="code python highlight-python"><div class="highlight"><pre>run_fishtaco.py -op fishtaco_out_no_inf -max_da 1
+<div class="code python highlight-python"><div class="highlight"><pre>run_fishtaco.py
 -ta fishtaco/examples/METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab
 -fu fishtaco/examples/WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab
--c fishtaco/examples/SAMPLE_vs_CLASS.tab
--t2f fishtaco/examples/METAPHLAN_taxa_vs_KO_only_K00001.tab
--assessment permuted_shapley_orderings -score wilcoxon
--na_rep 0 -number_of_shapley_orderings_per_taxa 3 -residual_mode remove_residual
--normalization_mode scale_permuted -permutation_mode blocks -number_of_permutations 5
--use_t2f_as_prior -log
+-l fishtaco/examples/SAMPLE_vs_CLASS.tab
+-gc fishtaco/examples/METAPHLAN_taxa_vs_KO_only_K00001.tab
+-op fishtaco_out_no_inf
+-map_function_level none
+-inf
+-log
 </pre></div>
 </div>
 </div>
 <div class="section" id="fishtaco-with-de-novo-inference">
 <h3>FishTaco with de novo inference<a class="headerlink" href="#fishtaco-with-de-novo-inference" title="Permalink to this headline">¶</a></h3>
 <p>Running FishTaco with <em>de novo</em> inference generates the output files found in output/fishtaco_out_de_novo_inf_STAT_*</p>
-<div class="code python highlight-python"><div class="highlight"><pre>run_fishtaco.py -op fishtaco_out_no_inf -max_da 1
+<div class="code python highlight-python"><div class="highlight"><pre>run_fishtaco.py
 -ta fishtaco/examples/METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab
 -fu fishtaco/examples/WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab
--c fishtaco/examples/SAMPLE_vs_CLASS.tab -assessment permuted_shapley_orderings
--score wilcoxon -na_rep 0 -number_of_shapley_orderings_per_taxa 3
--residual_mode remove_residual -normalization_mode scale_permuted
--permutation_mode blocks -number_of_permutations 5 -log
+-l fishtaco/examples/SAMPLE_vs_CLASS.tab
+-op fishtaco_out_no_inf
+-map_function_level none
+-inf
+-log
 </pre></div>
 </div>
 </div>
@@ -279,7 +280,7 @@ FishTaco offers an interface to the FishTaco functionality via the command line 
     </div>
     <div class="footer" role="contentinfo">
         &copy; Copyright 2015, Ohad Manor.
-      Last updated on Jun 30, 2015.
+      Last updated on Jul 06, 2015.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b2.
     </div>
   </body>
