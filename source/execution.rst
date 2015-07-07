@@ -178,6 +178,7 @@ Running FishTaco with no inference generates the output files found in output/fi
     -gc fishtaco/examples/METAPHLAN_taxa_vs_KO_only_K00001.tab
     -op fishtaco_out_no_inf
     -map_function_level none
+    -functional_profile_already_corrected_with_musicc
     -log
 
 FishTaco with prior-based inference
@@ -195,6 +196,7 @@ Running FishTaco with prior-based inference generates the output files found in 
     -gc fishtaco/examples/METAPHLAN_taxa_vs_KO_only_K00001.tab
     -op fishtaco_out_no_inf
     -map_function_level none
+    -functional_profile_already_corrected_with_musicc
     -inf
     -log
 
@@ -212,6 +214,7 @@ Running FishTaco with *de novo* inference generates the output files found in ou
     -l fishtaco/examples/SAMPLE_vs_CLASS.tab
     -op fishtaco_out_no_inf
     -map_function_level none
+    -functional_profile_already_corrected_with_musicc
     -inf
     -log
 
