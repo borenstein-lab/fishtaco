@@ -172,14 +172,9 @@ Running FishTaco with no inference generates the output files found in fishtaco/
 
 .. code:: python
 
-    run_fishtaco.py -ta fishtaco/examples/METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab
-    -fu fishtaco/examples/WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab
-    -l fishtaco/examples/SAMPLE_vs_CLASS.tab
-    -gc fishtaco/examples/METAPHLAN_taxa_vs_KO_only_K00001.tab
-    -op fishtaco_out_no_inf
-    -map_function_level none
-    -functional_profile_already_corrected_with_musicc
-    -log
+    run_fishtaco.py -ta fishtaco/examples/METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab -fu fishtaco/examples/WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab
+    -l fishtaco/examples/SAMPLE_vs_CLASS.tab -gc fishtaco/examples/METAPHLAN_taxa_vs_KO_only_K00001.tab -op fishtaco_out_no_inf
+    -map_function_level none -functional_profile_already_corrected_with_musicc -log
 
 FishTaco with prior-based inference
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -189,16 +184,9 @@ Running FishTaco with prior-based inference generates the output files found in 
 
 .. code:: python
 
-    run_fishtaco.py
-    -ta fishtaco/examples/METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab
-    -fu fishtaco/examples/WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab
-    -l fishtaco/examples/SAMPLE_vs_CLASS.tab
-    -gc fishtaco/examples/METAPHLAN_taxa_vs_KO_only_K00001.tab
-    -op fishtaco_out_prior_based_inf
-    -map_function_level none
-    -functional_profile_already_corrected_with_musicc
-    -inf
-    -log
+    run_fishtaco.py -ta fishtaco/examples/METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab -fu fishtaco/examples/WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab
+    -l fishtaco/examples/SAMPLE_vs_CLASS.tab -gc fishtaco/examples/METAPHLAN_taxa_vs_KO_only_K00001.tab -op fishtaco_out_prior_based_inf
+    -map_function_level none -functional_profile_already_corrected_with_musicc -inf -log
 
 FishTaco with de novo inference
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -208,15 +196,9 @@ Running FishTaco with *de novo* inference generates the output files found in fi
 
 .. code:: python
 
-    run_fishtaco.py
-    -ta fishtaco/examples/METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab
-    -fu fishtaco/examples/WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab
-    -l fishtaco/examples/SAMPLE_vs_CLASS.tab
-    -op fishtaco_out_de_novo_inf
-    -map_function_level none
-    -functional_profile_already_corrected_with_musicc
-    -inf
-    -log
+    run_fishtaco.py -ta fishtaco/examples/METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab -fu fishtaco/examples/WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab
+    -l fishtaco/examples/SAMPLE_vs_CLASS.tab -op fishtaco_out_de_novo_inf -map_function_level none -functional_profile_already_corrected_with_musicc
+    -inf -log
 
 
 
