@@ -217,7 +217,7 @@ FishTaco offers an interface to the FishTaco functionality via the command line 
 <em>lib/python3.3/site-packages</em></p>
 <div class="section" id="fishtaco-with-no-inference">
 <h3>FishTaco with no inference<a class="headerlink" href="#fishtaco-with-no-inference" title="Permalink to this headline">¶</a></h3>
-<p>Running FishTaco with no inference generates the output files found in output/fishtaco_out_no_inf_STAT_*</p>
+<p>Running FishTaco with no inference generates the output files found in fishtaco/examples/output/fishtaco_out_no_inf_STAT_*</p>
 <div class="code python highlight-python"><div class="highlight"><pre>run_fishtaco.py -ta fishtaco/examples/METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab
 -fu fishtaco/examples/WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab
 -l fishtaco/examples/SAMPLE_vs_CLASS.tab
@@ -231,13 +231,13 @@ FishTaco offers an interface to the FishTaco functionality via the command line 
 </div>
 <div class="section" id="fishtaco-with-prior-based-inference">
 <h3>FishTaco with prior-based inference<a class="headerlink" href="#fishtaco-with-prior-based-inference" title="Permalink to this headline">¶</a></h3>
-<p>Running FishTaco with prior-based inference generates the output files found in output/fishtaco_out_prior_based_inf_STAT_*</p>
+<p>Running FishTaco with prior-based inference generates the output files found in fishtaco/examples/output/fishtaco_out_prior_based_inf_STAT_*</p>
 <div class="code python highlight-python"><div class="highlight"><pre>run_fishtaco.py
 -ta fishtaco/examples/METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab
 -fu fishtaco/examples/WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab
 -l fishtaco/examples/SAMPLE_vs_CLASS.tab
 -gc fishtaco/examples/METAPHLAN_taxa_vs_KO_only_K00001.tab
--op fishtaco_out_no_inf
+-op fishtaco_out_prior_based_inf
 -map_function_level none
 -functional_profile_already_corrected_with_musicc
 -inf
@@ -247,12 +247,12 @@ FishTaco offers an interface to the FishTaco functionality via the command line 
 </div>
 <div class="section" id="fishtaco-with-de-novo-inference">
 <h3>FishTaco with de novo inference<a class="headerlink" href="#fishtaco-with-de-novo-inference" title="Permalink to this headline">¶</a></h3>
-<p>Running FishTaco with <em>de novo</em> inference generates the output files found in output/fishtaco_out_de_novo_inf_STAT_*</p>
+<p>Running FishTaco with <em>de novo</em> inference generates the output files found in fishtaco/examples/output/fishtaco_out_de_novo_inf_STAT_*</p>
 <div class="code python highlight-python"><div class="highlight"><pre>run_fishtaco.py
 -ta fishtaco/examples/METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab
 -fu fishtaco/examples/WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab
 -l fishtaco/examples/SAMPLE_vs_CLASS.tab
--op fishtaco_out_no_inf
+-op fishtaco_out_de_novo_inf
 -map_function_level none
 -functional_profile_already_corrected_with_musicc
 -inf
