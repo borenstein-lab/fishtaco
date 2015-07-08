@@ -16,7 +16,7 @@ We recommend downloading and installing `R Studio <http://www.rstudio.com/>`_ be
 
 In order to use the FishTacoPlot package:
 
-1. Download the FishTacoPlot package from the `FishTacoPlot GitHub page <https://github.com/omanor/fishtaco-plot>`_.
+1. Download the FishTacoPlot package from `GitHub <https://github.com/omanor/fishtaco-plot/archive/1.0.0.tar.gz>`_.
 
 2. Install the package in your R terminal with the command: ``install.packages(<path_to_package>, repos = NULL, type="source")``
 
