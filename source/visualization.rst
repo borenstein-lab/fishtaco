@@ -43,7 +43,7 @@ An example of a FishTaco plot showing the species-level contributions to the fun
 cheek samples:
 
 .. figure:: FishTaco_HMP.png
-    :width: 800px
+    :width: 970px
     :align: center
     :height: 500px
     :alt: alternate text
@@ -82,7 +82,7 @@ An example of a FishTaco plot showing the genus-level contributions to the funct
 healthy controls:
 
 .. figure:: FishTaco_T2D.png
-    :width: 800px
+    :width: 970px
     :align: center
     :height: 500px
     :alt: alternate text
