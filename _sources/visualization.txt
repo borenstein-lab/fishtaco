@@ -55,8 +55,7 @@ Generate this example by using the following command:
 
     MultiFunctionTaxaContributionPlots(input_dir="<path_to_package>/examples", input_prefix="HMP_fishtaco",
     input_taxa_taxonomy="<path_to_package>/examples/HMP_TAXONOMY.tab", sort_by="list", plot_type="bars",
-    input_function_filter_list=c("ko00020", "ko00540","ko02040"), add_predicted_da_markers=TRUE, add_original_da_markers=TRUE,
-    min_cont_as_separate=0.025)
+    input_function_filter_list=c("ko00020", "ko00540","ko02040"), add_predicted_da_markers=TRUE, add_original_da_markers=TRUE)
 
 
 Metagenomic Comparative Analysis of a Disease Cohort
@@ -79,5 +78,4 @@ Generate this example by using the following command:
 
     MultiFunctionTaxaContributionPlots(input_dir="<path_to_package>/examples", input_prefix="T2D_fishtaco",
     input_taxa_taxonomy="<path_to_package>/examples/T2D_TAXONOMY.tab", sort_by="list", plot_type="bars",
-    input_function_filter_list=c("ko00020", "ko00540","ko02040"), add_predicted_da_markers=TRUE,
-    min_cont_as_separate=0.025)
+    input_function_filter_list=c("ko00020", "ko00540","ko02040"), add_predicted_da_markers=TRUE)
