@@ -54,11 +54,11 @@ Generate this example by using the following commands:
 
 .. code:: python
 
-    p = MultiFunctionTaxaContributionPlots(input_dir="<path_to_package>/examples", input_prefix="HMP_fishtaco",
+    p <- MultiFunctionTaxaContributionPlots(input_dir="<path_to_package>/examples", input_prefix="HMP_fishtaco",
     input_taxa_taxonomy="<path_to_package>/examples/HMP_TAXONOMY.tab", sort_by="list", plot_type="bars",
     input_function_filter_list=c("ko00020", "ko00540","ko02040"), add_predicted_da_markers=TRUE, add_original_da_markers=TRUE)
 
-    p = p + scale_x_continuous(breaks=c(1, 2, 3), labels=c("TCA cycle", "LPS\nbiosynthesis", "Flagellar\nassembly")) +
+    p <- p + scale_x_continuous(breaks=c(1, 2, 3), labels=c("TCA cycle", "LPS\nbiosynthesis", "Flagellar\nassembly")) +
     guides(fill=guide_legend(nrow=7)) + ylab("Wilcoxon test statistic (W)") +
     theme(plot.title=element_blank(), axis.title.x=element_text(size=12,colour="black",face="plain"),
     axis.text.x=element_text(size=10,colour="black",face="plain"), axis.title.y=element_blank(),
@@ -93,11 +93,11 @@ Generate this example by using the following commands:
 
 .. code:: python
 
-    p = MultiFunctionTaxaContributionPlots(input_dir="<path_to_package>/examples", input_prefix="T2D_fishtaco",
+    p <- MultiFunctionTaxaContributionPlots(input_dir="<path_to_package>/examples", input_prefix="T2D_fishtaco",
     input_taxa_taxonomy="<path_to_package>/examples/T2D_TAXONOMY.tab", sort_by="list", plot_type="bars",
     input_function_filter_list=c("M00216", "M00217","M00269"), add_predicted_da_markers=TRUE)
 
-    p = p + scale_x_continuous(breaks=c(1, 2, 3), labels=c("Multiple sugar\ntransport system", "D-Allose\ntransport system","PTS system sucrose\n -specific II component")) +
+    p <- p + scale_x_continuous(breaks=c(1, 2, 3), labels=c("Multiple sugar\ntransport system", "D-Allose\ntransport system","PTS system sucrose\n -specific II component")) +
     guides(fill = guide_legend(ncol=5)) + ylab("Wilcoxon test statistic (W)") +
     theme(plot.title=element_blank(), axis.title.x=element_text(size=12,colour="black",face="plain"),
     axis.text.x=element_text(size=10,colour="black",face="plain"), axis.title.y=element_blank(),

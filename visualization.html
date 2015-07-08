@@ -108,11 +108,11 @@ cheek samples:</p>
 <a class="reference internal image-reference" href="_images/FishTaco_HMP.png"><img alt="alternate text" src="_images/FishTaco_HMP.png" style="width: 970px; height: 500px;" /></a>
 </div>
 <p>Generate this example by using the following commands:</p>
-<div class="code python highlight-python"><div class="highlight"><pre>p = MultiFunctionTaxaContributionPlots(input_dir=&quot;&lt;path_to_package&gt;/examples&quot;, input_prefix=&quot;HMP_fishtaco&quot;,
+<div class="code python highlight-python"><div class="highlight"><pre>p &lt;- MultiFunctionTaxaContributionPlots(input_dir=&quot;&lt;path_to_package&gt;/examples&quot;, input_prefix=&quot;HMP_fishtaco&quot;,
 input_taxa_taxonomy=&quot;&lt;path_to_package&gt;/examples/HMP_TAXONOMY.tab&quot;, sort_by=&quot;list&quot;, plot_type=&quot;bars&quot;,
 input_function_filter_list=c(&quot;ko00020&quot;, &quot;ko00540&quot;,&quot;ko02040&quot;), add_predicted_da_markers=TRUE, add_original_da_markers=TRUE)
 
-p = p + scale_x_continuous(breaks=c(1, 2, 3), labels=c(&quot;TCA cycle&quot;, &quot;LPS\nbiosynthesis&quot;, &quot;Flagellar\nassembly&quot;)) +
+p &lt;- p + scale_x_continuous(breaks=c(1, 2, 3), labels=c(&quot;TCA cycle&quot;, &quot;LPS\nbiosynthesis&quot;, &quot;Flagellar\nassembly&quot;)) +
 guides(fill=guide_legend(nrow=7)) + ylab(&quot;Wilcoxon test statistic (W)&quot;) +
 theme(plot.title=element_blank(), axis.title.x=element_text(size=12,colour=&quot;black&quot;,face=&quot;plain&quot;),
 axis.text.x=element_text(size=10,colour=&quot;black&quot;,face=&quot;plain&quot;), axis.title.y=element_blank(),
@@ -137,11 +137,11 @@ healthy controls:</p>
 <a class="reference internal image-reference" href="_images/FishTaco_T2D.png"><img alt="alternate text" src="_images/FishTaco_T2D.png" style="width: 970px; height: 500px;" /></a>
 </div>
 <p>Generate this example by using the following commands:</p>
-<div class="code python highlight-python"><div class="highlight"><pre>p = MultiFunctionTaxaContributionPlots(input_dir=&quot;&lt;path_to_package&gt;/examples&quot;, input_prefix=&quot;T2D_fishtaco&quot;,
+<div class="code python highlight-python"><div class="highlight"><pre>p &lt;- MultiFunctionTaxaContributionPlots(input_dir=&quot;&lt;path_to_package&gt;/examples&quot;, input_prefix=&quot;T2D_fishtaco&quot;,
 input_taxa_taxonomy=&quot;&lt;path_to_package&gt;/examples/T2D_TAXONOMY.tab&quot;, sort_by=&quot;list&quot;, plot_type=&quot;bars&quot;,
 input_function_filter_list=c(&quot;M00216&quot;, &quot;M00217&quot;,&quot;M00269&quot;), add_predicted_da_markers=TRUE)
 
-p = p + scale_x_continuous(breaks=c(1, 2, 3), labels=c(&quot;Multiple sugar\ntransport system&quot;, &quot;D-Allose\ntransport system&quot;,&quot;PTS system sucrose\n -specific II component&quot;)) +
+p &lt;- p + scale_x_continuous(breaks=c(1, 2, 3), labels=c(&quot;Multiple sugar\ntransport system&quot;, &quot;D-Allose\ntransport system&quot;,&quot;PTS system sucrose\n -specific II component&quot;)) +
 guides(fill = guide_legend(ncol=5)) + ylab(&quot;Wilcoxon test statistic (W)&quot;) +
 theme(plot.title=element_blank(), axis.title.x=element_text(size=12,colour=&quot;black&quot;,face=&quot;plain&quot;),
 axis.text.x=element_text(size=10,colour=&quot;black&quot;,face=&quot;plain&quot;), axis.title.y=element_blank(),
