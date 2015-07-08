@@ -86,12 +86,13 @@
 <ul class="simple">
 <li>package-scales {scales}</li>
 <li>ggplot2 {ggplot2}</li>
+<li>grid {graphics}</li>
 </ul>
 <p>In order to use the FishTacoPlot package:</p>
 <ol class="arabic simple">
 <li>Download the FishTacoPlot package from <a class="reference external" href="https://github.com/omanor/fishtaco-plot/archive/1.0.0.tar.gz">GitHub</a>.</li>
 <li>Install the package in your R terminal with the command: <code class="docutils literal"><span class="pre">install.packages(&lt;path_to_package&gt;,</span> <span class="pre">repos</span> <span class="pre">=</span> <span class="pre">NULL,</span> <span class="pre">type=&quot;source&quot;)</span></code></li>
-<li>Load the packages to your workspace with the command: <code class="docutils literal"><span class="pre">require(FishTacoPlot);</span> <span class="pre">require(ggplot2);</span> <span class="pre">require(scales)</span></code></li>
+<li>Load the packages to your workspace with the command: <code class="docutils literal"><span class="pre">require(FishTacoPlot);</span> <span class="pre">require(ggplot2);</span> <span class="pre">require(scales);</span> <span class="pre">require(grid)</span></code></li>
 <li>Plot your results by using the function <em>MultiFunctionTaxaContributionPlots</em>.</li>
 </ol>
 </div>
@@ -107,9 +108,20 @@ cheek samples:</p>
 <a class="reference internal image-reference" href="_images/FishTaco_HMP.png"><img alt="alternate text" src="_images/FishTaco_HMP.png" style="width: 750px; height: 500px;" /></a>
 </div>
 <p>Generate this example by using the following command:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="n">MultiFunctionTaxaContributionPlots</span><span class="p">(</span><span class="n">input_dir</span><span class="o">=</span><span class="s">&quot;&lt;path_to_package&gt;/examples&quot;</span><span class="p">,</span> <span class="n">input_prefix</span><span class="o">=</span><span class="s">&quot;HMP_fishtaco&quot;</span><span class="p">,</span>
-<span class="n">input_taxa_taxonomy</span><span class="o">=</span><span class="s">&quot;&lt;path_to_package&gt;/examples/HMP_TAXONOMY.tab&quot;</span><span class="p">,</span> <span class="n">sort_by</span><span class="o">=</span><span class="s">&quot;list&quot;</span><span class="p">,</span> <span class="n">plot_type</span><span class="o">=</span><span class="s">&quot;bars&quot;</span><span class="p">,</span>
-<span class="n">input_function_filter_list</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s">&quot;ko00020&quot;</span><span class="p">,</span> <span class="s">&quot;ko00540&quot;</span><span class="p">,</span><span class="s">&quot;ko02040&quot;</span><span class="p">),</span> <span class="n">add_predicted_da_markers</span><span class="o">=</span><span class="n">TRUE</span><span class="p">,</span> <span class="n">add_original_da_markers</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>
+<div class="code python highlight-python"><div class="highlight"><pre>p = MultiFunctionTaxaContributionPlots(input_dir=&quot;&lt;path_to_package&gt;/examples&quot;, input_prefix=&quot;HMP_fishtaco&quot;,
+input_taxa_taxonomy=&quot;&lt;path_to_package&gt;/examples/HMP_TAXONOMY.tab&quot;, sort_by=&quot;list&quot;, plot_type=&quot;bars&quot;,
+input_function_filter_list=c(&quot;ko00020&quot;, &quot;ko00540&quot;,&quot;ko02040&quot;), add_predicted_da_markers=TRUE, add_original_da_markers=TRUE)
+
+p = p + scale_x_continuous(breaks=c(1, 2, 3), labels=c(&quot;TCA cycle&quot;, &quot;LPS\nbiosynthesis&quot;, &quot;Flagellar\nassembly&quot;)) +
+guides(fill=guide_legend(nrow=7)) + ylab(&quot;Wilcoxon test statistic (W)&quot;) +
+theme(plot.title=element_blank(), axis.title.x=element_text(size=12,colour=&quot;black&quot;,face=&quot;plain&quot;),
+axis.text.x=element_text(size=10,colour=&quot;black&quot;,face=&quot;plain&quot;), axis.title.y=element_blank(),
+axis.text.y=element_text(size=10,colour=&quot;black&quot;,face=&quot;plain&quot;), axis.ticks.y=element_blank(),
+axis.ticks.x=element_blank(), panel.grid.major.x = element_line(colour=&quot;light gray&quot;), panel.grid.major.y = element_line(colour=&quot;light gray&quot;),
+panel.grid.minor.x = element_line(colour=&quot;light gray&quot;), panel.grid.minor.y = element_line(colour=&quot;light gray&quot;),
+panel.background = element_rect(fill=&quot;transparent&quot;,colour=NA), panel.border = element_rect(fill=&quot;transparent&quot;,colour=&quot;black&quot;),
+legend.background=element_rect(colour=&quot;black&quot;), legend.title=element_text(size=10), legend.text=element_text(size=8,face=&quot;plain&quot;),
+legend.key.size=unit(0.8,&quot;line&quot;), legend.margin=unit(0.1,&quot;line&quot;), legend.location=&quot;bottom&quot;)
 </pre></div>
 </div>
 </div>
