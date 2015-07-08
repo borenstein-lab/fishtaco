@@ -71,7 +71,7 @@ Generate this example by using the following commands:
 
     ggsave <- ggplot2::ggsave; body(ggsave) <- body(ggplot2::ggsave)[-2]
 
-    ggsave("Example_HMP.pdf", p)
+    ggsave("FishTaco_HMP.png", p)
 
 
 
@@ -110,6 +110,6 @@ Generate this example by using the following commands:
 
     ggsave <- ggplot2::ggsave; body(ggsave) <- body(ggplot2::ggsave)[-2]
 
-    ggsave("Example_T2D.pdf", p)
+    ggsave("FishTaco_T2D.png", p)
 
 
