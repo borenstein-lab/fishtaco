@@ -122,6 +122,10 @@ panel.grid.minor.x = element_line(colour=&quot;light gray&quot;), panel.grid.min
 panel.background = element_rect(fill=&quot;transparent&quot;,colour=NA), panel.border = element_rect(fill=&quot;transparent&quot;,colour=&quot;black&quot;),
 legend.background=element_rect(colour=&quot;black&quot;), legend.title=element_text(size=10), legend.text=element_text(size=8,face=&quot;plain&quot;),
 legend.key.size=unit(0.8,&quot;line&quot;), legend.margin=unit(0.1,&quot;line&quot;), legend.position=&quot;bottom&quot;)
+
+ggsave &lt;- ggplot2::ggsave; body(ggsave) &lt;- body(ggplot2::ggsave)[-2]
+
+ggsave(&quot;Example_HMP.pdf&quot;, p)
 </pre></div>
 </div>
 </div>
@@ -147,6 +151,10 @@ panel.grid.minor.x = element_line(colour=&quot;light gray&quot;), panel.grid.min
 panel.background = element_rect(fill=&quot;transparent&quot;,colour=NA), panel.border = element_rect(fill=&quot;transparent&quot;,colour=&quot;black&quot;),
 legend.background=element_rect(colour=&quot;black&quot;), legend.title=element_text(size=10), legend.text=element_text(size=8,face=&quot;plain&quot;),
 legend.key.size=unit(0.8,&quot;line&quot;), legend.margin=unit(0.1,&quot;line&quot;), legend.position=&quot;bottom&quot;)
+
+ggsave &lt;- ggplot2::ggsave; body(ggsave) &lt;- body(ggplot2::ggsave)[-2]
+
+ggsave(&quot;Example_T2D.pdf&quot;, p)
 </pre></div>
 </div>
 </div>

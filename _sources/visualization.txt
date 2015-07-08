@@ -69,6 +69,11 @@ Generate this example by using the following commands:
     legend.background=element_rect(colour="black"), legend.title=element_text(size=10), legend.text=element_text(size=8,face="plain"),
     legend.key.size=unit(0.8,"line"), legend.margin=unit(0.1,"line"), legend.position="bottom")
 
+    ggsave <- ggplot2::ggsave; body(ggsave) <- body(ggplot2::ggsave)[-2]
+
+    ggsave("Example_HMP.pdf", p)
+
+
 
 Metagenomic Comparative Analysis of a Disease Cohort
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -102,5 +107,9 @@ Generate this example by using the following commands:
     panel.background = element_rect(fill="transparent",colour=NA), panel.border = element_rect(fill="transparent",colour="black"),
     legend.background=element_rect(colour="black"), legend.title=element_text(size=10), legend.text=element_text(size=8,face="plain"),
     legend.key.size=unit(0.8,"line"), legend.margin=unit(0.1,"line"), legend.position="bottom")
+
+    ggsave <- ggplot2::ggsave; body(ggsave) <- body(ggplot2::ggsave)[-2]
+
+    ggsave("Example_T2D.pdf", p)
 
 
