@@ -44,13 +44,14 @@ class FishTacoTestCase(unittest.TestCase):
                         ' -map_function_level none -functional_profile_already_corrected_with_musicc', shell=True)
 
         # assert that the log file shows that fishtaco completed successfully
-        output = subprocess.check_output('cat fishtaco_out_no_inf_STAT_run_log_SCORE_wilcoxon_ASSESSMENT_single_taxa.tab', shell=True)
+        with open("fishtaco_out_no_inf_STAT_run_log_SCORE_wilcoxon_ASSESSMENT_single_taxa.tab", "r") as my_file:
+            output = my_file.read().replace('\n', '')
 
-        # delete test files
-        subprocess.call("rm fishtaco_out_no_inf_STAT_*", shell=True)
+        print("Testing output...")
+        print("Deleting temporary files...")
+        os.remove("fishtaco_out_no_inf_STAT_run_log_SCORE_wilcoxon_ASSESSMENT_single_taxa.tab")
 
-        success = output.decode("utf-8").find('Program completed successfully')
-        self.assertTrue(success > 0)
+        self.assertTrue('Program completed successfully' in output)
 
     def test_is_output_correct_for_fishtaco_prior_based_inference(self):
         """Does FishTaco with prior-based inference produce the correct output for the example case?"""
@@ -66,13 +67,14 @@ class FishTacoTestCase(unittest.TestCase):
                         ' -map_function_level none -functional_profile_already_corrected_with_musicc', shell=True)
 
         # assert that the log file shows that fishtaco completed successfully
-        output = subprocess.check_output('cat fishtaco_out_prior_based_inf_STAT_run_log_SCORE_wilcoxon_ASSESSMENT_single_taxa.tab', shell=True)
+        with open("fishtaco_out_prior_based_inf_STAT_run_log_SCORE_wilcoxon_ASSESSMENT_single_taxa.tab", "r") as my_file:
+            output = my_file.read().replace('\n', '')
 
-        # delete test files
-        subprocess.call("rm fishtaco_out_prior_based_inf_STAT_*", shell=True)
+        print("Testing output...")
+        print("Deleting temporary files...")
+        os.remove("fishtaco_out_prior_based_inf_STAT_run_log_SCORE_wilcoxon_ASSESSMENT_single_taxa.tab")
 
-        success = output.decode("utf-8").find('Program completed successfully')
-        self.assertTrue(success > 0)
+        self.assertTrue('Program completed successfully' in output)
 
     def test_is_output_correct_for_fishtaco_de_novo_inference(self):
         """Does FishTaco with de novo inference produce the correct output for the example case?"""
@@ -87,13 +89,14 @@ class FishTacoTestCase(unittest.TestCase):
                         ' -map_function_level none -functional_profile_already_corrected_with_musicc', shell=True)
 
         # assert that the log file shows that fishtaco completed successfully
-        output = subprocess.check_output('cat fishtaco_out_de_novo_inf_STAT_run_log_SCORE_wilcoxon_ASSESSMENT_single_taxa.tab', shell=True)
+        with open("fishtaco_out_de_novo_inf_STAT_run_log_SCORE_wilcoxon_ASSESSMENT_single_taxa.tab", "r") as my_file:
+            output = my_file.read().replace('\n', '')
 
-        # delete test files
-        subprocess.call("rm fishtaco_out_de_novo_inf_STAT_*", shell=True)
+        print("Testing output...")
+        print("Deleting temporary files...")
+        os.remove("fishtaco_out_de_novo_inf_STAT_run_log_SCORE_wilcoxon_ASSESSMENT_single_taxa.tab")
 
-        success = output.decode("utf-8").find('Program completed successfully')
-        self.assertTrue(success > 0)
+        self.assertTrue('Program completed successfully' in output)
 
 ################################################
 

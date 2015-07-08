@@ -1,0 +1,25 @@
+# RUN PARAMETERS: 
+# --------------- 
+# /net/gs/vol3/software/modules-sw-python/3.3.3/fishtaco/1.0.1/Linux/RHEL6/x86_64/bin/run_fishtaco.py {'functional_profile_already_corrected_with_musicc': True, 'multiple_hypothesis_correction': 'FDR-0.05', 'apply_inference': True, 'residual_mode': 'remove_residual', 'perform_inference_on_ko_level': False, 'output_pref': 'PyCode/FiShTaCo/fishtaco/examples/output/fishtaco_out_de_novo_inf', 'normalization_mode': 'scale_permuted', 'map_function_file': None, 'na_rep': 'NA', 'da_result_file': None, 'control_label': '0', 'class_file': 'PyCode/FiShTaCo/fishtaco/examples/SAMPLE_vs_CLASS.tab', 'number_of_permutations': '100', 'taxa_assessment_method': 'single_taxa', 'taxa_abun_file': 'PyCode/FiShTaCo/fishtaco/examples/METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab', 'score_to_compute': 'wilcoxon', 'taxa_to_function_file': None, 'function_abun_file': 'PyCode/FiShTaCo/fishtaco/examples/WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab', 'write_log': True, 'single_function_filter': None, 'max_da_functions_cases_controls': None, 'permutation_mode': 'blocks', 'max_score_cutoff': '100', 'map_function_level': 'none', 'number_of_shapley_orderings_per_taxa': '5', 'case_label': '1'}
+#
+# LEGEND: 
+# ------- 
+# a:case-associated and driving case-enrichment; 
+# b:case-associated and attenuating case-enrichment; 
+# c:control-associated and driving case-enrichment; 
+# d:control-associated and attenuating case-enrichment; 
+#
+# TAXON-LEVEL CONTRIBUTION VALUES: 
+# -------------------------------- 
+#
+Taxa	K00001
+s__Actinomyces_odontolyticus	c:0.6163344926501282
+s__Campylobacter_concisus	c:1.4441247025015522
+s__Haemophilus_parainfluenzae	c:2.7335154054233124
+s__Prevotella_melaninogenica	c:2.773849860838995
+s__Rothia_mucilaginosa	d:-2.359832462911748
+s__Streptococcus_mitis	a:11.72974435986869
+s__Streptococcus_sanguinis	b:-0.5027576468599894
+s__Veillonella_atypica	c:0.4500382456523898
+s__Veillonella_dispar	d:-0.11250956141309741
+s__Veillonella_unclassified	c:0.11210932977170698

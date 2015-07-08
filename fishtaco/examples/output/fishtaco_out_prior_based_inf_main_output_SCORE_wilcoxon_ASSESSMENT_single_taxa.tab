@@ -1,0 +1,25 @@
+# RUN PARAMETERS: 
+# --------------- 
+# /net/gs/vol3/software/modules-sw-python/3.3.3/fishtaco/1.0.1/Linux/RHEL6/x86_64/bin/run_fishtaco.py {'class_file': 'PyCode/FiShTaCo/fishtaco/examples/SAMPLE_vs_CLASS.tab', 'taxa_assessment_method': 'single_taxa', 'score_to_compute': 'wilcoxon', 'residual_mode': 'remove_residual', 'taxa_abun_file': 'PyCode/FiShTaCo/fishtaco/examples/METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab', 'taxa_to_function_file': 'PyCode/FiShTaCo/fishtaco/examples/METAPHLAN_taxa_vs_KO_only_K00001.tab', 'functional_profile_already_corrected_with_musicc': True, 'apply_inference': True, 'function_abun_file': 'PyCode/FiShTaCo/fishtaco/examples/WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab', 'normalization_mode': 'scale_permuted', 'da_result_file': None, 'write_log': True, 'map_function_level': 'none', 'number_of_permutations': '100', 'case_label': '1', 'map_function_file': None, 'output_pref': 'PyCode/FiShTaCo/fishtaco/examples/output/fishtaco_out_prior_based_inf', 'max_score_cutoff': '100', 'permutation_mode': 'blocks', 'max_da_functions_cases_controls': None, 'na_rep': 'NA', 'single_function_filter': None, 'perform_inference_on_ko_level': False, 'control_label': '0', 'multiple_hypothesis_correction': 'FDR-0.05', 'number_of_shapley_orderings_per_taxa': '5'}
+#
+# LEGEND: 
+# ------- 
+# a:case-associated and driving case-enrichment; 
+# b:case-associated and attenuating case-enrichment; 
+# c:control-associated and driving case-enrichment; 
+# d:control-associated and attenuating case-enrichment; 
+#
+# TAXON-LEVEL CONTRIBUTION VALUES: 
+# -------------------------------- 
+#
+Taxa	K00001
+s__Actinomyces_odontolyticus	c:0.6274520382443075
+s__Campylobacter_concisus	c:1.4522849809676797
+s__Haemophilus_parainfluenzae	c:2.7387406518525768
+s__Prevotella_melaninogenica	c:2.750747601094291
+s__Rothia_mucilaginosa	d:-2.313427827601643
+s__Streptococcus_mitis	a:11.715491666416943
+s__Streptococcus_sanguinis	b:-0.5204567794459233
+s__Veillonella_atypica	c:0.4562418360939421
+s__Veillonella_dispar	d:-0.08444887633338816
+s__Veillonella_unclassified	c:0.114955421443817
