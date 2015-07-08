@@ -25,7 +25,7 @@ In order to use the FishTacoPlot package:
 
 2. Install the package in your R terminal with the command: ``install.packages(<path_to_package>, repos = NULL, type="source")``
 
-3. Load the packages to your workspace with the commands: ``require(FishTacoPlot)``, ``require(ggplot2)``, ``require(scales)``
+3. Load the packages to your workspace with the command: ``require(FishTacoPlot); require(ggplot2); require(scales)``
 
 4. Plot your results by using the function *MultiFunctionTaxaContributionPlots*.
 
