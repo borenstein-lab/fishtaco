@@ -67,7 +67,7 @@ Generate this example by using the following command:
     panel.grid.minor.x = element_line(colour="light gray"), panel.grid.minor.y = element_line(colour="light gray"),
     panel.background = element_rect(fill="transparent",colour=NA), panel.border = element_rect(fill="transparent",colour="black"),
     legend.background=element_rect(colour="black"), legend.title=element_text(size=10), legend.text=element_text(size=8,face="plain"),
-    legend.key.size=unit(0.8,"line"), legend.margin=unit(0.1,"line"), legend.location="bottom")
+    legend.key.size=unit(0.8,"line"), legend.margin=unit(0.1,"line"), legend.position="bottom")
 
 
 Metagenomic Comparative Analysis of a Disease Cohort
