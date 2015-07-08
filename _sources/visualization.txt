@@ -50,7 +50,7 @@ cheek samples:
     :figclass: align-center
 
 
-Generate this example by using the following command:
+Generate this example by using the following commands:
 
 .. code:: python
 
@@ -84,7 +84,7 @@ healthy controls:
     :figclass: align-center
 
 
-Generate this example by using the following command:
+Generate this example by using the following commands:
 
 .. code:: python
 
