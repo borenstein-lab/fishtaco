@@ -19,6 +19,7 @@ from musicc.core import correct_and_normalize
 
 # for now...
 # sys.path.append('/net/gs/vol1/home/ohadm/METAFIT/PyCode/FiShTaCo/fishtaco')
+import fishtaco
 from fishtaco import compute_pathway_abundance
 from fishtaco import compute_differential_abundance
 from fishtaco import learn_non_neg_elastic_net_with_prior
@@ -56,6 +57,9 @@ def compute_score(abundance_cases, abundance_controls, score_to_compute, max_sco
 # MAIN FUNCTION
 ###################################################################################################################
 def main(args):
+
+    # Get the path to the location of the package:
+    path_to_data = os.path.dirname(fishtaco.__file__)
 
     # set some initial settings for the script
     np.set_printoptions(precision=5, suppress=False, linewidth=200)  # nicer output
@@ -185,10 +189,10 @@ def main(args):
 
         else:
             if args['map_function_level'] == 'pathway':
-                function_mapping_file = 'data/KOvsPATHWAY_BACTERIAL_KEGG_2013_07_15'
+                function_mapping_file = path_to_data + 'data/KOvsPATHWAY_BACTERIAL_KEGG_2013_07_15'
 
             elif args['map_function_level'] == 'module':
-                function_mapping_file = 'data/KOvsMODULE_BACTERIAL_KEGG_2013_07_15'
+                function_mapping_file = path_to_data + 'data/KOvsMODULE_BACTERIAL_KEGG_2013_07_15'
 
             else:  # custom
                 sys.exit('Error: No custom mapping file given')

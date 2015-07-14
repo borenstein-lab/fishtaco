@@ -13,7 +13,7 @@ def read(*paths):
         return f.read()
 
 setup(name='FishTaco',
-      version='1.0.2',
+      version='1.0.3',
       classifiers=['License :: OSI Approved :: BSD License'],
       license=['BSD'],
       description='FishTaco: a metagenomic computational framework, aiming to identify the taxa that are driving functional shifts in microbiomes.',

@@ -23,7 +23,7 @@ from fishtaco.compute_contribution_to_DA import main
 class FishTacoTestCase(unittest.TestCase):
     """Tests for `compute_contribution_to_DA.py`."""
 
-    # when the test module will be ready:
+    # Get the path to the location of the package:
     path_to_data = os.path.dirname(fishtaco.__file__)
 
     # for testing:
