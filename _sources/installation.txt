@@ -18,7 +18,7 @@ If you have *pip* installed, you can install these packages by running the follo
 
 ``pip install -U numpy scipy scikit-learn pandas statsmodels MUSiCC``
 
-**Important note**: FishTaco is tested to work both with python 2.7 and 3.3
+**Important note**: FishTaco is tested to work under Python 2.7 and Python 3.3
 
 Installing FishTaco
 -------------------
