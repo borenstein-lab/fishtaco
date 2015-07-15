@@ -189,10 +189,10 @@ def main(args):
 
         else:
             if args['map_function_level'] == 'pathway':
-                function_mapping_file = path_to_data + 'data/KOvsPATHWAY_BACTERIAL_KEGG_2013_07_15'
+                function_mapping_file = path_to_data + '/data/KOvsPATHWAY_BACTERIAL_KEGG_2013_07_15.tab'
 
             elif args['map_function_level'] == 'module':
-                function_mapping_file = path_to_data + 'data/KOvsMODULE_BACTERIAL_KEGG_2013_07_15'
+                function_mapping_file = path_to_data + '/data/KOvsMODULE_BACTERIAL_KEGG_2013_07_15.tab'
 
             else:  # custom
                 sys.exit('Error: No custom mapping file given')
