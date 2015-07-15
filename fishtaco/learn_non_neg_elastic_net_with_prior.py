@@ -1,35 +1,33 @@
-__author__ = 'ManorLab'
+"""
+learn_non_neg_elastic_net_with_prior.py: Learns a cross-validation Non Negative Elastic Net model with a Prior
+from given features
 
-################################################################################################################
-# LearnNonNegElasticWithPrior.py: Learns a cross-validation Non Negative Elastic Net model with a Prior
-# from given features
-#
-# notes:
-# - does NOT normalize/centers X, so X needs to be normalized/centered before sending to function
-# - does NOT center Y, so Y needs to be centered before sending to function
-#
-# LearnNonNegElasticWithPrior.learn(cov_train, res_train, params):
-#   Learns the model
-#
-# cov_train: the covariate matrix of size NxP, with N samples and P covariates
-#
-# res_train: the response vector of size N, with N samples
-#
-# params: a dictionary containing optional params
-#   params.['covariates_prior']: a vector of priors for the different features in the range [0,1]
-#   params.['class_subfeatures']: a vector of binary case/control labels for the samples, dividing them to two classes.
-#                                 If this parameter is given when learning, 2*P covariates will be created.
-#                                 The P covariates are zero for controls and copied from cov_train for
-#                                 the cases, and the second P covariates are zero for cases and copied from cov_train
-#                                 for the controls. This matrix will replace the original, so the returned model
-#                                 will have 2*P weights
-#   params.['num_cv']: the number of folds in the internal cross-validation (default: 5)
-#   params.['l1_ratio']: the ratio of L1 penalty in the regularization in the range [0,1] (default: 0.5)
-#
-# returns the elastic-net model and the vector of validation R^2
-#
-#
-################################################################################################################
+notes:
+- does NOT normalize/centers X, so X needs to be normalized/centered before sending to function
+- does NOT center Y, so Y needs to be centered before sending to function
+
+LearnNonNegElasticWithPrior.learn(cov_train, res_train, params):
+   Learns the model
+
+ cov_train: the covariate matrix of size NxP, with N samples and P covariates
+
+ res_train: the response vector of size N, with N samples
+
+ params: a dictionary containing optional params
+   params.['covariates_prior']: a vector of priors for the different features in the range [0,1]
+   params.['class_subfeatures']: a vector of binary case/control labels for the samples, dividing them to two classes.
+                                 If this parameter is given when learning, 2*P covariates will be created.
+                                 The P covariates are zero for controls and copied from cov_train for
+                                 the cases, and the second P covariates are zero for cases and copied from cov_train
+                                 for the controls. This matrix will replace the original, so the returned model
+                                 will have 2*P weights
+   params.['num_cv']: the number of folds in the internal cross-validation (default: 5)
+   params.['l1_ratio']: the ratio of L1 penalty in the regularization in the range [0,1] (default: 0.5)
+
+returns the elastic-net model and the vector of validation R^2
+"""
+# to comply with both Py2 and Py3
+from __future__ import absolute_import, division, print_function
 
 from sklearn import cross_validation, linear_model
 import numpy as np

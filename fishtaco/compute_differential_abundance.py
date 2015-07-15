@@ -1,4 +1,8 @@
-__author__ = 'ManorLab'
+"""
+This function computes the differential abundance score of functions or taxa
+"""
+# to comply with both Py2 and Py3
+from __future__ import absolute_import, division, print_function
 
 # general imports
 import argparse
@@ -8,7 +12,6 @@ from scipy import stats
 from statsmodels.stats.multitest import multipletests
 import sys
 import os.path
-
 
 def main(args):
 

@@ -1,9 +1,11 @@
-__author__ = 'ManorLab'
-
 """
 This function quantifies the individual contributions of taxa to the outcome of functional differential abundance (shift), given
 the full linear deconvolution of the functional profile to the underlying taxonomic profile and the genomic content of each taxon.
 """
+
+# to comply with both Py2 and Py3
+from __future__ import absolute_import, division, print_function
+
 import numpy as np
 import pandas as pd
 import sys

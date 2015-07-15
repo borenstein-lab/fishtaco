@@ -1,5 +1,11 @@
 #!/usr/bin/env python
 
+"""
+This is the running script for FishTaco
+"""
+# to comply with both Py2 and Py3
+from __future__ import absolute_import, division, print_function
+
 import argparse
 
 # when the test module will be ready:

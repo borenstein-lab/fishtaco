@@ -7,7 +7,6 @@ fishtaco/__init__.py
 fishtaco/compute_contribution_to_DA.py
 fishtaco/compute_differential_abundance.py
 fishtaco/compute_pathway_abundance.py
-fishtaco/compute_shapley_value_from_subsets.py
 fishtaco/learn_non_neg_elastic_net_with_prior.py
 fishtaco/BAK/compute_contribution_to_DA.back_01_21_2015
 fishtaco/BAK/compute_contribution_to_DA.back_07_14_2014

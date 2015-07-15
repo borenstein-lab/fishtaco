@@ -1,4 +1,9 @@
-__author__ = 'ManorLab'
+"""
+This function aggregates the abundance of KOs into pathways or modules abundances
+"""
+
+# to comply with both Py2 and Py3
+from __future__ import absolute_import, division, print_function
 
 import argparse
 import numpy as np
