@@ -56,7 +56,8 @@
 <li><a class="reference internal" href="#function-abundance-file">Function abundance file</a></li>
 <li><a class="reference internal" href="#sample-sets-labels-file">Sample sets labels file</a></li>
 <li><a class="reference internal" href="#genomic-content-file">Genomic content file</a></li>
-<li><a class="reference internal" href="#fishtaco-output-file">FishTaco output file</a></li>
+<li><a class="reference internal" href="#fishtaco-output-file-main-output">FishTaco output file (<em>_main_output_</em>)</a></li>
+<li><a class="reference internal" href="#fishtacoplot-taxonomy-file-for-visualization">FishTacoPlot taxonomy file (for visualization)</a></li>
 </ul>
 </li>
 </ul>
@@ -251,8 +252,8 @@ and each cell represents the copy number of the function in the genome of the ta
 </tbody>
 </table>
 <br><br><br></div>
-<div class="section" id="fishtaco-output-file">
-<h2>FishTaco output file<a class="headerlink" href="#fishtaco-output-file" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="fishtaco-output-file-main-output">
+<h2>FishTaco output file (<em>_main_output_</em>)<a class="headerlink" href="#fishtaco-output-file-main-output" title="Permalink to this headline">¶</a></h2>
 <p>A tab-delimited text file (with headers), where each row is a taxon and each column is a function,
 and each cell represents the mode and value of contribution to the observed functional shift:</p>
 <br><table border="1" class="center-align docutils">
@@ -314,7 +315,15 @@ and each cell represents the mode and value of contribution to the observed func
 <strong>b</strong>: case-associated taxon attenuating enrichment of function in cases;
 <strong>c</strong>: control-associated taxon driving enrichment of function in cases;
 <strong>d</strong>: control-associated taxon attenuating enrichment of function in cases;</p>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+<br><br><br></div>
+<div class="section" id="fishtacoplot-taxonomy-file-for-visualization">
+<h2>FishTacoPlot taxonomy file (for visualization)<a class="headerlink" href="#fishtacoplot-taxonomy-file-for-visualization" title="Permalink to this headline">¶</a></h2>
+<p>In order to plot FishTaco&#8217;s decomposition of functional shifts into taxon-level contributions, a taxonomy file
+linking the various taxa to their phylogenetic assignment is required. The taxonomy file is a tab-delimited
+text file with <strong>no</strong> headers, where each row represents one taxon, followed by its assignment to the following
+phylogenetic levels: &#8216;kingdom&#8217;,&#8217;phylum&#8217;,&#8217;class&#8217;,&#8217;order&#8217;,&#8217;family&#8217;,&#8217;genus&#8217;,&#8217;species&#8217;, all prefixed by the first letter
+of the level followed by 2 underscores.</p>
+<br><div class="center-align"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div></div>
 </div>
 
 
@@ -331,7 +340,7 @@ and each cell represents the mode and value of contribution to the observed func
     </div>
     <div class="footer" role="contentinfo">
         &copy; Copyright 2015, Ohad Manor.
-      Last updated on Jul 15, 2015.
+      Last updated on Jul 16, 2015.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b2.
     </div>
   </body>

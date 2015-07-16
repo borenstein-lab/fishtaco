@@ -103,8 +103,8 @@ Taxa         K00001   K00002  K00003    K00004    K00005  K00006
     <br><br><br>
 
 
-FishTaco output file
---------------------
+FishTaco output file (*_main_output_*)
+--------------------------------------
 
 A tab-delimited text file (with headers), where each row is a taxon and each column is a function,
 and each cell represents the mode and value of contribution to the observed functional shift:
@@ -135,13 +135,37 @@ Taxa         K00001   K00002  K00003    K00004   K00005   K00006
 
 .. raw:: html
 
+    <br><br><br>
+
+
+
+FishTacoPlot taxonomy file (for visualization)
+----------------------------------------------
+
+In order to plot FishTaco's decomposition of functional shifts into taxon-level contributions, a taxonomy file
+linking the various taxa to their phylogenetic assignment is required. The taxonomy file is a tab-delimited
+text file with **no** headers, where each row represents one taxon, followed by its assignment to the following
+phylogenetic levels: 'kingdom','phylum','class','order','family','genus','species', all prefixed by the first letter
+of the level followed by 2 underscores.
+
+.. raw:: html
+
+    <br>
+
+.. rst-class:: center-align
+
+==========================  =========== ================= ======================= =================== ===================== ================ =================
+Abiotrophia defectiva	    k__Bacteria	p__Firmicutes	  c__Bacilli	          o__Lactobacillales  f__Aerococcaceae	    g__Abiotrophia	 s__defectiva
+Acaryochloris marina	    k__Bacteria	p__Cyanobacteria  c__Cyanophyceae	      o__Synechococcales  f__Acaryochloridaceae	g__Acaryochloris s__marina
+Acetivibrio cellulolyticus	k__Bacteria	p__Firmicutes	  c__Clostridia	          o__Clostridiales	  f__Clostridiaceae	    g__Acetivibrio	 s__cellulolyticus
+Acetobacter pasteurianus	k__Bacteria	p__Proteobacteria c__Alphaproteobacteria  o__Rhodospirillales f__Acetobacteraceae	g__Acetobacter	 s__pasteurianus
+Acetohalobium arabaticum	k__Bacteria	p__Firmicutes	  c__Clostridia	          o__Halanaerobiales  f__Halobacteroidaceae	g__Acetohalobium s__arabaticum
+==========================  =========== ================= ======================= =================== ===================== ================ =================
+
+
+.. raw:: html
+
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-
-
-
-
-
 
 
 
