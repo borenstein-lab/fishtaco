@@ -102,7 +102,6 @@ Taxa         K00001   K00002  K00003    K00004    K00005  K00006
 
     <br><br><br>
 
-
 FishTaco output file (*_main_output_*)
 --------------------------------------
 
@@ -137,8 +136,6 @@ Taxa         K00001   K00002  K00003    K00004   K00005   K00006
 
     <br><br><br>
 
-
-
 FishTacoPlot taxonomy file (for visualization)
 ----------------------------------------------
 
@@ -162,6 +159,14 @@ Acetobacter pasteurianus	k__Bacteria	p__Proteobacteria c__Alphaproteobacteria  o
 Acetohalobium arabaticum	k__Bacteria	p__Firmicutes	  c__Clostridia	          o__Halanaerobiales  f__Halobacteroidaceae	g__Acetohalobium s__arabaticum
 ==========================  =========== ================= ======================= =================== ===================== ================ =================
 
++------------------------+------------+----------+----------+
+| Header row, column 1   | Header 2   | Header 3 | Header 4 |
+| (header rows optional) |            |          |          |
++========================+============+==========+==========+
+| body row 1, column 1   | column 2   | column 3 | column 4 |
++------------------------+------------+----------+----------+
+| body row 2             | ...        | ...      |          |
++------------------------+------------+----------+----------+
 
 .. raw:: html
 
