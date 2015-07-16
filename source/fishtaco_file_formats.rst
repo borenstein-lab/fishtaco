@@ -152,15 +152,15 @@ of the level followed by 2 underscores.
 .. rst-class:: center-align
 
 +---------------------------+-------------+------------------+------------------------+--------------------+-----------------------+-----------------+-------------------+
-|Abiotrophia defectiva	    | k__Bacteria | p__Firmicutes	 | c__Bacilli	          | o__Lactobacillales | f__Aerococcaceae	   | g__Abiotrophia  | s__defectiva      |
+|Abiotrophia defectiva	    | k__Bacteria | p__Firmicutes    | c__Bacilli	          | o__Lactobacillales | f__Aerococcaceae	   | g__Abiotrophia  | s__defectiva      |
 +---------------------------+-------------+------------------+------------------------+--------------------+-----------------------+-----------------+-------------------+
 |Acaryochloris marina	    | k__Bacteria | p__Cyanobacteria | c__Cyanophyceae	      | o__Synechococcales | f__Acaryochloridaceae | g__Acaryochloris| s__marina         |
 +---------------------------+-------------+------------------+------------------------+--------------------+-----------------------+-----------------+-------------------+
-|Acetivibrio cellulolyticus | k__Bacteria | p__Firmicutes	 | c__Clostridia	      | o__Clostridiales   | f__Clostridiaceae	   | g__Acetivibrio	 | s__cellulolyticus |
+|Acetivibrio cellulolyticus | k__Bacteria | p__Firmicutes    | c__Clostridia	      | o__Clostridiales   | f__Clostridiaceae	   | g__Acetivibrio	 | s__cellulolyticus |
 +---------------------------+-------------+------------------+------------------------+--------------------+-----------------------+-----------------+-------------------+
 |Acetobacter pasteurianus   | k__Bacteria | p__Proteobacteria| c__Alphaproteobacteria | o__Rhodospirillales| f__Acetobacteraceae   | g__Acetobacter	 | s__pasteurianus   |
 +---------------------------+-------------+------------------+------------------------+--------------------+-----------------------+-----------------+-------------------+
-|Acetohalobium arabaticum   | k__Bacteria | p__Firmicutes	 | c__Clostridia	      | o__Halanaerobiales | f__Halobacteroidaceae | g__Acetohalobium| s__arabaticum     |
+|Acetohalobium arabaticum   | k__Bacteria | p__Firmicutes    | c__Clostridia	      | o__Halanaerobiales | f__Halobacteroidaceae | g__Acetohalobium| s__arabaticum     |
 +---------------------------+-------------+------------------+------------------------+--------------------+-----------------------+-----------------+-------------------+
 
 .. raw:: html
