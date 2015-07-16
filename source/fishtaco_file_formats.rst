@@ -152,7 +152,7 @@ of the level followed by 2 underscores.
 .. rst-class:: center-align
 
 +---------------------------+-------------+------------------+------------------------+--------------------+-----------------------+-----------------+-------------------+
-|Abiotrophia defectiva	    | k__Bacteria | p__Firmicutes    | c__Bacilli	          | o__Lactobacillales | f__Aerococcaceae	   | g__Abiotrophia  | s__defectiva      |
+|Abiotrophia defectiva	    | k__Bacteria | p__Firmicutes    | c__Bacilli             | o__Lactobacillales | f__Aerococcaceae	   | g__Abiotrophia  | s__defectiva      |
 +---------------------------+-------------+------------------+------------------------+--------------------+-----------------------+-----------------+-------------------+
 |Acaryochloris marina	    | k__Bacteria | p__Cyanobacteria | c__Cyanophyceae	      | o__Synechococcales | f__Acaryochloridaceae | g__Acaryochloris| s__marina         |
 +---------------------------+-------------+------------------+------------------------+--------------------+-----------------------+-----------------+-------------------+
