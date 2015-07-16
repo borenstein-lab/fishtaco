@@ -143,7 +143,8 @@ In order to plot FishTaco's decomposition of functional shifts into taxon-level 
 linking the various taxa to their phylogenetic assignment is required. The taxonomy file is a tab-delimited
 text file with **no** headers, where each row represents one taxon, followed by its assignment to the following
 phylogenetic levels: 'kingdom','phylum','class','order','family','genus','species', all prefixed by the first letter
-of the level followed by 2 underscores.
+of the level followed by 2 underscores. Here is an example of the first 5 rows of the default taxonomy file used by the
+FishTacoPlot package:
 
 .. raw:: html
 
