@@ -101,7 +101,7 @@ FishTaco Output Files
 Main output files
 ^^^^^^^^^^^^^^^^^
 ``fishtaco_out_main_output_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab``
-    contains the taxon-level decomposition of shift scores for the differentially abundant functions. (`format <fishtaco_file_formats.html#fishtaco-output-file>`_)
+    contains the taxon-level decomposition of shift scores for the differentially abundant functions. (`format <fishtaco_file_formats.html#fishtaco-output-file-main-output>`_)
 
 Supporting stats output files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
