@@ -56,10 +56,12 @@
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">FishTaco Visualization</a><ul>
-<li><a class="reference internal" href="#fishtacoplot-package">FishTacoPlot package</a></li>
-<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#fishtacoplot-r-package">FishTacoPlot R package</a><ul>
+<li><a class="reference internal" href="#examples-of-using-the-fishtacoplot-package">Examples of using the FishTacoPlot package</a><ul>
 <li><a class="reference internal" href="#metagenomic-comparative-analysis-of-different-body-sites">Metagenomic Comparative Analysis of Different Body Sites</a></li>
 <li><a class="reference internal" href="#metagenomic-comparative-analysis-of-a-disease-cohort">Metagenomic Comparative Analysis of a Disease Cohort</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -77,8 +79,8 @@
   <div class="section" id="fishtaco-visualization">
 <h1>FishTaco Visualization<a class="headerlink" href="#fishtaco-visualization" title="Permalink to this headline">¶</a></h1>
 <p id="index-0">The functional shift decomposition figures shown in the FishTaco paper are produced in R (<a class="reference external" href="http://www.r-project.org/">http://www.r-project.org/</a>) by using the FishTacoPlot package.</p>
-<div class="section" id="fishtacoplot-package">
-<h2>FishTacoPlot package<a class="headerlink" href="#fishtacoplot-package" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="fishtacoplot-r-package">
+<h2>FishTacoPlot R package<a class="headerlink" href="#fishtacoplot-r-package" title="Permalink to this headline">¶</a></h2>
 <p>Plotting the results obtained from applying FishTaco to you data is done via the FishTacoPlot package.</p>
 <p>We used R for the plotting in order to take full advantage of the capabilities of the <a class="reference external" href="http://ggplot2.org/">ggplot2 package</a>.</p>
 <p>We recommend downloading and installing <a class="reference external" href="http://www.rstudio.com/">R Studio</a> before plotting, but it is not required.</p>
@@ -95,13 +97,12 @@
 <li>Load the packages to your workspace with the command: <code class="docutils literal"><span class="pre">require(FishTacoPlot);</span> <span class="pre">require(ggplot2);</span> <span class="pre">require(scales);</span> <span class="pre">require(grid)</span></code></li>
 <li>Plot your results by using the function <em>MultiFunctionTaxaContributionPlots</em>.</li>
 </ol>
-</div>
-<div class="section" id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="examples-of-using-the-fishtacoplot-package">
+<h3>Examples of using the FishTacoPlot package<a class="headerlink" href="#examples-of-using-the-fishtacoplot-package" title="Permalink to this headline">¶</a></h3>
 <p>In the <em>&lt;path_to_package&gt;/examples</em> directory, you can find results obtained by applying FishTaco to a healthy cohort of different body sites (HMP),
 and a type 2 diabetes cohort (T2D).</p>
 <div class="section" id="metagenomic-comparative-analysis-of-different-body-sites">
-<h3>Metagenomic Comparative Analysis of Different Body Sites<a class="headerlink" href="#metagenomic-comparative-analysis-of-different-body-sites" title="Permalink to this headline">¶</a></h3>
+<h4>Metagenomic Comparative Analysis of Different Body Sites<a class="headerlink" href="#metagenomic-comparative-analysis-of-different-body-sites" title="Permalink to this headline">¶</a></h4>
 <p>An example of a FishTaco plot showing the species-level contributions to the functional enrichment of 3 pathways in tongue samples compared to
 cheek samples:</p>
 <div class="align-center figure">
@@ -130,7 +131,7 @@ ggsave(&quot;FishTaco_HMP.png&quot;, p, width=11.8, height=6.07, units=&quot;in&
 </div>
 </div>
 <div class="section" id="metagenomic-comparative-analysis-of-a-disease-cohort">
-<h3>Metagenomic Comparative Analysis of a Disease Cohort<a class="headerlink" href="#metagenomic-comparative-analysis-of-a-disease-cohort" title="Permalink to this headline">¶</a></h3>
+<h4>Metagenomic Comparative Analysis of a Disease Cohort<a class="headerlink" href="#metagenomic-comparative-analysis-of-a-disease-cohort" title="Permalink to this headline">¶</a></h4>
 <p>An example of a FishTaco plot showing the genus-level contributions to the functional enrichment of 3 modules in type 2 diabetes patients compared to
 healthy controls:</p>
 <div class="align-center figure">
@@ -160,6 +161,7 @@ ggsave(&quot;FishTaco_T2D.png&quot;, p, width=11.8, height=6.07, units=&quot;in&
 </div>
 </div>
 </div>
+</div>
 
 
           </div>
@@ -178,7 +180,7 @@ ggsave(&quot;FishTaco_T2D.png&quot;, p, width=11.8, height=6.07, units=&quot;in&
     </div>
     <div class="footer" role="contentinfo">
         &copy; Copyright 2015, Ohad Manor.
-      Last updated on Jul 15, 2015.
+      Last updated on Jul 20, 2015.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b2.
     </div>
   </body>

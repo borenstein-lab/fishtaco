@@ -5,8 +5,8 @@ FishTaco Visualization
 
 The functional shift decomposition figures shown in the FishTaco paper are produced in R (http://www.r-project.org/) by using the FishTacoPlot package.
 
-FishTacoPlot package
---------------------
+FishTacoPlot R package
+----------------------
 
 Plotting the results obtained from applying FishTaco to you data is done via the FishTacoPlot package.
 
@@ -30,8 +30,8 @@ In order to use the FishTacoPlot package:
 
 4. Plot your results by using the function *MultiFunctionTaxaContributionPlots*.
 
-Examples
---------
+Examples of using the FishTacoPlot package
+++++++++++++++++++++++++++++++++++++++++++
 
 In the *<path_to_package>/examples* directory, you can find results obtained by applying FishTaco to a healthy cohort of different body sites (HMP),
 and a type 2 diabetes cohort (T2D).
