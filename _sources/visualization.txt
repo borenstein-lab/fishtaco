@@ -31,7 +31,7 @@ In order to use the FishTacoPlot package:
 4. Plot your results by using the function *MultiFunctionTaxaContributionPlots*.
 
 Examples of using the FishTacoPlot package
-++++++++++++++++++++++++++++++++++++++++++
+******************************************
 
 In the *<path_to_package>/examples* directory, you can find results obtained by applying FishTaco to a healthy cohort of different body sites (HMP),
 and a type 2 diabetes cohort (T2D).
