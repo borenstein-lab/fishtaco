@@ -3,12 +3,20 @@ FishTaco Visualization
 
 .. index:: Visualization
 
-The functional shift decomposition figures shown in the FishTaco paper are produced in R (http://www.r-project.org/) by using the FishTacoPlot package.
+Visualization of functional shifts decomposition results obtained from applying FishTaco to you data can be done via a web-based application or
+through by using a dedicated R package.
+
+
+FishTacoPlot online plotting
+----------------------------
+
+For producing simple FishTaco plots from your results, visit the `online FishTacoPlot web-tool <https://elbo-spice.gs.washington.edu/shiny/FishTacoPlot/>`_.
+
 
 FishTacoPlot R package
 ----------------------
 
-Plotting the results obtained from applying FishTaco to you data is done via the FishTacoPlot package.
+Plotting the results obtained from applying FishTaco to you data can also be done by using the FishTacoPlot R package.
 
 We used R for the plotting in order to take full advantage of the capabilities of the `ggplot2 package <http://ggplot2.org/>`_.
 
