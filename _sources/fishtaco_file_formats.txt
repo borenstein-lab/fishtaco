@@ -102,7 +102,7 @@ Taxa         K00001   K00002  K00003    K00004    K00005  K00006
 
     <br><br><br>
 
-FishTaco output file (*_main_output_*)
+FishTaco output file (\*_main_output_\*)
 --------------------------------------
 
 A tab-delimited text file (with headers), where each row is a taxon and each column is a function,
