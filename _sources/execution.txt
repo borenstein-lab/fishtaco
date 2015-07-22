@@ -45,6 +45,9 @@ Optional arguments
 ``-map_function_level {pathway, module, none, custom}``
     Map KOs to pathways, modules, none, or custom (default: pathway)
 
+``-assessment, --taxa_assessment_method {single_taxa, multi_taxa}``
+    The method used when assessing taxa to compute individual contributions. The running time of *single_taxa* will
+    be significantly lower than *multi_taxa*, but less accurate (see manuscript for details) (default: multi_taxa)
 
 Advanced usage arguments
 ------------------------
@@ -60,9 +63,6 @@ Advanced usage arguments
 
 ``-max_func, --maximum_functions_to_analyze MAX_FUNCTIONS``
     Maximum number of enriched functions to consider (default: All)
-
-``-assessment, --taxa_assessment_method {single_taxa, multi_taxa}``
-    The method used when assessing taxa to compute individual contributions (default: multi_taxa)
 
 ``-score, --score_to_compute {t_test, mean_diff, median_diff, wilcoxon, log_mean_ratio}``
     The enrichment score to compute for each function (default: wilcoxon)

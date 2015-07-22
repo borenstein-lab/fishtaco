@@ -121,6 +121,9 @@ FishTaco offers an interface to the FishTaco functionality via the command line 
 <dd>Output prefix for result files (default: fishtaco_out)</dd>
 <dt><code class="docutils literal"><span class="pre">-map_function_level</span> <span class="pre">{pathway,</span> <span class="pre">module,</span> <span class="pre">none,</span> <span class="pre">custom}</span></code></dt>
 <dd>Map KOs to pathways, modules, none, or custom (default: pathway)</dd>
+<dt><code class="docutils literal"><span class="pre">-assessment,</span> <span class="pre">--taxa_assessment_method</span> <span class="pre">{single_taxa,</span> <span class="pre">multi_taxa}</span></code></dt>
+<dd>The method used when assessing taxa to compute individual contributions. The running time of <em>single_taxa</em> will
+be significantly lower than <em>multi_taxa</em>, but less accurate (see manuscript for details) (default: multi_taxa)</dd>
 </dl>
 </div>
 <div class="section" id="advanced-usage-arguments">
@@ -134,8 +137,6 @@ FishTaco offers an interface to the FishTaco functionality via the command line 
 <dd>Multiple hypothesis correction for functional enrichment (default: FDR-0.05)</dd>
 <dt><code class="docutils literal"><span class="pre">-max_func,</span> <span class="pre">--maximum_functions_to_analyze</span> <span class="pre">MAX_FUNCTIONS</span></code></dt>
 <dd>Maximum number of enriched functions to consider (default: All)</dd>
-<dt><code class="docutils literal"><span class="pre">-assessment,</span> <span class="pre">--taxa_assessment_method</span> <span class="pre">{single_taxa,</span> <span class="pre">multi_taxa}</span></code></dt>
-<dd>The method used when assessing taxa to compute individual contributions (default: multi_taxa)</dd>
 <dt><code class="docutils literal"><span class="pre">-score,</span> <span class="pre">--score_to_compute</span> <span class="pre">{t_test,</span> <span class="pre">mean_diff,</span> <span class="pre">median_diff,</span> <span class="pre">wilcoxon,</span> <span class="pre">log_mean_ratio}</span></code></dt>
 <dd>The enrichment score to compute for each function (default: wilcoxon)</dd>
 <dt><code class="docutils literal"><span class="pre">-max_score,</span> <span class="pre">--max_score_cutoff</span> <span class="pre">MAX_SCORE_CUTOFF</span></code></dt>
@@ -265,7 +266,7 @@ FishTaco offers an interface to the FishTaco functionality via the command line 
     </div>
     <div class="footer" role="contentinfo">
         &copy; Copyright 2015, Ohad Manor.
-      Last updated on Jul 16, 2015.
+      Last updated on Jul 22, 2015.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b2.
     </div>
   </body>
