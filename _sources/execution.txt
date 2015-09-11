@@ -213,6 +213,10 @@ Running FishTaco with *de novo* inference generates the output files found in fi
     -inf -assessment single_taxa -log
 
 
+.. raw:: html
+
+    <br>
+
 Note about running FishTaco with PICRUSt-predicted metagenomes
 --------------------------------------------------------------
 
@@ -220,6 +224,9 @@ FishTaco can be also used for 16S and PICRUSt-predicted metagenomes. The user ne
 combined with the functional profile (PICRUSt-predicted metagenome), and optionally, the PICRUSt pre-calculated files for genomic content (available
 in the (`PICRUSt website <http://picrust.github.io/picrust/picrust_precalculated_files.html#id1>`_)
 
+.. raw:: html
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 
