@@ -9,7 +9,19 @@ FishTaco offers an interface to the FishTaco functionality via the command line 
 Usage
 -----
 
-``run_fishtaco.py -ta TAXA_ABUN_FILE -fu FUNCTION_ABUN_FILE -l LABELS_FILE [options]``
+FishTaco can be used in two alternative modes, depending on the availability of **genomic information** for each taxon. Specifically,
+if such data is available (e.g., through reference genomes), FishTaco can be used with the *-gc* flag. However, FishTaco can also infer this
+data by using the *-inf* flag. If you are using 16S data coupled with PICRUSt,
+please read the `following note <execution.html#note-about-running-fishtaco-with-picrust-predicted-metagenomes>`_ .
+
+**Running FishTaco with genomic content data:**
+
+``run_fishtaco.py -ta TAXA_ABUN_FILE -fu FUNCTION_ABUN_FILE -l LABELS_FILE -gc GENOMIC_CONTENT_FILE [options]``
+
+**Running FishTaco with genomic content inference:**
+
+``run_fishtaco.py -ta TAXA_ABUN_FILE -fu FUNCTION_ABUN_FILE -l LABELS_FILE -inf [options]``
+
 
 Required arguments
 ------------------
@@ -201,7 +213,12 @@ Running FishTaco with *de novo* inference generates the output files found in fi
     -inf -assessment single_taxa -log
 
 
+Note about running FishTaco with PICRUSt-predicted metagenomes
+--------------------------------------------------------------
 
+FishTaco can be also used for 16S and PICRUSt-predicted metagenomes. The user needs to supply the taxonomic abundance data (output of 16S profiling),
+combined with the functional profile (PICRUSt-predicted metagenome), and optionally, the PICRUSt pre-calculated files for genomic content (available
+in the (`PICRUSt website <http://picrust.github.io/picrust/picrust_precalculated_files.html#id1>`_)
 
 
 

@@ -49,7 +49,7 @@
         <li class="right" >
           <a href="installation.html" title="Installation Instructions"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Home</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Home</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -75,6 +75,7 @@
 <li><a class="reference internal" href="#fishtaco-with-de-novo-inference">FishTaco with de novo inference</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#note-about-running-fishtaco-with-picrust-predicted-metagenomes">Note about running FishTaco with PICRUSt-predicted metagenomes</a></li>
 </ul>
 </li>
 </ul>
@@ -93,7 +94,14 @@
 FishTaco offers an interface to the FishTaco functionality via the command line and the run_fishtaco.py script.</p>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal"><span class="pre">run_fishtaco.py</span> <span class="pre">-ta</span> <span class="pre">TAXA_ABUN_FILE</span> <span class="pre">-fu</span> <span class="pre">FUNCTION_ABUN_FILE</span> <span class="pre">-l</span> <span class="pre">LABELS_FILE</span> <span class="pre">[options]</span></code></p>
+<p>FishTaco can be used in two alternative modes, depending on the availability of <strong>genomic information</strong> for each taxon. Specifically,
+if such data is available (e.g., through reference genomes), FishTaco can be used with the <em>-gc</em> flag. However, FishTaco can also infer this
+data by using the <em>-inf</em> flag. If you are using 16S data coupled with PICRUSt,
+please read the <a class="reference external" href="execution.html#note-about-running-fishtaco-with-picrust-predicted-metagenomes">following note</a> .</p>
+<p><strong>Running FishTaco with genomic content data:</strong></p>
+<p><code class="docutils literal"><span class="pre">run_fishtaco.py</span> <span class="pre">-ta</span> <span class="pre">TAXA_ABUN_FILE</span> <span class="pre">-fu</span> <span class="pre">FUNCTION_ABUN_FILE</span> <span class="pre">-l</span> <span class="pre">LABELS_FILE</span> <span class="pre">-gc</span> <span class="pre">GENOMIC_CONTENT_FILE</span> <span class="pre">[options]</span></code></p>
+<p><strong>Running FishTaco with genomic content inference:</strong></p>
+<p><code class="docutils literal"><span class="pre">run_fishtaco.py</span> <span class="pre">-ta</span> <span class="pre">TAXA_ABUN_FILE</span> <span class="pre">-fu</span> <span class="pre">FUNCTION_ABUN_FILE</span> <span class="pre">-l</span> <span class="pre">LABELS_FILE</span> <span class="pre">-inf</span> <span class="pre">[options]</span></code></p>
 </div>
 <div class="section" id="required-arguments">
 <h2>Required arguments<a class="headerlink" href="#required-arguments" title="Permalink to this headline">¶</a></h2>
@@ -244,6 +252,12 @@ be significantly lower than <em>multi_taxa</em>, but less accurate (see manuscri
 </div>
 </div>
 </div>
+<div class="section" id="note-about-running-fishtaco-with-picrust-predicted-metagenomes">
+<h2>Note about running FishTaco with PICRUSt-predicted metagenomes<a class="headerlink" href="#note-about-running-fishtaco-with-picrust-predicted-metagenomes" title="Permalink to this headline">¶</a></h2>
+<p>FishTaco can be also used for 16S and PICRUSt-predicted metagenomes. The user needs to supply the taxonomic abundance data (output of 16S profiling),
+combined with the functional profile (PICRUSt-predicted metagenome), and optionally, the PICRUSt pre-calculated files for genomic content (available
+in the (<a class="reference external" href="http://picrust.github.io/picrust/picrust_precalculated_files.html#id1">PICRUSt website</a>)</p>
+</div>
 </div>
 
 
@@ -261,13 +275,13 @@ be significantly lower than <em>multi_taxa</em>, but less accurate (see manuscri
         <li class="right" >
           <a href="installation.html" title="Installation Instructions"
              >previous</a> |</li>
-        <li><a href="index.html">Home</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Home</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &copy; Copyright 2015, Ohad Manor.
-      Last updated on Jul 22, 2015.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b2.
+      Last updated on Sep 11, 2015.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

@@ -58,7 +58,8 @@ div.related {
 
 div.related ul {
     background-color: #336699;
-    height: 2em;
+    height: 100%;
+    overflow: hidden;
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
 }
@@ -437,7 +438,7 @@ th {
     background-color: #82A0BE;
 }
 
-div.container div.code-block-caption {
+div.literal-block-wrapper div.code-block-caption {
     background-color: #EEE;
     border-style: solid;
     border-color: #CCC;
