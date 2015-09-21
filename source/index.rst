@@ -26,12 +26,12 @@ Citing Information
 If you use the FishTaco software, please cite the following paper:
 
 **An integrative computational framework for identifying taxonomic drivers of functional shifts in the human microbiome.**
-Ohad Manor and Elhanan Borenstein. *In preparation*
+Ohad Manor and Elhanan Borenstein. *In review*
 
 
 Question forum
 ==============
-For FishTaco announcements and questions, including notification of new releases, you can visit the `FishTaco users forum <https://groups.google.com/forum/#!forum/fishtaco-users>`_.
+For FishTaco announcements and questions, you can visit the `FAQ page <http://omanor.github.io/fishtaco/FAQ>`_ and the `FishTaco users forum <https://groups.google.com/forum/#!forum/fishtaco-users>`_.
 
 .. figure:: FishTaco_pipeline.png
     :width: 800px
