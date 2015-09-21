@@ -57,6 +57,8 @@
   <ul>
 <li><a class="reference internal" href="#">Frequently asked questions</a><ul>
 <li><a class="reference internal" href="#can-i-run-fishtaco-with-picrust-derived-metagenomic-functional-profile">Can I run FishTaco with PICRUSt-derived metagenomic functional profile?</a></li>
+<li><a class="reference internal" href="#what-is-the-running-time-for-fishtaco">What is the running time for FishTaco?</a></li>
+<li><a class="reference internal" href="#how-can-i-make-fishtaco-run-faster">How can I make FishTaco run faster?</a></li>
 </ul>
 </li>
 </ul>
@@ -77,6 +79,18 @@
 (output of 16S profiling), combined with the functional profile (PICRUSt-predicted metagenome), and optionally,
 the PICRUSt pre-calculated files for genomic content
 (available in the (<a class="reference external" href="http://picrust.github.io/picrust/picrust_precalculated_files.html#id1">PICRUSt website</a>)</p>
+</div>
+<div class="section" id="what-is-the-running-time-for-fishtaco">
+<h2>What is the running time for FishTaco?<a class="headerlink" href="#what-is-the-running-time-for-fishtaco" title="Permalink to this headline">¶</a></h2>
+<p>The running time of FishTaco varies greatly depending on two factors: the number of functions examined, and the number of taxa in each sample.
+Since FishTaco uses a permutation-based approach to quantify the contribution of each taxon to every functional shift, the running time is linearly
+dependent on the number of taxa. When running on a single CPU process, decomposing the functional shift associated with a
+single function in a dataset with ~100 taxa took 2-3 hours on average, while running on a dataset with ~50 taxa took 1-2 hours on average. Therefore,
+if you are running FishTaco on a dataset with a large number of taxa and functions, please read the answer to the question about making FishTaco
+run faster.</p>
+</div>
+<div class="section" id="how-can-i-make-fishtaco-run-faster">
+<h2>How can I make FishTaco run faster?<a class="headerlink" href="#how-can-i-make-fishtaco-run-faster" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
