@@ -58,7 +58,12 @@
 <li><a class="reference internal" href="#">Frequently asked questions</a><ul>
 <li><a class="reference internal" href="#can-i-run-fishtaco-with-picrust-derived-metagenomic-functional-profile">Can I run FishTaco with PICRUSt-derived metagenomic functional profile?</a></li>
 <li><a class="reference internal" href="#what-is-the-running-time-for-fishtaco">What is the running time for FishTaco?</a></li>
-<li><a class="reference internal" href="#how-can-i-make-fishtaco-run-faster">How can I make FishTaco run faster?</a></li>
+<li><a class="reference internal" href="#how-can-i-make-fishtaco-run-faster">How can I make FishTaco run faster?</a><ul>
+<li><a class="reference internal" href="#reducing-the-number-of-taxa">Reducing the number of taxa</a></li>
+<li><a class="reference internal" href="#reducing-the-number-of-functions">Reducing the number of functions</a></li>
+<li><a class="reference internal" href="#running-in-single-taxa-mode">Running in single-taxa mode</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -91,6 +96,27 @@ run faster.</p>
 </div>
 <div class="section" id="how-can-i-make-fishtaco-run-faster">
 <h2>How can I make FishTaco run faster?<a class="headerlink" href="#how-can-i-make-fishtaco-run-faster" title="Permalink to this headline">¶</a></h2>
+<p>In order to get a faster decomposition of the functional shift to the taxon-level contributions, you can try the following:</p>
+<div class="section" id="reducing-the-number-of-taxa">
+<h3>Reducing the number of taxa<a class="headerlink" href="#reducing-the-number-of-taxa" title="Permalink to this headline">¶</a></h3>
+<p>Since FishTaco running time depends on the number of taxa, you can remove taxa that are rare in terms if their average abundance across all
+samples (as they are less likely to drive a significant functional change) or in terms of the number of samples they are present in
+(for the same reason).</p>
+</div>
+<div class="section" id="reducing-the-number-of-functions">
+<h3>Reducing the number of functions<a class="headerlink" href="#reducing-the-number-of-functions" title="Permalink to this headline">¶</a></h3>
+<p>Since FishTaco running time depends on the number of functions, you can run FishTaco on a reduced number of functions, by either defining a more
+strict cutoff for significance of functional shift (since FishTaco only decomposes significantly shifted functions, use the flag <em>-mult_hyp</em>),
+or running in the default pathway-level mode as opposed to KO or Module modes. In addition, since FishTaco can be ran on a single function at a time
+(using the flag <em>-single_function_filter</em>), and the functions are independent, advanced users can run FishTaco in parallel for all their functions of
+interest and merge the results.</p>
+</div>
+<div class="section" id="running-in-single-taxa-mode">
+<h3>Running in single-taxa mode<a class="headerlink" href="#running-in-single-taxa-mode" title="Permalink to this headline">¶</a></h3>
+<p>By default, FishTaco runs in a multi-taxa mode, where the contributions of all taxa are quantified simultaneously. However, using the flag
+<em>-assessment single_taxa</em> will result in much faster (x100) but a less-accurate decomposition of the functional shifts
+(this for example can be used to select interesting functions for multi-taxa analysis).</p>
+</div>
 </div>
 </div>
 
