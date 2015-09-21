@@ -18,6 +18,7 @@ we observe in microbiomes of different individuals or disease states.
    installation
    execution
    visualization
+   FAQ
 
 
 Citing Information
