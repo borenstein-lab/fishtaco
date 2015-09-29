@@ -32,7 +32,7 @@ Ohad Manor and Elhanan Borenstein. *In review*
 Availability and source code
 ============================
 
-FishTaco is distributed with a GPL license, for commercial use please contact the corresponding author.
+FishTaco is distributed under a GPL license, for commercial use please contact the corresponding author.
 
 Source code for FishTaco is available through `GitHub <https://github.com/omanor/fishtaco>`_.
 
