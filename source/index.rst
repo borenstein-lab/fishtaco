@@ -29,8 +29,10 @@ If you use the FishTaco software, please cite the following paper:
 **An integrative computational framework for identifying taxonomic drivers of functional shifts in the human microbiome.**
 Ohad Manor and Elhanan Borenstein. *In review*
 
-Source code
-===========
+Availability and source code
+============================
+
+FishTaco is distributed with a GPL license, for commercial use please contact the corresponding author.
 
 Source code for FishTaco is available through `GitHub <https://github.com/omanor/fishtaco>`_.
 
