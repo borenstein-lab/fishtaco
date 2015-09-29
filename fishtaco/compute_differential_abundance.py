@@ -13,6 +13,7 @@ from statsmodels.stats.multitest import multipletests
 import sys
 import os.path
 
+
 def main(args):
 
     # some default args for testing
@@ -45,7 +46,8 @@ def main(args):
     # change rows with NaNs as IDs to a string ID
     non_nan_id = np.array(abundance_data.index)
     for i in range(abundance_data.index.shape[0]):
-        if not isinstance(non_nan_id[i], str):
+        if not isinstance(non_nan_id[i], str) and not isinstance(non_nan_id[i], np.int_):
+            print("Fixing row ID for: " + str(non_nan_id[i]))
             non_nan_id[i] = "NaN_" + str(i)
 
     abundance_data.index = non_nan_id
@@ -107,8 +109,6 @@ def main(args):
         print("Number of cases: " + str(sum(cases)), flush=True)
         print("Number of functions: " + str(number_of_kos), flush=True)
         print("Computing differential abundance... ", end="", flush=True)
-
-
 
     for i in range(number_of_kos):
 
