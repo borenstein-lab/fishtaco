@@ -32,7 +32,7 @@ Ohad Manor and Elhanan Borenstein. *In review*
 Source code
 ===========
 
-Source code for FishTaco is available through `GitHub <https://github.com/omanor/fishtaco>`_
+Source code for FishTaco is available through `GitHub <https://github.com/omanor/fishtaco>`_.
 
 
 Question forum
