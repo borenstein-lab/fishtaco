@@ -13,11 +13,10 @@ def read(*paths):
         return f.read()
 
 setup(name='FishTaco',
-      version='1.0.5',
-      classifiers=['License :: OSI Approved :: BSD License'],
-      license=['BSD'],
+      version='1.1.0',
+      classifiers=['License :: Free for non-commercial use'],
       description='FishTaco: a metagenomic computational framework, aiming to identify the taxa that are driving functional shifts in microbiomes.',
-      long_description=read('README.rst'),
+      long_description=('\n\n' + ('README.rst') + '\n\n' + read('HISTORY.rst') + '\n\n' + read('AUTHORS.rst') + '\n\n' + read('LICENSE') + '\n\n'),
       author='Ohad Manor',
       author_email='omanor@gmail.com',
       url='http://omanor.github.io/fishtaco/',

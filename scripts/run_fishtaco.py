@@ -91,6 +91,8 @@ if __name__ == "__main__":
 
     parser.add_argument('-single_function_filter', dest='single_function_filter', help='Limit analysis only to this single function (default: None)', default=None)
 
+    parser.add_argument('-multi_function_filter_list', dest='multi_function_filter_list', help='Limit analysis only to these comma-separated functions (default: None)', default=None)
+
     parser.add_argument('-functional_profile_already_corrected_with_musicc', dest='functional_profile_already_corrected_with_musicc',
                         help='Indicates that the functional profile has been already corrected with MUSiCC prior to running FishTaco (default: False)', action='store_true')
 

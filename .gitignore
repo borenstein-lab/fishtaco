@@ -55,3 +55,8 @@ target/
 
 # PyCharm
 .idea/
+.idea
+.idea/dictionaries .idea/encodings.xml .idea/fishtaco.iml .idea/inspectionProfiles .idea/misc.xml .idea/modules.xml .idea/scopes .idea/vcs.xml .idea/workspace.xml
+dist
+__pycache__
+MANIFEST.in~

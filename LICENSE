@@ -1,15 +1,30 @@
-Copyright (c) 2014, Ohad Manor and Elhanan Borenstein.
-All rights reserved.
+FishTaco Software License Agreement
 
-     This program is free software: you can redistribute it and/or modify
-     it under the terms of the GNU General Public License as published by
-     the Free Software Foundation, either version 3 of the License, or
-     (at your option) any later version.
+FishTaco (C) 2014-2016, University of Washington. All rights reserved.
 
-     This program is distributed in the hope that it will be useful,
-     but WITHOUT ANY WARRANTY; without even the implied warranty of
-     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-     GNU General Public License for more details.
+Subject to the terms below, the University of Washington ("UW"), Professor Elhanan Borenstein, and Ohad Manor ("Developer(s)") give permission for you and other members of your laboratory for as long as they remain members ("Academic User(s)"), such permission granted solely to Academic Users in a nonprofit institution of higher education or a nonprofit research institution ("University"),  to use FishTaco solely as further detailed below. FishTaco is a computational framework for linking microbiome taxonomic and functional comparative analyses, for decomposing functional shifts observed in a comparative analysis into individual taxon-level contributions, and for identifying taxa that drive functional shifts in the microbiome. FishTaco is protected by a copyright. The National Institutes of Health supported work on FishTaco. The UW and the Developers allow Academic Users to perform, copy, and modify FishTaco, solely for internal, non-profit academic research purposes, and as long as Academic Users comply with the terms of this FishTaco Software License Agreement:
 
-     You should have received a copy of the GNU General Public License
-     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+1. FishTaco is not used for any commercial purposes, or as part of a system which has commercial purposes. The FishTaco software remains at your University and is not published, distributed, or otherwise transferred or made available to other than Academic Users.
+
+2. You may not distribute FishTaco or any modification to FishTaco to any third party.
+
+If you wish to obtain FishTaco software for any commercial purposes, you will need to contact the University of Washington to see if rights are available and to negotiate a commercial license and pay a fee among other requirements. This includes, but is not limited to, using FishTaco to provide services to outside parties for a fee. In that case please contact:
+
+UW CoMotion 
+University of Washington
+4311 11th Ave. NE,
+Suite 500 Seattle, WA 98105-4608
+Phone: (206) 543-3970
+Email: license@uw.edu
+
+3. You retain in FishTaco and any modifications to FishTaco, the copyright, trademark, patent or other notices pertaining to FishTaco as provided by UW.
+
+4. You acknowledge that the Developers, the UW and its licensees may develop modifications to FishTaco that may be substantially similar to your modifications of FishTaco, and that the Developers, UW and its licensees shall not be constrained in any way by you in UW's or its licensees' use or management of such modifications. You acknowledge the right of the Developers and UW to prepare and publish modifications to FishTaco that may be substantially similar or functionally equivalent to your modifications and improvements, and if you obtain patent protection for any modification or improvement to FishTaco you agree not to allege or enjoin infringement of your patent by the Developers, the UW or by any of UW's licensees obtaining modifications or improvements to FishTaco from the University of Washington or the Developers.
+
+5. If utilization of the FishTaco software results in outcomes which will be published, you will specify the version of FishTaco you used and cite the UW Developers.
+
+6. Any risk associated with using the FishTaco software at your organization is with you and your organization. FishTaco is experimental in nature and is made available as a research courtesy "AS IS," expressly without any obligation by UW to provide accompanying services or support.
+
+7. UW AND THE DEVELOPERS EXPRESSLY DISCLAIM ANY AND ALL WARRANTIES REGARDING THE SOFTWARE, WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES PERTAINING TO MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+
+8. This Software License Agreement and all rights granted under it terminate on December 31st, 2020. Upon termination, you agree to remove so as to make unrecoverable the original FishTaco software, all copies and all modifications thereof.

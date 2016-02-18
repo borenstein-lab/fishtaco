@@ -108,6 +108,22 @@ def main(args):
     ###################################################################################################################
     print("Reading input files...")
 
+    # read taxonomic abundance file
+    if args['taxa_abun_file'] is not None:
+        if not os.path.isfile(args['taxa_abun_file']):
+            sys.exit('Error: Input file "' + args['taxa_abun_file'] + '" does not exist')
+        original_taxa_abun_data = pd.read_table(args['taxa_abun_file'], index_col=0, dtype={0: str})
+
+        if np.sum(np.isnan(original_taxa_abun_data.values)) > 0:
+            sys.exit('Error: Taxa abundance contains NaN')
+
+        if args['normalization_mode'] == 'scale_non_permuted' or args['normalization_mode'] == 'scale_permuted':
+            # normalize taxa abundance of all taxa to 1
+            normalized_taxa_abundance = original_taxa_abun_data.values / np.sum(original_taxa_abun_data.values, axis=0)
+            original_taxa_abun_data = pd.DataFrame(data=normalized_taxa_abundance, index=original_taxa_abun_data.index.values, columns=original_taxa_abun_data.columns.values)
+    else:
+        sys.exit('Error: No input taxa abundance given to script')
+
     # read function abundance file
     if args['function_abun_file'] is not None:
         if not os.path.isfile(args['function_abun_file']):
@@ -142,23 +158,7 @@ def main(args):
         if np.sum(np.isnan(function_abun_data.values)) > 0:
             sys.exit('Error: Function abundance contains NaN')
     else:
-        sys.exit('Error: No input function abundance given to script')
-
-    # read taxonomic abundance file
-    if args['taxa_abun_file'] is not None:
-        if not os.path.isfile(args['taxa_abun_file']):
-            sys.exit('Error: Input file "' + args['taxa_abun_file'] + '" does not exist')
-        original_taxa_abun_data = pd.read_table(args['taxa_abun_file'], index_col=0, dtype={0: str})
-
-        if np.sum(np.isnan(original_taxa_abun_data.values)) > 0:
-            sys.exit('Error: Taxa abundance contains NaN')
-
-        if args['normalization_mode'] == 'scale_non_permuted' or args['normalization_mode'] == 'scale_permuted':
-            # normalize taxa abundance of all taxa to 1
-            normalized_taxa_abundance = original_taxa_abun_data.values / np.sum(original_taxa_abun_data.values, axis=0)
-            original_taxa_abun_data = pd.DataFrame(data=normalized_taxa_abundance, index=original_taxa_abun_data.index.values, columns=original_taxa_abun_data.columns.values)
-    else:
-        sys.exit('Error: No input taxa abundance given to script')
+        print('No input of functional abundance given to FishTaco, predicting from taxonomic abundance and genomic content...')
 
     # read taxa_to_function (functional genomic content of each taxon) file
     if args['taxa_to_function_file'] is not None:
@@ -173,9 +173,27 @@ def main(args):
 
         if np.sum(np.isnan(taxa_to_function_data.values)) > 0:
             sys.exit('Error: Taxa to function data contains NaN')
+
+        # if we did no receive as input functional profiles, we can predict them from the taxonomic abundance and the genomic content:
+        if args['function_abun_file'] is None:
+            args_for_predicting_function_from_taxa_and_content = {'ko_abun_pd': original_taxa_abun_data,
+                                                                  'ko_to_pathway_pd': original_taxa_to_function_data,
+                                                                  'output_pd': pd.DataFrame(),
+                                                                  'mapping_method': 'naive', 'compute_method': 'sum',
+                                                                  'transpose_ko_abundance': False, 'transpose_output': False, 'verbose': False}
+
+            compute_pathway_abundance.main(args_for_predicting_function_from_taxa_and_content)
+
+            function_abun_data = args_for_predicting_function_from_taxa_and_content['output_pd']
+
+            # save original function abundance if needed later
+            original_function_abun_data = function_abun_data
+
     else:
-        if 'apply_inference' in args.keys() and args['apply_inference']:  # with no given genomic content, we need to perform inference
-            print('No input of mapping taxa to function given to script, inferring from abundances')
+        if args['function_abun_file'] is None:
+            sys.exit('Error: No input of functional abundance or genomic content given to FishTaco, exiting...')
+        elif 'apply_inference' in args.keys() and args['apply_inference']:  # with no given genomic content, we need to perform inference
+            print('No input of genomic content given to FishTaco, inferring the mapping of taxa to functions from taxonomic and functional profiles')
         else:
             sys.exit('Error: No input taxa to function data given to script, and inference not requested')
 
@@ -263,10 +281,16 @@ def main(args):
     #print(class_data)
     print("Done.")
 
-    # If needed, filter our functions to the single function given
+    # If needed, filter our functions to the single function or multi functions given
     if args['single_function_filter'] is not None:  # note that we pass as a list to ensure we get a DataFrame back!
         print("Filtering for a single function: " + args['single_function_filter'])
         function_abun_data = function_abun_data.loc[[args['single_function_filter']], :]
+        print("Done.")
+
+    if args['multi_function_filter_list'] is not None:  # note that we pass as a list to ensure we get a DataFrame back!
+        print("Filtering for the following functions: " + args['multi_function_filter_list'])
+        multi_function_filter_as_array = args['multi_function_filter_list'].split(',')
+        function_abun_data = function_abun_data.loc[multi_function_filter_as_array, :]
         print("Done.")
 
     ###################################################################################################################
@@ -1252,6 +1276,8 @@ if __name__ == "__main__":
     parser.add_argument('-en', '--enrichment_results', dest='da_result_file', help='Pre-computed functional enrichment results from the compute_differential_abundance.py script (default: None)', default=None)
 
     parser.add_argument('-single_function_filter', dest='single_function_filter', help='Limit analysis only to this single function (default: None)', default=None)
+
+    parser.add_argument('-multi_function_filter_list', dest='multi_function_filter_list', help='Limit analysis only to these comma-separated functions (default: None)', default=None)
 
     parser.add_argument('-functional_profile_already_corrected_with_musicc', dest='functional_profile_already_corrected_with_musicc',
                         help='Indicates that the functional profile has been already corrected with MUSiCC prior to running FishTaco (default: False)', action='store_true')
