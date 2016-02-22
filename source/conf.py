@@ -14,12 +14,14 @@
 
 import sys
 import os
+sys.path.append('/net/gs/vol1/home/ohadm/BorensteinLab/PROJECTS/FISHTACO_OM/METAFIT/GitHub/fishtaco/build/sphinx-better-theme/')
 from better import better_theme_path
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #sys.path.insert(0, os.path.abspath('.'))
+
 
 # -- General configuration ------------------------------------------------
 

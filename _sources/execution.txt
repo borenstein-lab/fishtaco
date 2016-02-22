@@ -29,15 +29,15 @@ Required arguments
 ``-ta, --taxa_abundance TAXA_ABUN_FILE``
     Input file of taxonomic abundance profiles (`format <fishtaco_file_formats.html#taxa-abundance-file>`_)
 
-``-fu, --function_abundance FUNCTION_ABUN_FILE``
-    Input file of function abundance (`format <fishtaco_file_formats.html#function-abundance-file>`_)
-
 ``-l, --labels LABELS_FILE``
     Input file of label assignment for the two sample sets being compared (`format <fishtaco_file_formats.html#sample-sets-labels-file>`_)
 
 
 Optional arguments
 ------------------
+
+``-fu, --function_abundance FUNCTION_ABUN_FILE``
+    Input file of function abundance (`format <fishtaco_file_formats.html#function-abundance-file>`_)
 
 ``-gc, --genomic_content_of_taxa GENOMIC_CONTENT_FILE``
     Input file of genomic content of each taxa (`format <fishtaco_file_formats.html#genomic-content-file>`_)
@@ -96,6 +96,9 @@ Advanced usage arguments
 
 ``-single_function_filter SINGLE_FUNCTION_FILTER``
     Limit analysis only to this single function (default: None)
+
+``-multi_function_filter_list MULTI_FUNCTION_FILTER``
+    Limit analysis only to these comma-separated functions (default: None)
 
 ``-h, --help``
     show help message and exit
@@ -216,13 +219,6 @@ Running FishTaco with *de novo* inference generates the output files found in fi
 .. raw:: html
 
     <br>
-
-Note about running FishTaco with PICRUSt-predicted metagenomes
---------------------------------------------------------------
-
-FishTaco can be also used for 16S and PICRUSt-predicted metagenomes. The user needs to supply the taxonomic abundance data (output of 16S profiling),
-combined with the functional profile (PICRUSt-predicted metagenome), and optionally, the PICRUSt pre-calculated files for genomic content (available
-in the (`PICRUSt website <http://picrust.github.io/picrust/picrust_precalculated_files.html#id1>`_)
 
 .. raw:: html
 

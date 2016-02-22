@@ -12,7 +12,7 @@ In order for FishTaco to run successfully, the following Python modules should b
 - Scikit-learn >= 0.15.2 (`<http://scikit-learn.org/stable/>`_)
 - Pandas >= 0.14 (`<http://pandas.pydata.org/>`_)
 - StatsModels >= 0.5.0 (`<http://statsmodels.sourceforge.net/>`_)
-- MUSiCC >= 1.0.1 (`<https://github.com/omanor/MUSiCC>`_)
+- MUSiCC >= 1.0.1 (`<https://github.com/borenstein-lab/MUSiCC>`_)
 
 If you have *pip* installed, you can install these packages by running the following command:
 
@@ -23,15 +23,15 @@ If you have *pip* installed, you can install these packages by running the follo
 Installing FishTaco
 -------------------
 
-To install FishTaco, download the package from `GitHub <https://github.com/omanor/fishtaco/archive/v1.0.5.tar.gz>`_.
+To install FishTaco, download the package from `GitHub <https://github.com/borenstein-lab/fishtaco/archive/1.1.0.tar.gz>`_.
 
 After downloading FishTaco, you’ll need to unzip the file. If you’ve downloaded the release version, do this with the following command:
 
-``tar -xzf fishtaco-1.0.5.tar.gz``
+``tar -xzf fishtaco-1.1.0.tar.gz``
 
 You’ll then change into the new FishTaco directory as follows:
 
-``cd fishtaco-1.0.5``
+``cd fishtaco-1.1.0``
 
 and install using the following command:
 
@@ -53,6 +53,6 @@ After downloading and installing the software, we recommend testing it by runnin
 
 This will invoke a series of tests. A correct output should end with:
 
-``Ran 3 tests in X.XXXXs``
+``Ran 5 tests in X.XXXXs``
 
 ``OK``
