@@ -51,8 +51,8 @@ After downloading and installing the software, we recommend testing it by runnin
 
 ``test_fishtaco.py``
 
-This will invoke a series of tests. A correct output should end with:
+This will invoke a series of tests that make sure FishTaco is running correctly under the different possible settings. A correct output should end with:
 
-``Ran 5 tests in X.XXXXs``
+``Ran 10 tests in X.XXXXs``
 
 ``OK``
