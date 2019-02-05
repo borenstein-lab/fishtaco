@@ -6,40 +6,30 @@
 
 <!doctype html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>FishTaco Visualization &mdash; FishTaco: Functional Shift Taxonomic Contributors</title>
-    
+    <title>FishTaco Visualization &#8212; FishTaco: Functional Shift Taxonomic Contributors</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/style.css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.0.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <script type="text/javascript" src="_static/bizstyle.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="top" title="FishTaco: Functional Shift Taxonomic Contributors" href="index.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Frequently asked questions" href="FAQ.html" />
     <link rel="prev" title="Running FishTaco" href="execution.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -49,7 +39,7 @@
         <li class="right" >
           <a href="execution.html" title="Running FishTaco"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Home</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Home</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -57,7 +47,7 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/fishtaco_title.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table Of Contents</a></h3>
+  <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">FishTaco Visualization</a><ul>
 <li><a class="reference internal" href="#fishtacoplot-online-plotting">FishTacoPlot online plotting</a></li>
@@ -103,8 +93,8 @@ visit the <a class="reference external" href="https://elbo-spice.gs.washington.e
 <p>In order to use the FishTacoPlot package:</p>
 <ol class="arabic simple">
 <li>Download the FishTacoPlot package from <a class="reference external" href="https://github.com/omanor/fishtaco-plot/archive/1.0.1.tar.gz">GitHub</a>.</li>
-<li>Install the package in your R terminal with the command: <code class="docutils literal"><span class="pre">install.packages(&lt;path_to_package&gt;,</span> <span class="pre">repos</span> <span class="pre">=</span> <span class="pre">NULL,</span> <span class="pre">type=&quot;source&quot;)</span></code></li>
-<li>Load the packages to your workspace with the command: <code class="docutils literal"><span class="pre">require(FishTacoPlot);</span> <span class="pre">require(ggplot2);</span> <span class="pre">require(scales);</span> <span class="pre">require(grid)</span></code></li>
+<li>Install the package in your R terminal with the command: <code class="docutils literal notranslate"><span class="pre">install.packages(&lt;path_to_package&gt;,</span> <span class="pre">repos</span> <span class="pre">=</span> <span class="pre">NULL,</span> <span class="pre">type=&quot;source&quot;)</span></code></li>
+<li>Load the packages to your workspace with the command: <code class="docutils literal notranslate"><span class="pre">require(FishTacoPlot);</span> <span class="pre">require(ggplot2);</span> <span class="pre">require(scales);</span> <span class="pre">require(grid)</span></code></li>
 <li>Plot your results by using the function <em>MultiFunctionTaxaContributionPlots</em>.</li>
 </ol>
 <div class="section" id="examples-of-using-the-fishtacoplot-package">
@@ -119,24 +109,24 @@ cheek samples:</p>
 <a class="reference internal image-reference" href="_images/FishTaco_HMP.png"><img alt="alternate text" src="_images/FishTaco_HMP.png" style="width: 970px; height: 500px;" /></a>
 </div>
 <p>Generate this example by using the following commands:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span>p &lt;- MultiFunctionTaxaContributionPlots(input_dir=&quot;&lt;path_to_package&gt;/examples&quot;, input_prefix=&quot;HMP_fishtaco&quot;,
-input_taxa_taxonomy=&quot;&lt;path_to_package&gt;/examples/HMP_TAXONOMY.tab&quot;, sort_by=&quot;list&quot;, plot_type=&quot;bars&quot;,
-input_function_filter_list=c(&quot;ko00020&quot;, &quot;ko00540&quot;,&quot;ko02040&quot;), add_predicted_da_markers=TRUE, add_original_da_markers=TRUE)
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">MultiFunctionTaxaContributionPlots</span><span class="p">(</span><span class="n">input_dir</span><span class="o">=</span><span class="s2">&quot;&lt;path_to_package&gt;/examples&quot;</span><span class="p">,</span> <span class="n">input_prefix</span><span class="o">=</span><span class="s2">&quot;HMP_fishtaco&quot;</span><span class="p">,</span>
+<span class="n">input_taxa_taxonomy</span><span class="o">=</span><span class="s2">&quot;&lt;path_to_package&gt;/examples/HMP_TAXONOMY.tab&quot;</span><span class="p">,</span> <span class="n">sort_by</span><span class="o">=</span><span class="s2">&quot;list&quot;</span><span class="p">,</span> <span class="n">plot_type</span><span class="o">=</span><span class="s2">&quot;bars&quot;</span><span class="p">,</span>
+<span class="n">input_function_filter_list</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">&quot;ko00020&quot;</span><span class="p">,</span> <span class="s2">&quot;ko00540&quot;</span><span class="p">,</span><span class="s2">&quot;ko02040&quot;</span><span class="p">),</span> <span class="n">add_predicted_da_markers</span><span class="o">=</span><span class="n">TRUE</span><span class="p">,</span> <span class="n">add_original_da_markers</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>
 
-p &lt;- p + scale_x_continuous(breaks=c(1, 2, 3), labels=c(&quot;TCA cycle&quot;, &quot;LPS\nbiosynthesis&quot;, &quot;Flagellar\nassembly&quot;)) +
-guides(fill=guide_legend(nrow=7)) + ylab(&quot;Wilcoxon test statistic (W)&quot;) +
-theme(plot.title=element_blank(), axis.title.x=element_text(size=12,colour=&quot;black&quot;,face=&quot;plain&quot;),
-axis.text.x=element_text(size=10,colour=&quot;black&quot;,face=&quot;plain&quot;), axis.title.y=element_blank(),
-axis.text.y=element_text(size=10,colour=&quot;black&quot;,face=&quot;plain&quot;), axis.ticks.y=element_blank(),
-axis.ticks.x=element_blank(), panel.grid.major.x = element_line(colour=&quot;light gray&quot;), panel.grid.major.y = element_line(colour=&quot;light gray&quot;),
-panel.grid.minor.x = element_line(colour=&quot;light gray&quot;), panel.grid.minor.y = element_line(colour=&quot;light gray&quot;),
-panel.background = element_rect(fill=&quot;transparent&quot;,colour=NA), panel.border = element_rect(fill=&quot;transparent&quot;,colour=&quot;black&quot;),
-legend.background=element_rect(colour=&quot;black&quot;), legend.title=element_text(size=10), legend.text=element_text(size=8,face=&quot;plain&quot;),
-legend.key.size=unit(0.8,&quot;line&quot;), legend.margin=unit(0.1,&quot;line&quot;), legend.position=&quot;bottom&quot;)
+<span class="n">p</span> <span class="o">&lt;-</span> <span class="n">p</span> <span class="o">+</span> <span class="n">scale_x_continuous</span><span class="p">(</span><span class="n">breaks</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">labels</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">&quot;TCA cycle&quot;</span><span class="p">,</span> <span class="s2">&quot;LPS</span><span class="se">\n</span><span class="s2">biosynthesis&quot;</span><span class="p">,</span> <span class="s2">&quot;Flagellar</span><span class="se">\n</span><span class="s2">assembly&quot;</span><span class="p">))</span> <span class="o">+</span>
+<span class="n">guides</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="n">guide_legend</span><span class="p">(</span><span class="n">nrow</span><span class="o">=</span><span class="mi">7</span><span class="p">))</span> <span class="o">+</span> <span class="n">ylab</span><span class="p">(</span><span class="s2">&quot;Wilcoxon test statistic (W)&quot;</span><span class="p">)</span> <span class="o">+</span>
+<span class="n">theme</span><span class="p">(</span><span class="n">plot</span><span class="o">.</span><span class="n">title</span><span class="o">=</span><span class="n">element_blank</span><span class="p">(),</span> <span class="n">axis</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">x</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="n">colour</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span><span class="n">face</span><span class="o">=</span><span class="s2">&quot;plain&quot;</span><span class="p">),</span>
+<span class="n">axis</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">x</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">colour</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span><span class="n">face</span><span class="o">=</span><span class="s2">&quot;plain&quot;</span><span class="p">),</span> <span class="n">axis</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">y</span><span class="o">=</span><span class="n">element_blank</span><span class="p">(),</span>
+<span class="n">axis</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">y</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">colour</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span><span class="n">face</span><span class="o">=</span><span class="s2">&quot;plain&quot;</span><span class="p">),</span> <span class="n">axis</span><span class="o">.</span><span class="n">ticks</span><span class="o">.</span><span class="n">y</span><span class="o">=</span><span class="n">element_blank</span><span class="p">(),</span>
+<span class="n">axis</span><span class="o">.</span><span class="n">ticks</span><span class="o">.</span><span class="n">x</span><span class="o">=</span><span class="n">element_blank</span><span class="p">(),</span> <span class="n">panel</span><span class="o">.</span><span class="n">grid</span><span class="o">.</span><span class="n">major</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">element_line</span><span class="p">(</span><span class="n">colour</span><span class="o">=</span><span class="s2">&quot;light gray&quot;</span><span class="p">),</span> <span class="n">panel</span><span class="o">.</span><span class="n">grid</span><span class="o">.</span><span class="n">major</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">element_line</span><span class="p">(</span><span class="n">colour</span><span class="o">=</span><span class="s2">&quot;light gray&quot;</span><span class="p">),</span>
+<span class="n">panel</span><span class="o">.</span><span class="n">grid</span><span class="o">.</span><span class="n">minor</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">element_line</span><span class="p">(</span><span class="n">colour</span><span class="o">=</span><span class="s2">&quot;light gray&quot;</span><span class="p">),</span> <span class="n">panel</span><span class="o">.</span><span class="n">grid</span><span class="o">.</span><span class="n">minor</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">element_line</span><span class="p">(</span><span class="n">colour</span><span class="o">=</span><span class="s2">&quot;light gray&quot;</span><span class="p">),</span>
+<span class="n">panel</span><span class="o">.</span><span class="n">background</span> <span class="o">=</span> <span class="n">element_rect</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s2">&quot;transparent&quot;</span><span class="p">,</span><span class="n">colour</span><span class="o">=</span><span class="n">NA</span><span class="p">),</span> <span class="n">panel</span><span class="o">.</span><span class="n">border</span> <span class="o">=</span> <span class="n">element_rect</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s2">&quot;transparent&quot;</span><span class="p">,</span><span class="n">colour</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">),</span>
+<span class="n">legend</span><span class="o">.</span><span class="n">background</span><span class="o">=</span><span class="n">element_rect</span><span class="p">(</span><span class="n">colour</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">),</span> <span class="n">legend</span><span class="o">.</span><span class="n">title</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span> <span class="n">legend</span><span class="o">.</span><span class="n">text</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span><span class="n">face</span><span class="o">=</span><span class="s2">&quot;plain&quot;</span><span class="p">),</span>
+<span class="n">legend</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">size</span><span class="o">=</span><span class="n">unit</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span><span class="s2">&quot;line&quot;</span><span class="p">),</span> <span class="n">legend</span><span class="o">.</span><span class="n">margin</span><span class="o">=</span><span class="n">unit</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="s2">&quot;line&quot;</span><span class="p">),</span> <span class="n">legend</span><span class="o">.</span><span class="n">position</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">)</span>
 
-ggsave &lt;- ggplot2::ggsave; body(ggsave) &lt;- body(ggplot2::ggsave)[-2]
+<span class="n">ggsave</span> <span class="o">&lt;-</span> <span class="n">ggplot2</span><span class="p">::</span><span class="n">ggsave</span><span class="p">;</span> <span class="n">body</span><span class="p">(</span><span class="n">ggsave</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">body</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">::</span><span class="n">ggsave</span><span class="p">)[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
 
-ggsave(&quot;FishTaco_HMP.png&quot;, p, width=11.8, height=6.07, units=&quot;in&quot;)
+<span class="n">ggsave</span><span class="p">(</span><span class="s2">&quot;FishTaco_HMP.png&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">11.8</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">6.07</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;in&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -148,24 +138,24 @@ healthy controls:</p>
 <a class="reference internal image-reference" href="_images/FishTaco_T2D.png"><img alt="alternate text" src="_images/FishTaco_T2D.png" style="width: 970px; height: 500px;" /></a>
 </div>
 <p>Generate this example by using the following commands:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span>p &lt;- MultiFunctionTaxaContributionPlots(input_dir=&quot;&lt;path_to_package&gt;/examples&quot;, input_prefix=&quot;T2D_fishtaco&quot;,
-input_taxa_taxonomy=&quot;&lt;path_to_package&gt;/examples/T2D_TAXONOMY.tab&quot;, sort_by=&quot;list&quot;, plot_type=&quot;bars&quot;,
-input_function_filter_list=c(&quot;M00216&quot;, &quot;M00217&quot;,&quot;M00269&quot;), add_predicted_da_markers=TRUE)
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">MultiFunctionTaxaContributionPlots</span><span class="p">(</span><span class="n">input_dir</span><span class="o">=</span><span class="s2">&quot;&lt;path_to_package&gt;/examples&quot;</span><span class="p">,</span> <span class="n">input_prefix</span><span class="o">=</span><span class="s2">&quot;T2D_fishtaco&quot;</span><span class="p">,</span>
+<span class="n">input_taxa_taxonomy</span><span class="o">=</span><span class="s2">&quot;&lt;path_to_package&gt;/examples/T2D_TAXONOMY.tab&quot;</span><span class="p">,</span> <span class="n">sort_by</span><span class="o">=</span><span class="s2">&quot;list&quot;</span><span class="p">,</span> <span class="n">plot_type</span><span class="o">=</span><span class="s2">&quot;bars&quot;</span><span class="p">,</span>
+<span class="n">input_function_filter_list</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">&quot;M00216&quot;</span><span class="p">,</span> <span class="s2">&quot;M00217&quot;</span><span class="p">,</span><span class="s2">&quot;M00269&quot;</span><span class="p">),</span> <span class="n">add_predicted_da_markers</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>
 
-p &lt;- p + scale_x_continuous(breaks=c(1, 2, 3), labels=c(&quot;Multiple sugar\ntransport system&quot;, &quot;D-Allose\ntransport system&quot;,&quot;PTS system sucrose\n -specific II component&quot;)) +
-guides(fill = guide_legend(ncol=5)) + ylab(&quot;Wilcoxon test statistic (W)&quot;) +
-theme(plot.title=element_blank(), axis.title.x=element_text(size=12,colour=&quot;black&quot;,face=&quot;plain&quot;),
-axis.text.x=element_text(size=10,colour=&quot;black&quot;,face=&quot;plain&quot;), axis.title.y=element_blank(),
-axis.text.y=element_text(size=10,colour=&quot;black&quot;,face=&quot;plain&quot;), axis.ticks.y=element_blank(),
-axis.ticks.x=element_blank(), panel.grid.major.x = element_line(colour=&quot;light gray&quot;), panel.grid.major.y = element_line(colour=&quot;light gray&quot;),
-panel.grid.minor.x = element_line(colour=&quot;light gray&quot;), panel.grid.minor.y = element_line(colour=&quot;light gray&quot;),
-panel.background = element_rect(fill=&quot;transparent&quot;,colour=NA), panel.border = element_rect(fill=&quot;transparent&quot;,colour=&quot;black&quot;),
-legend.background=element_rect(colour=&quot;black&quot;), legend.title=element_text(size=10), legend.text=element_text(size=8,face=&quot;plain&quot;),
-legend.key.size=unit(0.8,&quot;line&quot;), legend.margin=unit(0.1,&quot;line&quot;), legend.position=&quot;bottom&quot;)
+<span class="n">p</span> <span class="o">&lt;-</span> <span class="n">p</span> <span class="o">+</span> <span class="n">scale_x_continuous</span><span class="p">(</span><span class="n">breaks</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">labels</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">&quot;Multiple sugar</span><span class="se">\n</span><span class="s2">transport system&quot;</span><span class="p">,</span> <span class="s2">&quot;D-Allose</span><span class="se">\n</span><span class="s2">transport system&quot;</span><span class="p">,</span><span class="s2">&quot;PTS system sucrose</span><span class="se">\n</span><span class="s2"> -specific II component&quot;</span><span class="p">))</span> <span class="o">+</span>
+<span class="n">guides</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="n">guide_legend</span><span class="p">(</span><span class="n">ncol</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span> <span class="o">+</span> <span class="n">ylab</span><span class="p">(</span><span class="s2">&quot;Wilcoxon test statistic (W)&quot;</span><span class="p">)</span> <span class="o">+</span>
+<span class="n">theme</span><span class="p">(</span><span class="n">plot</span><span class="o">.</span><span class="n">title</span><span class="o">=</span><span class="n">element_blank</span><span class="p">(),</span> <span class="n">axis</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">x</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="n">colour</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span><span class="n">face</span><span class="o">=</span><span class="s2">&quot;plain&quot;</span><span class="p">),</span>
+<span class="n">axis</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">x</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">colour</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span><span class="n">face</span><span class="o">=</span><span class="s2">&quot;plain&quot;</span><span class="p">),</span> <span class="n">axis</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">y</span><span class="o">=</span><span class="n">element_blank</span><span class="p">(),</span>
+<span class="n">axis</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">y</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">colour</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span><span class="n">face</span><span class="o">=</span><span class="s2">&quot;plain&quot;</span><span class="p">),</span> <span class="n">axis</span><span class="o">.</span><span class="n">ticks</span><span class="o">.</span><span class="n">y</span><span class="o">=</span><span class="n">element_blank</span><span class="p">(),</span>
+<span class="n">axis</span><span class="o">.</span><span class="n">ticks</span><span class="o">.</span><span class="n">x</span><span class="o">=</span><span class="n">element_blank</span><span class="p">(),</span> <span class="n">panel</span><span class="o">.</span><span class="n">grid</span><span class="o">.</span><span class="n">major</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">element_line</span><span class="p">(</span><span class="n">colour</span><span class="o">=</span><span class="s2">&quot;light gray&quot;</span><span class="p">),</span> <span class="n">panel</span><span class="o">.</span><span class="n">grid</span><span class="o">.</span><span class="n">major</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">element_line</span><span class="p">(</span><span class="n">colour</span><span class="o">=</span><span class="s2">&quot;light gray&quot;</span><span class="p">),</span>
+<span class="n">panel</span><span class="o">.</span><span class="n">grid</span><span class="o">.</span><span class="n">minor</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">element_line</span><span class="p">(</span><span class="n">colour</span><span class="o">=</span><span class="s2">&quot;light gray&quot;</span><span class="p">),</span> <span class="n">panel</span><span class="o">.</span><span class="n">grid</span><span class="o">.</span><span class="n">minor</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">element_line</span><span class="p">(</span><span class="n">colour</span><span class="o">=</span><span class="s2">&quot;light gray&quot;</span><span class="p">),</span>
+<span class="n">panel</span><span class="o">.</span><span class="n">background</span> <span class="o">=</span> <span class="n">element_rect</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s2">&quot;transparent&quot;</span><span class="p">,</span><span class="n">colour</span><span class="o">=</span><span class="n">NA</span><span class="p">),</span> <span class="n">panel</span><span class="o">.</span><span class="n">border</span> <span class="o">=</span> <span class="n">element_rect</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s2">&quot;transparent&quot;</span><span class="p">,</span><span class="n">colour</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">),</span>
+<span class="n">legend</span><span class="o">.</span><span class="n">background</span><span class="o">=</span><span class="n">element_rect</span><span class="p">(</span><span class="n">colour</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">),</span> <span class="n">legend</span><span class="o">.</span><span class="n">title</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span> <span class="n">legend</span><span class="o">.</span><span class="n">text</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span><span class="n">face</span><span class="o">=</span><span class="s2">&quot;plain&quot;</span><span class="p">),</span>
+<span class="n">legend</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">size</span><span class="o">=</span><span class="n">unit</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span><span class="s2">&quot;line&quot;</span><span class="p">),</span> <span class="n">legend</span><span class="o">.</span><span class="n">margin</span><span class="o">=</span><span class="n">unit</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="s2">&quot;line&quot;</span><span class="p">),</span> <span class="n">legend</span><span class="o">.</span><span class="n">position</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">)</span>
 
-ggsave &lt;- ggplot2::ggsave; body(ggsave) &lt;- body(ggplot2::ggsave)[-2]
+<span class="n">ggsave</span> <span class="o">&lt;-</span> <span class="n">ggplot2</span><span class="p">::</span><span class="n">ggsave</span><span class="p">;</span> <span class="n">body</span><span class="p">(</span><span class="n">ggsave</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">body</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">::</span><span class="n">ggsave</span><span class="p">)[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
 
-ggsave(&quot;FishTaco_T2D.png&quot;, p, width=11.8, height=6.07, units=&quot;in&quot;)
+<span class="n">ggsave</span><span class="p">(</span><span class="s2">&quot;FishTaco_T2D.png&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">11.8</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">6.07</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;in&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -188,13 +178,13 @@ ggsave(&quot;FishTaco_T2D.png&quot;, p, width=11.8, height=6.07, units=&quot;in&
         <li class="right" >
           <a href="execution.html" title="Running FishTaco"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Home</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Home</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2015, Ohad Manor.
-      Last updated on Oct 21, 2016.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
+        &#169; Copyright 2015, Ohad Manor.
+      Last updated on Feb 05, 2019.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.3.
     </div>
   </body>
 </html>

@@ -6,46 +6,36 @@
 
 <!doctype html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Frequently asked questions &mdash; FishTaco: Functional Shift Taxonomic Contributors</title>
-    
+    <title>Frequently asked questions &#8212; FishTaco: Functional Shift Taxonomic Contributors</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/style.css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.0.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <script type="text/javascript" src="_static/bizstyle.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="top" title="FishTaco: Functional Shift Taxonomic Contributors" href="index.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="FishTaco Visualization" href="visualization.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="visualization.html" title="FishTaco Visualization"
              accesskey="P">previous</a></li>
-        <li class="nav-item nav-item-0"><a href="index.html">Home</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Home</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -53,7 +43,7 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/fishtaco_title.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table Of Contents</a></h3>
+  <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Frequently asked questions</a><ul>
 <li><a class="reference internal" href="#can-i-run-fishtaco-with-picrust-derived-metagenomic-functional-profile">Can I run FishTaco with PICRUSt-derived metagenomic functional profile?</a></li>
@@ -79,11 +69,13 @@
   <div class="section" id="frequently-asked-questions">
 <h1>Frequently asked questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="can-i-run-fishtaco-with-picrust-derived-metagenomic-functional-profile">
-<span id="index-0"></span><h2>Can I run FishTaco with PICRUSt-derived metagenomic functional profile?<a class="headerlink" href="#can-i-run-fishtaco-with-picrust-derived-metagenomic-functional-profile" title="Permalink to this headline">¶</a></h2>
+<span id="picrust-info"></span><span id="index-0"></span><h2>Can I run FishTaco with PICRUSt-derived metagenomic functional profile?<a class="headerlink" href="#can-i-run-fishtaco-with-picrust-derived-metagenomic-functional-profile" title="Permalink to this headline">¶</a></h2>
 <p>Yes, FishTaco can be also used for 16S and PICRUSt-predicted metagenomes. The user needs to supply the taxonomic abundance data
 (output of 16S profiling), combined with the functional profile (PICRUSt-predicted metagenome), and optionally,
 the PICRUSt pre-calculated files for genomic content
-(available in the (<a class="reference external" href="http://picrust.github.io/picrust/picrust_precalculated_files.html#id1">PICRUSt website</a>)</p>
+(available in the (<a class="reference external" href="http://picrust.github.io/picrust/picrust_precalculated_files.html#id1">PICRUSt website</a>).</p>
+<p><em>Note</em>: Users who want to use the PICRUSt pre-calculated files for genomic content must manually modify the GreenGenes IDs in both the taxonomic abundance and genomic content tables to prefix them with a non-numeric character (e.g., changing “228054” to “t228054”). This can be done in the terminal by using the following command for both files:</p>
+<p><code class="docutils literal notranslate"><span class="pre">sed</span> <span class="pre">'s/^\([0-9]\)/t\1/'</span> <span class="pre">FILE_TO_MODIFY</span> <span class="pre">&gt;</span> <span class="pre">MODIFIED_FILE</span></code></p>
 </div>
 <div class="section" id="what-is-the-running-time-for-fishtaco">
 <h2>What is the running time for FishTaco?<a class="headerlink" href="#what-is-the-running-time-for-fishtaco" title="Permalink to this headline">¶</a></h2>
@@ -132,13 +124,13 @@ interest and merge the results.</p>
         <li class="right" style="margin-right: 10px">
           <a href="visualization.html" title="FishTaco Visualization"
              >previous</a></li>
-        <li class="nav-item nav-item-0"><a href="index.html">Home</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Home</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2015, Ohad Manor.
-      Last updated on Oct 21, 2016.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
+        &#169; Copyright 2015, Ohad Manor.
+      Last updated on Feb 05, 2019.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.3.
     </div>
   </body>
 </html>

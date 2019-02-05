@@ -12,7 +12,7 @@ Usage
 FishTaco can be used in two alternative modes, depending on the availability of **genomic information** for each taxon. Specifically,
 if such data is available (e.g., through reference genomes), FishTaco can be used with the *-gc* flag. However, FishTaco can also infer this
 data by using the *-inf* flag. If you are using 16S data coupled with PICRUSt,
-please read the `following note <execution.html#note-about-running-fishtaco-with-picrust-predicted-metagenomes>`_ .
+please read :ref:`picrust-info`.
 
 **Running FishTaco with genomic content data:**
 
