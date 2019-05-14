@@ -10,9 +10,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 **URL:** http://borensteinlab.com/software_fishtaco.html
 
-**Documentation:** http://borenstein-lab.github.io/FishTaco
+**Documentation:** http://borenstein-lab.github.io/fishtaco
 
-**Forum:** http://groups.google.com/forum/#!topic/fishtaco-users/
+**Forum:** https://groups.google.com/forum/#!forum/fishtaco-users
 
 **Publication:** Manor, O., and Borenstein, E. (2017). Systematic Characterization and Analysis of the Taxonomic Drivers of Functional Shifts in the Human Microbiome. Cell Host & Microbe 21, 254–267.
 
