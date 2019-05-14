@@ -1,0 +1,229 @@
+---
+title: 'FishTaco: Functional Shifts'' Taxonomic Contributors'
+output: html_document
+date: May 16, 2019
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**URL:** http://borensteinlab.com/software_fishtaco.html
+
+**Documentation:** http://borenstein-lab.github.io/FishTaco
+
+**Forum:** http://groups.google.com/forum/#!topic/fishtaco-users/
+
+**Publication:** Manor, O., and Borenstein, E. (2017). Systematic Characterization and Analysis of the Taxonomic Drivers of Functional Shifts in the Human Microbiome. Cell Host & Microbe 21, 254–267.
+
+## Quick Start
+
+Follow these steps to quickly run a FishTaco analysis and visualize the results.
+
+1) If you have not yet done so, install a Python conda environment containing the MUSiCC and FishTaco packages. To set up the environment, download and save [this .yml file](https://cnoecker.github.io/TAUMicrobiomeWorkshop2019/installs/fishtaco_1-1-1.yml) to your computer. Then run the following command in a command line shell: 
+
+```{bash, eval = F}
+conda env create -f fishtaco_1-1-1.yml
+```
+
+2) Activate the environment by running:
+
+```{bash, eval = F}
+conda activate fishtaco
+```
+
+3) Once the environment is activated, test the installation:
+
+```{bash, eval = F}
+test_fishtaco.py
+```
+
+4) Download the example data by clicking and unzipping [this zip file](https://cnoecker.github.io/TAUMicrobiomeWorkshop2019/data/FishTacoData.zip). See below for more details on this dataset.
+
+5) Run the FishTaco analysis on the example data:
+
+```{bash, eval = F}
+run_fishtaco.py -ta bv_qpcr.txt -fu bv_metagenomes.txt -l bv_metadata_fishtaco.txt -inf --log --assessment single_taxa
+```
+
+6) To visualize the results of the analysis in your web browser, navigate to http://elbo-spice.gs.washington.edu/shiny/FishTacoPlot, and select the following options on the right-hand menu:
+
+- Upload FishTaco results file: Upload results file -> Choose file -> **fishtaco_out_main_output_SCORE_wilcoxon_ASSESSMENT_single_taxa.tab **
+- Select taxonomy file: Upload custom file -> Choose file -> **taxonomy_vaginal_fishtaco.txt**
+- Click "Generate/Update FishTaco Plot!"
+
+7) Experiment with the various options under "Select Functions to Show" and "Plot Options". We recommend reducing the number of functions displayed for better readability, and selecting "Yes" for the "Add taxa names in plot" option.
+
+## Full-length Tutorial
+
+### Overview and Objectives
+
+FishTaco is a tool for systematic analysis of the taxonomic contributors to shifts in functional abundances. FishTaco quantifies the extent to which an observed difference in functional abundances between cases and controls can be attributed to different taxa. Taxa can contribute to a difference in functional abundances via 4 different mechanisms (also illustrated in panel C below):
+
+- Case-associated taxa driving a functional shift
+- Case-associated taxa reducing a functional shift
+- Control-associated taxa reducing a functional shift
+- Control-associated taxa driving a functional shift
+
+Make sure you understand conceptually how each mechanism affects the differential abundance of a function.
+
+```{r pressure, echo=FALSE, fig.cap="", out.width = '70%'}
+knitr::include_graphics("FishTaco_pipeline.png")
+```
+
+In this tutorial, you will: 
+
+- Install FishTaco.
+- Run a FishTaco analysis on an example functional dataset, and learn about other options for running FishTaco analyses. 
+- Generate and interpret visualizations of FishTaco results.
+
+### Installation
+
+FishTaco is a Python library. It can be installed as an Anaconda environment or as a standalone package along with its dependencies. To install using the conda environment, follow the commands below (which were also included in the pre-workshop instructions). 
+
+1) Install a Python conda environment containing the MUSiCC and FishTaco packages. To set up the environment, download and save [this .yml file](https://cnoecker.github.io/TAUMicrobiomeWorkshop2019/installs/fishtaco_1-1-1.yml) to your computer. Then run the following command in a command line shell: 
+
+```{bash, eval = F}
+conda env create -f fishtaco_1-1-1.yml
+```
+
+2) Activate the environment by running:
+
+```{bash, eval = F}
+conda activate fishtaco
+```
+
+3) Once the environment is activated, test the installation:
+
+```{bash, eval = F}
+test_fishtaco.py
+```
+
+### Input Data
+
+If you have a 16S rRNA dataset consisting of samples in two different groups (e.g. cases and controls), and which you have already analyzed with PICRUSt (1 or 2), you can analyze it with FishTaco. You will need the following files: 
+
+- a table of taxon abundances in every sample
+- a table of KEGG Ortholog functional abundances in every sample
+- a table specifying the label (case or control, 0 or 1) for each sample
+- a file specifying the predicted KO gene content for every taxon
+- a file specifying a taxonomic hierarchy for every taxon
+
+The formatting required for each of these files is described at https://borenstein-lab.github.io/fishtaco/fishtaco_file_formats.html You can also use the provided example data as a guide. 
+
+Otherwise, we will use an example dataset describing the vaginal microbiome. This dataset is from the following publication:
+
+Srinivasan, S., Morgan, M.T., Fiedler, T.L., Djukovic, D., Hoffman, N.G., Raftery, D., Marrazzo, J.M., and Fredricks, D.N. (2015). Metabolic Signatures of Bacterial Vaginosis. MBio 6, e00204-15.
+
+Download the example data by clicking and unzipping [this zip file](https://cnoecker.github.io/TAUMicrobiomeWorkshop2019/data/FishTacoData.zip). 
+
+The dataset describes a cohort of women with and without Bacterial Vaginosis (BV), consisting of the following data types for 39 samples: 
+
+- **bv_qpcr.txt**: 16S rRNA qPCR measurements for 14 of the most common vaginal microbiome taxa
+- **bv_metagenomes.txt**: KEGG functional annotations of whole metagenome data from the same samples
+- **bv_metadata_fishtaco.txt**: Sample file specifying which samples are from women with BV vs controls
+
+The small number of taxa in this dataset allows for running a full analysis in the workshop time frame.
+
+#### Other Input Data Options
+
+FishTaco relates any taxonomic abundances to any community-level gene abundances in the context of a case-control study. You may have prior information on the functions encoded by each taxon, or not. The taxonomic and functional abundances can be generated by any method, meaning that many different data types and processing methods may be appropriate for generating input data for FishTaco, each with different pros and cons. A few possibilities include:
+
+- 16S rRNA sequencing with PICRUSt functional predictions
+- Paired 16S rRNA sequencing and metagenomics datasets
+- Metagenomic data that has been annotated with both taxonomic and functional information (e.g. using Metaphlan2 and Humann2)
+
+### Running FishTaco
+
+For this analysis, we are going to have FishTaco infer the functional content of each taxon *de novo*, by providing the "-inf" flag. An alternative option would be to provide a file detailing the genome content of each measured taxon, but not all of the taxa here have reference genomes available.
+
+```{bash, eval = F}
+run_fishtaco.py -ta bv_qpcr.txt -fu bv_metagenomes.txt -l bv_metadata_fishtaco.txt -inf --log --assessment single_taxa
+```
+
+This command runs the simplified, "single_taxa" version of FishTaco. The full and more accurate FishTaco multi-taxa permutation analysis takes around 25-30 minutes to complete on this dataset. If you are using your own dataset, it could take much longer, depending on the number of taxa and the number of functions. You can read more about how to speed up a FishTaco analysis here: https://borenstein-lab.github.io/fishtaco/FAQ.html#what-is-the-running-time-for-fishtaco
+
+#### Other analysis options
+
+You can examine the other possible options to provide for a FishTaco analysis by using the "-h" flag:
+
+```{bash, eval = F}
+run_fishtaco.py -h
+```
+
+Some of these are briefly described below. 
+
+- Inferring and/or providing genomic content (**-gc**, **-inf**): A file specifying the genomic KO content for each taxon can be provided with the "-gc" flag. If the "-inf" flag is also provided, FishTaco will still infer a genomic profile for each taxon, but will use the provided content as a prior for this inference.
+
+- Analyzing different levels of functions (**-map_function_level**): By default, FishTaco analyzes taxonomic contributors to the differential abundance of KEGG pathways. To decompose a more specific functional category, FishTaco can also analyze KEGG modules, or custom groups of functions (see the documentation).
+
+- Single-taxa versus multi-taxa permutations (**-assessment**): By default, FishTaco analyzes the contribution of each taxon to each function by permuting the observed abundances of varying subsets of taxa across samples. Supplying "-assessment single_taxa" will cause FishTaco to instead permute the abundances of each single taxon independently, which will speed up the runtime but produce less accurate results. See the publication for more details.
+
+- Analyzing only a specific subset of functions (**-single_function_filter**, **-multi_function_filter_list**): Specify a single function (KEGG pathway or module) or list of functions to be analyzed with FishTaco.  
+
+### Visualizing FishTaco Results
+
+FishTaco uses a separate R package called FishTacoPlot to generate plots displaying the results of the analysis. You can also generate output plots via a web server, although you will have fewer options for customization. Both options are demonstrated below - you can choose to try one or both.
+
+#### Using the FishTaco web server
+To use the web server, navigate to http://elbo-spice.gs.washington.edu/shiny/FishTacoPlot, and select the following options on the right-hand menu:
+
+- Upload FishTaco results file -> Upload results file -> Choose file -> **fishtaco_out_main_output_SCORE_wilcoxon_ASSESSMENT_single_taxa.tab **
+- Select taxonomy file -> Upload custom file -> Choose file -> **taxonomy_vaginal_fishtaco.txt**
+- Experiment with the various options for functions to display and plot settings. 
+
+#### Using the FishTacoPlot R package: 
+
+1) First, install the FishTacoPlot package from GitHub, using the **devtools** package:
+
+```{r, eval = F}
+if(!requireNamespace("devtools", quietly = T)){ # Install devtools if you haven't already
+  install.package("devtools")
+}
+devtools::install_github("borenstein-lab/fishtaco-plot")
+```
+
+2) Next, run the following code, which will plot the taxonomic contributors for the top 5 most differentially abundant functions. The code below also uses the KEGGREST package to label each bar plot with the names of each pathway (rather than the ID numbers). If you do not have the KEGGREST package installed, you can install it from the Bioconductor repository (see also the pre-workshop instructions). This code also assumes all data and results are in the same directory - change file paths as needed.
+
+```{r, eval = F}
+library(FishTacoPlot)
+library(KEGGREST)
+
+##Number of functions to include in plot
+n_functions = 5
+
+## Obtain list of the n most differentially abundant functions
+top_functions = fread("fishtaco_out_STAT_DA_function_SCORE_wilcoxon_ASSESSMENT_single_taxa.tab")[order(abs(StatValue), decreasing = T)][1:n_functions, Function]
+
+## Obtain the names of the top pathways from KEGG
+top_functions_names = sapply(top_functions, function(x){
+  return(keggGet(x)[[1]]$NAME)
+})
+
+# Make the plot
+p = MultiFunctionTaxaContributionPlots(input_dir=getwd(), input_prefix="fishtaco_out",
+input_taxa_taxonomy="taxonomy_vaginal_fishtaco.txt", sort_by="predicted_da", plot_type="bars", add_predicted_da_markers=TRUE, add_original_da_markers=TRUE, add_case_control_line = T, 
+add_names_in_bars = T, input_function_filter_list = top_functions, add_facet_labels = T)
+
+## Adjust the plot formatting
+p = p  + scale_x_continuous(breaks=seq(1:n_functions), labels = top_functions_names) +
+guides(fill=guide_legend(nrow=7)) + ylab("Wilcoxon test statistic (W)") +
+theme(plot.title=element_blank(), axis.title.x=element_text(size=12,colour="black",face="plain"),
+axis.text.x=element_text(size=10,colour="black",face="plain"), axis.title.y=element_blank(),
+axis.text.y=element_text(size=9,colour="black",face="plain"), axis.ticks.y=element_blank(),
+axis.ticks.x=element_blank(), panel.grid.major.x = element_line(colour="light gray"), panel.grid.major.y = element_line(colour="light gray"),
+panel.grid.minor.x = element_line(colour="light gray"), panel.grid.minor.y = element_line(colour="light gray"), panel.background = element_rect(fill="transparent",colour=NA), panel.border = element_rect(fill="transparent",colour="black"), legend.background=element_rect(colour="black"), legend.title=element_text(size=10), legend.text=element_text(size=8,face="plain"),
+legend.key.size=unit(0.8,"line"), legend.spacing=unit(0.1,"line"), legend.position="bottom")
+
+## Display the plot
+p
+
+```
+
+As you examine the FishTaco plots, recall that the upper bar represents case-associated taxa, while the lower bar represents control-associated taxa. Which taxa are associated with bacterial vaginosis in the example data? Which functions are determined more by shifts in the case-associated taxa, and which are determined more by the control-associated? What are the possible implications of these differences in driver taxa? 
+
+### Limitations to keep in mind
+
+- Depending on the type of data used, the information on the genomic content of each taxon and the total functional abundances may be more or less complete and accurate. 
+
+- The FishTaco plots display both the differential abundance of a function as observed in the metagenomic profile (red diamond), as well as the differential abundance of the taxa-based functional profile (white diamond). If these are very far apart, it is an indication that the genomic content inferred for each taxa may not be capturing the observed community-level differences very accurately.  
