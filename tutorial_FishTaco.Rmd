@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 **Publication:** Manor, O., and Borenstein, E. (2017). Systematic Characterization and Analysis of the Taxonomic Drivers of Functional Shifts in the Human Microbiome. Cell Host & Microbe 21, 254–267.
 
-## Quick Start
+## Quick Start Summary
 
 Follow these steps to quickly run a FishTaco analysis and visualize the results.
 
