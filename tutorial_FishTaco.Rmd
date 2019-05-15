@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 **URL:** http://borensteinlab.com/software_fishtaco.html
 
-**Documentation:** http://borenstein-lab.github.io/fishtaco
+**Documentation:** http://borenstein-lab.github.io/fishtaco/
 
 **Forum:** https://groups.google.com/forum/#!forum/fishtaco-users
 
@@ -20,39 +20,59 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Follow these steps to quickly run a FishTaco analysis and visualize the results.
 
-1) If you have not yet done so, install a Python conda environment containing the MUSiCC and FishTaco packages. To set up the environment, download and save [this .yml file](https://cnoecker.github.io/TAUMicrobiomeWorkshop2019/installs/fishtaco_1-1-1.yml) to your computer. Then run the following command in a command line shell: 
+0) If you do not have Python and either Anaconda or Miniconda installed, follow the instructions to do so [here](https://conda.io/projects/conda/en/latest/user-guide/install/index.html). We recommend Miniconda (it will be faster). If you are using a Windows computer, you will want to enter commands for the rest of this tutorial in the Anaconda Prompt. 
+
+1) Install FishTaco, if you haven't done so yet. The easiest way to do so is to set up a conda environment with FishTaco and all of its dependencies. To set up and activate this environment:
+
+For Mac and Linux computers, download and save [this .yml file](https://cnoecker.github.io/TAUMicrobiomeWorkshop2019/installs/fishtaco_1-1-1.yml) to your computer (if it opens in your browser, right-click it to save). Then run the following commands in a command line shell to create and activate the FishTaco environment: 
 
 ```{bash, eval = F}
 conda env create -f fishtaco_1-1-1.yml
-```
-
-2) Activate the environment by running:
-
-```{bash, eval = F}
 conda activate fishtaco
 ```
 
-3) Once the environment is activated, test the installation:
+For Windows computers, run the following commands:
+
+```{bash, eval = F}
+conda create -n fishtaco python=2.7.16 scipy=0.18.1 numpy=1.11.3 scikit-learn=0.17.1 pandas=0.23.4 statsmodels==0.9.0 pip
+conda activate fishtaco
+pip install musicc==1.0.2 fishtaco==1.1.1
+```
+
+2) Now you can test the installation by running:
 
 ```{bash, eval = F}
 test_fishtaco.py
 ```
 
-4) Download the example data by clicking and unzipping [this zip file](https://cnoecker.github.io/TAUMicrobiomeWorkshop2019/data/FishTacoData.zip). See below for more details on this dataset.
-
-5) Run the FishTaco analysis on the example data:
+Note: The test_fishtaco.py script may fail on Windows computers, and you may need to provide the full path to these scripts to use them in the command prompt. You can try running:
 
 ```{bash, eval = F}
-run_fishtaco.py -ta bv_qpcr.txt -fu bv_metagenomes.txt -l bv_metadata_fishtaco.txt -inf --log --assessment single_taxa
+run_fishtaco.py -h
 ```
 
-6) To visualize the results of the analysis in your web browser, navigate to http://elbo-spice.gs.washington.edu/shiny/FishTacoPlot, and select the following options on the right-hand menu:
+If that successfully lists the options for running FishTaco, your installation is still okay and you should be able to now run the analysis.
+
+If you encounter any errors, you can also try installing FishTaco and its dependencies individually by following the instructions [here](https://borenstein-lab.github.io/fishtaco/installation.html).
+
+3) Download the example data by clicking and unzipping [this zip file](https://cnoecker.github.io/TAUMicrobiomeWorkshop2019/data/FishTacoData.zip). See below for more details on this dataset.
+
+4) Run the FishTaco analysis! In a command line shell, navigate into the downloaded data directory and run the following command to analyze the example data:
+
+```{bash, eval = F}
+run_fishtaco.py -ta bv_qpcr.txt -fu bv_metagenomes.txt -l bv_metadata_fishtaco.txt -inf -log -assessment single_taxa
+```
+
+If you just want to see the FishTaco visualization, the FishTaco example data file also includes the main output of the **run_fishtaco.py** command on this dataset, which you can provide it to the visualization server.
+
+5) To visualize the results of the analysis in your web browser, navigate to http://elbo-spice.gs.washington.edu/shiny/FishTacoPlot/, and select the following options on the right-hand menu:
 
 - Upload FishTaco results file: Upload results file -> Choose file -> **fishtaco_out_main_output_SCORE_wilcoxon_ASSESSMENT_single_taxa.tab **
 - Select taxonomy file: Upload custom file -> Choose file -> **taxonomy_vaginal_fishtaco.txt**
 - Click "Generate/Update FishTaco Plot!"
 
-7) Experiment with the various options under "Select Functions to Show" and "Plot Options". We recommend reducing the number of functions displayed for better readability, and selecting "Yes" for the "Add taxa names in plot" option.
+6) Experiment with the various options under "Select Functions to Show" and "Plot Options". We recommend reducing the number of functions displayed for better readability, and selecting "Yes" for the "Add taxa names in plot" option.
+
 
 ## Full-length Tutorial
 
@@ -81,7 +101,9 @@ In this tutorial, you will:
 
 FishTaco is a Python library. It can be installed as an Anaconda environment or as a standalone package along with its dependencies. To install using the conda environment, follow the commands below (which were also included in the pre-workshop instructions). 
 
-1) Install a Python conda environment containing the MUSiCC and FishTaco packages. To set up the environment, download and save [this .yml file](https://cnoecker.github.io/TAUMicrobiomeWorkshop2019/installs/fishtaco_1-1-1.yml) to your computer. Then run the following command in a command line shell: 
+0) First, if you do not have Python and either Anaconda or Miniconda installed, follow the instructions to do so [here](https://conda.io/projects/conda/en/latest/user-guide/install/index.html). We recommend Miniconda (it will be faster). If you are using a Windows computer, you will want to enter commands for the rest of this tutorial in the Anaconda Prompt. 
+
+1) Install a Python conda environment containing the MUSiCC and FishTaco packages. To set up the environment, download and save [this .yml file](https://cnoecker.github.io/TAUMicrobiomeWorkshop2019/installs/fishtaco_1-1-1.yml) to your computer (if it opens in your browser, right-click it to save). Then run the following command in a command line shell: 
 
 ```{bash, eval = F}
 conda env create -f fishtaco_1-1-1.yml
@@ -99,9 +121,19 @@ conda activate fishtaco
 test_fishtaco.py
 ```
 
+Note: The test_fishtaco.py script may fail on Windows computers. If this happens, instead run:
+
+```{bash, eval = F}
+run_fishtaco.py -h
+```
+
+If that successfully lists the options for running FishTaco, your installation is still okay and you should be able to now run the analysis.
+
+If you run into problems, you can also install FishTaco and its dependencies individually by following the instructions [here](https://borenstein-lab.github.io/fishtaco/installation.html).
+
 ### Input Data
 
-If you have a 16S rRNA dataset consisting of samples in two different groups (e.g. cases and controls), and which you have already analyzed with PICRUSt (1 or 2), you can analyze it with FishTaco. You will need the following files: 
+If you have a 16S rRNA dataset consisting of samples in two different groups (e.g. cases and controls), and which you have already analyzed with PICRUSt (1 or 2), you can analyze it with FishTaco, but it will require some additional re-formatting. You will need the following files: 
 
 - a table of taxon abundances in every sample
 - a table of KEGG Ortholog functional abundances in every sample
@@ -138,10 +170,10 @@ FishTaco relates any taxonomic abundances to any community-level gene abundances
 For this analysis, we are going to have FishTaco infer the functional content of each taxon *de novo*, by providing the "-inf" flag. An alternative option would be to provide a file detailing the genome content of each measured taxon, but not all of the taxa here have reference genomes available.
 
 ```{bash, eval = F}
-run_fishtaco.py -ta bv_qpcr.txt -fu bv_metagenomes.txt -l bv_metadata_fishtaco.txt -inf --log --assessment single_taxa
+run_fishtaco.py -ta bv_qpcr.txt -fu bv_metagenomes.txt -l bv_metadata_fishtaco.txt -inf -log -assessment single_taxa
 ```
 
-This command runs the simplified, "single_taxa" version of FishTaco. The full and more accurate FishTaco multi-taxa permutation analysis takes around 25-30 minutes to complete on this dataset. If you are using your own dataset, it could take much longer, depending on the number of taxa and the number of functions. You can read more about how to speed up a FishTaco analysis here: https://borenstein-lab.github.io/fishtaco/FAQ.html#what-is-the-running-time-for-fishtaco
+This command runs the simplified, "single_taxa" version of FishTaco. The full and more accurate FishTaco multi-taxa permutation analysis takes around 25-30 minutes to complete on this dataset. If you are using your own dataset, it could take much longer, depending on the number of taxa and the number of functions. You can read more about how to speed up a FishTaco analysis [here](https://borenstein-lab.github.io/fishtaco/FAQ.html#what-is-the-running-time-for-fishtaco). 
 
 #### Other analysis options
 
@@ -165,14 +197,18 @@ Some of these are briefly described below.
 
 FishTaco uses a separate R package called FishTacoPlot to generate plots displaying the results of the analysis. You can also generate output plots via a web server, although you will have fewer options for customization. Both options are demonstrated below - you can choose to try one or both.
 
+The example data download also includes the main FishTaco output file from the analysis above, so you can also use that for this portion of the tutorial.
+
 #### Using the FishTaco web server
-To use the web server, navigate to http://elbo-spice.gs.washington.edu/shiny/FishTacoPlot, and select the following options on the right-hand menu:
+To use the web server, navigate to http://elbo-spice.gs.washington.edu/shiny/FishTacoPlot/, and select the following options on the right-hand menu:
 
 - Upload FishTaco results file -> Upload results file -> Choose file -> **fishtaco_out_main_output_SCORE_wilcoxon_ASSESSMENT_single_taxa.tab **
 - Select taxonomy file -> Upload custom file -> Choose file -> **taxonomy_vaginal_fishtaco.txt**
 - Experiment with the various options for functions to display and plot settings. 
 
 #### Using the FishTacoPlot R package: 
+
+0) Install RStudio ([here](https://www.rstudio.com/products/rstudio/download/)) if you haven't done so yet, and open a new session. 
 
 1) First, install the FishTacoPlot package from GitHub, using the **devtools** package:
 
@@ -220,7 +256,11 @@ p
 
 ```
 
-As you examine the FishTaco plots, recall that the upper bar represents case-associated taxa, while the lower bar represents control-associated taxa. Which taxa are associated with bacterial vaginosis in the example data? Which functions are determined more by shifts in the case-associated taxa, and which are determined more by the control-associated? What are the possible implications of these differences in driver taxa? 
+As you examine the FishTaco plots, recall that the upper bar represents case-associated taxa, while the lower bar represents control-associated taxa. Some questions to consider: 
+
+- Which taxa are associated with bacterial vaginosis in the example data? 
+- Which functions are determined more by shifts in the case-associated taxa, and which are determined more by the control-associated? 
+- What are the possible implications of these differences in driver taxa? 
 
 ### Limitations to keep in mind
 
