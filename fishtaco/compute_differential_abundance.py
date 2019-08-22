@@ -19,6 +19,7 @@ Parameters
         args.['control_label']: Define control label
         args.['case_label']: Define case label
         args.['verbose']: Increase verbosity of module
+        args.['alpha']: Significance cutoff for multiple hypothesis correction
 
 """
 # to comply with both Py2 and Py3
@@ -163,21 +164,17 @@ def main(args):
         print("Writing output... ", end="")
 
     #print(pvals)
-    bonferroni, _, _, _ = multipletests(pvals, alpha=0.05, method="bonferroni")
-    fdr_1, _, _, _ = multipletests(pvals, alpha=0.01, method="fdr_bh")
-    fdr_5, _, _, _ = multipletests(pvals, alpha=0.05, method="fdr_bh")
-    fdr_10, _, _, _ = multipletests(pvals, alpha=0.1, method="fdr_bh")
+    bonferroni, _, _, _ = multipletests(pvals, alpha=args['alpha'], method="bonferroni")
+    fdr, _, _, _ = multipletests(pvals, alpha=args['alpha'], method="fdr_bh")
 
     # create output data frame
     output_df = pd.DataFrame(data=np.vstack((mean_cases, mean_controls,
                                              stat_value, pvals, signLogP,
-                                             bonferroni, fdr_1, fdr_5,
-                                             fdr_10)).transpose(),
+                                             bonferroni, fdr)).transpose(),
                              index=abundance_data.index,
                              columns=np.array(("meanCases", "meanControls",
                                                "StatValue", "pval", "singLogP",
-                                               "Bonf", "FDR-0.01", "FDR-0.05",
-                                               "FDR-0.1")))
+                                               "Bonf", "FDR")))
 
     # join with metadata
     output_df = output_df.join(metadata)
@@ -235,6 +232,11 @@ if __name__ == "__main__":
     parser.add_argument('-v', '--verbose', dest='verbose',
                         help='Increase verbosity of module (default: false)',
                         action='store_true')
+
+    parser.add_argument('-a', '--alpha', dest='alpha',
+                        help='Corrected p-value cutoff for defining differentially abundant functions for which to decompose shift contributions (not used when the multiple hypothesis correction method is none) (default: %(default)s)',
+                        default=0.05,
+                        type=float)
 
     given_args = parser.parse_args()
 

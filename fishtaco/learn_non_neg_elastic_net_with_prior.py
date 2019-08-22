@@ -22,7 +22,8 @@ function
 from __future__ import absolute_import, division, print_function
 import warnings
 import numpy as np
-from sklearn import cross_validation, linear_model
+from sklearn.model_selection import KFold
+from sklearn.linear_model import enet_path, ElasticNet
 
 __author__ = 'Ohad Manor'
 __email__ = 'omanor@gmail.com'
@@ -98,8 +99,7 @@ def learn(cov_train, res_train, params={}):
     else:
         l1_ratio = 0.5
 
-    k_fold = cross_validation.KFold(len(res_train), n_folds=num_cv,
-                                    shuffle=True)
+    k_fold = KFold(n_splits=num_cv, shuffle=True).split(cov_train, res_train)
 
     best_validation_rsqr = np.zeros(num_cv)
     best_validation_alpha = np.zeros(num_cv)
@@ -111,7 +111,7 @@ def learn(cov_train, res_train, params={}):
         response_inner_validation = res_train[inner_validation]
 
         alphas_positive_enet, coefs_positive_enet, \
-        _ = linear_model.enet_path(cov_inner_train, response_inner_train,
+        _ = enet_path(cov_inner_train, response_inner_train,
                                     l1_ratio=l1_ratio, fit_intercept=False,
                                     normalize=False, positive=True,
                                     return_models=False)
@@ -140,7 +140,7 @@ def learn(cov_train, res_train, params={}):
     mean_best_alpha = np.mean(best_validation_alpha)
 
     # now learn one unified model on the given data using the mean_best_alpha
-    enet = linear_model.ElasticNet(l1_ratio=l1_ratio, alpha=mean_best_alpha,
+    enet = ElasticNet(l1_ratio=l1_ratio, alpha=mean_best_alpha,
                                    fit_intercept=False, normalize=False,
                                    positive=True)
 

@@ -2,11 +2,19 @@
 HISTORY
 =======
 
+=======================
+1.1.2 (22 August, 2019)
+=======================
+* fixed deprecated scikit-learn imports
+* fixed swapped control and case sample numbers reported while running (this bug was only a display error, it had no effect on the results)
+* added option to specify the number of folds for cross validation during genomic content inference
+* added informative error message for when there are too few control and/or case samples for genomic content inference (given the number of folds)
+* added option to specify the significance cutoff for multiple hypothesis corrections
+
 ========================
 1.1.1 (20 October, 2016)
 ========================
-* improved unit testing to include each individual function, as well as
-comparing the calculated FishTaco output to a pre-computed example output
+* improved unit testing to include each individual function, as well as comparing the calculated FishTaco output to a pre-computed example output
 * removed debugging statements from code
 * added documentation to all functions
 * resolved several runtime warnings for edge cases
@@ -14,11 +22,9 @@ comparing the calculated FishTaco output to a pre-computed example output
 =========================
 1.1.0 (18 February, 2016)
 =========================
-* added the option to run FishTaco with no functional profile input,
-predicting it from the taxonomic profiles and genomic content inputs
+* added the option to run FishTaco with no functional profile input, predicting it from the taxonomic profiles and genomic content inputs
 * added a unit test for the option to run with no functional profiles input
-* added the option to run FishTaco on only a subset of functions by
-supplying a list file as input
+* added the option to run FishTaco on only a subset of functions by supplying a list file as input
 
 =====================
 1.0.5 (15 July, 2015)

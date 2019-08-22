@@ -173,5 +173,14 @@ if __name__ == "__main__":
                         help='Write to log file (default: False)',
                         action='store_true')
 
+    parser.add_argument('-cv', '--num_cv', dest='num_cv',
+                        help='Number of folds to use during genomic content inference cross validation (default: %(default)s)',
+                        default=5)
+
+    parser.add_argument('-a', '--alpha', dest='alpha',
+                        help='Corrected p-value cutoff for defining differentially abundant functions for which to decompose shift contributions (not used when the multiple hypothesis correction method is none) (default: %(default)s)',
+                        default=0.05,
+                        type=float)
+
     given_args = parser.parse_args()
     main(vars(given_args))

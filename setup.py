@@ -13,7 +13,7 @@ def read(*paths):
         return f.read()
 
 setup(name='FishTaco',
-      version='1.1.1',
+      version='1.1.2',
       classifiers=['License :: Free for non-commercial use'],
       description='FishTaco: a metagenomic computational framework, aiming to '
                   'identify the taxa that are driving functional shifts in microbiomes.',
@@ -25,8 +25,8 @@ setup(name='FishTaco',
       packages=['fishtaco'],
       package_data={'fishtaco': ['data/*.tab', 'data/*.lst',
                                  'examples/*.tab', 'examples/output/*.tab']},
-      install_requires=['NumPy >= 1.6.1', 'SciPy >= 0.9', 'scikit-learn >= 0.15.2',
-                        'statsmodels >= 0.5.0', 'pandas >= 0.14', 'MUSiCC >= 1.0.1'],
+      install_requires=['NumPy >= 1.17.0', 'SciPy >= 1.3.0', 'scikit-learn >= 0.21.3',
+                        'statsmodels >= 0.10.1', 'pandas >= 0.25.0', 'MUSiCC >= 1.0.3'],
       scripts=['scripts/run_fishtaco.py', 'tests/test_fishtaco.py'],
       )
 

@@ -71,7 +71,7 @@ import fishtaco
 from fishtaco import compute_pathway_abundance
 from fishtaco import compute_differential_abundance
 from fishtaco import learn_non_neg_elastic_net_with_prior
-from sklearn import cross_validation
+from sklearn.model_selection import KFold
 
 __author__ = 'Ohad Manor'
 __email__ = 'omanor@gmail.com'
@@ -201,8 +201,8 @@ def main(args):
         if not os.path.isfile(args['taxa_abun_file']):
             sys.exit('Error: Input file "' + args['taxa_abun_file'] +
                      '" does not exist')
-        original_taxa_abun_data = pd.read_table(args['taxa_abun_file'],
-                                                index_col=0, dtype={0: str})
+        original_taxa_abun_data = pd.read_csv(args['taxa_abun_file'],
+                                                index_col=0, dtype={0: str}, sep="\t")
 
         if np.sum(np.isnan(original_taxa_abun_data.values)) > 0:
             sys.exit('Error: Taxa abundance contains NaN')
@@ -230,8 +230,8 @@ def main(args):
         if 'functional_profile_already_corrected_with_musicc' in args.keys() \
                 and args['functional_profile_already_corrected_with_musicc']:
 
-            function_abun_data = pd.read_table(args['function_abun_file'],
-                                               index_col=0)
+            function_abun_data = pd.read_csv(args['function_abun_file'],
+                                               index_col=0, sep="\t")
 
         else:  # if needed, correct the functional profile using MUSiCC
 
@@ -257,9 +257,9 @@ def main(args):
 
             # read the corrected data into the variable
             function_abun_data = \
-                pd.read_table(args['output_pref'] +
+                pd.read_csv(args['output_pref'] +
                               '_STAT_function_abundance_MUSiCC_corrected' +
-                              output_suffix, index_col=0)
+                              output_suffix, index_col=0, sep="\t")
 
         # save original function abundance if needed later
         original_function_abun_data = function_abun_data
@@ -275,8 +275,8 @@ def main(args):
         if not os.path.isfile(args['taxa_to_function_file']):
             sys.exit('Error: Input file "' + args['taxa_to_function_file'] +
                      '" does not exist')
-        taxa_to_function_data = pd.read_table(args['taxa_to_function_file'],
-                                              index_col=0, dtype={0: str})
+        taxa_to_function_data = pd.read_csv(args['taxa_to_function_file'],
+                                              index_col=0, dtype={0: str}, sep="\t")
         taxa_to_function_data.index.name = "Taxa"
 
         # save original taxa to function if needed later
@@ -348,7 +348,7 @@ def main(args):
         # map functions to pathway level
         print("Mapping functions to pathway/module level...")
         function_to_pathway_mapping = \
-            pd.read_table(function_mapping_file, index_col=0, dtype={0: str})
+            pd.read_csv(function_mapping_file, index_col=0, dtype={0: str}, sep="\t")
 
         # filter out functions from the mapping file that we don't have in our
         # functional profile:
@@ -398,7 +398,7 @@ def main(args):
     if args['class_file'] is not None:
         if not os.path.isfile(args['class_file']):
             sys.exit('Error: Input file "' + args['class_file'] + '" does not exist')
-        class_data = pd.read_table(args['class_file'], index_col=0, dtype=str)
+        class_data = pd.read_csv(args['class_file'], index_col=0, dtype=str, sep="\t")
 
     else:
         sys.exit('Error: No input class data given to script')
@@ -440,7 +440,7 @@ def main(args):
     number_of_samples = function_abun_data.shape[1]
     controls = (class_data.values.reshape(number_of_samples) == args['control_label'])
     cases = (class_data.values.reshape(number_of_samples) == args['case_label'])
-    print("#cases = " + str(sum(controls)) + ", #controls = " + str(sum(cases)))
+    print("#controls = " + str(sum(controls)) + ", #cases = " + str(sum(cases)))
 
     if sum(controls) < 3 or sum(cases) < 3:
         print("Error: Cases or Controls have less than 3 samples, exiting...")
@@ -464,7 +464,8 @@ def main(args):
                                             'control_label': args['control_label'],
                                             'case_label': args['case_label'],
                                             'class_header': True,
-                                            'verbose': False}
+                                            'verbose': False,
+                                            'alpha': args['alpha']}
 
     compute_differential_abundance.main(args_for_taxa_differential_abundance)
     #print(args_for_TAXA_differential_abundance['output_pd'])
@@ -478,7 +479,7 @@ def main(args):
     # and filter using the threshold:
     if 'da_result_file' in args.keys() and args['da_result_file'] is not None:
         print("Using function differential abundance scores given...")
-        da_scores = pd.read_table(args['da_result_file'], index_col=0)
+        da_scores = pd.read_csv(args['da_result_file'], index_col=0, sep="\t")
         if args['multiple_hypothesis_correction'] == 'none':
             da_functions = da_scores.index.values
         else:
@@ -493,7 +494,8 @@ def main(args):
                                            'control_label': args['control_label'],
                                            'case_label': args['case_label'],
                                            'class_header': True,
-                                           'verbose': False}
+                                           'verbose': False,
+                                           'alpha': args['alpha']}
 
         compute_differential_abundance.main(args_for_differential_abundance)
         da_scores = args_for_differential_abundance['output_pd']
@@ -606,7 +608,7 @@ def main(args):
             num_of_functions_to_infer = num_of_da_functions
             functions_to_infer = functions
 
-        num_cv = 5
+        num_cv = args['num_cv']
 
         all_functions_mean_cv_test_rsqr = np.zeros(num_of_functions_to_infer)
         all_functions_global_cv_test_stats = np.zeros((num_of_functions_to_infer, 3))
@@ -638,10 +640,23 @@ def main(args):
             # create cross-validation indices
             number_of_cases = np.sum((class_data.values.reshape(number_of_samples) == args['case_label']))
             number_of_controls = np.sum((class_data.values.reshape(number_of_samples) == args['control_label']))
+
+            # Check that the number of cases and the number of controls are both greater than or equal to the number of folds for cross validation
+            too_few_samples_for_cross_validation = False
+            if number_of_cases < num_cv:
+                print("\nError: There are fewer case samples in the input table ({}) than the number of folds for cross validation ({}) when inferring genomic content. Either decrease the number of folds using the '--num_cv' option or provide more case samples.".format(str(number_of_cases), str(num_cv)))
+                too_few_samples_for_cross_validation = True
+            if number_of_controls < num_cv:
+                print("\nError: There are fewer control samples in the input table ({}) than the number of folds for cross validation ({}) when inferring genomic content. Either decrease the number of folds using the '--num_cv' option or provide more control samples.".format(str(number_of_controls), str(num_cv)))
+                too_few_samples_for_cross_validation = True
+            if too_few_samples_for_cross_validation:
+                exit()
+
+            number_of_features = original_taxa_abun_data.shape[0]
             cases_indices = (class_data.values.reshape(number_of_samples) == args['case_label'])
             control_indices = (class_data.values.reshape(number_of_samples) == args['control_label'])
-            k_fold_cases = cross_validation.KFold(number_of_cases, n_folds=num_cv, shuffle=True)
-            k_fold_controls = cross_validation.KFold(number_of_controls, n_folds=num_cv, shuffle=True)
+            k_fold_cases = KFold(n_splits=num_cv, shuffle=True).split(np.zeros((number_of_cases, number_of_features)), np.zeros(number_of_cases))
+            k_fold_controls = KFold(n_splits=num_cv, shuffle=True).split(np.zeros((number_of_controls, number_of_features)), np.zeros(number_of_controls))
             merged_test_indices = np.zeros((number_of_samples, 5))
             for k, (train_cases, test_cases) in enumerate(k_fold_cases):
                 cases_integer_indices = np.nonzero(cases_indices)[0]
@@ -697,6 +712,7 @@ def main(args):
 
                     # with NO class subfeatures
                     params['class_subfeatures'] = None
+                    params['num_cv'] = num_cv
                     if np.sum(np.isnan(cov_train)) > 0:
                         print(curr_function)
                         print(cov_train)
