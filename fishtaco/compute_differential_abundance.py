@@ -164,8 +164,8 @@ def main(args):
         print("Writing output... ", end="")
 
     #print(pvals)
-    bonferroni, _, _, _ = multipletests(pvals, alpha=args['alpha'], method="bonferroni")
-    fdr, _, _, _ = multipletests(pvals, alpha=args['alpha'], method="fdr_bh")
+    _, bonferroni, _, _ = multipletests(pvals, alpha=args['alpha'], method="bonferroni")
+    _, fdr, _, _ = multipletests(pvals, alpha=args['alpha'], method="fdr_bh")
 
     # create output data frame
     output_df = pd.DataFrame(data=np.vstack((mean_cases, mean_controls,

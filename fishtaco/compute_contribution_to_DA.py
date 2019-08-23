@@ -483,10 +483,10 @@ def main(args):
         if args['multiple_hypothesis_correction'] == 'none':
             da_functions = da_scores.index.values
         else:
-            da_functions = da_scores[da_scores[args['multiple_hypothesis_correction']] > 0].index.values
+            da_functions = da_scores[da_scores[args['multiple_hypothesis_correction']] < args['alpha']].index.values
 
     else:  # run the functional shift analysis on the functional profiles we got:
-        print("Computing a differential abundance score for each fucntion...")
+        print("Computing a differential abundance score for each function...")
         args_for_differential_abundance = {'input_pd': function_abun_data,
                                            'class_pd': class_data,
                                            'output_pd': pd.DataFrame(),
@@ -502,7 +502,7 @@ def main(args):
         if args['multiple_hypothesis_correction'] == 'none':
             da_functions = da_scores.index.values
         else:
-            da_functions = da_scores[da_scores[args['multiple_hypothesis_correction']] > 0].index.values
+            da_functions = da_scores[da_scores[args['multiple_hypothesis_correction']] < args['alpha']].index.values
 
     print("Done.")
     # for testing:
@@ -1639,10 +1639,9 @@ if __name__ == "__main__":
     parser.add_argument('-mult_hyp', '--multiple_hypothesis_correction',
                         dest='multiple_hypothesis_correction',
                         help='Multiple hypothesis correction for functional '
-                             'enrichment (default: FDR-0.05)',
-                        default='FDR-0.05',
-                        choices=['Bonf', 'FDR-0.01', 'FDR-0.05',
-                                 'FDR-0.1', 'none'])
+                             'enrichment (default: FDR)',
+                        default='FDR',
+                        choices=['Bonf', 'FDR', 'none'])
 
     parser.add_argument('-max_func', '--maximum_functions_to_analyze',
                         dest='max_da_functions_cases_controls',

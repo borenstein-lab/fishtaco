@@ -84,10 +84,9 @@ if __name__ == "__main__":
     parser.add_argument('-mult_hyp', '--multiple_hypothesis_correction',
                         dest='multiple_hypothesis_correction',
                         help='Multiple hypothesis correction for functional '
-                             'enrichment (default: FDR-0.05)',
-                        default='FDR-0.05',
-                        choices=['Bonf', 'FDR-0.01', 'FDR-0.05', 'FDR-0.1',
-                                 'none'])
+                             'enrichment (default: FDR)',
+                        default='FDR',
+                        choices=['Bonf', 'FDR', 'none'])
 
     parser.add_argument('-max_func', '--maximum_functions_to_analyze',
                         dest='max_da_functions_cases_controls',

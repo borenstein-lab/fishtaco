@@ -3,6 +3,13 @@ HISTORY
 =======
 
 =======================
+1.1.3 (23 August, 2019)
+=======================
+* fixed bug in specifying FDR correction
+* changed DA function statistics output file to include Bonferroni- and FDR-corrected significance values, rather than  just whether they passed the supplied alpha threshold
+* added tests for FDR correction filtering and changing the alpha cutoff for differentially abundant functions
+
+=======================
 1.1.2 (22 August, 2019)
 =======================
 * fixed deprecated scikit-learn imports

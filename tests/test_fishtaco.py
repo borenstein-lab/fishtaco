@@ -534,6 +534,112 @@ class FishTacoTestCase(unittest.TestCase):
         for fl in glob.glob("fishtaco_out_shapley_*.tab"):
             os.remove(fl)
 
+    def test_is_output_correct_for_fishtaco_FDR_correction(self):
+        """Does FishTaco with FDR multiple hypothesis correction produce the correct output for
+        the example case?
+        """
+        print("==============================================================")
+        print("Testing compute_contribution_to_DA.py (FDR correction)")
+        print("Path to examples:" + FishTacoTestCase.path_to_data)
+        print("==============================================================")
+        sys.stdout.flush()
+
+        # run fishtaco from shell to make sure it works properly
+        subprocess.call('run_fishtaco.py -op fishtaco_out_FDR_correction -mult_hyp '
+                        'FDR' +
+                        ' -ta ' +
+                        FishTacoTestCase.path_to_data +
+                        '/examples/METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab' +
+                        ' -fu ' + FishTacoTestCase.path_to_data +
+                        '/examples/WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab' +
+                        ' -l  ' + FishTacoTestCase.path_to_data +
+                        '/examples/SAMPLE_vs_CLASS.tab' +
+                        ' -gc ' + FishTacoTestCase.path_to_data +
+                        '/examples/METAPHLAN_taxa_vs_KO_only_K00001.tab' +
+                        ' -assessment single_taxa -score wilcoxon -na_rep 0 '
+                        '-number_of_shapley_orderings_per_taxa 100 -log ' +
+                        ' -number_of_permutations 5 -single_function_filter '
+                        'K00001 ' +
+                        ' -map_function_level none '
+                        '-functional_profile_already_corrected_with_musicc',
+                        shell=True)
+
+        print("Testing output...")
+
+        # assert that the log file shows that fishtaco completed successfully
+        with open("fishtaco_out_FDR_correction_STAT_run_log_SCORE_wilcoxon"
+                  "_ASSESSMENT_single_taxa.tab", "r") as my_file:
+            output = my_file.read().replace('\n', '')
+
+        self.assertTrue('Program completed successfully' in output)
+
+        # assert that the calculations of the shift contribution of each taxon
+        # are the same as the example
+        example_output = pd.read_csv(FishTacoTestCase.path_to_data +
+                                     '/examples/output/fishtaco_out_FDR_correction_'
+                                     'STAT_taxa_contributions_SCORE_wilcoxon_'
+                                     'ASSESSMENT_single_taxa.tab', sep="\t")
+
+        test_output = pd.read_csv('fishtaco_out_FDR_correction_'
+                                  'STAT_taxa_contributions_SCORE_wilcoxon_'
+                                  'ASSESSMENT_single_taxa.tab', sep="\t")
+
+        example_values = example_output.values[:, 1].flatten().astype(float)
+        test_values = test_output.values[:, 1].flatten().astype(float)
+
+        self.assertTrue(np.allclose(example_values, test_values, atol=2.0))
+
+        print("Deleting temporary files...")
+        for fl in glob.glob("fishtaco_out_FDR_correction_*.tab"):
+            os.remove(fl)
+
+    def test_is_output_correct_for_fishtaco_stricter_FDR_filter(self):
+        """Does FishTaco with a stricter FDR filter produce the correct output for
+        the example case?
+        """
+        print("==============================================================")
+        print("Testing compute_contribution_to_DA.py (stricter FDR cutoff)")
+        print("Path to examples:" + FishTacoTestCase.path_to_data)
+        print("==============================================================")
+        sys.stdout.flush()
+
+        # run fishtaco from shell to make sure it works properly
+        subprocess.call('run_fishtaco.py -op fishtaco_out_stricter_FDR_filter -mult_hyp '
+                        'FDR' +
+                        ' -ta ' +
+                        FishTacoTestCase.path_to_data +
+                        '/examples/METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab' +
+                        ' -fu ' + FishTacoTestCase.path_to_data +
+                        '/examples/WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab' +
+                        ' -l  ' + FishTacoTestCase.path_to_data +
+                        '/examples/SAMPLE_vs_CLASS.tab' +
+                        ' -gc ' + FishTacoTestCase.path_to_data +
+                        '/examples/METAPHLAN_taxa_vs_KO_only_K00001.tab' +
+                        ' -assessment single_taxa -score wilcoxon -na_rep 0 '
+                        '-number_of_shapley_orderings_per_taxa 100 -log ' +
+                        ' -number_of_permutations 5 -single_function_filter '
+                        'K00001 ' +
+                        ' -map_function_level none '
+                        '-functional_profile_already_corrected_with_musicc ' +
+                        '--alpha 7e-25',
+                        shell=True)
+
+        print("Testing output...")
+
+        # assert that the log file shows that fishtaco completed successfully
+        with open("fishtaco_out_stricter_FDR_filter_STAT_run_log_SCORE_wilcoxon"
+                  "_ASSESSMENT_single_taxa.tab", "r") as my_file:
+            output = my_file.read().replace('\n', '')
+
+        self.assertTrue('Program completed successfully' in output)
+
+        # assert that no shift contributions were calculated
+        self.assertTrue('#DA functions:0' in output)
+
+        print("Deleting temporary files...")
+        for fl in glob.glob("fishtaco_out_stricter_FDR_filter_*.tab"):
+            os.remove(fl)
+
 ###############################################################################
 
 if __name__ == '__main__':
