@@ -8,26 +8,25 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Running FishTaco &#8212; FishTaco: Functional Shift Taxonomic Contributors</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/style.css" />
+    <link rel="stylesheet" href="_static/style.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/bizstyle.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="FishTaco Visualization" href="visualization.html" />
     <link rel="prev" title="Installation Instructions" href="installation.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
-    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -94,112 +93,112 @@ please read <a class="reference internal" href="FAQ.html#picrust-info"><span cla
 </div>
 <div class="section" id="required-arguments">
 <h2>Required arguments<a class="headerlink" href="#required-arguments" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">-ta,</span> <span class="pre">--taxa_abundance</span> <span class="pre">TAXA_ABUN_FILE</span></code></dt>
-<dd>Input file of taxonomic abundance profiles (<a class="reference external" href="fishtaco_file_formats.html#taxa-abundance-file">format</a>)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-l,</span> <span class="pre">--labels</span> <span class="pre">LABELS_FILE</span></code></dt>
-<dd>Input file of label assignment for the two sample sets being compared (<a class="reference external" href="fishtaco_file_formats.html#sample-sets-labels-file">format</a>)</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">-ta,</span> <span class="pre">--taxa_abundance</span> <span class="pre">TAXA_ABUN_FILE</span></code></dt><dd><p>Input file of taxonomic abundance profiles (<a class="reference external" href="fishtaco_file_formats.html#taxa-abundance-file">format</a>)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-l,</span> <span class="pre">--labels</span> <span class="pre">LABELS_FILE</span></code></dt><dd><p>Input file of label assignment for the two sample sets being compared (<a class="reference external" href="fishtaco_file_formats.html#sample-sets-labels-file">format</a>)</p>
+</dd>
 </dl>
 </div>
 <div class="section" id="optional-arguments">
 <h2>Optional arguments<a class="headerlink" href="#optional-arguments" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">-fu,</span> <span class="pre">--function_abundance</span> <span class="pre">FUNCTION_ABUN_FILE</span></code></dt>
-<dd>Input file of function abundance (<a class="reference external" href="fishtaco_file_formats.html#function-abundance-file">format</a>)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-gc,</span> <span class="pre">--genomic_content_of_taxa</span> <span class="pre">GENOMIC_CONTENT_FILE</span></code></dt>
-<dd>Input file of genomic content of each taxa (<a class="reference external" href="fishtaco_file_formats.html#genomic-content-file">format</a>)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-inf,</span> <span class="pre">--perform_inference_of_genomic_content</span></code></dt>
-<dd>Defines if genome content is inferred (either de-novo or prior-based if genomic content is also given, default: FALSE)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-label_to_find_enrichment_in</span></code></dt>
-<dd>Define sample set label to find enrichment in (default: 1)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-label_to_find_enrichment_against</span></code></dt>
-<dd>Define sample set label to find enrichment against (default: 0)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-op,</span> <span class="pre">--output_prefix</span> <span class="pre">OUTPUT_PREF</span></code></dt>
-<dd>Output prefix for result files (default: fishtaco_out)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-map_function_level</span> <span class="pre">{pathway,</span> <span class="pre">module,</span> <span class="pre">none,</span> <span class="pre">custom}</span></code></dt>
-<dd>Map KOs to pathways, modules, none, or custom (default: pathway)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-assessment,</span> <span class="pre">--taxa_assessment_method</span> <span class="pre">{single_taxa,</span> <span class="pre">multi_taxa}</span></code></dt>
-<dd>The method used when assessing taxa to compute individual contributions. The running time of <em>single_taxa</em> will
-be significantly lower than <em>multi_taxa</em>, but less accurate (see manuscript for details) (default: multi_taxa)</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">-fu,</span> <span class="pre">--function_abundance</span> <span class="pre">FUNCTION_ABUN_FILE</span></code></dt><dd><p>Input file of function abundance (<a class="reference external" href="fishtaco_file_formats.html#function-abundance-file">format</a>)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-gc,</span> <span class="pre">--genomic_content_of_taxa</span> <span class="pre">GENOMIC_CONTENT_FILE</span></code></dt><dd><p>Input file of genomic content of each taxa (<a class="reference external" href="fishtaco_file_formats.html#genomic-content-file">format</a>)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-inf,</span> <span class="pre">--perform_inference_of_genomic_content</span></code></dt><dd><p>Defines if genome content is inferred (either de-novo or prior-based if genomic content is also given, default: FALSE)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-label_to_find_enrichment_in</span></code></dt><dd><p>Define sample set label to find enrichment in (default: 1)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-label_to_find_enrichment_against</span></code></dt><dd><p>Define sample set label to find enrichment against (default: 0)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-op,</span> <span class="pre">--output_prefix</span> <span class="pre">OUTPUT_PREF</span></code></dt><dd><p>Output prefix for result files (default: fishtaco_out)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-map_function_level</span> <span class="pre">{pathway,</span> <span class="pre">module,</span> <span class="pre">none,</span> <span class="pre">custom}</span></code></dt><dd><p>Map KOs to pathways, modules, none, or custom (default: pathway)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-assessment,</span> <span class="pre">--taxa_assessment_method</span> <span class="pre">{single_taxa,</span> <span class="pre">multi_taxa}</span></code></dt><dd><p>The method used when assessing taxa to compute individual contributions. The running time of <em>single_taxa</em> will
+be significantly lower than <em>multi_taxa</em>, but less accurate (see manuscript for details) (default: multi_taxa)</p>
+</dd>
 </dl>
 </div>
 <div class="section" id="advanced-usage-arguments">
 <h2>Advanced usage arguments<a class="headerlink" href="#advanced-usage-arguments" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">-map_function_file</span> <span class="pre">FUNC_LEVEL_MAP_FILE</span></code></dt>
-<dd>Mapping file from KOs to pathways, modules, or custom (default: use internal KEGG database downloaded 07/15/2013)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-perform_inference_on_ko_level</span></code></dt>
-<dd>Indicates to perform the inference on the KO level (default: use the mapped functional level, e.g., pathway)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-mult_hyp,</span> <span class="pre">--multiple_hypothesis_correction</span> <span class="pre">{Bonf,</span> <span class="pre">FDR-0.01,</span> <span class="pre">FDR-0.05,</span> <span class="pre">FDR-0.1,</span> <span class="pre">none}</span></code></dt>
-<dd>Multiple hypothesis correction for functional enrichment (default: FDR-0.05)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-max_func,</span> <span class="pre">--maximum_functions_to_analyze</span> <span class="pre">MAX_FUNCTIONS</span></code></dt>
-<dd>Maximum number of enriched functions to consider (default: All)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-score,</span> <span class="pre">--score_to_compute</span> <span class="pre">{t_test,</span> <span class="pre">mean_diff,</span> <span class="pre">median_diff,</span> <span class="pre">wilcoxon,</span> <span class="pre">log_mean_ratio}</span></code></dt>
-<dd>The enrichment score to compute for each function (default: wilcoxon)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-max_score,</span> <span class="pre">--max_score_cutoff</span> <span class="pre">MAX_SCORE_CUTOFF</span></code></dt>
-<dd>The maximum score cutoff (for example, when dividing by zero) (default: 100)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-na_rep</span> <span class="pre">NA_REP</span></code></dt>
-<dd>How to represent NAs in the output (default: NA)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-number_of_permutations</span> <span class="pre">NUMBER_OF_PERMUTATIONS</span></code></dt>
-<dd>number of permutations (default: 100)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-number_of_shapley_orderings_per_taxa</span> <span class="pre">NUMBER_OF_SHAPLEY_ORDERINGS_PER_TAXA</span></code></dt>
-<dd>number of shapley orderings per taxa (default: 5)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-en,</span> <span class="pre">--enrichment_results</span> <span class="pre">DA_RESULT_FILE</span></code></dt>
-<dd>Pre-computed functional enrichment results from the compute_differential_abundance.py script (default: None)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-single_function_filter</span> <span class="pre">SINGLE_FUNCTION_FILTER</span></code></dt>
-<dd>Limit analysis only to this single function (default: None)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-multi_function_filter_list</span> <span class="pre">MULTI_FUNCTION_FILTER</span></code></dt>
-<dd>Limit analysis only to these comma-separated functions (default: None)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-h,</span> <span class="pre">--help</span></code></dt>
-<dd>show help message and exit</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-functional_profile_already_corrected_with_musicc</span></code></dt>
-<dd>Indicates that the functional profile has been already corrected with MUSiCC prior to running FishTaco (default: False)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-log,</span> <span class="pre">--log</span></code></dt>
-<dd>Write to log file (default: False)</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">-map_function_file</span> <span class="pre">FUNC_LEVEL_MAP_FILE</span></code></dt><dd><p>Mapping file from KOs to pathways, modules, or custom (default: use internal KEGG database downloaded 07/15/2013)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-perform_inference_on_ko_level</span></code></dt><dd><p>Indicates to perform the inference on the KO level (default: use the mapped functional level, e.g., pathway)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-mult_hyp,</span> <span class="pre">--multiple_hypothesis_correction</span> <span class="pre">{Bonf,</span> <span class="pre">FDR-0.01,</span> <span class="pre">FDR-0.05,</span> <span class="pre">FDR-0.1,</span> <span class="pre">none}</span></code></dt><dd><p>Multiple hypothesis correction for functional enrichment (default: FDR-0.05)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-max_func,</span> <span class="pre">--maximum_functions_to_analyze</span> <span class="pre">MAX_FUNCTIONS</span></code></dt><dd><p>Maximum number of enriched functions to consider (default: All)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-score,</span> <span class="pre">--score_to_compute</span> <span class="pre">{t_test,</span> <span class="pre">mean_diff,</span> <span class="pre">median_diff,</span> <span class="pre">wilcoxon,</span> <span class="pre">log_mean_ratio}</span></code></dt><dd><p>The enrichment score to compute for each function (default: wilcoxon)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-max_score,</span> <span class="pre">--max_score_cutoff</span> <span class="pre">MAX_SCORE_CUTOFF</span></code></dt><dd><p>The maximum score cutoff (for example, when dividing by zero) (default: 100)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-na_rep</span> <span class="pre">NA_REP</span></code></dt><dd><p>How to represent NAs in the output (default: NA)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-number_of_permutations</span> <span class="pre">NUMBER_OF_PERMUTATIONS</span></code></dt><dd><p>number of permutations (default: 100)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-number_of_shapley_orderings_per_taxa</span> <span class="pre">NUMBER_OF_SHAPLEY_ORDERINGS_PER_TAXA</span></code></dt><dd><p>number of shapley orderings per taxa (default: 5)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-en,</span> <span class="pre">--enrichment_results</span> <span class="pre">DA_RESULT_FILE</span></code></dt><dd><p>Pre-computed functional enrichment results from the compute_differential_abundance.py script (default: None)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-single_function_filter</span> <span class="pre">SINGLE_FUNCTION_FILTER</span></code></dt><dd><p>Limit analysis only to this single function (default: None)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-multi_function_filter_list</span> <span class="pre">MULTI_FUNCTION_FILTER</span></code></dt><dd><p>Limit analysis only to these comma-separated functions (default: None)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-h,</span> <span class="pre">--help</span></code></dt><dd><p>show help message and exit</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-functional_profile_already_corrected_with_musicc</span></code></dt><dd><p>Indicates that the functional profile has been already corrected with MUSiCC prior to running FishTaco (default: False)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-log,</span> <span class="pre">--log</span></code></dt><dd><p>Write to log file (default: False)</p>
+</dd>
 </dl>
 </div>
 <div class="section" id="fishtaco-output-files">
 <h2>FishTaco Output Files<a class="headerlink" href="#fishtaco-output-files" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="main-output-files">
 <h3>Main output files<a class="headerlink" href="#main-output-files" title="Permalink to this headline">¶</a></h3>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">fishtaco_out_main_output_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt>
-<dd>contains the taxon-level decomposition of shift scores for the differentially abundant functions. (<a class="reference external" href="fishtaco_file_formats.html#fishtaco-output-file-main-output">format</a>)</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">fishtaco_out_main_output_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt><dd><p>contains the taxon-level decomposition of shift scores for the differentially abundant functions. (<a class="reference external" href="fishtaco_file_formats.html#fishtaco-output-file-main-output">format</a>)</p>
+</dd>
 </dl>
 </div>
 <div class="section" id="supporting-stats-output-files">
 <h3>Supporting stats output files<a class="headerlink" href="#supporting-stats-output-files" title="Permalink to this headline">¶</a></h3>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">fishtaco_out_STAT_taxa_contributions_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt>
-<dd>contains the final taxon-level contribution score for every differentially abundant(shifted) function in the input data, as calculated by FishTaco</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">fishtaco_out_STAT_DA_function_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt>
-<dd>contains statistics regarding the differential abundance for each function in the input file</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">fishtaco_out_STAT_DA_taxa_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt>
-<dd>contains statistics regarding the differential abundance for each taxa in the input file</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">fishtaco_out_STAT_mean_stat_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt>
-<dd>contains the mean taxon-level contribution score for every differentially abundant(shifted) function in the input data (in default settings, this is equal to the final score)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">fishtaco_out_STAT_median_stat_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt>
-<dd>contains the median taxon-level contribution score for every differentially abundant(shifted) function in the input data</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">fishtaco_out_STAT_std_stat_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt>
-<dd>contains the standard deviation of taxon-level contribution score for every differentially abundant(shifted) function in the input data</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">fishtaco_out_STAT_original_value_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt>
-<dd>contains the metagenome-based shift statistics value for each function in the input file</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">fishtaco_out_STAT_predicted_DA_value_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt>
-<dd>contains the taxa-based shift statistics value for each function in the input file</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">fishtaco_out_STAT_predicted_function_abundance_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt>
-<dd>contains the taxa-based abundance profile for each function in each sample</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">fishtaco_out_STAT_predicted_function_agreement_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt>
-<dd>contains various statistics regarding the agreement between the metagenome- and taxa-based abundance profiles for each function</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">fishtaco_out_STAT_residual_function_abundance_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt>
-<dd>contains the residual between the metagenome- and taxa-based abundance profiles for each function (in “remove-residual” mode the residual is equal to zero)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">fishtaco_out_STAT_shapley_orderings_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt>
-<dd>contains the random Shapley orderings used in the run (for “permuted_shapley_orderings” mode)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">fishtaco_out_STAT_taxa_learned_copy_num_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt>
-<dd>contains the inferred copy numbers of each function in each taxon (for FishTaco with prior-based or <em>de novo</em> inference)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">fishtaco_out_STAT_taxa_learning_rsqr_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt>
-<dd>contains various statistics regarding the agreement between the metagenome- and taxa-based abundance profiles for each function (on test data)</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">fishtaco_out_STAT_run_log_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt>
-<dd>contains the running log of FishTaco</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">fishtaco_out_STAT_taxa_contributions_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt><dd><p>contains the final taxon-level contribution score for every differentially abundant(shifted) function in the input data, as calculated by FishTaco</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">fishtaco_out_STAT_DA_function_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt><dd><p>contains statistics regarding the differential abundance for each function in the input file</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">fishtaco_out_STAT_DA_taxa_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt><dd><p>contains statistics regarding the differential abundance for each taxa in the input file</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">fishtaco_out_STAT_mean_stat_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt><dd><p>contains the mean taxon-level contribution score for every differentially abundant(shifted) function in the input data (in default settings, this is equal to the final score)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">fishtaco_out_STAT_median_stat_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt><dd><p>contains the median taxon-level contribution score for every differentially abundant(shifted) function in the input data</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">fishtaco_out_STAT_std_stat_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt><dd><p>contains the standard deviation of taxon-level contribution score for every differentially abundant(shifted) function in the input data</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">fishtaco_out_STAT_original_value_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt><dd><p>contains the metagenome-based shift statistics value for each function in the input file</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">fishtaco_out_STAT_predicted_DA_value_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt><dd><p>contains the taxa-based shift statistics value for each function in the input file</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">fishtaco_out_STAT_predicted_function_abundance_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt><dd><p>contains the taxa-based abundance profile for each function in each sample</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">fishtaco_out_STAT_predicted_function_agreement_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt><dd><p>contains various statistics regarding the agreement between the metagenome- and taxa-based abundance profiles for each function</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">fishtaco_out_STAT_residual_function_abundance_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt><dd><p>contains the residual between the metagenome- and taxa-based abundance profiles for each function (in “remove-residual” mode the residual is equal to zero)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">fishtaco_out_STAT_shapley_orderings_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt><dd><p>contains the random Shapley orderings used in the run (for “permuted_shapley_orderings” mode)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">fishtaco_out_STAT_taxa_learned_copy_num_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt><dd><p>contains the inferred copy numbers of each function in each taxon (for FishTaco with prior-based or <em>de novo</em> inference)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">fishtaco_out_STAT_taxa_learning_rsqr_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt><dd><p>contains various statistics regarding the agreement between the metagenome- and taxa-based abundance profiles for each function (on test data)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">fishtaco_out_STAT_run_log_SCORE_wilcoxon_ASSESSMENT_permuted_shapley_orderings.tab</span></code></dt><dd><p>contains the running log of FishTaco</p>
+</dd>
 </dl>
 </div>
 </div>
@@ -207,10 +206,10 @@ be significantly lower than <em>multi_taxa</em>, but less accurate (see manuscri
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <p>The <em>fishtaco/examples</em> directory contains the following:</p>
 <ul class="simple">
-<li>the file <em>METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab</em> contains scaled abundance measurements of 10 species in 213 samples from the HMP dataset</li>
-<li>the file <em>WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab</em> contains MUSiCC-corrected abundance values for the K00001 orthology group in the same samples</li>
-<li>the file <em>METAPHLAN_taxa_vs_KO_only_K00001.tab</em> contains the copy numbers of the K00001 orthology group in the 10 species as above</li>
-<li>the file <em>SAMPLE_vs_CLASS.tab</em> contains class labels from the same samples (control vs. case)</li>
+<li><p>the file <em>METAPHLAN_taxa_vs_SAMPLE_for_K00001.tab</em> contains scaled abundance measurements of 10 species in 213 samples from the HMP dataset</p></li>
+<li><p>the file <em>WGS_KO_vs_SAMPLE_MUSiCC_only_K00001.tab</em> contains MUSiCC-corrected abundance values for the K00001 orthology group in the same samples</p></li>
+<li><p>the file <em>METAPHLAN_taxa_vs_KO_only_K00001.tab</em> contains the copy numbers of the K00001 orthology group in the 10 species as above</p></li>
+<li><p>the file <em>SAMPLE_vs_CLASS.tab</em> contains class labels from the same samples (control vs. case)</p></li>
 </ul>
 <p>Using these files as input for FishTaco results in the following output files (found in the <em>fishtaco/examples/output</em> directory):</p>
 <p>Note: If you installed the FishTaco package using <em>pip</em>, the <em>examples</em> directory is located in your python packages directory, e.g.,
@@ -218,7 +217,7 @@ be significantly lower than <em>multi_taxa</em>, but less accurate (see manuscri
 <div class="section" id="fishtaco-with-no-inference">
 <h3>FishTaco with no inference<a class="headerlink" href="#fishtaco-with-no-inference" title="Permalink to this headline">¶</a></h3>
 <p>Running FishTaco with no inference generates the output files found in fishtaco/examples/output/fishtaco_out_no_inf_STAT_*</p>
-<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">run_fishtaco</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">ta</span> <span class="n">fishtaco</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">METAPHLAN_taxa_vs_SAMPLE_for_K00001</span><span class="o">.</span><span class="n">tab</span> <span class="o">-</span><span class="n">fu</span> <span class="n">fishtaco</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">WGS_KO_vs_SAMPLE_MUSiCC_only_K00001</span><span class="o">.</span><span class="n">tab</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">run_fishtaco</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">ta</span> <span class="n">fishtaco</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">METAPHLAN_taxa_vs_SAMPLE_for_K00001</span><span class="o">.</span><span class="n">tab</span> <span class="o">-</span><span class="n">fu</span> <span class="n">fishtaco</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">WGS_KO_vs_SAMPLE_MUSiCC_only_K00001</span><span class="o">.</span><span class="n">tab</span>
 <span class="o">-</span><span class="n">l</span> <span class="n">fishtaco</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">SAMPLE_vs_CLASS</span><span class="o">.</span><span class="n">tab</span> <span class="o">-</span><span class="n">gc</span> <span class="n">fishtaco</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">METAPHLAN_taxa_vs_KO_only_K00001</span><span class="o">.</span><span class="n">tab</span> <span class="o">-</span><span class="n">op</span> <span class="n">fishtaco_out_no_inf</span>
 <span class="o">-</span><span class="n">map_function_level</span> <span class="n">none</span> <span class="o">-</span><span class="n">functional_profile_already_corrected_with_musicc</span> <span class="o">-</span><span class="n">assessment</span> <span class="n">single_taxa</span> <span class="o">-</span><span class="n">log</span>
 </pre></div>
@@ -227,7 +226,7 @@ be significantly lower than <em>multi_taxa</em>, but less accurate (see manuscri
 <div class="section" id="fishtaco-with-prior-based-inference">
 <h3>FishTaco with prior-based inference<a class="headerlink" href="#fishtaco-with-prior-based-inference" title="Permalink to this headline">¶</a></h3>
 <p>Running FishTaco with prior-based inference generates the output files found in fishtaco/examples/output/fishtaco_out_prior_based_inf_STAT_*</p>
-<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">run_fishtaco</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">ta</span> <span class="n">fishtaco</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">METAPHLAN_taxa_vs_SAMPLE_for_K00001</span><span class="o">.</span><span class="n">tab</span> <span class="o">-</span><span class="n">fu</span> <span class="n">fishtaco</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">WGS_KO_vs_SAMPLE_MUSiCC_only_K00001</span><span class="o">.</span><span class="n">tab</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">run_fishtaco</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">ta</span> <span class="n">fishtaco</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">METAPHLAN_taxa_vs_SAMPLE_for_K00001</span><span class="o">.</span><span class="n">tab</span> <span class="o">-</span><span class="n">fu</span> <span class="n">fishtaco</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">WGS_KO_vs_SAMPLE_MUSiCC_only_K00001</span><span class="o">.</span><span class="n">tab</span>
 <span class="o">-</span><span class="n">l</span> <span class="n">fishtaco</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">SAMPLE_vs_CLASS</span><span class="o">.</span><span class="n">tab</span> <span class="o">-</span><span class="n">gc</span> <span class="n">fishtaco</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">METAPHLAN_taxa_vs_KO_only_K00001</span><span class="o">.</span><span class="n">tab</span> <span class="o">-</span><span class="n">op</span> <span class="n">fishtaco_out_prior_based_inf</span>
 <span class="o">-</span><span class="n">map_function_level</span> <span class="n">none</span> <span class="o">-</span><span class="n">functional_profile_already_corrected_with_musicc</span> <span class="o">-</span><span class="n">inf</span> <span class="o">-</span><span class="n">assessment</span> <span class="n">single_taxa</span> <span class="o">-</span><span class="n">log</span>
 </pre></div>
@@ -236,7 +235,7 @@ be significantly lower than <em>multi_taxa</em>, but less accurate (see manuscri
 <div class="section" id="fishtaco-with-de-novo-inference">
 <h3>FishTaco with de novo inference<a class="headerlink" href="#fishtaco-with-de-novo-inference" title="Permalink to this headline">¶</a></h3>
 <p>Running FishTaco with <em>de novo</em> inference generates the output files found in fishtaco/examples/output/fishtaco_out_de_novo_inf_STAT_*</p>
-<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">run_fishtaco</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">ta</span> <span class="n">fishtaco</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">METAPHLAN_taxa_vs_SAMPLE_for_K00001</span><span class="o">.</span><span class="n">tab</span> <span class="o">-</span><span class="n">fu</span> <span class="n">fishtaco</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">WGS_KO_vs_SAMPLE_MUSiCC_only_K00001</span><span class="o">.</span><span class="n">tab</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">run_fishtaco</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">ta</span> <span class="n">fishtaco</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">METAPHLAN_taxa_vs_SAMPLE_for_K00001</span><span class="o">.</span><span class="n">tab</span> <span class="o">-</span><span class="n">fu</span> <span class="n">fishtaco</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">WGS_KO_vs_SAMPLE_MUSiCC_only_K00001</span><span class="o">.</span><span class="n">tab</span>
 <span class="o">-</span><span class="n">l</span> <span class="n">fishtaco</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">SAMPLE_vs_CLASS</span><span class="o">.</span><span class="n">tab</span> <span class="o">-</span><span class="n">op</span> <span class="n">fishtaco_out_de_novo_inf</span> <span class="o">-</span><span class="n">map_function_level</span> <span class="n">none</span> <span class="o">-</span><span class="n">functional_profile_already_corrected_with_musicc</span>
 <span class="o">-</span><span class="n">inf</span> <span class="o">-</span><span class="n">assessment</span> <span class="n">single_taxa</span> <span class="o">-</span><span class="n">log</span>
 </pre></div>
@@ -265,8 +264,8 @@ be significantly lower than <em>multi_taxa</em>, but less accurate (see manuscri
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2015, Ohad Manor.
-      Last updated on Feb 05, 2019.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.3.
+      Last updated on Feb 18, 2020.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.2.
     </div>
   </body>
 </html>
