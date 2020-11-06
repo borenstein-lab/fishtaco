@@ -2,6 +2,11 @@
 HISTORY
 =======
 
+========================
+1.1.4 (5 November, 2020)
+========================
+* fixed bug that could cause OTU IDs to be read in as integers (caused problems when setting the dataframe index). Due to an underlying pandas bug, could be reverted if pandas is updated
+
 =======================
 1.1.3 (23 August, 2019)
 =======================

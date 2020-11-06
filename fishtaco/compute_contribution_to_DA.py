@@ -202,7 +202,8 @@ def main(args):
             sys.exit('Error: Input file "' + args['taxa_abun_file'] +
                      '" does not exist')
         original_taxa_abun_data = pd.read_csv(args['taxa_abun_file'],
-                                                index_col=0, dtype={0: str}, sep="\t")
+                                              dtype={0: str}, sep="\t")
+        original_taxa_abun_data.set_index(original_taxa_abun_data.columns[0], inplace=True)
 
         if np.sum(np.isnan(original_taxa_abun_data.values)) > 0:
             sys.exit('Error: Taxa abundance contains NaN')
@@ -231,7 +232,8 @@ def main(args):
                 and args['functional_profile_already_corrected_with_musicc']:
 
             function_abun_data = pd.read_csv(args['function_abun_file'],
-                                               index_col=0, sep="\t")
+                                             dtype={0: str}, sep="\t")
+            function_abun_data.set_index(function_abun_data.columns[0], inplace=True)
 
         else:  # if needed, correct the functional profile using MUSiCC
 
@@ -258,8 +260,9 @@ def main(args):
             # read the corrected data into the variable
             function_abun_data = \
                 pd.read_csv(args['output_pref'] +
-                              '_STAT_function_abundance_MUSiCC_corrected' +
-                              output_suffix, index_col=0, sep="\t")
+                        '_STAT_function_abundance_MUSiCC_corrected' +
+                        output_suffix, dtype={0: str}, sep="\t")
+            function_abun_data.set_index(function_abun_data.columns[0], inplace=True)
 
         # save original function abundance if needed later
         original_function_abun_data = function_abun_data
@@ -276,7 +279,8 @@ def main(args):
             sys.exit('Error: Input file "' + args['taxa_to_function_file'] +
                      '" does not exist')
         taxa_to_function_data = pd.read_csv(args['taxa_to_function_file'],
-                                              index_col=0, dtype={0: str}, sep="\t")
+                                            dtype={0: str}, sep="\t")
+        taxa_to_function_data.set_index(taxa_to_function_data.columns[0], inplace=True)
         taxa_to_function_data.index.name = "Taxa"
 
         # save original taxa to function if needed later
@@ -348,7 +352,8 @@ def main(args):
         # map functions to pathway level
         print("Mapping functions to pathway/module level...")
         function_to_pathway_mapping = \
-            pd.read_csv(function_mapping_file, index_col=0, dtype={0: str}, sep="\t")
+            pd.read_csv(function_mapping_file, dtype={0: str}, sep="]t")
+        function_to_pathway_mapping.set_index(function_to_pathway_mapping.columns[0], inplace=True)
 
         # filter out functions from the mapping file that we don't have in our
         # functional profile:
@@ -398,7 +403,8 @@ def main(args):
     if args['class_file'] is not None:
         if not os.path.isfile(args['class_file']):
             sys.exit('Error: Input file "' + args['class_file'] + '" does not exist')
-        class_data = pd.read_csv(args['class_file'], index_col=0, dtype=str, sep="\t")
+        class_data = pd.read_csv(args['class_file'], dtype=str, sep="\t")
+        class_data.set_index(class_data.columns[0], inplace=True)
 
     else:
         sys.exit('Error: No input class data given to script')
@@ -479,7 +485,8 @@ def main(args):
     # and filter using the threshold:
     if 'da_result_file' in args.keys() and args['da_result_file'] is not None:
         print("Using function differential abundance scores given...")
-        da_scores = pd.read_csv(args['da_result_file'], index_col=0, sep="\t")
+        da_scores = pd.read_csv(args['da_result_file'], dtype={0: str}, sep="\t")
+        da_scores.set_index(da_scores.columns[0], inplace=True)
         if args['multiple_hypothesis_correction'] == 'none':
             da_functions = da_scores.index.values
         else:
