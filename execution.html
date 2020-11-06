@@ -6,12 +6,13 @@
 
 <!doctype html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Running FishTaco &#8212; FishTaco: Functional Shift Taxonomic Contributors</title>
-    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/style.css" type="text/css" />
     
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -24,7 +25,7 @@
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="FishTaco Visualization" href="visualization.html" />
     <link rel="prev" title="Installation Instructions" href="installation.html" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!--[if lt IE 9]>
     <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
@@ -38,38 +39,10 @@
         <li class="right" >
           <a href="installation.html" title="Installation Instructions"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Home</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Home</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Running FishTaco</a></li> 
       </ul>
-    </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-            <p class="logo"><a href="index.html">
-              <img class="logo" src="_static/fishtaco_title.png" alt="Logo"/>
-            </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Running FishTaco</a><ul>
-<li><a class="reference internal" href="#usage">Usage</a></li>
-<li><a class="reference internal" href="#required-arguments">Required arguments</a></li>
-<li><a class="reference internal" href="#optional-arguments">Optional arguments</a></li>
-<li><a class="reference internal" href="#advanced-usage-arguments">Advanced usage arguments</a></li>
-<li><a class="reference internal" href="#fishtaco-output-files">FishTaco Output Files</a><ul>
-<li><a class="reference internal" href="#main-output-files">Main output files</a></li>
-<li><a class="reference internal" href="#supporting-stats-output-files">Supporting stats output files</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#examples">Examples</a><ul>
-<li><a class="reference internal" href="#fishtaco-with-no-inference">FishTaco with no inference</a></li>
-<li><a class="reference internal" href="#fishtaco-with-prior-based-inference">FishTaco with prior-based inference</a></li>
-<li><a class="reference internal" href="#fishtaco-with-de-novo-inference">FishTaco with de novo inference</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-        </div>
-      </div>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
@@ -85,7 +58,7 @@ FishTaco offers an interface to the FishTaco functionality via the command line 
 <p>FishTaco can be used in two alternative modes, depending on the availability of <strong>genomic information</strong> for each taxon. Specifically,
 if such data is available (e.g., through reference genomes), FishTaco can be used with the <em>-gc</em> flag. However, FishTaco can also infer this
 data by using the <em>-inf</em> flag. If you are using 16S data coupled with PICRUSt,
-please read <a class="reference internal" href="FAQ.html#picrust-info"><span class="std std-ref">Can I run FishTaco with PICRUSt-derived metagenomic functional profile?</span></a>.</p>
+please read <a class="reference internal" href="FAQ.html#picrust-info"><span class="std std-ref">Can I run FishTaco with a PICRUSt-derived metagenomic functional profile?</span></a>.</p>
 <p><strong>Running FishTaco with genomic content data:</strong></p>
 <p><code class="docutils literal notranslate"><span class="pre">run_fishtaco.py</span> <span class="pre">-ta</span> <span class="pre">TAXA_ABUN_FILE</span> <span class="pre">-fu</span> <span class="pre">FUNCTION_ABUN_FILE</span> <span class="pre">-l</span> <span class="pre">LABELS_FILE</span> <span class="pre">-gc</span> <span class="pre">GENOMIC_CONTENT_FILE</span> <span class="pre">[options]</span></code></p>
 <p><strong>Running FishTaco with genomic content inference:</strong></p>
@@ -245,7 +218,37 @@ be significantly lower than <em>multi_taxa</em>, but less accurate (see manuscri
 </div>
 
 
+            <div class="clearer"></div>
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/fishtaco_title.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Running FishTaco</a><ul>
+<li><a class="reference internal" href="#usage">Usage</a></li>
+<li><a class="reference internal" href="#required-arguments">Required arguments</a></li>
+<li><a class="reference internal" href="#optional-arguments">Optional arguments</a></li>
+<li><a class="reference internal" href="#advanced-usage-arguments">Advanced usage arguments</a></li>
+<li><a class="reference internal" href="#fishtaco-output-files">FishTaco Output Files</a><ul>
+<li><a class="reference internal" href="#main-output-files">Main output files</a></li>
+<li><a class="reference internal" href="#supporting-stats-output-files">Supporting stats output files</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#fishtaco-with-no-inference">FishTaco with no inference</a></li>
+<li><a class="reference internal" href="#fishtaco-with-prior-based-inference">FishTaco with prior-based inference</a></li>
+<li><a class="reference internal" href="#fishtaco-with-de-novo-inference">FishTaco with de novo inference</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
         </div>
       </div>
       <div class="clearer"></div>
@@ -259,13 +262,14 @@ be significantly lower than <em>multi_taxa</em>, but less accurate (see manuscri
         <li class="right" >
           <a href="installation.html" title="Installation Instructions"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Home</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Home</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Running FishTaco</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2015, Ohad Manor.
-      Last updated on Feb 18, 2020.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.2.
+      Last updated on Nov 05, 2020.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.0.
     </div>
   </body>
 </html>

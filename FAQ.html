@@ -6,12 +6,13 @@
 
 <!doctype html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Frequently asked questions &#8212; FishTaco: Functional Shift Taxonomic Contributors</title>
-    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/style.css" type="text/css" />
     
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -23,7 +24,7 @@
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="FishTaco Visualization" href="visualization.html" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!--[if lt IE 9]>
     <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
@@ -34,31 +35,10 @@
         <li class="right" style="margin-right: 10px">
           <a href="visualization.html" title="FishTaco Visualization"
              accesskey="P">previous</a></li>
-        <li class="nav-item nav-item-0"><a href="index.html">Home</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Home</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Frequently asked questions</a></li> 
       </ul>
-    </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-            <p class="logo"><a href="index.html">
-              <img class="logo" src="_static/fishtaco_title.png" alt="Logo"/>
-            </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Frequently asked questions</a><ul>
-<li><a class="reference internal" href="#can-i-run-fishtaco-with-picrust-derived-metagenomic-functional-profile">Can I run FishTaco with PICRUSt-derived metagenomic functional profile?</a></li>
-<li><a class="reference internal" href="#what-is-the-running-time-for-fishtaco">What is the running time for FishTaco?</a></li>
-<li><a class="reference internal" href="#how-can-i-make-fishtaco-run-faster">How can I make FishTaco run faster?</a><ul>
-<li><a class="reference internal" href="#reducing-the-number-of-taxa">Reducing the number of taxa</a></li>
-<li><a class="reference internal" href="#reducing-the-number-of-functions">Reducing the number of functions</a></li>
-<li><a class="reference internal" href="#running-in-single-taxa-mode">Running in single-taxa mode</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-        </div>
-      </div>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
@@ -67,14 +47,12 @@
             
   <div class="section" id="frequently-asked-questions">
 <h1>Frequently asked questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="can-i-run-fishtaco-with-picrust-derived-metagenomic-functional-profile">
-<span id="picrust-info"></span><span id="index-0"></span><h2>Can I run FishTaco with PICRUSt-derived metagenomic functional profile?<a class="headerlink" href="#can-i-run-fishtaco-with-picrust-derived-metagenomic-functional-profile" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="can-i-run-fishtaco-with-a-picrust-derived-metagenomic-functional-profile">
+<span id="picrust-info"></span><span id="index-0"></span><h2>Can I run FishTaco with a PICRUSt-derived metagenomic functional profile?<a class="headerlink" href="#can-i-run-fishtaco-with-a-picrust-derived-metagenomic-functional-profile" title="Permalink to this headline">¶</a></h2>
 <p>Yes, FishTaco can be also used for 16S and PICRUSt-predicted metagenomes. The user needs to supply the taxonomic abundance data
 (output of 16S profiling), combined with the functional profile (PICRUSt-predicted metagenome), and optionally,
 the PICRUSt pre-calculated files for genomic content
-(available in the (<a class="reference external" href="http://picrust.github.io/picrust/picrust_precalculated_files.html#id1">PICRUSt website</a>).</p>
-<p><em>Note</em>: Users who want to use the PICRUSt pre-calculated files for genomic content must manually modify the GreenGenes IDs in both the taxonomic abundance and genomic content tables to prefix them with a non-numeric character (e.g., changing “228054” to “t228054”). This can be done in the terminal by using the following command for both files:</p>
-<p><code class="docutils literal notranslate"><span class="pre">sed</span> <span class="pre">'s/^\([0-9]\)/t\1/'</span> <span class="pre">FILE_TO_MODIFY</span> <span class="pre">&gt;</span> <span class="pre">MODIFIED_FILE</span></code></p>
+(available in the (<a class="reference external" href="http://picrust.github.io/picrust/picrust_precalculated_files.html#id1">PICRUSt website</a>). This file will need to be slightly modified to work as a genomic content table. Specifically, the last two rows of the table should be removed (these contain metadata entries describing the functions in each column) and the last column should be removed (this contains the NSTI values reported by PICRUSt that give a measure of confidence in genomic content predictions). We are currently working on making an edited version available for download.</p>
 </div>
 <div class="section" id="what-is-the-running-time-for-fishtaco">
 <h2>What is the running time for FishTaco?<a class="headerlink" href="#what-is-the-running-time-for-fishtaco" title="Permalink to this headline">¶</a></h2>
@@ -112,7 +90,30 @@ interest and merge the results.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/fishtaco_title.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Frequently asked questions</a><ul>
+<li><a class="reference internal" href="#can-i-run-fishtaco-with-a-picrust-derived-metagenomic-functional-profile">Can I run FishTaco with a PICRUSt-derived metagenomic functional profile?</a></li>
+<li><a class="reference internal" href="#what-is-the-running-time-for-fishtaco">What is the running time for FishTaco?</a></li>
+<li><a class="reference internal" href="#how-can-i-make-fishtaco-run-faster">How can I make FishTaco run faster?</a><ul>
+<li><a class="reference internal" href="#reducing-the-number-of-taxa">Reducing the number of taxa</a></li>
+<li><a class="reference internal" href="#reducing-the-number-of-functions">Reducing the number of functions</a></li>
+<li><a class="reference internal" href="#running-in-single-taxa-mode">Running in single-taxa mode</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
         </div>
       </div>
       <div class="clearer"></div>
@@ -123,13 +124,14 @@ interest and merge the results.</p>
         <li class="right" style="margin-right: 10px">
           <a href="visualization.html" title="FishTaco Visualization"
              >previous</a></li>
-        <li class="nav-item nav-item-0"><a href="index.html">Home</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Home</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Frequently asked questions</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2015, Ohad Manor.
-      Last updated on Feb 18, 2020.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.2.
+      Last updated on Nov 05, 2020.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.0.
     </div>
   </body>
 </html>

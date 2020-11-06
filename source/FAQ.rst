@@ -6,16 +6,12 @@ Frequently asked questions
 
 .. _picrust-info:
 
-Can I run FishTaco with PICRUSt-derived metagenomic functional profile?
+Can I run FishTaco with a PICRUSt-derived metagenomic functional profile?
 -----------------------------------------------------------------------
 Yes, FishTaco can be also used for 16S and PICRUSt-predicted metagenomes. The user needs to supply the taxonomic abundance data
 (output of 16S profiling), combined with the functional profile (PICRUSt-predicted metagenome), and optionally,
 the PICRUSt pre-calculated files for genomic content
-(available in the (`PICRUSt website <http://picrust.github.io/picrust/picrust_precalculated_files.html#id1>`_).
-
-*Note*: Users who want to use the PICRUSt pre-calculated files for genomic content must manually modify the GreenGenes IDs in both the taxonomic abundance and genomic content tables to prefix them with a non-numeric character (e.g., changing "228054" to "t228054"). This can be done in the terminal by using the following command for both files:
-
-``sed 's/^\([0-9]\)/t\1/' FILE_TO_MODIFY > MODIFIED_FILE``
+(available in the (`PICRUSt website <http://picrust.github.io/picrust/picrust_precalculated_files.html#id1>`_). This file will need to be slightly modified to work as a genomic content table. Specifically, the last two rows of the table should be removed (these contain metadata entries describing the functions in each column) and the last column should be removed (this contains the NSTI values reported by PICRUSt that give a measure of confidence in genomic content predictions). We are currently working on making an edited version available for download.
 
 What is the running time for FishTaco?
 --------------------------------------
