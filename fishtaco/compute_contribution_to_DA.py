@@ -352,7 +352,7 @@ def main(args):
         # map functions to pathway level
         print("Mapping functions to pathway/module level...")
         function_to_pathway_mapping = \
-            pd.read_csv(function_mapping_file, dtype={0: str}, sep="]t")
+            pd.read_csv(function_mapping_file, dtype={0: str}, sep="\t")
         function_to_pathway_mapping.set_index(function_to_pathway_mapping.columns[0], inplace=True)
 
         # filter out functions from the mapping file that we don't have in our
