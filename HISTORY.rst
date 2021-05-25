@@ -3,6 +3,11 @@ HISTORY
 =======
 
 ====================
+1.1.6 (25 May, 2021)
+====================
+* fixed type error with num_cv by specifying argument input type
+
+====================
 1.1.5 (24 May, 2021)
 ====================
 * fixed type in read_csv file separator

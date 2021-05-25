@@ -174,7 +174,8 @@ if __name__ == "__main__":
 
     parser.add_argument('-cv', '--num_cv', dest='num_cv',
                         help='Number of folds to use during genomic content inference cross validation (default: %(default)s)',
-                        default=5)
+                        default=5,
+                        type=int)
 
     parser.add_argument('-a', '--alpha', dest='alpha',
                         help='Corrected p-value cutoff for defining differentially abundant functions for which to decompose shift contributions (not used when the multiple hypothesis correction method is none) (default: %(default)s)',
